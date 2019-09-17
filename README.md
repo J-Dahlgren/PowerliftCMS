@@ -1,6 +1,16 @@
 # Welcome to Powerlift CMS
 
-## Please visit the [wiki](https://github.com/J-Dahlgren/PowerliftCMS/wiki) for support
+This repository serves as a portal to the [wiki](https://github.com/J-Dahlgren/PowerliftCMS/wiki) and for issue tracking. The source code resides in a private repository.
 
-### Have any suggestions or issues?
+Distribution of binaries is currently limited.
+
+## Coming soon
+
+- Live Demo web application
+
+## Have any suggestions or found bugs?
 Submit it [here!](https://gitreports.com/issue/J-Dahlgren/PowerliftCMS)
+
+## Contact
+
+Jesper Dahlgren - jesper@dahlgrenarna.se
