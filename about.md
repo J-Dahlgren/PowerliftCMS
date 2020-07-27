@@ -1,9 +1,3 @@
----
-layout: page
-title: About
-permalink: /about/
----
-
 Power Comp is a competition management system for Powerlifting.
 
 # Frequently asked questions
