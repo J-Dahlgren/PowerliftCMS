@@ -1,10 +1,10 @@
-# Add competition #
+## Create competition
 
-# Weight categories #
+## Platforms
 
-# Platforms #
+## Groups
 
-# Groups #
+## Lifters
 
-# Lifters #
+## Weight categories
 

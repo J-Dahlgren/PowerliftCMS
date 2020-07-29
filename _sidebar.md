@@ -1,4 +1,5 @@
 * [Home](index)
+* [About](about)
 
 * Getting started
     *   [Installation](installation)
@@ -7,6 +8,8 @@
 * Competition
 
     *   [Administration](preparation)
-    *   [Running competition](secretariat)
+    *   [Secretariat](secretariat)
     *   [Displays](displays)
-    *   [Refereeing](refereeing)    
+    *   [Refereeing](refereeing) 
+    
+* [Planned features](planned-features)

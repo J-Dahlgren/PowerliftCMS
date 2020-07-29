@@ -1,5 +1,3 @@
-# User interface #
-
 The user interface has 3 main components: Menu bar, Side nav, and Content container
 
 ## Menu bar

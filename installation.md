@@ -1,5 +1,3 @@
-# Installation
-
 ## Windows installation
 
 - **Windows installer:** Get the latest installation file called `powercomp-setup.exe` at https://github.com/J-Dahlgren/Power-Comp/releases/latest in the assets section.
