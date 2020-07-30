@@ -1,0 +1,227 @@
+<dt-action-table
+  matSort
+  [dataSource]="dataSource"
+  [columns]="columns"
+  (rowClick)="edit($event)"
+  (delete)="delete($event)"
+>
+  <ng-container dtTableHeader>
+    <button color="primary" mat-raised-button (click)="create()">
+      {{ "generic.button.add" | translate | titlecase }}
+    </button>
+    <button color="accent" mat-raised-button (click)="clearFilters()">
+      {{ "filter.clear" | translate }}
+    </button>
+    <button mat-raised-button (click)="drawLot()">
+      {{ "lifter.draw-lot" | translate }}
+    </button>
+    <!-- Group filter -->
+    <mat-form-field appearance="outline" color="accent">
+      <mat-label>{{ "filter.group" | translate }}</mat-label>
+      <mat-select
+        (selectionChange)="filters.set('groupId', $event.value)"
+        [value]="filters.get('groupId')"
+      >
+        <mat-option [value]="null">
+          {{ "option.no-group" | translate }}
+        </mat-option>
+        <mat-option *ngFor="let group of groups$ | async" [value]="group.id">{{
+          group.name
+        }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <!-- Text filter -->
+    <mat-form-field
+      appearance="outline"
+      color="accent"
+      style="min-width: 240px;"
+    >
+      <mat-label>
+        {{ "filter.free-text" | translate }}
+      </mat-label>
+      <input
+        #freeTextFilterInput
+        matInput
+        type="text"
+        placeholder="Filter"
+        [ngModel]="textFilter"
+        (keyup)="applyTextFilter($event.target.value)"
+      />
+      <button
+        mat-button
+        *ngIf="textFilter"
+        matSuffix
+        mat-icon-button
+        aria-label="Clear"
+        (click)="applyTextFilter('')"
+      >
+        <mat-icon svgIcon="close"></mat-icon>
+      </button>
+    </mat-form-field>
+  </ng-container>
+
+  <ng-container dtTableContent>
+    <ng-container matColumnDef="lot">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        {{ "lifter.lot" | translate | titlecase }}
+      </th>
+      <td mat-cell *matCellDef="let element">{{ element.lot }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="license">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        {{ "lifter.license" | translate | titlecase }}
+      </th>
+      <td mat-cell *matCellDef="let element">{{ element.license }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="firstname">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        {{ "lifter.firstname" | translate | titlecase }}
+      </th>
+      <td mat-cell *matCellDef="let element">{{ element.firstname }}</td>
+    </ng-container>
+    <ng-container matColumnDef="lastname">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        {{ "lifter.lastname" | translate | titlecase }}
+      </th>
+      <td mat-cell *matCellDef="let element">{{ element.lastname }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="gender">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        {{ "gender" | translate | titlecase }}
+      </th>
+      <td mat-cell *matCellDef="let element">
+        {{ "gender." + element.gender | translate }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="bornYear">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        {{ "lifter.born-year" | translate | titlecase }}
+      </th>
+      <td mat-cell *matCellDef="let element">{{ element.bornYear }}</td>
+    </ng-container>
+    <ng-container matColumnDef="ageCategory">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        {{ "age-category.short" | translate }}
+      </th>
+      <td mat-cell *matCellDef="let element">
+        {{
+          element.ageCategory
+            ? ("age-category." + element?.ageCategory | translate)
+            : ""
+        }}
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="team">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        {{ "lifter.team" | translate }}
+      </th>
+      <td mat-cell *matCellDef="let element">{{ element.team }}</td>
+    </ng-container>
+    <ng-container matColumnDef="bodyWeight">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        {{ "lifter.body-weight" | translate }}
+      </th>
+      <td mat-cell *matCellDef="let element">
+        {{ element?.bodyWeight?.toFixed(2) }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="weightCategory.name">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        {{ "weight-category.short" | translate }}
+      </th>
+      <td mat-cell *matCellDef="let element">
+        <ng-container *ngIf="element.weightCategory">
+          {{
+            ("weight-category." + element.gender | translate) +
+              element.weightCategory?.name
+          }}
+        </ng-container>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="equipped">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        {{ "lifter.equipped" | translate }}
+      </th>
+      <td mat-cell *matCellDef="let element">
+        <mat-icon
+          [svgIcon]="
+            element.equipped ? 'checkbox-marked' : 'checkbox-blank-outline'
+          "
+        ></mat-icon>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="group.name">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        {{ "lifter.group" | translate | titlecase }}
+      </th>
+      <td mat-cell *matCellDef="let element" (click)="$event.stopPropagation()">
+        <button
+          mat-raised-button
+          [matMenuTriggerFor]="groupMenu"
+          (click)="$event.stopPropagation()"
+          style="width: 80%; "
+        >
+          <div class="flex center-y" style="float:right;width: 100%;">
+            <span style="float:left">{{ element?.group?.name || "-" }}</span>
+            <div style="flex: 1;"></div>
+            <mat-icon
+              svgIcon="menu-down"
+              style="position: relative;right: 0;"
+            ></mat-icon>
+          </div>
+        </button>
+        <mat-menu #groupMenu="matMenu">
+          <button
+            *ngIf="element?.group"
+            mat-menu-item
+            (click)="changeGroup(element, null)"
+          >
+            {{ "option.no-group" | translate }}
+          </button>
+          <ng-container *ngFor="let group of groups$ | async">
+            <button
+              *ngIf="group?.id !== element?.group?.id"
+              mat-menu-item
+              (click)="changeGroup(element, group)"
+            >
+              {{ group.name }}
+            </button>
+          </ng-container>
+        </mat-menu>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="squat">
+      <th mat-header-cell *matHeaderCellDef>
+        {{ "lifts.squat" | translate | titlecase }}
+      </th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.lifts.squat[0]?.requested || "-" }}
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="bench">
+      <th mat-header-cell *matHeaderCellDef>
+        {{ "lifts.bench" | translate | titlecase }}
+      </th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.lifts.bench[0]?.requested || "-" }}
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="deadlift">
+      <th mat-header-cell *matHeaderCellDef>
+        {{ "lifts.deadlift" | translate | titlecase }}
+      </th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.lifts.deadlift[0]?.requested || "-" }}
+      </td>
+    </ng-container>
+  </ng-container>
+</dt-action-table>

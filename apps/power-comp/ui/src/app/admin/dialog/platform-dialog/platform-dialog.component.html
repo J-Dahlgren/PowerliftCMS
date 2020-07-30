@@ -1,0 +1,39 @@
+<dt-generic-edit-dialog [parent]="model" [form]="form">
+  <div [formGroup]="form" style="display: flex; flex-direction: column;">
+    <mat-form-field>
+      <mat-label>{{ "platform.name" | translate | titlecase }}</mat-label>
+      <input matInput formControlName="name" />
+    </mat-form-field>
+
+    <div formGroupName="weights">
+      <div class="grid auto-cols s-single-col">
+        <mat-form-field>
+          <mat-label>
+            {{ "platform.bar-weight" | translate | titlecase }}
+          </mat-label>
+          <input matInput formControlName="barWeight" />
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>
+            {{ "platform.collarWeight" | translate | titlecase }}
+          </mat-label>
+          <input matInput formControlName="collarWeight" />
+        </mat-form-field>
+      </div>
+
+      <div formGroupName="plates" class="plates-array">
+        <ng-container *ngFor="let plate of plates.controls">
+          <ng-container [formGroup]="plate">
+            <mat-form-field appearance="outline">
+              <mat-label
+                >{{ plate.get("weight")?.value }}
+                {{ "kg" | translate }}</mat-label
+              >
+              <input matInput type="number" formControlName="quantity" />
+            </mat-form-field>
+          </ng-container>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</dt-generic-edit-dialog>

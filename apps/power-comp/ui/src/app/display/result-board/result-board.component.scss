@@ -1,0 +1,43 @@
+.container {
+  display: grid;
+  grid-template-rows: auto 1fr;
+}
+th {
+  text-align: center;
+  //padding: 10px 10px !important;
+  border: thin solid white;
+  font-size: 1.3em;
+}
+td {
+  text-align: center;
+  border: thin solid white;
+}
+.cdk-row {
+  height: auto;
+}
+
+.cdk-column {
+  height: auto;
+}
+
+.cdk-cell {
+  padding: 0;
+}
+
+table {
+  border-spacing: 0px;
+  border-collapse: collapse;
+}
+.lift-data {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(0px, 1fr));
+  & > .lift-attempt-cell:not(:first-child) {
+    border-left: thin solid white;
+  }
+}
+.lift-attempt-cell {
+  padding: 2px 20px;
+}
+.icon-display {
+  transform: scale(0.5);
+}

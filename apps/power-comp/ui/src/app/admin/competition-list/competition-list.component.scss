@@ -1,0 +1,10 @@
+$rowgap: 10px;
+.container {
+  display: grid;
+  grid-auto-rows: auto;
+  row-gap: $rowgap;
+}
+
+.card {
+  cursor: pointer;
+}

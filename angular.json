@@ -1,0 +1,812 @@
+{
+  "version": 1,
+  "projects": {
+    "util": {
+      "root": "libs/util",
+      "sourceRoot": "libs/util/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/util/tsconfig.lib.json",
+              "libs/util/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/util/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/util/jest.config.js",
+            "tsConfig": "libs/util/tsconfig.spec.json",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "nest-logger": {
+      "root": "libs/nest/logger",
+      "sourceRoot": "libs/nest/logger/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/nest/logger/tsconfig.lib.json",
+              "libs/nest/logger/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/nest/logger/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/nest/logger/jest.config.js",
+            "tsConfig": "libs/nest/logger/tsconfig.spec.json",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "nest-entity-service": {
+      "root": "libs/nest/entity-service",
+      "sourceRoot": "libs/nest/entity-service/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/nest/entity-service/tsconfig.lib.json",
+              "libs/nest/entity-service/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/nest/entity-service/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/nest/entity-service/jest.config.js",
+            "tsConfig": "libs/nest/entity-service/tsconfig.spec.json",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "neat": {
+      "root": "libs/neat",
+      "sourceRoot": "libs/neat/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/neat/tsconfig.lib.json",
+              "libs/neat/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/neat/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/neat/jest.config.js",
+            "tsConfig": "libs/neat/tsconfig.spec.json",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "angular-logger": {
+      "projectType": "library",
+      "root": "libs/angular/logger",
+      "sourceRoot": "libs/angular/logger/src",
+      "prefix": "dt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/angular/logger/tsconfig.lib.json",
+              "libs/angular/logger/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/angular/logger/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/angular/logger/jest.config.js",
+            "tsConfig": "libs/angular/logger/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/angular/logger/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "angular-crud-api": {
+      "projectType": "library",
+      "root": "libs/angular/crud-api",
+      "sourceRoot": "libs/angular/crud-api/src",
+      "prefix": "dt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/angular/crud-api/tsconfig.lib.json",
+              "libs/angular/crud-api/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/angular/crud-api/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/angular/crud-api/jest.config.js",
+            "tsConfig": "libs/angular/crud-api/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/angular/crud-api/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "avanza-plus": {
+      "root": "libs/avanza-plus",
+      "sourceRoot": "libs/avanza-plus/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/avanza-plus/tsconfig.lib.json",
+              "libs/avanza-plus/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/avanza-plus/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/avanza-plus/jest.config.js",
+            "tsConfig": "libs/avanza-plus/tsconfig.spec.json",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "angular-menu": {
+      "projectType": "library",
+      "root": "libs/angular/menu",
+      "sourceRoot": "libs/angular/menu/src",
+      "prefix": "dt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/angular/menu/tsconfig.lib.json",
+              "libs/angular/menu/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/angular/menu/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/angular/menu/jest.config.js",
+            "tsConfig": "libs/angular/menu/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/angular/menu/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "angular-material": {
+      "projectType": "library",
+      "root": "libs/angular/material",
+      "sourceRoot": "libs/angular/material/src",
+      "prefix": "dt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/angular/material/tsconfig.lib.json",
+              "libs/angular/material/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/angular/material/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/angular/material/jest.config.js",
+            "tsConfig": "libs/angular/material/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/angular/material/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "angular-util": {
+      "projectType": "library",
+      "root": "libs/angular/util",
+      "sourceRoot": "libs/angular/util/src",
+      "prefix": "dt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/angular/util/tsconfig.lib.json",
+              "libs/angular/util/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/angular/util/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/angular/util/jest.config.js",
+            "tsConfig": "libs/angular/util/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/angular/util/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "angular-socket": {
+      "projectType": "library",
+      "root": "libs/angular/socket",
+      "sourceRoot": "libs/angular/socket/src",
+      "prefix": "dt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/angular/socket/tsconfig.lib.json",
+              "libs/angular/socket/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/angular/socket/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/angular/socket/jest.config.js",
+            "tsConfig": "libs/angular/socket/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/angular/socket/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "nest-socket": {
+      "root": "libs/nest/socket",
+      "sourceRoot": "libs/nest/socket/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/nest/socket/tsconfig.lib.json",
+              "libs/nest/socket/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/nest/socket/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/nest/socket/jest.config.js",
+            "tsConfig": "libs/nest/socket/tsconfig.spec.json",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "angular-auth": {
+      "projectType": "library",
+      "root": "libs/angular/auth",
+      "sourceRoot": "libs/angular/auth/src",
+      "prefix": "dt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/angular/auth/tsconfig.lib.json",
+              "libs/angular/auth/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/angular/auth/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/angular/auth/jest.config.js",
+            "tsConfig": "libs/angular/auth/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/angular/auth/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "nest-auth": {
+      "root": "libs/nest/auth",
+      "sourceRoot": "libs/nest/auth/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/nest/auth/tsconfig.lib.json",
+              "libs/nest/auth/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/nest/auth/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/nest/auth/jest.config.js",
+            "tsConfig": "libs/nest/auth/tsconfig.spec.json",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "nest-push-bullet": {
+      "root": "libs/nest/push-bullet",
+      "sourceRoot": "libs/nest/push-bullet/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/nest/push-bullet/tsconfig.lib.json",
+              "libs/nest/push-bullet/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/nest/push-bullet/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/nest/push-bullet/jest.config.js",
+            "tsConfig": "libs/nest/push-bullet/tsconfig.spec.json",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "power-comp-shared": {
+      "root": "libs/power-comp/shared",
+      "sourceRoot": "libs/power-comp/shared/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/power-comp/shared/tsconfig.lib.json",
+              "libs/power-comp/shared/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/power-comp/shared/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/power-comp/shared/jest.config.js",
+            "tsConfig": "libs/power-comp/shared/tsconfig.spec.json",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "power-comp-entity": {
+      "root": "libs/power-comp/entity",
+      "sourceRoot": "libs/power-comp/entity/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/power-comp/entity/tsconfig.lib.json",
+              "libs/power-comp/entity/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/power-comp/entity/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/power-comp/entity/jest.config.js",
+            "tsConfig": "libs/power-comp/entity/tsconfig.spec.json",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "power-comp-api": {
+      "root": "apps/power-comp/api",
+      "sourceRoot": "apps/power-comp/api/src",
+      "projectType": "application",
+      "prefix": "power-comp-api",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@nrwl/node:build",
+          "options": {
+            "showCircularDependencies": false,
+            "outputPath": "dist/apps/power-comp/api",
+            "main": "apps/power-comp/api/src/main.ts",
+            "tsConfig": "apps/power-comp/api/tsconfig.app.json",
+            "assets": ["apps/power-comp/api/src/assets"]
+          },
+          "configurations": {
+            "cloud": {
+              "optimization": true,
+              "extractLicenses": true,
+              "inspect": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/power-comp/api/src/environments/environment.ts",
+                  "with": "apps/power-comp/api/src/environments/environment.cloud.ts"
+                }
+              ]
+            },
+            "standalone": {
+              "optimization": true,
+              "extractLicenses": true,
+              "inspect": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/power-comp/api/src/environments/environment.ts",
+                  "with": "apps/power-comp/api/src/environments/environment.standalone.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@nrwl/node:execute",
+          "options": {
+            "buildTarget": "power-comp-api:build",
+            "inspect": true,
+            "port": 9229
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/power-comp/api/tsconfig.app.json",
+              "apps/power-comp/api/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/power-comp/api/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/power-comp/api/jest.config.js",
+            "tsConfig": "apps/power-comp/api/tsconfig.spec.json",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "power-comp-ui": {
+      "projectType": "application",
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "apps/power-comp/ui",
+      "sourceRoot": "apps/power-comp/ui/src",
+      "prefix": "pc",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/power-comp/ui",
+            "index": "apps/power-comp/ui/src/index.html",
+            "main": "apps/power-comp/ui/src/main.ts",
+            "polyfills": "apps/power-comp/ui/src/polyfills.ts",
+            "tsConfig": "apps/power-comp/ui/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "apps/power-comp/ui/src/assets",
+              {
+                "glob": "mdi.svg",
+                "input": "node_modules/@mdi/angular-material/",
+                "output": "./assets"
+              }
+            ],
+            "styles": [
+              "apps/power-comp/ui/src/style/styles.scss",
+              "node_modules/flag-icon-css/css/flag-icon.min.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "cloud": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/power-comp/ui/src/environments/environment.ts",
+                  "with": "apps/power-comp/ui/src/environments/environment.cloud.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            },
+            "standalone": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/power-comp/ui/src/environments/environment.ts",
+                  "with": "apps/power-comp/ui/src/environments/environment.standalone.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "power-comp-ui:build",
+            "proxyConfig": "apps/power-comp/ui/proxy.conf.json"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "power-comp-ui:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "power-comp-ui:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/power-comp/ui/tsconfig.app.json",
+              "apps/power-comp/ui/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/power-comp/ui/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/power-comp/ui/jest.config.js",
+            "tsConfig": "apps/power-comp/ui/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "apps/power-comp/ui/src/test-setup.ts"
+          }
+        }
+      }
+    },
+    "angular-shared": {
+      "projectType": "library",
+      "root": "libs/angular/shared",
+      "sourceRoot": "libs/angular/shared/src",
+      "prefix": "dt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/angular/shared/tsconfig.lib.json",
+              "libs/angular/shared/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/angular/shared/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/angular/shared/jest.config.js",
+            "tsConfig": "libs/angular/shared/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/angular/shared/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "nest-util": {
+      "root": "libs/nest/util",
+      "sourceRoot": "libs/nest/util/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/nest/util/tsconfig.lib.json",
+              "libs/nest/util/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/nest/util/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/nest/util/jest.config.js",
+            "tsConfig": "libs/nest/util/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "inspect": true,
+            "port": 9229
+          }
+        }
+      }
+    },
+    "power-comp-standalone": {
+      "root": "apps/power-comp/standalone",
+      "sourceRoot": "apps/power-comp/standalone/src",
+      "projectType": "application",
+      "prefix": "power-comp-standalone",
+      "architect": {
+        "bundle": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "outputPath": "dist/apps/power-comp/standalone",
+            "commands": [
+              {
+                "command": "npx nx build power-comp-ui --configuration=standalone"
+              },
+              {
+                "command": "npx nx build power-comp-api --configuration=standalone"
+              },
+              {
+                "command": "node apps/power-comp/standalone/src/bundle.js"
+              }
+            ],
+            "parallel": false,
+            "color": true
+          }
+        }
+      }
+    },
+    "power-comp-deploy": {
+      "projectType": "application",
+      "root": "apps/power-comp-deploy",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "outputPath": "dist/apps/power-comp-deploy",
+            "commands": [
+              {
+                "command": "npx nx build power-comp-api --configuration=cloud"
+              },
+              {
+                "command": "npx nx build power-comp-ui --configuration=cloud"
+              }
+            ],
+            "parallel": false,
+            "color": true
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "defaultCollection": "@nrwl/angular"
+  },
+  "schematics": {
+    "@nrwl/angular:application": {
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "none"
+    },
+    "@nrwl/angular:library": {
+      "unitTestRunner": "jest"
+    }
+  },
+  "defaultProject": "power-comp-api"
+}

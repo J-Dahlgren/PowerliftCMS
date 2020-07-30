@@ -1,0 +1,12 @@
+.top-menu {
+  position: -webkit-sticky;
+  position: sticky;
+  z-index: 200;
+  top: 0;
+}
+.app-name {
+  margin-left: 10px;
+  @media (max-width: 598px) {
+    font-size: 0.7rem;
+  }
+}

@@ -1,0 +1,17 @@
+// .decision-container{
+//   display: grid;
+//   width: 100%;
+//   height: 100%;
+//   grid-template-columns:repeat( auto-fit, minmax(0px, 1fr) );
+//   grid-column-gap: 5%;
+// }
+.white {
+  background-color: white;
+}
+.red {
+  background-color: red;
+}
+.decision {
+  border-radius: 5px;
+  border: thin solid black;
+}

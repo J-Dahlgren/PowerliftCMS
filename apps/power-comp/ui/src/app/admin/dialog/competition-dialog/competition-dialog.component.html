@@ -1,0 +1,52 @@
+<dt-generic-edit-dialog [parent]="model" [form]="form">
+  <div>
+    <div [formGroup]="form" style="display: flex; flex-direction: column;">
+      <mat-form-field>
+        <mat-label>{{ "competition.name" | translate | titlecase }}</mat-label>
+        <input matInput formControlName="name" />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>{{ "competition.city" | translate | titlecase }}</mat-label>
+        <input matInput formControlName="city" />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>{{
+          "competition.location" | translate | titlecase
+        }}</mat-label>
+        <input matInput formControlName="location" />
+      </mat-form-field>
+
+      <mat-checkbox color="primary" formControlName="active">
+        {{ "competition.active" | translate | titlecase }}
+      </mat-checkbox>
+    </div>
+
+    <div class="grid auto-cols" *ngIf="dialogMode === 'ADD'">
+      <ng-container *ngFor="let gender of genders">
+        <div>
+          <h3>{{ "gender." + gender | translate }}</h3>
+          <ng-container
+            *ngFor="let classGroup of weightClasses.controls"
+            [formGroup]="classGroup"
+          >
+            <div
+              *ngIf="gender === classGroup.get('gender')?.value"
+              style="display: flex; flex-direction: column;"
+            >
+              <ng-container *ngIf="classGroup.value as groupValue">
+                <mat-checkbox formControlName="active">
+                  {{ groupValue.minExclusive
+                  }}{{
+                    groupValue.maxInclusive
+                      ? " - " + groupValue.maxInclusive
+                      : "+"
+                  }}
+                </mat-checkbox>
+              </ng-container>
+            </div>
+          </ng-container>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</dt-generic-edit-dialog>

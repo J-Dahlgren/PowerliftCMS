@@ -1,0 +1,28 @@
+<div class="flex center-x">
+  <div class="grid single-col">
+    <form
+      [formGroup]="loginForm"
+      (ngSubmit)="onSubmit()"
+      class="grid single-col"
+    >
+      <mat-form-field appearance="outline">
+        <mat-label>Password</mat-label>
+        <input
+          type="password"
+          matInput
+          formControlName="password"
+          id="password_input"
+        />
+      </mat-form-field>
+
+      <button
+        type="submit"
+        mat-raised-button
+        color="primary"
+        [disabled]="(loading$ | async) || !loginForm.valid"
+      >
+        Login
+      </button>
+    </form>
+  </div>
+</div>

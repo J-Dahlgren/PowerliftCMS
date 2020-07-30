@@ -1,0 +1,52 @@
+<div class="main-container">
+  <div class="filter-bar">
+    <ng-content select="[dtTableHeader]"></ng-content>
+  </div>
+  <div class="table-container">
+    <table mat-table [dataSource]="dataSource" style="width: 100%;">
+      <ng-content select="[dtTableContent]"></ng-content>
+
+      <ng-container matColumnDef="delete">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let element">
+          <button
+            mat-mini-fab
+            color="warn"
+            (click)="$event.stopPropagation(); deleteClick(element)"
+            style="float: right;"
+          >
+            <mat-icon svgIcon="delete"> </mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr
+        mat-header-row
+        *matHeaderRowDef="
+          hideDelete ? columns : columns.concat('delete');
+          sticky: true
+        "
+      ></tr>
+      <tr
+        mat-row
+        *matRowDef="
+          let row;
+          columns: hideDelete ? columns : columns.concat('delete')
+        "
+        (click)="click(row)"
+        dtHoverClass
+        [classes]="hoverClasses"
+      ></tr>
+    </table>
+
+    <div style="position: sticky;bottom: 0px;">
+      <mat-paginator
+        *ngIf="paginate"
+        [pageSize]="!pageSize ? 50 : pageSize"
+        [pageSizeOptions]="!pageSizes ? [20, 50, 100] : pageSizes"
+        showFirstLastButtons
+      >
+      </mat-paginator>
+    </div>
+  </div>
+</div>

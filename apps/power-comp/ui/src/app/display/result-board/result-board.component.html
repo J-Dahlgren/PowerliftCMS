@@ -1,0 +1,120 @@
+<div class="container">
+  <div
+    style="min-height: 50px; height: 100%;font-size: 0.7em;"
+    class="mat-elevation-z8"
+  >
+    <pc-attempt-info-bar></pc-attempt-info-bar>
+  </div>
+  <table cdk-table [dataSource]="lifters$">
+    <ng-container cdkColumnDef="lot">
+      <th cdk-header-cell *cdkHeaderCellDef>{{ "lifter.lot" | translate }}</th>
+      <td cdk-cell *cdkCellDef="let element">
+        {{ element.lot }}
+      </td>
+    </ng-container>
+
+    <ng-container cdkColumnDef="fullname">
+      <th cdk-header-cell *cdkHeaderCellDef>{{ "lifter.name" | translate }}</th>
+      <td
+        cdk-cell
+        *cdkCellDef="let element"
+        [class.current-lifter]="
+          (current$ | async)?.fullname === element?.fullname
+        "
+        [class.next-lifter]="(next$ | async)?.fullname === element?.fullname"
+      >
+        {{ element?.fullname }}
+      </td>
+    </ng-container>
+
+    <ng-container cdkColumnDef="team">
+      <th cdk-header-cell *cdkHeaderCellDef>{{ "lifter.team" | translate }}</th>
+      <td cdk-cell *cdkCellDef="let element">
+        {{ element?.team }}
+      </td>
+    </ng-container>
+
+    <ng-container cdkColumnDef="category">
+      <th cdk-header-cell *cdkHeaderCellDef>
+        {{ "weight-category.short" | translate }}
+      </th>
+      <td cdk-cell *cdkCellDef="let element">
+        <ng-container *ngIf="element.weightCategory">
+          {{
+            ("weight-category." + element.gender | translate) +
+              element.weightCategory?.name
+          }}
+        </ng-container>
+      </td>
+    </ng-container>
+
+    <ng-container cdkColumnDef="competitionMode">
+      <th cdk-header-cell *cdkHeaderCellDef>
+        {{ "lifter.competition-mode" | translate }}
+      </th>
+      <td cdk-cell *cdkCellDef="let element" style="height: 10px;">
+        {{
+          "competition-mode." + (element.competitionMode || "CLASSIC")
+            | translate
+        }}<span *ngIf="element.equipped">
+          {{ "lifter.equipped.short" | translate }}</span
+        >
+      </td>
+    </ng-container>
+
+    <ng-container *ngFor="let field of liftFields">
+      <ng-container [cdkColumnDef]="field">
+        <th cdk-header-cell *cdkHeaderCellDef>
+          {{ "lifts." + field | translate | titlecase }}
+        </th>
+        <td cdk-cell *cdkCellDef="let element">
+          <div class="lift-data">
+            <ng-container
+              *ngFor="let attempt of element.lifts[field]; let i = index"
+            >
+              <div
+                class="lift-attempt-cell flex center-y center-x"
+                [class.lift-success]="attempt.status > 0"
+                [class.lift-failed]="attempt.status < 0"
+              >
+                {{ attempt.requested || attempt.automatic }}
+              </div>
+            </ng-container>
+          </div>
+        </td>
+      </ng-container>
+    </ng-container>
+
+    <ng-container cdkColumnDef="total">
+      <th cdk-header-cell *cdkHeaderCellDef>
+        {{ "lifter.total" | translate }}
+      </th>
+      <td cdk-cell *cdkCellDef="let element">
+        {{ element.result.total || "-" }}
+      </td>
+    </ng-container>
+
+    <ng-container cdkColumnDef="rank">
+      <th cdk-header-cell *cdkHeaderCellDef>{{ "lifter.rank" | translate }}</th>
+      <td cdk-cell *cdkCellDef="let element">
+        {{ element.rank || "-" }}
+      </td>
+    </ng-container>
+
+    <ng-container cdkColumnDef="score">
+      <th cdk-header-cell *cdkHeaderCellDef>
+        {{ "lifter.ipf-score" | translate }}
+      </th>
+      <td cdk-cell *cdkCellDef="let element">
+        {{ element.score || "-" }}
+      </td>
+    </ng-container>
+
+    <tr cdk-header-row *cdkHeaderRowDef="columns"></tr>
+    <tr
+      cdk-row
+      *cdkRowDef="let row; columns: columns"
+      style="height: auto;"
+    ></tr>
+  </table>
+</div>

@@ -1,0 +1,21 @@
+<button mat-button [matMenuTriggerFor]="menu">
+  <ng-container *ngIf="selected$ | async as platform">
+    {{ platform?.competition?.name }} - {{ platform?.name }}
+  </ng-container>
+  <ng-container *ngIf="!(selected$ | async)">
+    {{ "menu.select-platform" | translate }}
+  </ng-container>
+</button>
+<mat-menu #menu="matMenu">
+  <ng-container *ngFor="let competition of competitions$ | async">
+    <ng-container *ngFor="let platform of competition.platforms">
+      <button
+        *ngIf="platform.id !== (selected$ | async)?.id"
+        mat-menu-item
+        (click)="select(platform)"
+      >
+        {{ competition.name }} - {{ platform.name }}
+      </button>
+    </ng-container>
+  </ng-container>
+</mat-menu>

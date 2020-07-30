@@ -1,0 +1,33 @@
+<div class="bar">
+  <div style="flex:1;font-size: 2em;">
+    {{ "group" | translate }} {{ group$ | async }}
+  </div>
+  <div style="flex: 2;">
+    <div
+      *ngIf="current$ | async as lifter"
+      style="flex:1;font-size: 1.5em;"
+      class="grid auto-cols"
+    >
+      <div style="flex:auto;color: yellow">
+        <!-- {{ lifter?.firstname }} {{ lifter?.lastname }} -->
+        {{ lifter?.fullname }}
+      </div>
+      <div style="flex:auto">
+        {{ lifter?.team }}
+      </div>
+      <div style="flex:auto;">
+        {{ "lifts." + lifter?.attemptInfo.liftName | translate | titlecase }}
+        {{ lifter?.attemptInfo.attemptNumberOneIndexed }}:
+        {{ lifter?.attemptInfo.weight }}
+        {{ "kg" | translate }}
+      </div>
+    </div>
+  </div>
+
+  <div style="flex: 1; font-size: 2em;">
+    <pc-platform-timer format="m:ss"></pc-platform-timer>
+  </div>
+  <div style="flex:auto;height: 80%;max-height: 36px;max-width: 150px;">
+    <pc-decision-display></pc-decision-display>
+  </div>
+</div>

@@ -1,0 +1,79 @@
+<dt-action-table
+  matSort
+  [dataSource]="dataSource"
+  [columns]="columns"
+  (rowClick)="edit($event)"
+  (delete)="delete($event)"
+>
+  <ng-container dtTableHeader>
+    <button color="primary" mat-raised-button (click)="create()">
+      {{ "generic.button.add" | translate | titlecase }}
+    </button>
+  </ng-container>
+  <ng-container dtTableContent>
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        {{ "group.name" | translate | titlecase }}
+      </th>
+      <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="weighInTime">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        {{ "group.weigh-in-time" | translate }}
+      </th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.weighInTime | moment: "YYYY-MM-DD HH:mm" }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="competitionTime">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        {{ "group.competition-time" | translate }}
+      </th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.competitionTime | moment: "YYYY-MM-DD HH:mm" }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="lifters">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        {{ "group.lifters" | translate }}
+      </th>
+      <td
+        mat-cell
+        *matCellDef="let element"
+        matTooltipPosition="left"
+        [matTooltipClass]="['tooltip-multiline', 'bg-primary']"
+        [matTooltip]="getLifterNamesTooltip(element?.lifters)"
+      >
+        <div class="flex center-y">
+          <a
+            matTooltipPosition="right"
+            [matTooltip]="'navigation.view-lifters' | translate"
+            mat-icon-button
+            [routerLink]="['/competition', element.competitionId, 'lifters']"
+            [queryParams]="{ groupId: element.id }"
+          >
+            <mat-icon
+              color=""
+              *ngIf="element?.lifters.length"
+              svgIcon="open-in-app"
+            ></mat-icon
+          ></a>
+
+          <span>
+            {{ element?.lifters.length || 0 }}
+          </span>
+        </div>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="platform">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        {{ "platform" | translate }}
+      </th>
+      <td mat-cell *matCellDef="let element">{{ element.platform?.name }}</td>
+    </ng-container>
+  </ng-container>
+</dt-action-table>

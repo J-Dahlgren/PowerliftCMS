@@ -1,0 +1,20 @@
+.lifter-info {
+  padding: 2%;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  & > h1 {
+    line-height: 100%;
+    margin-bottom: 5%;
+    font-size: 4em;
+  }
+  & > * {
+    font-size: 2em;
+    line-height: 100%;
+  }
+}
+.timer-container {
+  height: 100%;
+  & > * {
+    font-size: 6em;
+  }
+}

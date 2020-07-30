@@ -1,0 +1,40 @@
+<div>
+  <ng-container *ngIf="!(loading$ | async)">
+    <h2 mat-dialog-title>
+      {{
+        !translate
+          ? parent.config.title
+          : (parent.config.title | lowercase | translate | titlecase)
+      }}
+    </h2>
+    <mat-dialog-content>
+      <form [formGroup]="form" id="gForm" style="margin: 10px 5px;">
+        <ng-content></ng-content>
+      </form>
+    </mat-dialog-content>
+    <mat-dialog-actions>
+      <div class="actions">
+        <button
+          mat-raised-button
+          type="submit"
+          (click)="submitClick$.next()"
+          [disabled]="!form?.valid || (saving$ | async)"
+          form="gForm"
+          color="primary"
+        >
+          <mat-icon *ngIf="!(saving$ | async)" svgIcon="check"></mat-icon>
+          <mat-icon *ngIf="saving$ | async" svgIcon="cloud-upload"></mat-icon>
+        </button>
+        <button mat-raised-button mat-dialog-close color="accent">
+          <mat-icon svgIcon="close"></mat-icon>
+        </button>
+      </div>
+    </mat-dialog-actions>
+  </ng-container>
+  <!-- If user is loaded show the form, else show the loading template -->
+  <div style="text-align: center;">
+    <div style="display: inline-block;">
+      <mat-spinner *ngIf="loading$ | async" mode="indeterminate"></mat-spinner>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,181 @@
+<dt-generic-edit-dialog [parent]="model" [form]="form">
+  <div [formGroup]="form" style="display: flex; flex-direction: column;">
+    <div class="name s-single-col">
+      <mat-form-field appearance="outline">
+        <mat-label>{{ "lifter.firstname" | translate | titlecase }}</mat-label>
+        <input matInput formControlName="firstname" required />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>{{ "lifter.lastname" | translate | titlecase }}</mat-label>
+        <input matInput formControlName="lastname" required />
+      </mat-form-field>
+    </div>
+
+    <div class="grid auto-cols s-single-col">
+      <div>
+        <mat-radio-group
+          color="primary"
+          aria-labelledby="radio-group-label"
+          formControlName="gender"
+          labelPosition="after"
+          class="radio-group"
+        >
+          <mat-radio-button class="radio-button" value="m">
+            {{ "gender.MALE" | translate }}
+          </mat-radio-button>
+          <mat-radio-button class="radio-button" value="f">
+            {{ "gender.FEMALE" | translate }}
+          </mat-radio-button>
+        </mat-radio-group>
+      </div>
+      <mat-form-field appearance="outline">
+        <mat-label>{{ "lifter.born-year" | translate | titlecase }}</mat-label>
+        <input matInput type="number" min="1900" formControlName="bornYear" />
+      </mat-form-field>
+    </div>
+
+    <div class="grid auto-cols s-single-col">
+      <mat-form-field appearance="outline">
+        <mat-label>{{ "lifter.license" | translate }}</mat-label>
+        <input matInput type="text" formControlName="license" />
+      </mat-form-field>
+      <div class="body-weight">
+        <mat-form-field appearance="outline">
+          <mat-label>{{ "lifter.body-weight" | translate }}</mat-label>
+          <input matInput type="number" formControlName="bodyWeight" />
+        </mat-form-field>
+        <div class="flex center-y center-x" style="min-width: 20px;">
+          <h1 *ngIf="currentCategory$ | async as category">
+            {{
+              ("weight-category." + category.gender | translate) + category.name
+            }}
+          </h1>
+        </div>
+      </div>
+    </div>
+
+    <mat-form-field appearance="outline">
+      <mat-label>{{ "lifter.team" | translate }}</mat-label>
+      <input matInput type="text" formControlName="team" />
+    </mat-form-field>
+
+    <div class="grid auto-cols s-single-col">
+      <mat-form-field>
+        <mat-label>{{ "lifter.group" | translate | titlecase }}</mat-label>
+        <mat-select formControlName="groupId">
+          <mat-option [value]="null"> </mat-option>
+          <mat-option *ngFor="let group of groups$ | async" [value]="group?.id">
+            {{ group.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field
+        matTooltipPosition="above"
+        [matTooltip]="'competition-mode.warning' | translate"
+        matTooltipClass="bg-warn"
+      >
+        <mat-label class="">{{ "competition-mode" | translate }}</mat-label>
+        <mat-select
+          [formControl]="competitionMode"
+          (selectionChange)="modeSelectionChanged($event.value)"
+        >
+          <mat-option *ngFor="let mode of competitionModes" [value]="mode">
+            {{ "competition-mode." + mode | translate }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <div class="flex center-y center-x">
+        <mat-checkbox color="primary" formControlName="equipped">
+          {{ "lifter.equipped" | translate }}
+        </mat-checkbox>
+      </div>
+    </div>
+
+    <!-- LIFTS -->
+
+    <div class="grid auto-cols s-single-col" formGroupName="lifts">
+      <ng-container *ngFor="let field of liftFields">
+        <ng-container
+          [formArrayName]="field"
+          *ngIf="getLiftFormArray(field)?.controls as controls"
+        >
+          <ng-container *ngIf="controls.length" [formGroup]="controls[0]">
+            <mat-form-field appearance="outline">
+              <mat-label>{{
+                "lifts." + field | translate | titlecase
+              }}</mat-label>
+              <input matInput type="number" formControlName="requested" />
+            </mat-form-field>
+          </ng-container>
+        </ng-container>
+      </ng-container>
+    </div>
+
+    <!-- Lift settings -->
+
+    <div class="grid auto-cols s-single-col" formGroupName="settings">
+      <!-- Squat -->
+
+      <ng-container *ngIf="getLiftFormArray('squat')?.controls.length">
+        <div formGroupName="squat">
+          <p>
+            {{ "lifts.squat" | translate | titlecase }}
+          </p>
+          <div class="grid auto-cols s-single-col">
+            <mat-form-field appearance="outline">
+              <mat-label>
+                {{ "lift-setting.squat.rack-height" | translate }}
+              </mat-label>
+              <input matInput formControlName="rackHeight" type="number" />
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+              <mat-label>
+                {{ "lift-setting.squat.rack-tilt" | translate }}
+              </mat-label>
+              <mat-select formControlName="rackTilt">
+                <mat-option
+                  *ngFor="let tiltSetting of rackSettings"
+                  [value]="tiltSetting"
+                >
+                  {{ "lift-setting.squat.tilt." + tiltSetting | translate }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+      </ng-container>
+
+      <!-- Bench press -->
+      <ng-container *ngIf="getLiftFormArray('bench')?.controls.length">
+        <div formGroupName="bench">
+          <p>
+            {{ "lifts.bench" | translate | titlecase }}
+          </p>
+          <div class="grid auto-cols s-single-col">
+            <mat-form-field appearance="outline">
+              <mat-label>
+                {{ "lift-setting.bench.rack-height" | translate }}
+              </mat-label>
+              <input matInput formControlName="rackHeight" type="number" />
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+              <mat-label>
+                {{ "lift-setting.bench.safety-rack-height" | translate }}
+              </mat-label>
+              <input
+                matInput
+                formControlName="safetyRackHeight"
+                type="number"
+              />
+            </mat-form-field>
+            <div class="flex center-y center-x">
+              <mat-checkbox color="primary" formControlName="liftOffAssistance">
+                {{ "lift-setting.bench.lift-off-assistance" | translate }}
+              </mat-checkbox>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</dt-generic-edit-dialog>

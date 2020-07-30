@@ -1,0 +1,47 @@
+<div class="container">
+  <ng-container *ngIf="lifter | async as l">
+    <h1>{{ l.fullname }}</h1>
+    <h1>{{ l.team }}</h1>
+    <h2>
+      {{ "weight-category." + l.gender | translate
+      }}{{ l?.weightCategory?.name }}
+    </h2>
+    <h2>
+      {{ "lifts." + l.attemptInfo.liftName | translate | titlecase }}
+
+      {{ l.attemptInfo.attemptNumberOneIndexed }}:
+      <span style="color: yellow;"
+        >{{ l.attemptInfo.weight }} {{ "kg" | translate }}</span
+      >
+    </h2>
+    <ng-container *ngIf="getSquatSettings(l) as squat">
+      <div>
+        <p>
+          {{ "lift-setting.squat.rack-height" | translate }}:
+          {{ squat.rackHeight || "" }}
+        </p>
+        <p *ngIf="!!squat.rackTilt && squat.rackTilt !== 'NONE'">
+          {{ "lift-setting.squat.rack-tilt" | translate }}:
+          {{
+            "lift-setting.squat.tilt." + (squat.rackTilt || "NONE") | translate
+          }}
+        </p>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="getBenchSettings(l) as bench">
+      <div>
+        <p>
+          {{ "lift-setting.bench.rack-height" | translate }}:
+          {{ bench.rackHeight || "" }}
+        </p>
+        <p>
+          {{ "lift-setting.bench.safety-rack-height" | translate }}:
+          {{ bench.safetyRackHeight || "" }}
+        </p>
+        <p *ngIf="bench.liftOffAssistance">
+          {{ "lift-setting.bench.lift-off-assistance" | translate }}
+        </p>
+      </div>
+    </ng-container>
+  </ng-container>
+</div>

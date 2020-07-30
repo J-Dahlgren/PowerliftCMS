@@ -1,0 +1,36 @@
+<dt-generic-edit-dialog [parent]="model" [form]="form">
+  <div [formGroup]="form" style="display: flex; flex-direction: column;">
+    <div>
+      <mat-checkbox formControlName="active" color="primary">
+        {{ "weight-category.active" | translate }}
+      </mat-checkbox>
+      <span style="margin: 0px 5px;"></span>
+      <mat-radio-group
+        color="primary"
+        aria-labelledby="radio-group-label"
+        formControlName="gender"
+        labelPosition="after"
+        class="radio-group"
+      >
+        <mat-radio-button class="radio-button" value="m">
+          {{ "gender.MALE" | translate }}
+        </mat-radio-button>
+        <mat-radio-button class="radio-button" value="f">
+          {{ "gender.FEMALE" | translate }}
+        </mat-radio-button>
+      </mat-radio-group>
+    </div>
+    <span style="margin: 10px 0px;"></span>
+    <div class="range-inputs">
+      <mat-form-field appearance="outline">
+        <mat-label>{{ "weight-category.min-exclusive" | translate }}</mat-label>
+        <input matInput type="number" formControlName="minExclusive" />
+      </mat-form-field>
+      <span style="margin: 0px 5px;"></span>
+      <mat-form-field appearance="outline">
+        <mat-label>{{ "weight-category.max-inclusive" | translate }}</mat-label>
+        <input matInput type="number" formControlName="maxInclusive" />
+      </mat-form-field>
+    </div>
+  </div>
+</dt-generic-edit-dialog>

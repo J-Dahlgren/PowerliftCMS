@@ -1,0 +1,30 @@
+<dt-side-nav [navItems]="navItems" [appName]="title">
+  <div class="app-body">
+    <!-- fixed-topnav -->
+    <dt-header [appName]="title" class="fixed-topnav">
+      <pc-platform-select></pc-platform-select>
+
+      <!-- <div style="position: relative;">
+        <pc-app-settings></pc-app-settings>
+      </div> -->
+
+      <mat-icon
+        *ngIf="connected | async; else nocon"
+        color="primary"
+        svgIcon="signal"
+        [matTooltip]="'socket.connected.tooltip' | translate"
+      ></mat-icon>
+      <ng-template #nocon>
+        <mat-icon
+          color="warn"
+          svgIcon="signal-off"
+          [matTooltip]="'socket.disconnected.tooltip' | translate"
+        ></mat-icon>
+      </ng-template>
+      <dt-language-selector></dt-language-selector>
+    </dt-header>
+    <div class="main-container">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</dt-side-nav>

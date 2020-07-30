@@ -1,0 +1,10 @@
+<div class="grid auto-cols" style="height: 100%;padding: 0px 5px;">
+  <ng-container *ngIf="display || (show$ | async)">
+    <div
+      *ngFor="let decision of decisions$ | async"
+      class="decision"
+      [class.white]="decision === 'SUCCESS'"
+      [class.red]="decision === 'FAILED'"
+    ></div>
+  </ng-container>
+</div>

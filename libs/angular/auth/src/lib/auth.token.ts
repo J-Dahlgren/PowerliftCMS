@@ -1,0 +1,3 @@
+export const AUTH_DI_TOKEN = "AUTHENTICATION_DI_TOKEN";
+export const JWT_TOKEN = "JWT_STORAGE_TOKEN";
+export const JWT_TOKEN_KEY = "JWT_STORAGE_TOKEN";

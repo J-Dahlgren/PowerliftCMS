@@ -1,0 +1,7 @@
+.lift-data {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(0px, 1fr));
+}
+.lift-attempt-cell {
+  padding: 5px 20px;
+}

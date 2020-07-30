@@ -1,0 +1,51 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "esnext",
+    "typeRoots": ["node_modules/@types"],
+    "lib": ["es2017", "dom"],
+    "skipLibCheck": true,
+    "strictPropertyInitialization": true,
+    "skipDefaultLibCheck": true,
+    "strict": true,
+    "baseUrl": ".",
+    "paths": {
+      "@dt/util": ["libs/util/src/index.ts"],
+      "@dt/avanza": ["libs/avanza/src/index.ts"],
+      "@dt/auto-trader/entity": ["libs/auto-trader/entity/src/index.ts"],
+      "@dt/auto-trader/data-types": [
+        "libs/auto-trader/data-types/src/index.ts"
+      ],
+      "@dt/nest/logger": ["libs/nest/logger/src/index.ts"],
+      "@dt/nest/entity-service": ["libs/nest/entity-service/src/index.ts"],
+      "@dt/auto-trader/backtest": ["libs/auto-trader/backtest/src/index.ts"],
+      "@dt/neat": ["libs/neat/src/index.ts"],
+      "@dt/angular/logger": ["libs/angular/logger/src/index.ts"],
+      "@dt/angular/crud-api": ["libs/angular/crud-api/src/index.ts"],
+      "@dt/avanza-plus": ["libs/avanza-plus/src/index.ts"],
+      "@dt/angular/menu": ["libs/angular/menu/src/index.ts"],
+      "@dt/angular/material": ["libs/angular/material/src/index.ts"],
+      "@dt/angular/util": ["libs/angular/util/src/index.ts"],
+      "@dt/angular/socket": ["libs/angular/socket/src/index.ts"],
+      "@dt/nest/socket": ["libs/nest/socket/src/index.ts"],
+      "@dt/angular/auth": ["libs/angular/auth/src/index.ts"],
+      "@dt/nest/auth": ["libs/nest/auth/src/index.ts"],
+      "@dt/nest/push-bullet": ["libs/nest/push-bullet/src/index.ts"],
+      "@dt/auto-trader/shared": ["libs/auto-trader/shared/src/index.ts"],
+      "@dt/power-comp/shared": ["libs/power-comp/shared/src/index.ts"],
+      "@dt/power-comp/entity": ["libs/power-comp/entity/src/index.ts"],
+      "@dt/angular/shared": ["libs/angular/shared/src/index.ts"],
+      "@dt/nest/util": ["libs/nest/util/src/index.ts"]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}

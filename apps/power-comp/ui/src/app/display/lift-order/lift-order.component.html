@@ -1,0 +1,81 @@
+<div class="container">
+  <div style="min-height: 50px; height: 100%;" class="mat-elevation-z8">
+    <pc-attempt-info-bar></pc-attempt-info-bar>
+  </div>
+
+  <table cdk-table [dataSource]="lifters$">
+    <ng-container cdkColumnDef="lot">
+      <th cdk-header-cell *cdkHeaderCellDef>{{ "lifter.lot" | translate }}</th>
+      <td cdk-cell *cdkCellDef="let element">
+        {{ element.lot }}
+      </td>
+    </ng-container>
+
+    <ng-container cdkColumnDef="fullname">
+      <th cdk-header-cell *cdkHeaderCellDef>{{ "lifter.name" | translate }}</th>
+      <td cdk-cell *cdkCellDef="let element">
+        {{ element?.fullname }}
+      </td>
+    </ng-container>
+
+    <ng-container cdkColumnDef="team">
+      <th cdk-header-cell *cdkHeaderCellDef>{{ "lifter.team" | translate }}</th>
+      <td cdk-cell *cdkCellDef="let element">
+        {{ element?.team }}
+      </td>
+    </ng-container>
+
+    <ng-container cdkColumnDef="category">
+      <th cdk-header-cell *cdkHeaderCellDef>
+        {{ "weight-category.short" | translate }}
+      </th>
+      <td cdk-cell *cdkCellDef="let element">
+        <ng-container *ngIf="element.weightCategory">
+          {{
+            ("weight-category." + element.gender | translate) +
+              element.weightCategory?.name
+          }}
+        </ng-container>
+      </td>
+    </ng-container>
+
+    <ng-container cdkColumnDef="equipped">
+      <th cdk-header-cell *cdkHeaderCellDef cdk-sort-header>
+        {{ "lifter.equipped" | translate }}
+      </th>
+      <td cdk-cell *cdkCellDef="let element">
+        <mat-icon
+          [svgIcon]="
+            element.equipped ? 'checkbox-marked' : 'checkbox-blank-outline'
+          "
+        ></mat-icon>
+      </td>
+    </ng-container>
+
+    <ng-container cdkColumnDef="attempt">
+      <th cdk-header-cell *cdkHeaderCellDef>
+        {{ "lift.attempt" | translate }}
+      </th>
+      <td cdk-cell *cdkCellDef="let element">
+        {{ "lifts." + element.attemptInfo.liftName | translate | titlecase }}
+        {{ element.attemptInfo.attemptNumberOneIndexed || "" }}
+      </td>
+    </ng-container>
+
+    <ng-container cdkColumnDef="weight">
+      <th cdk-header-cell *cdkHeaderCellDef>
+        {{ "lift.requested-weight" | translate }}
+      </th>
+      <td cdk-cell *cdkCellDef="let element">
+        {{ element.attemptInfo.weight || "" }}
+      </td>
+    </ng-container>
+
+    <tr cdk-header-row *cdkHeaderRowDef="columns"></tr>
+    <tr
+      cdk-row
+      *cdkRowDef="let row; columns: columns"
+      [class.soft-highlight]="getIndexOfAttempt(row.attemptInfo) % 2 === 1"
+    ></tr>
+  </table>
+</div>

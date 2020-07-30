@@ -1,0 +1,22 @@
+<div class="main">
+  <nav mat-tab-nav-bar class="nav-bar">
+    <a
+      mat-tab-link
+      *ngFor="let link of _links"
+      [routerLink]="[link.route]"
+      (click)="activeLink$.next(link.route)"
+      routerLinkActive
+      #rla="routerLinkActive"
+      mat-tab-link
+      [active]="rla.isActive"
+    >
+      <span *ngIf="link.icon" style="padding-right: 5px;">
+        <mat-icon [svgIcon]="link.icon"></mat-icon>
+      </span>
+      <span>{{ link.route | translate }}</span>
+    </a>
+  </nav>
+  <div class="content">
+    <router-outlet> </router-outlet>
+  </div>
+</div>

@@ -1,0 +1,43 @@
+.bar-container {
+  height: 100%;
+  width: 100%;
+}
+.bar-view {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+}
+.bar-view > div {
+  position: relative;
+  text-align: center;
+  display: inline-block;
+}
+.bar {
+  background-color: gray;
+}
+.plate {
+  margin-right: 0.5%;
+  margin-left: 0.5%;
+  border: medium solid whitesmoke;
+  border-radius: 5px;
+}
+.bar-inner {
+  height: 5%;
+  width: 10%;
+}
+.bar-collar {
+  height: 15%;
+  width: 3%;
+}
+.collar {
+  background-color: black;
+  border-radius: 5px !important;
+  height: 15%;
+  width: 5%;
+}
+.bar-outer {
+  height: 10%;
+  width: 5%;
+}

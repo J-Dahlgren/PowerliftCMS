@@ -1,0 +1,16 @@
+.app-body {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  height: 100vh;
+}
+.fixed-topnav {
+  position: sticky;
+  top: 0;
+  //z-index: 1000;
+  left: 0;
+  width: 100% !important;
+}
+.main-container {
+  padding: 10px;
+  overflow-y: hidden;
+}

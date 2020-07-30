@@ -1,0 +1,11 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  outline: none;
+  width: 100%;
+  overflow-x: hidden;
+
+  .mat-list-item.active {
+    background-color: #4f4f4f;
+  }
+}

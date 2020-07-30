@@ -1,0 +1,26 @@
+@import "~@angular/material/theming";
+//$material-design-icons-font-path: '../node_modules/material-design-icons-iconfont/dist/fonts/MaterialIcons-Regular';
+@import "../../../../../node_modules/material-design-icons-iconfont/dist/material-design-icons.css";
+@include mat-core();
+
+$app-primary: mat-palette($mat-teal, 700);
+$app-accent: mat-palette($mat-light-blue, 700);
+$app-warn: mat-palette($mat-deep-orange, 800);
+$app-theme: mat-dark-theme($app-primary, $app-accent, $app-warn);
+$primary: mat-color($app-primary);
+$accent: mat-color($app-accent);
+$warn: mat-color($app-warn);
+$bg: map-get($app-theme, background-color);
+$fg: map-get($app-theme, foreground-color);
+@include angular-material-theme($app-theme);
+
+//Light theme
+.light-theme {
+  color: $light-primary-text;
+  $dark-primary: mat-palette($mat-yellow);
+  $dark-accent: mat-palette($mat-amber, A400, A100, A700);
+  $dark-warn: mat-palette($mat-red);
+  $dark-theme: mat-light-theme($dark-primary, $dark-accent, $dark-warn);
+
+  @include angular-material-theme($dark-theme);
+}

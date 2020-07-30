@@ -1,0 +1,94 @@
+{
+  "npmScope": "dt",
+  "implicitDependencies": {
+    "angular.json": "*",
+    "package.json": {
+      "dependencies": "*",
+      "devDependencies": "*"
+    },
+    ".github/workflows/master-ci.yml": "*",
+    "tsconfig.json": "*",
+    "tslint.json": "*",
+    "nx.json": "*"
+  },
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "@nrwl/workspace/tasks-runners/default",
+      "options": {
+        "cacheableOperations": ["build", "lint", "test", "e2e"]
+      }
+    }
+  },
+  "projects": {     
+    "util": {
+      "tags": []
+    },    
+    "nest-logger": {
+      "tags": []
+    },
+    "nest-entity-service": {
+      "tags": []
+    },    
+    "neat": {
+      "tags": []
+    },
+    "angular-logger": {
+      "tags": []
+    },
+    "angular-crud-api": {
+      "tags": []
+    },
+    "avanza-plus": {
+      "tags": []
+    },
+    "angular-menu": {
+      "tags": []
+    },
+    "angular-material": {
+      "tags": []
+    },
+    "angular-util": {
+      "tags": []
+    },
+    "angular-socket": {
+      "tags": []
+    },
+    "nest-socket": {
+      "tags": []
+    },
+    "angular-auth": {
+      "tags": []
+    },
+    "nest-auth": {
+      "tags": []
+    },
+    "nest-push-bullet": {
+      "tags": []
+    },    
+    "power-comp-shared": {
+      "tags": []
+    },
+    "power-comp-entity": {
+      "tags": []
+    },
+    "power-comp-api": {
+      "tags": []
+    },
+    "power-comp-ui": {
+      "tags": []
+    },
+    "angular-shared": {
+      "tags": []
+    },
+    "nest-util": {
+      "tags": []
+    },
+    "power-comp-standalone": {
+      "tags": [],
+      "implicitDependencies": ["power-comp-api", "power-comp-ui"]
+    },
+    "power-comp-deploy": {
+      "implicitDependencies": ["power-comp-api", "power-comp-ui"]
+    }
+  }
+}

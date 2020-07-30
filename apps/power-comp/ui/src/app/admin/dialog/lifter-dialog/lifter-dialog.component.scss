@@ -1,0 +1,19 @@
+$grid-gap: 5px;
+.radio-group {
+  display: flex;
+  flex-direction: row;
+  margin: 15px 0;
+}
+.radio-button {
+  margin: 5px;
+}
+.name {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: $grid-gap;
+}
+.body-weight {
+  display: grid;
+  grid-column-gap: $grid-gap;
+  grid-template-columns: 100px auto;
+}

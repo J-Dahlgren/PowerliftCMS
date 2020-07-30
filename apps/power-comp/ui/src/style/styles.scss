@@ -1,0 +1,170 @@
+@import "./material-theme.scss";
+@import "./plates.scss";
+
+$success: #85b63a;
+.success {
+  background: $success;
+}
+
+.bg-success {
+  background: $success;
+}
+.fg-success {
+  color: $success;
+}
+
+.bg-warn {
+  background: $warn;
+}
+.bg-primary {
+  background: $primary;
+}
+
+.bg-accent {
+  background: $accent;
+}
+
+.fg-warn {
+  color: $warn;
+}
+
+.fg-accent {
+  color: $accent;
+}
+
+.fg-primary {
+  color: $primary;
+}
+
+.snack-bar-primary {
+  background: $primary;
+  color: white;
+}
+.snack-bar-accent {
+  background: $accent;
+  color: white;
+}
+.snack-bar-warn {
+  background: $warn;
+  color: white;
+}
+.snack-bar-success {
+  background: $success;
+  color: white;
+  //color: black;
+}
+
+.snack-bar-failed {
+  background: $warn;
+  color: white;
+}
+
+.snack-bar {
+  background-color: $bg;
+  color: $fg;
+}
+
+body {
+  height: 100%;
+}
+
+$danger: #b90012;
+$danger-foreground: white;
+
+.danger {
+  background-color: $danger;
+  color: $danger-foreground;
+}
+
+.lift-card-success {
+  background-color: #356530;
+}
+
+.lift-card-failed {
+  background-color: #91000f;
+}
+
+.lift-success {
+  background-color: #1d796b;
+  //z-index: 10;
+}
+
+.lift-failed {
+  background-color: #d1481b;
+  //z-index: 10;
+}
+
+.sticky-header {
+  // position: sticky;
+  z-index: 100 !important;
+  background-color: $bg !important;
+
+  & > th {
+    background-color: $bg !important;
+  }
+}
+// Include the default theme styles.
+button.mat-menu-item {
+  line-height: 24px !important;
+}
+a.mat-menu-item > mat-icon {
+  margin-bottom: 14px;
+}
+.mat-icon svg {
+  height: 24px;
+  width: 24px;
+}
+
+.grid {
+  display: grid;
+}
+
+.s-single-col {
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+.single-col {
+  grid-template-columns: 1fr !important;
+}
+
+.auto-cols {
+  grid-template-columns: repeat(auto-fit, minmax(0px, 1fr));
+  grid-column-gap: 5px;
+}
+
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.center-y {
+  align-items: center;
+}
+
+.center-x {
+  justify-content: center;
+}
+
+.tooltip-multiline {
+  height: auto;
+  white-space: pre-line;
+}
+
+html,
+body {
+  margin: 0px !important;
+  min-height: 100vh !important;
+  height: 100vh;
+}
+
+.soft-highlight {
+  background-color: #424242;
+}
+.current-lifter {
+  color: yellow;
+}
+.next-lifter {
+  color: orange;
+}

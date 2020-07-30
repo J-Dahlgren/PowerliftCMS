@@ -1,0 +1,42 @@
+<pc-decision-input></pc-decision-input>
+<div style="height: 65%;" class="grid auto-cols">
+  <div class="lifter-info">
+    <h1>{{ "attempt-board.current" | translate }}</h1>
+
+    <pc-lifter-info [lifter]="current$"></pc-lifter-info>
+  </div>
+  <div class="lifter-info">
+    <h1>{{ "attempt-board.next" | translate }}</h1>
+    <pc-lifter-info [lifter]="next$"></pc-lifter-info>
+  </div>
+</div>
+
+<div
+  *ngIf="!(show$ | async)"
+  class="grid auto-cols"
+  style="height: 35%; font-size: 2em;"
+>
+  <div>
+    <pc-plate-load
+      *ngIf="
+        (timer$ | async).state === 'OFF' &&
+          (timer$ | async).remainingMillis === 60 * 1000;
+        else timer
+      "
+    >
+    </pc-plate-load>
+
+    <ng-template #timer>
+      <div class="timer-container">
+        <pc-platform-timer></pc-platform-timer>
+      </div>
+    </ng-template>
+  </div>
+
+  <div>
+    <pc-plate-load [next]="true"> </pc-plate-load>
+  </div>
+</div>
+<div *ngIf="show$ | async" style="height:35%;width: 100%;">
+  <pc-decision-display [display]="true"></pc-decision-display>
+</div>

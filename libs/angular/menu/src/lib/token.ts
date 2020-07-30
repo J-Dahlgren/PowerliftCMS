@@ -1,0 +1,1 @@
+export const MENU_IS_TRANSLATED = "MENU_IS_TRANSLATED";

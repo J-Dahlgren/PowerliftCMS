@@ -1,0 +1,39 @@
+.main-container {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  height: 100%;
+  width: 100%;
+}
+.table-container {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+}
+.sticky-header {
+  position: sticky !important;
+}
+.row {
+  cursor: pointer;
+}
+.filter-bar {
+  height: 100%;
+  &::ng-deep {
+    & > * {
+      margin: 5px;
+    }
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+
+    & > button {
+      max-height: 36px;
+    }
+    & > .mat-form-field {
+      margin-bottom: -1.25em;
+    }
+  }
+}
+.thin-input {
+  margin-bottom: -1.25em;
+}

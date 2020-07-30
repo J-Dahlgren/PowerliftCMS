@@ -1,0 +1,68 @@
+<dt-generic-edit-dialog [parent]="model" [form]="form">
+  <div [formGroup]="form" style="display: flex; flex-direction: column;">
+    <mat-form-field>
+      <mat-label>{{ "compeition.name" | translate | titlecase }}</mat-label>
+      <input matInput formControlName="name" required />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>{{ "platform" | translate }}</mat-label>
+      <mat-select formControlName="platformId">
+        <mat-option [value]="null">{{
+          "option.no-platform" | translate
+        }}</mat-option>
+        <mat-option
+          *ngFor="let platform of platforms$ | async"
+          [value]="platform.id"
+        >
+          {{ platform.name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <input
+        matInput
+        [ngxMatDatetimePicker]="weighPicker"
+        [placeholder]="'group.weigh-in-time' | translate"
+        formControlName="weighInTime"
+      />
+      <mat-datepicker-toggle
+        matSuffix
+        [for]="weighPicker"
+      ></mat-datepicker-toggle>
+      <ngx-mat-datetime-picker
+        #weighPicker
+        [showSpinners]="true"
+        [showSpinners]="true"
+        [showSeconds]="false"
+        [enableMeridian]="false"
+      >
+      </ngx-mat-datetime-picker>
+    </mat-form-field>
+    <mat-form-field>
+      <input
+        matInput
+        [ngxMatDatetimePicker]="compPicker"
+        [placeholder]="'group.competition-time' | translate"
+        formControlName="competitionTime"
+      />
+      <mat-datepicker-toggle
+        matSuffix
+        [for]="compPicker"
+      ></mat-datepicker-toggle>
+      <ngx-mat-datetime-picker
+        #compPicker
+        [showSpinners]="true"
+        [showSpinners]="true"
+        [showSeconds]="false"
+        [enableMeridian]="false"
+      >
+      </ngx-mat-datetime-picker>
+    </mat-form-field>
+
+    <!-- <input [ngxTimepicker]="picker" matInput type="datetime" formControlName="weighInTime" />
+      <ngx-material-timepicker #picker></ngx-material-timepicker> -->
+    <!--
+
+      <input matInput type="datetime" formControlName="weighInTime" /> -->
+  </div>
+</dt-generic-edit-dialog>

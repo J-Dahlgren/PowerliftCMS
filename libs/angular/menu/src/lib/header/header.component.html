@@ -1,0 +1,23 @@
+<div *ngIf="visible$ | async" class="top-menu">
+  <mat-toolbar>
+    <button
+      mat-flat-button
+      matTooltip="CTRL + Q"
+      color="primary"
+      (click)="toggleExpanded()"
+    >
+      <mat-icon svgIcon="menu"></mat-icon>
+      <ng-container *ngIf="translated">
+        {{ "generic.button.menu" | translate | titlecase }}
+      </ng-container>
+      <ng-container *ngIf="!translated">
+        Menu
+      </ng-container>
+    </button>
+    <a mat-button *ngIf="appName" class="app-name" routerLink="/">
+      {{ appName }}
+    </a>
+    <span style="flex: 1 1 auto;"></span>
+    <ng-content> </ng-content>
+  </mat-toolbar>
+</div>

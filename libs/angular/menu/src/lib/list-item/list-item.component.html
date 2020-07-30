@@ -1,0 +1,35 @@
+<a
+  mat-list-item
+  [ngStyle]="{ 'padding-left': depth * 12 + 'px' }"
+  (click)="onItemSelected(item)"
+  [ngClass]="{
+    active: item.route ? router.isActive(item.route, true) : false,
+    expanded: expanded
+  }"
+  class="menu-list-item"
+>
+  <mat-icon [svgIcon]="item.iconName"></mat-icon>
+  <div style="margin-left: 10px;">
+    <ng-container *ngIf="translated">
+      {{ "navigation." + item.displayName | translate | titlecase }}
+    </ng-container>
+    <ng-container *ngIf="!translated">
+      {{ item.displayName }}
+    </ng-container>
+  </div>
+  <span fxFlex *ngIf="item.children && item.children.length">
+    <span fxFlex></span>
+    <mat-icon
+      [@indicatorRotate]="expanded ? 'expanded' : 'collapsed'"
+      svgIcon="chevron-down"
+    ></mat-icon>
+  </span>
+</a>
+<div *ngIf="expanded">
+  <dt-list-item
+    *ngFor="let child of item.children"
+    [item]="child"
+    [depth]="depth + 1"
+  >
+  </dt-list-item>
+</div>

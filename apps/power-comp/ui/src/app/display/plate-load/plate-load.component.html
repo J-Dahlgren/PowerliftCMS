@@ -1,0 +1,20 @@
+<div class="bar-container">
+  <div class="bar-view">
+    <div class="bar bar-inner"></div>
+    <div class="bar bar-collar"></div>
+    <div
+      *ngFor="let plate of plates$ | async"
+      [ngClass]="['plate', getCssClass(plate.weight)]"
+    >
+      <div
+        *ngIf="showWeight"
+        class="flex center-y center-x"
+        style="height: 100%;"
+      >
+        <div style="padding: 5px;">{{ plate.weight }}</div>
+      </div>
+    </div>
+    <div class="plate collar"></div>
+    <div class="bar bar-outer"></div>
+  </div>
+</div>

@@ -1,0 +1,21 @@
+<mat-sidenav-container (backdropClick)="closeNav()" fullscreen>
+  <mat-sidenav mode="over" [opened]="expanded$ | async">
+    <mat-toolbar>
+      <a mat-button class="app-name" routerLink="/" (click)="closeNav()">
+        {{ appName }}
+      </a>
+      <span style="flex: 1 1 auto;"></span>
+      <button mat-icon-button color="primary" (click)="closeNav()">
+        <mat-icon svgIcon="close"></mat-icon>
+      </button>
+    </mat-toolbar>
+    <mat-nav-list style="min-width: 300px;">
+      <dt-list-item *ngFor="let item of navItems" [item]="item"></dt-list-item>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content style="overflow-y: hidden !important;">
+    <main id="appBody">
+      <ng-content></ng-content>
+    </main>
+  </mat-sidenav-content>
+</mat-sidenav-container>

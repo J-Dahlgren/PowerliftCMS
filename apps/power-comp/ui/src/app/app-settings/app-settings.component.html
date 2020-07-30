@@ -1,0 +1,11 @@
+<button mat-icon-button [matMenuTriggerFor]="appMenu">
+  <mat-icon svgIcon="cog"></mat-icon>
+</button>
+<mat-menu #appMenu="matMenu">
+  <div mat-menu-item (click)="$event.stopPropagation()">
+    <pc-platform-select></pc-platform-select>
+  </div>
+  <div mat-menu-item (click)="$event.stopPropagation()">
+    <dt-language-selector></dt-language-selector>
+  </div>
+</mat-menu>

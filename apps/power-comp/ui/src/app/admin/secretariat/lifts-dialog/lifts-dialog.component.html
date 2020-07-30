@@ -1,0 +1,78 @@
+<dt-generic-edit-dialog [parent]="model" [form]="form">
+  <ng-container [formGroup]="form">
+    <div formGroupName="lifts" class="card">
+      <ng-container *ngFor="let field of liftFields">
+        <ng-container
+          [formArrayName]="field"
+          *ngIf="getLiftFormArray(field)?.controls as controls"
+        >
+          <ng-container *ngIf="controls.length">
+            <div>
+              <h3 style="text-align: center;">
+                {{ "lifts." + field | translate | titlecase }}
+              </h3>
+
+              <div style="display: flex; flex-direction: row; margin: 0px 5px;">
+                <ng-container *ngFor="let control of controls; let i = index">
+                  <div
+                    [formGroup]="control"
+                    style="display: flex; flex-direction: column;"
+                    class="form-inputs"
+                  >
+                    <mat-form-field appearance="outline">
+                      <mat-label>{{
+                        !!control.get("automatic")?.value
+                          ? ("lift.automatic" | translate)
+                          : ""
+                      }}</mat-label>
+                      <input
+                        matInput
+                        type="number"
+                        formControlName="automatic"
+                      />
+                    </mat-form-field>
+                    <mat-form-field appearance="outline">
+                      <mat-label>{{ "lift.requested" | translate }}</mat-label>
+                      <input
+                        dtFocusElement
+                        matInput
+                        type="number"
+                        formControlName="requested"
+                      />
+                    </mat-form-field>
+                    <mat-form-field appearance="outline" color="accent">
+                      <mat-select formControlName="status">
+                        <mat-option
+                          *ngFor="let status of statuses | keys"
+                          [value]="status.value"
+                        >
+                          {{
+                            "liftstatus." + status.key.toLowerCase() || ""
+                              | translate
+                          }}
+                        </mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                    <div
+                      style="min-height: 20px;border-radius: 10px;"
+                      [class.bg-warn]="control.get('status')?.value < 0"
+                      [class.bg-primary]="control.get('status')?.value > 0"
+                    ></div>
+                  </div>
+                </ng-container>
+              </div>
+            </div>
+          </ng-container>
+          <!-- <ng-container *ngIf="controls.length" [formGroup]="controls[0]">
+            <mat-form-field appearance="outline">
+              <mat-label>{{
+                "lifts." + field | translate | titlecase
+              }}</mat-label>
+              <input matInput type="number" formControlName="requested" />
+            </mat-form-field>
+          </ng-container> -->
+        </ng-container>
+      </ng-container>
+    </div>
+  </ng-container>
+</dt-generic-edit-dialog>
