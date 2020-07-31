@@ -7,13 +7,13 @@
 OutputBaseFilename=powercomp-setup
 AppId={{D95F2E52-6902-4771-9035-77F3A8364DA2}
 AppName=Power Comp
-AppVersion=0.1
-;AppVerName=Power Comp 0.1
+;AppVersion=0.1
+AppVerName=Power Comp
 AppPublisher=Dahlgren Tech
 AppPublisherURL=https://j-dahlgren.github.io/Power-Comp/
 AppSupportURL=https://j-dahlgren.github.io/Power-Comp/
 AppUpdatesURL=https://j-dahlgren.github.io/Power-Comp/
-DefaultDirName={autopf}\Power Comp
+DefaultDirName={pf}\Power Comp
 DisableDirPage=false
 DisableProgramGroupPage=yes
 ; Remove the following line to run in administrative install mode (install for all users.)
@@ -34,8 +34,8 @@ Source: "standalone\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs cr
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Icons]
-Name: "{autoprograms}\Power Comp"; Filename: "{app}\powercomp.exe"
-Name: "{autodesktop}\Power Comp"; Filename: "{app}\powercomp.exe"; Tasks: desktopicon
+Name: "{commonprograms}\Power Comp"; Filename: "{app}\powercomp.exe"
+Name: "{commondesktop}\Power Comp"; Filename: "{app}\powercomp.exe"; Tasks: desktopicon
 
 [Run]
 Filename: "{app}\powercomp.exe"; Description: "{cm:LaunchProgram,Power Comp}"; Flags: nowait postinstall skipifsilent
