@@ -79,32 +79,6 @@
         }
       }
     },
-    "neat": {
-      "root": "libs/neat",
-      "sourceRoot": "libs/neat/src",
-      "projectType": "library",
-      "schematics": {},
-      "architect": {
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "libs/neat/tsconfig.lib.json",
-              "libs/neat/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**", "!libs/neat/**"]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/neat/jest.config.js",
-            "tsConfig": "libs/neat/tsconfig.spec.json",
-            "passWithNoTests": true
-          }
-        }
-      }
-    },
     "angular-logger": {
       "projectType": "library",
       "root": "libs/angular/logger",
@@ -166,32 +140,6 @@
       "schematics": {
         "@nrwl/angular:component": {
           "style": "scss"
-        }
-      }
-    },
-    "avanza-plus": {
-      "root": "libs/avanza-plus",
-      "sourceRoot": "libs/avanza-plus/src",
-      "projectType": "library",
-      "schematics": {},
-      "architect": {
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "libs/avanza-plus/tsconfig.lib.json",
-              "libs/avanza-plus/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**", "!libs/avanza-plus/**"]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/avanza-plus/jest.config.js",
-            "tsConfig": "libs/avanza-plus/tsconfig.spec.json",
-            "passWithNoTests": true
-          }
         }
       }
     },
@@ -402,32 +350,6 @@
           "options": {
             "jestConfig": "libs/nest/auth/jest.config.js",
             "tsConfig": "libs/nest/auth/tsconfig.spec.json",
-            "passWithNoTests": true
-          }
-        }
-      }
-    },
-    "nest-push-bullet": {
-      "root": "libs/nest/push-bullet",
-      "sourceRoot": "libs/nest/push-bullet/src",
-      "projectType": "library",
-      "schematics": {},
-      "architect": {
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "libs/nest/push-bullet/tsconfig.lib.json",
-              "libs/nest/push-bullet/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**", "!libs/nest/push-bullet/**"]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/nest/push-bullet/jest.config.js",
-            "tsConfig": "libs/nest/push-bullet/tsconfig.spec.json",
             "passWithNoTests": true
           }
         }

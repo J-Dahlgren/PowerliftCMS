@@ -29,16 +29,10 @@
     "nest-entity-service": {
       "tags": []
     },    
-    "neat": {
-      "tags": []
-    },
     "angular-logger": {
       "tags": []
     },
     "angular-crud-api": {
-      "tags": []
-    },
-    "avanza-plus": {
       "tags": []
     },
     "angular-menu": {
@@ -60,9 +54,6 @@
       "tags": []
     },
     "nest-auth": {
-      "tags": []
-    },
-    "nest-push-bullet": {
       "tags": []
     },    
     "power-comp-shared": {
