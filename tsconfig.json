@@ -20,6 +20,13 @@
     "baseUrl": ".",
     "paths": {
       "@dt/util": ["libs/util/src/index.ts"],
+      "@pc/util/types": ["libs/util/src/types/index.ts"],
+      "@pc/util/state": ["libs/util/src/state/index.ts"],
+      "@pc/util/rxjs": ["libs/util/src/rxjs/index.ts"],
+      "@pc/util/misc": ["libs/util/src/misc/index.ts"],
+      "@pc/util/constants": ["libs/util/src/constants/index.ts"],
+      "@pc/util/array": ["libs/util/src/array/index.ts"],
+      "@pc/util/event-bus": ["libs/util/src/event-bus/index.ts"],
       "@dt/avanza": ["libs/avanza/src/index.ts"],
       "@dt/auto-trader/entity": ["libs/auto-trader/entity/src/index.ts"],
       "@dt/auto-trader/data-types": [
@@ -29,7 +36,7 @@
       "@dt/nest/entity-service": ["libs/nest/entity-service/src/index.ts"],
       "@dt/auto-trader/backtest": ["libs/auto-trader/backtest/src/index.ts"],
       "@dt/angular/logger": ["libs/angular/logger/src/index.ts"],
-      "@dt/angular/crud-api": ["libs/angular/crud-api/src/index.ts"],      
+      "@dt/angular/crud-api": ["libs/angular/crud-api/src/index.ts"],
       "@dt/angular/menu": ["libs/angular/menu/src/index.ts"],
       "@dt/angular/material": ["libs/angular/material/src/index.ts"],
       "@dt/angular/util": ["libs/angular/util/src/index.ts"],
