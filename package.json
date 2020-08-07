@@ -66,7 +66,7 @@
     "@types/socket.io-client": "^1.4.33",
     "chai": "^4.2.0",
     "chalk": "^4.1.0",
-    "class-transformer": "^0.2.3",
+    "class-transformer": "^0.3.1",
     "class-validator": "^0.12.2",
     "core-js": "^2.5.4",
     "dotenv": "^8.2.0",
