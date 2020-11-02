@@ -18,7 +18,7 @@ Currently only Windows, but executables for Linux and MacOS may be added in the 
 
 **Is it open source?**
 
-No, not at the moment. But it might happen.
+Yes! It can be found at [https://github.com/J-Dahlgren/Power-Comp](https://github.com/J-Dahlgren/Power-Comp) and is MIT licensed
 
 **Which federations does it support?**
 
