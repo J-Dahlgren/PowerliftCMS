@@ -1,4 +1,10 @@
-## Windows installation
+## Windows
+
+### Prerequisites
+- A PC with Windows 7 or newer version.
+- Full administrator rights.
+
+### Steps
 
 - **Windows installer:** Get the latest installation file called `powercomp-setup.exe` at https://github.com/J-Dahlgren/Power-Comp/releases/latest in the assets section.
     - The browser may warn against downloading the file, download anyway.
@@ -14,10 +20,12 @@
 ## Configuration
 
 To configure the application, go to the install location. 
-There will be a file that is called "power-comp.env", you can modify the following in it:
+There will be a file that is called "power-comp.env", you can modify the following environment variables in it:
 - Application port
     - All clients need to "refresh" with the new port number if changed
 - Database filename
 - Log level
+
+If you want to have a playground with a prepopulated temporary database, set the variable `DATABASE_NAME = ":memory:"`. This will give you an environment similar to the demo site.
 
 The application need to be restarted for any changes to take effect.

@@ -2,9 +2,9 @@
 
 *Administration and Participation made easy.*
 
-**This document is work in progress and its content currently very limited, some sections may be empty.**
+**This document is work in progress and its content is currently somewhat limited, some sections may be empty.**
 
-Want to try the application? An online demo is available at **[pcms2.dahlgren.tech](http://pcms2.dahlgren.tech/)**
+It is recommended to use the demo at **[pcms2.dahlgren.tech](http://pcms2.dahlgren.tech/)** along with the documentation to get a better understanding of how it works.
 
 
 ## Have any suggestions or found bugs?
