@@ -1,7 +1,7 @@
 <div>
   <button mat-button [matMenuTriggerFor]="menu">
     <ng-container *ngIf="selected$ | async as selected">
-      <span>{{ selected.language }}</span>
+      <span>{{ selected.language | uppercase }}</span>
       <span
         style="margin-left: 5px;"
         [class]="'flag-icon flag-icon-' + selected.flag"
@@ -15,7 +15,7 @@
         mat-menu-item
         (click)="languageService.setLanguage(code)"
       >
-        <span>{{ code.language }}</span>
+        <span>{{ code.language | uppercase }}</span>
         <span
           style="margin-left: 5px;"
           [class]="'flag-icon flag-icon-' + code.flag"

@@ -22,8 +22,9 @@
           (current$ | async)?.fullname === element?.fullname
         "
         [class.next-lifter]="(next$ | async)?.fullname === element?.fullname"
+        style="text-align: left !important; padding-left: 5px;"
       >
-        {{ element?.fullname }}
+        {{ element.lastname }}, {{ element.firstname }}
       </td>
     </ng-container>
 

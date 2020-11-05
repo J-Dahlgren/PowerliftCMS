@@ -28,7 +28,7 @@ export class SecretariatListComponent extends AutoUnsubscribeComponent
     "lastname",
     "weightCategory.name",
     "bornYear",
-    "equipped",
+    "competitionMode",
     "attempt",
     "attemptInfo.weight",
     "edit"

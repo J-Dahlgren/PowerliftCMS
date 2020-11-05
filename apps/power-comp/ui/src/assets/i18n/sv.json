@@ -145,5 +145,7 @@
   "weight-category.min-exclusive": "Från",
   "weight-category.short": "Kat.",
   "welcome.title": "Välkommen till Power Comp",
-  "yes": "Ja"
+  "yes": "Ja",
+  "welcome.ip-notice": "Servern är tillgänglig på följande IP-adresser",
+  "welcome.author": "Författare"
 }

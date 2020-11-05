@@ -27,8 +27,12 @@ export class StateStore<T extends {}> extends AbstractStateStore<T> {
   public get state(): T {
     return cloneDeep(this._state.value);
   }
-  modify(func: StateFunction<T>) {
-    this._state.next(func(this._state.value));
+  modify(val: StateFunction<T> | Partial<T>) {
+    if (typeof val === "function") {
+      this._state.next(val(this._state.value));
+    } else {
+      this._state.next({ ...this._state.value, ...val });
+    }
   }
   public set<K extends keyof T>(key: K, data: T[K]) {
     const next = { ...this._state.value };
