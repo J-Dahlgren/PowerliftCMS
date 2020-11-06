@@ -1,0 +1,18 @@
+.timer-buttons {
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  & > * {
+    max-height: 250px;
+    min-width: 200px;
+    flex-basis: auto; /* default value */
+    flex-grow: 1;
+  }
+}
+.x2 {
+  transform: scale(2);
+}
+.x3 {
+  transform: scale(3);
+}

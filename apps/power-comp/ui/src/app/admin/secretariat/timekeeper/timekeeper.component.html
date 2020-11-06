@@ -1,0 +1,43 @@
+<div class="timer-buttons">
+  <div style="font-size: 2em;">
+    <pc-platform-timer format="mm:ss.S"></pc-platform-timer>
+  </div>
+
+  <button
+    mat-raised-button
+    color="primary"
+    (click)="play()"
+    [disabled]="
+      (timerService.status$ | async) === 'ON' ||
+      !(timerService.remainingMillis$ | async) ||
+      !(activeGroupId$ | async) ||
+      (showDecisions$ | async)
+    "
+  >
+    <mat-icon svgIcon="play" class="x2"></mat-icon>
+  </button>
+  <button
+    mat-raised-button
+    color="warn"
+    (click)="pause()"
+    [disabled]="
+      (timerService.status$ | async) === 'OFF' || !(activeGroupId$ | async)
+    "
+  >
+    <mat-icon svgIcon="pause" class="x2"></mat-icon>
+  </button>
+
+  <button
+    style="font-size: 2em;"
+    mat-raised-button
+    color="accent"
+    (click)="reset()"
+    [disabled]="
+      (timerService.status$ | async) === 'ON' ||
+      !(activeGroupId$ | async) ||
+      (showDecisions$ | async)
+    "
+  >
+    60 s
+  </button>
+</div>

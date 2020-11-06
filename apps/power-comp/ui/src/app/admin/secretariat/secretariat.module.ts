@@ -12,12 +12,14 @@ import { LiftsDialogComponent } from "./lifts-dialog/lifts-dialog.component";
 import { ReactiveFormsModule } from "@angular/forms";
 import { UtilModule } from "@dt/angular/util";
 import { DisplayModule } from "../../display";
+import { TimekeeperComponent } from "./timekeeper/timekeeper.component";
 const baseRoute = "secretariat";
 const routes: Route[] = [
   {
     path: baseRoute,
     component: SecretariatMainComponent
-  }
+  },
+  { path: `${baseRoute}/timekeeper`, component: TimekeeperComponent }
 ];
 
 @NgModule({
@@ -37,7 +39,8 @@ const routes: Route[] = [
     SecretariatMainComponent,
     SecretariatListComponent,
     SecretariatControlComponent,
-    LiftsDialogComponent
+    LiftsDialogComponent,
+    TimekeeperComponent
   ],
   exports: []
 })
