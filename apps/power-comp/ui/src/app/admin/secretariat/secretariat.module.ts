@@ -19,7 +19,10 @@ const routes: Route[] = [
     path: baseRoute,
     component: SecretariatMainComponent
   },
-  { path: `${baseRoute}/timekeeper`, component: TimekeeperComponent }
+  {
+    path: "timekeeper",
+    component: TimekeeperComponent
+  }
 ];
 
 @NgModule({

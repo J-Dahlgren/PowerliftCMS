@@ -30,7 +30,7 @@ Could happen, but it is currently not a priority.
 
 **Can I try it without downloading/installing?**
 
-Yes! Go to the **[demo](http://pcms2.dahlgren.tech/)** and try the software.
+Yes! Go to the **[demo](http://pcms2.dahlgren.tech/)** and try the software. It is updated/reloaded once every week.
 
 **What languages are supported?**
 

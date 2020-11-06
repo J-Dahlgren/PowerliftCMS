@@ -27,19 +27,14 @@ export const navItems: NavItem[] = [
       }
     ]
   },
-  // {
-  //   displayName: "Result",
-  //   iconName: "podium",
-  //   route: "/result"
-  // },
   {
     displayName: "secretariat",
     iconName: "tablet-dashboard",
     route: "/secretariat"
+  },
+  {
+    displayName: "timekeeper",
+    iconName: "timer",
+    route: "/timekeeper"
   }
-  // {
-  //   displayName: "timekeeper",
-  //   iconName: "timer",
-  //   route: "/timekeeper"
-  // }
 ];
