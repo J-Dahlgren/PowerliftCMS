@@ -4,4 +4,4 @@ This repository is organized with nx, please refer to their [documentation](http
 
 ## Prerequisites to develop
 
-* [NodeJs](https://nodejs.org/en/)
+- [NodeJs](https://nodejs.org/en/)

@@ -13,6 +13,7 @@
 - **Overscan mode:** Toggle extra padding to fit old TVs.
 
 - **Participant database:** Keep meet lifters in a separate database for later use.
+
   - **Quick add old lifters to meet:** Reduces time spent filling forms.
   - CSV/Excel import/export.
 

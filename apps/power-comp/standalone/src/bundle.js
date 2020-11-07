@@ -29,7 +29,7 @@ const shell = require("shelljs");
   shell.cp("-r", `dist/apps/${uiProject}/*`, `${buildPath}/client`);
 
   shell.mkdir("-p", binPath);
-  shell.rm(`${buildPath}/client/3rdpartylicenses.txt`)
+  shell.rm(`${buildPath}/client/3rdpartylicenses.txt`);
   shell.cp("-r", `${buildPath}/*`, `bin/${standaloneProject}`);
 
   shell.echo("Create url");

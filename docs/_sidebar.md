@@ -1,15 +1,16 @@
-* [Home](index)
-* [About](about)
+- [Home](index)
+- [About](about)
 
-* Getting started
-    *   [Installation](installation)
-    *   [User Interface](ui-layout)    
+- Getting started
 
-* Competition
+  - [Installation](installation)
+  - [User Interface](ui-layout)
 
-    *   [Administration](preparation)
-    *   [Secretariat](secretariat)
-    *   [Displays](displays)
-    *   [Refereeing](refereeing) 
-    
-* [Planned features](planned-features)
+- Competition
+
+  - [Administration](preparation)
+  - [Secretariat](secretariat)
+  - [Displays](displays)
+  - [Refereeing](refereeing)
+
+- [Planned features](planned-features)

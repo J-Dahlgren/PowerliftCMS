@@ -1,2 +1,2 @@
-* [Home](index)
-* [About](about)
+- [Home](index)
+- [About](about)

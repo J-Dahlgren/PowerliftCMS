@@ -7,4 +7,3 @@
 ## Lifters
 
 ## Weight categories
-

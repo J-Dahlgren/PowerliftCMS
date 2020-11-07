@@ -19,16 +19,16 @@
       }
     }
   },
-  "projects": {     
+  "projects": {
     "util": {
       "tags": []
-    },    
+    },
     "nest-logger": {
       "tags": []
     },
     "nest-entity-service": {
       "tags": []
-    },    
+    },
     "angular-logger": {
       "tags": []
     },
@@ -55,7 +55,7 @@
     },
     "nest-auth": {
       "tags": []
-    },    
+    },
     "power-comp-shared": {
       "tags": []
     },

@@ -38,7 +38,7 @@ export class PlatformDialogComponent extends EditDialog<
     config.title = config.title || "platform";
   }
   getData$(id: number): Observable<IEntity<IPlatform>> {
-    return this.platformService.get(id).pipe(tap(data => {}));
+    return this.platformService.get(id);
   }
   buildForm(data?: IEntity<IPlatform>) {
     const form = new FormGroup({});

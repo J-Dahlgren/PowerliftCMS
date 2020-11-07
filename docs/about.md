@@ -1,6 +1,7 @@
 ## Goals
 
 Power Comp is a competition management system for Powerlifting. It was designed around the following goals:
+
 - Can be run completely offline.
 - Can run be reused across multiple meets.
 - Can use multiple platforms in parallel.
