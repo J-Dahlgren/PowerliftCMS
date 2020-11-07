@@ -51,6 +51,7 @@ export class LifterDialogComponent extends EditDialog<
   groups$: Observable<IEntity<IGroup>[]>;
   wCategories: IEntity<IWeightClass>[] = [];
   currentCategory$ = new BehaviorSubject<IWeightClass | null>(null);
+  currentYear = new Date().getFullYear();
   constructor(
     @Inject(MAT_DIALOG_DATA) config: PcDialogOptions,
     public dialogRef: MatDialogRef<LifterDialogComponent>,
@@ -105,9 +106,12 @@ export class LifterDialogComponent extends EditDialog<
       license: [null],
       team: [""],
       equipped: [false],
-      bodyWeight: [null, [Validators.min(0)]],
+      bodyWeight: [null, [Validators.min(1)]],
       lot: [0],
-      bornYear: [null, [Validators.min(1900)]],
+      bornYear: [
+        null,
+        [Validators.min(1900), Validators.max(this.currentYear)]
+      ],
       settings: fb.group({
         squat: fb.group({
           rackHeight: [null, Validators.min(0)],

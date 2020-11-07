@@ -1,5 +1,5 @@
 import { ILifts, IAttempt } from "@dt/power-comp/shared";
-import { FormGroup, FormControl, FormArray } from "@angular/forms";
+import { FormGroup, FormControl, FormArray, Validators } from "@angular/forms";
 import { extractKeys } from "@dt/util";
 
 export function createLiftsForm(lifts: ILifts) {
@@ -17,7 +17,10 @@ export function createAttemptForm(attempt: IAttempt) {
   automatic.disable();
   return new FormGroup({
     status: new FormControl(attempt.status),
-    requested: new FormControl(attempt.requested),
+    requested: new FormControl(attempt.requested, [
+      Validators.min(1),
+      Validators.max(700)
+    ]),
     automatic
   });
 }

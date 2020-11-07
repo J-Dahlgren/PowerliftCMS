@@ -77,7 +77,7 @@ export class PlatformDialogComponent extends EditDialog<
             Validators.required,
             Validators.min(0)
           ]),
-          quantity: new FormControl(plate.quantity)
+          quantity: new FormControl(plate.quantity, [Validators.max(20)])
         })
     );
   }

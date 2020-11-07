@@ -13,7 +13,6 @@ import {
   LiftField,
   matchesAnyLiftConfig,
   defaultLifts,
-  CompetitionModesEnum,
   LiftStatus,
   IAttempt,
   requestedWeight

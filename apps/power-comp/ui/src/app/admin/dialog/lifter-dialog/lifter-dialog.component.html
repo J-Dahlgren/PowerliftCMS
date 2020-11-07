@@ -30,7 +30,12 @@
       </div>
       <mat-form-field appearance="outline">
         <mat-label>{{ "lifter.born-year" | translate | titlecase }}</mat-label>
-        <input matInput type="number" min="1900" formControlName="bornYear" />
+        <input
+          matInput
+          type="number"
+          min="1900"
+          formControlName="bornYear"
+        />
       </mat-form-field>
     </div>
 
@@ -42,7 +47,7 @@
       <div class="body-weight">
         <mat-form-field appearance="outline">
           <mat-label>{{ "lifter.body-weight" | translate }}</mat-label>
-          <input matInput type="number" formControlName="bodyWeight" />
+          <input matInput type="number" min="1" formControlName="bodyWeight" />
         </mat-form-field>
         <div class="flex center-y center-x" style="min-width: 20px;">
           <h1 *ngIf="currentCategory$ | async as category">
