@@ -39,7 +39,9 @@ export class WeightCategoryListComponent extends PowerCompListComponent<
   getEntityTitle(entity: IEntity<IWeightClass>): string {
     return entity?.name || entity.id.toString();
   }
+
   clearFilters() {}
+
   protected queryBuilder(
     queryBuilder: RequestQueryBuilder
   ): RequestQueryBuilder {

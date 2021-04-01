@@ -2,6 +2,7 @@
   "i18n-ally.localesPaths": ["apps/**/i18n"],
   "i18n-ally.pathMatcher": "{locale}.json",
   "i18n-ally.keystyle": "flat",
+  "i18n-ally.sortKeys": true,
   "i18n-ally.localeCountryMap": {
     "en": "gb", // show UK's flag instead of US's
     "sv": "se" // show swedish flag for 'sv'

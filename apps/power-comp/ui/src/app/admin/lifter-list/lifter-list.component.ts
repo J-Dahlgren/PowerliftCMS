@@ -7,7 +7,13 @@ import { CompetitionEditService } from "../competition-edit.service";
 import { ModalService, EditDialog } from "@dt/angular/shared";
 import { PcDialogOptions, LifterDialogComponent } from "../dialog";
 import { PowerCompListComponent } from "../power-comp-list.component";
-import { debounceTime, filter, skip, exhaustMap } from "rxjs/operators";
+import {
+  debounceTime,
+  filter,
+  skip,
+  exhaustMap,
+  switchMap
+} from "rxjs/operators";
 import { fromEvent, merge, BehaviorSubject } from "rxjs";
 import { SnackBarService } from "@dt/angular/material";
 import { TranslateService } from "@ngx-translate/core";
@@ -68,6 +74,10 @@ export class LifterListComponent
                 field: "competitionId",
                 operator: "eq",
                 value: this.competitionId
+              },
+              sort: {
+                field: "name",
+                order: "ASC"
               }
             }).query()
           )
@@ -115,8 +125,14 @@ export class LifterListComponent
     this.applyTextFilter("");
   }
   drawLot() {
-    this.entityService
-      .drawLots(+this.competitionId)
+    this.modalService
+      .openConfirmModal({
+        message: "lifter.draw-lot.confirm.message",
+        title: "lifter.draw-lot.confirm.title"
+      })
+      .confirmed$.pipe(
+        switchMap(() => this.entityService.drawLots(+this.competitionId))
+      )
       .subscribe(() => this.refresh());
   }
   applyTextFilter(value: string) {

@@ -1,9 +1,11 @@
-<h2 mat-dialog-title>{{ data.title }}</h2>
+<h2 mat-dialog-title>
+  {{ translate ? (data.title | translate) : data.title }}
+</h2>
 <mat-dialog-content>
-  {{ data.message }}
+  {{ translate ? (data.message | translate) : data.message }}
 </mat-dialog-content>
-<mat-dialog-actions>
-  <button mat-button [mat-dialog-close]="true">
+<mat-dialog-actions align="center">
+  <button mat-raised-button color="accent" [mat-dialog-close]="true">
     {{ translate ? ("generic.button.yes" | translate | titlecase) : "Confirm" }}
   </button>
   <button mat-button [mat-dialog-close]="false">

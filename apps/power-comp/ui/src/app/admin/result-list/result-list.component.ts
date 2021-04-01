@@ -89,6 +89,10 @@ export class ResultListComponent implements OnInit, AfterViewInit {
               field: "competitionId",
               operator: "eq",
               value: this.competitionId
+            },
+            sort: {
+              field: "name",
+              order: "ASC"
             }
           }).query()
         )

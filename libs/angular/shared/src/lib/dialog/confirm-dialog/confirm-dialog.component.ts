@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject } from "@angular/core";
+import { Component, OnInit, Inject, Optional } from "@angular/core";
 import { MAT_DIALOG_DATA } from "@angular/material/dialog";
 import { ModalData } from "../modal-data";
 import { TRANSLATE } from "../token";
@@ -10,7 +10,7 @@ import { TRANSLATE } from "../token";
 export class ConfirmDialogComponent implements OnInit {
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: ModalData,
-    @Inject(TRANSLATE) public translate: boolean
+    @Inject(TRANSLATE) @Optional() public translate?: boolean
   ) {}
 
   ngOnInit(): void {}

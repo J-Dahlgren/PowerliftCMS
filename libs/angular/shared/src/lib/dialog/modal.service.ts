@@ -5,17 +5,26 @@ import { EditDialog } from "./generic-edit-dialog/edit-dialog";
 import { ConfirmDialogComponent } from "./confirm-dialog/confirm-dialog.component";
 import { ModalData } from "./modal-data";
 import { IEntity } from "@dt/util";
+import { filter, mapTo, take } from "rxjs/operators";
 
 @Injectable({ providedIn: "root" })
 export class ModalService {
   constructor(private dialog: MatDialog) {}
   openConfirmModal(data: ModalData) {
-    return this.dialog
+    const base = this.dialog
       .open<ConfirmDialogComponent, ModalData, boolean>(
         ConfirmDialogComponent,
         { data }
       )
       .afterClosed();
+    return {
+      afterClosed$: base,
+      confirmed$: base.pipe(
+        take(1),
+        filter(confirmed => !!confirmed),
+        mapTo(true)
+      )
+    };
   }
   openEditModal<
     T extends object,

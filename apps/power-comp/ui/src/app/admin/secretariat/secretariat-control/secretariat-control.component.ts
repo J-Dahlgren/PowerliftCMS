@@ -62,6 +62,10 @@ export class SecretariatControlComponent extends AutoUnsubscribeComponent
               field: "platformId",
               operator: "eq",
               value: platform?.id || -1
+            },
+            sort: {
+              field: "name",
+              order: "ASC"
             }
           }).query()
         )
