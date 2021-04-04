@@ -1,12 +1,12 @@
 ## Up next
 
-- **Timekeeper:** Mobile view for speaker with timer controls.
-
 - **Application PIN:** Secure parts of the application against unauthorized users.
 
 * **Mobile Referee view:** An option to referee controllers.
 
 ## Soon
+
+- **Quick access to administration**
 
 - **Break timer:** Set timer for breaks with messages, e.g. between groups.
 
@@ -23,6 +23,8 @@
   - Group lifting order
 
 ## Some day
+
+- **Package as electron application:** Packaging Power Comp as an Electron application would make it available on many more operating systems.
 
 - **Theme selector:** Toggle dark or light mode.
 

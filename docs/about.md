@@ -11,11 +11,17 @@ Power Comp is a competition management system for Powerlifting. It was designed 
 - Remotely accessible, with any modern browser.
 - Open API, anyone should be able to study and use the API with ease.
 
+## How it works
+
+Power Comp is a client/server based software, meaning only one PC is needed to actually run the server and may be accessed by any device/computer on the same network with a modern browser.
+
+More about this [here](access).
+
 ## FAQ
 
 **Which operating systems does the program support?**
 
-Currently executeables are only built for Windows. It is always possible to download the source and compile it for Linux and MacOS. The server can however always be accessed via any modern browser on devices that are on the same network.
+Currently executeables are only built for Windows. It is possible to download the source and compile it for Linux and MacOS. The server can however always be accessed via any modern browser on devices that are on the same network.
 
 **Is it open source?**
 
@@ -40,7 +46,7 @@ In web app:
 - English
 - Swedish
 
-Templates only support english for now.
+Templates only support english for now, but translations are coming.
 
 **An open API was mentioned, where can I find this information?**
 

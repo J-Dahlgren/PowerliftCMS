@@ -3,12 +3,12 @@
 
 - Getting started
 
-  - [Installation](installation)
-  - [User Interface](ui-layout)
+  - [Installation](installation)  
+  - [Accessing the server](access)
 
 - Competition
 
-  - [Administration](preparation)
+  - [Administration](administration)
   - [Secretariat](secretariat)
   - [Displays](displays)
   - [Refereeing](refereeing)
