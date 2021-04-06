@@ -1,7 +1,7 @@
 import { Component, ViewChild, ElementRef, AfterViewInit } from "@angular/core";
 import { ILifter, LiftFieldTuple, IGroup } from "@dt/power-comp/shared";
 import { StateStore, IEntity, Constructor } from "@dt/util";
-import { LifterService, GroupService } from "../../core";
+import { LifterService, GroupService, DownloadService } from "../../core";
 import { RequestQueryBuilder } from "@nestjsx/crud-request";
 import { CompetitionEditService } from "../competition-edit.service";
 import { ModalService, EditDialog } from "@dt/angular/shared";
@@ -19,6 +19,8 @@ import { SnackBarService } from "@dt/angular/material";
 import { TranslateService } from "@ngx-translate/core";
 import { LifterListFilters } from "./lifter-list-filters";
 import { ActivatedRoute, Router } from "@angular/router";
+import { createFileDownload } from "@dt/angular/util";
+import { UploadService } from "../../core/api/upload.service";
 
 @Component({
   selector: "pc-lifter-list",
@@ -46,6 +48,7 @@ export class LifterListComponent
     ...LiftFieldTuple
   ];
   @ViewChild("freeTextFilterInput") textInput!: ElementRef<HTMLInputElement>;
+  @ViewChild("fileInput") fileInput!: ElementRef;
   groups$ = new BehaviorSubject<IEntity<IGroup>[]>([]);
   constructor(
     protected entityService: LifterService,
@@ -54,6 +57,8 @@ export class LifterListComponent
     protected modalService: ModalService,
     protected snack: SnackBarService,
     protected translate: TranslateService,
+    protected downloadService: DownloadService,
+    protected upload: UploadService,
     router: Router,
     route: ActivatedRoute
   ) {
@@ -134,6 +139,21 @@ export class LifterListComponent
         switchMap(() => this.entityService.drawLots(+this.competitionId))
       )
       .subscribe(() => this.refresh());
+  }
+  download() {
+    this.downloadService.getRegistrationTemplate().subscribe(data => {
+      createFileDownload(data, `RegistrationTemplate_en.xlsx`);
+    });
+  }
+
+  onFileSelected(files: FileList) {
+    const file = files.item(0);
+    if (file) {
+      this.upload
+        .uploadRegistration(file, +this.competitionId)
+        .subscribe(() => this.refresh());
+      this.fileInput.nativeElement.value = null; // Reset selected file
+    }
   }
   applyTextFilter(value: string) {
     this.textFilter = value;

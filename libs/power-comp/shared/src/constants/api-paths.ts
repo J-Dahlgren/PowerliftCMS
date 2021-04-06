@@ -32,9 +32,13 @@ export const api = {
 
   download: {
     root: "download",
-    protocol: "protocol"
+    protocol: "protocol",
+    registration: "registration"
   },
-
+  upload: {
+    root: "upload",
+    registration: "registration"
+  },
   weightCategory: "weight-category",
   events,
   competitionInfo: {

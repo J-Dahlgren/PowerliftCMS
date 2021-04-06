@@ -59,6 +59,23 @@
         <mat-icon svgIcon="close"></mat-icon>
       </button>
     </mat-form-field>
+    <button mat-raised-button color="accent" (click)="fileInput.click()">
+      {{ "buttons.upload" | translate }}
+      <mat-icon svgIcon="upload"></mat-icon>
+    </button>
+
+    <input
+      hidden
+      (change)="onFileSelected($event.target.files)"
+      #fileInput
+      type="file"
+      id="file"
+      accept=".xlsx"
+    />
+    <button mat-raised-button (click)="download()">
+      {{ "buttons.empty-registration" | translate }}
+      <mat-icon svgIcon="download"></mat-icon>
+    </button>
   </ng-container>
 
   <ng-container dtTableContent>

@@ -9,6 +9,8 @@
   "age-category.short": "Age Cat.",
   "attempt-board.current": "Current lifter",
   "attempt-board.next": "Next lifter",
+  "buttons.empty-registration": "Empty registration file",
+  "buttons.upload": "Upload",
   "compeition.manage": "Manage",
   "competition": "competition",
   "competition-mode": "Competition type",
@@ -146,8 +148,8 @@
   "weight-category.max-inclusive": "To",
   "weight-category.min-exclusive": "From",
   "weight-category.short": "Cat.",
-  "welcome.title": "Welcome to Power Comp",
-  "yes": "Yes",
+  "welcome.author": "Author",
   "welcome.ip-notice": "The server is accessible on the following IP adresses",
-  "welcome.author": "Author"
+  "welcome.title": "Welcome to Power Comp",
+  "yes": "Yes"
 }

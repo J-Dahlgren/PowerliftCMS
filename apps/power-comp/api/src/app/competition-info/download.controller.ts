@@ -22,4 +22,19 @@ export class DownloadController {
     response.send(buffer);
     response.end();
   }
+
+  @Get(`${api.download.registration}`)
+  @Header(
+    "Content-Disposition",
+    `attachment; filename=RegistrationTemplate_en.xlsx`
+  )
+  @Header(
+    "Content-Type",
+    "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+  )
+  async registrationTemplate(@Res() response: Response) {
+    const buffer = await this.downloadService.getRegistrationTemplate();
+    response.send(buffer);
+    response.end();
+  }
 }

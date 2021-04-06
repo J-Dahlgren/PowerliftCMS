@@ -5,11 +5,18 @@ import { CoreModule } from "../core";
 import { ApiModule } from "../api.module";
 import { DownloadService } from "./download.service";
 import { DownloadController } from "./download.controller";
+import { UploadController } from "./upload.controller";
+import { UploadService } from "./upload.service";
+import { MulterModule } from "@nestjs/platform-express";
 
 @Module({
-  imports: [ApiModule],
-  controllers: [CompetitionInfoController, DownloadController],
-  providers: [CompetitionInfoService, DownloadService],
+  imports: [ApiModule, MulterModule.register({ dest: "./upload" })],
+  controllers: [
+    CompetitionInfoController,
+    DownloadController,
+    UploadController
+  ],
+  providers: [CompetitionInfoService, DownloadService, UploadService],
   exports: []
 })
 export class CompetitionInfoModule {}

@@ -8,25 +8,22 @@ import moment from "moment";
 import { tap } from "rxjs/operators";
 
 @Injectable({ providedIn: "root" })
-export class DownloadService extends BaseApiService {
+export class UploadService extends BaseApiService {
   constructor(private http: HttpClient, logService: LogService) {
     super(
-      { base: "api", path: api.download.root },
-      logService.create("DownloadService")
+      { base: "api", path: api.upload.root },
+      logService.create("UploadService")
     );
   }
-  getProtocol(groupId: number | string) {
-    return this.http
-      .get(`${this.path}/${api.download.protocol}/${groupId}`, {
-        responseType: "arraybuffer"
-      })
-      .pipe(this.errorTap());
+  uploadRegistration(file: File, competitionId: number) {
+    return this.uploadFile(file, `${api.upload.registration}/${competitionId}`);
   }
-  getRegistrationTemplate() {
+
+  private uploadFile(file: File, endpoint: string) {
+    const formData = new FormData();
+    formData.append("file", file, file.name);
     return this.http
-      .get(`${this.path}/${api.download.registration}`, {
-        responseType: "arraybuffer"
-      })
+      .post(this.buildPath(endpoint), formData)
       .pipe(this.errorTap());
   }
 }

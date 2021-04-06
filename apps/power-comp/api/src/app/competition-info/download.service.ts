@@ -86,4 +86,9 @@ export class DownloadService {
     const buffer = template.generate({ type: "nodebuffer" });
     return buffer;
   }
+  async getRegistrationTemplate() {
+    return readFileAsync(
+      `${assetsFolder}/templates/RegistrationTemplate_en.xlsx`
+    );
+  }
 }

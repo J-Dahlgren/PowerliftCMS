@@ -9,6 +9,8 @@
   "age-category.short": "Ålders Kat.",
   "attempt-board.current": "Nuvarande lyftare",
   "attempt-board.next": "Nästa lyftare",
+  "buttons.empty-registration": "Tom registreringsfil",
+  "buttons.upload": "Ladda upp",
   "compeition.manage": "Hantera",
   "competition": "Tävling",
   "competition-mode": "Tävlingstyp",
@@ -146,8 +148,8 @@
   "weight-category.max-inclusive": "Till",
   "weight-category.min-exclusive": "Från",
   "weight-category.short": "Kat.",
-  "welcome.title": "Välkommen till Power Comp",
-  "yes": "Ja",
+  "welcome.author": "Författare",
   "welcome.ip-notice": "Servern är tillgänglig på följande IP-adresser",
-  "welcome.author": "Författare"
+  "welcome.title": "Välkommen till Power Comp",
+  "yes": "Ja"
 }
