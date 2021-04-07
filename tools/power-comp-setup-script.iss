@@ -16,8 +16,7 @@ AppUpdatesURL=https://j-dahlgren.github.io/Power-Comp/
 DefaultDirName={pf}\Power Comp
 DisableDirPage=false
 DisableProgramGroupPage=yes
-; Remove the following line to run in administrative install mode (install for all users.)
-PrivilegesRequired=lowest
+; PrivilegesRequired=lowest
 Compression=lzma
 SolidCompression=yes
 WizardStyle=modern
