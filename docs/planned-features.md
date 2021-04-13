@@ -1,25 +1,26 @@
 ## Up next
 
-- **Application PIN:** Secure parts of the application against unauthorized users.
+- **Mobile Referee view:** An option to referee controllers.
 
-* **Mobile Referee view:** An option to referee controllers.
+- **Quick access to administration**
+
+- **Participant table:** Keep meet lifters in a separate database for later use.
+
+  - **Quick add old lifters to meet:** Reduces time spent filling forms.  
+  - CSV/Excel import/export.
 
 ## Soon
 
-- **Quick access to administration**
+- **Application PIN:** Secure parts of the application against unauthorized users.
 
 - **Break timer:** Set timer for breaks with messages, e.g. between groups.
 
 - **Overscan mode:** Toggle extra padding to fit old TVs.
 
-- **Participant database:** Keep meet lifters in a separate database for later use.
-
-  - **Quick add old lifters to meet:** Reduces time spent filling forms.
-  - CSV/Excel import/export.
-
 - **Competition info views:** Information accessible to lifters and audience.
 
   - **Schedule:** Overview of when groups have their weigh in and competition time.
+  
   - Group lifting order
 
 ## Some day
