@@ -3,7 +3,8 @@ import { PlatformManagerService } from "./platform-manager.service";
 import {
   PlatformModule,
   LifterModule,
-  GroupModule
+  GroupModule,
+  CompetitionModule
 } from "@dt/power-comp/entity";
 import { PlatformEventController } from "./platform-event.controller";
 import { PlatformEventService } from "./platform-event.service";
@@ -16,7 +17,13 @@ import { InternalEventBus } from "./internal-event-bus";
 
 @Module({
   controllers: [PlatformEventController],
-  imports: [PlatformModule, LifterModule, CoreModule, GroupModule],
+  imports: [
+    CompetitionModule,
+    PlatformModule,
+    LifterModule,
+    CoreModule,
+    GroupModule
+  ],
   providers: [
     InternalEventBus,
     PersistenPlatformDataStore,

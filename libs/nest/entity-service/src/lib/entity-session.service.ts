@@ -26,7 +26,7 @@ export abstract class EntitySessionService<T extends IEntity>
   constructor() {}
 
   public get active() {
-    return this.status === EntitySessionServiceStatus.TERMINATED;
+    return this.status === EntitySessionServiceStatus.ACTIVE;
   }
   public get entity() {
     return cloneDeep(this._entity);

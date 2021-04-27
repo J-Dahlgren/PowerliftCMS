@@ -60,6 +60,7 @@ async function bootstrap() {
       bootLogger.info(
         `API listening at http://localhost:${port}/${globalPrefix}`
       );
+      bootLogger.info(`Database file path: ${config.database.name}`);
     }
   });
 }

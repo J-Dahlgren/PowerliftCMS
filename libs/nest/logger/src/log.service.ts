@@ -76,7 +76,7 @@ export class LogService implements ILogService {
           this.color(event.logLevel, event.message)
         );
         if (data && !skipDataPrint) {
-          console.log(this.color(event.logLevel, data));
+          console.log(data);
         }
       }
     }
