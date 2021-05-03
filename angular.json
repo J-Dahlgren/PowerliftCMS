@@ -694,28 +694,6 @@
           }
         }
       }
-    },
-    "power-comp-deploy": {
-      "projectType": "application",
-      "root": "apps/power-comp-deploy",
-      "architect": {
-        "build": {
-          "builder": "@nrwl/workspace:run-commands",
-          "options": {
-            "outputPath": "dist/apps/power-comp-deploy",
-            "commands": [
-              {
-                "command": "npx nx build power-comp-api --configuration=cloud"
-              },
-              {
-                "command": "npx nx build power-comp-ui --configuration=cloud"
-              }
-            ],
-            "parallel": false,
-            "color": true
-          }
-        }
-      }
     }
   },
   "cli": {

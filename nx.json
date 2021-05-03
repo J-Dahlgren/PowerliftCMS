@@ -77,9 +77,6 @@
     "power-comp-standalone": {
       "tags": [],
       "implicitDependencies": ["power-comp-api", "power-comp-ui"]
-    },
-    "power-comp-deploy": {
-      "implicitDependencies": ["power-comp-api", "power-comp-ui"]
     }
   }
 }

@@ -7,13 +7,10 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: webfactory/ssh-agent@v0.4.1
+    steps:      
+      - uses: garygrossgarten/github-action-ssh@release
         with:
-          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
-      - uses: actions/setup-node@v1
-        with:
-          node-version: "14.5"
-      - run: npm i -g pm2
-      - run: pm2 deploy apps/power-comp/deploy/power-comp.config.js production --force
+          command: cd ~/docker/power-comp && docker-compose down && docker-compose up -d
+          host: ${{secrets.HOSTNAME}}
+          username: ${{secrets.USERNAME}}
+          privateKey: ${{ secrets.SSH_PRIVATE_KEY}}      
