@@ -1,0 +1,13 @@
+node_modules
+*.env
+
+*.nx-tmp
+
+upload/*
+
+tools
+coverage
+docs
+dist
+.vscode
+.github
