@@ -22,7 +22,7 @@ jobs:
         uses: elgohr/Publish-Docker-Github-Action@master
         with:
           name: jesperdahlgren/power-comp
-          username: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.DOCKER_PASSWORD }}
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_PASSWORD }}
           dockerfile: apps/power-comp/standalone/src/Dockerfile
           tag_semver: true
