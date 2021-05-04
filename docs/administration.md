@@ -23,12 +23,13 @@ All tabs have a data table and when a row is clicked on (except for Results), an
 This is where you add and modify lifters in a competition. You can filter lifters on group and/or a free text filter to quickly find specific lifters. You can also directly in the table modify the group of a lifter.
 
 #### Lifter Edit Dialog
+
 Here you can set the following:
 
-- Basic information for a lifter. 
+- Basic information for a lifter.
 - Bodyweight, changing will reassign the weight category.
 - Starting weights.
-- Competition type (SBD or B). **Changing this will remove any previous lift data, so be cautious when modifying it**. 
+- Competition type (SBD or B). **Changing this will remove any previous lift data, so be cautious when modifying it**.
 - Rack settings for Squat and Bench Press.
 
 ### Groups

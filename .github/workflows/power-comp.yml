@@ -2,15 +2,15 @@ name: Power Comp
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 0 * * 0'
+    - cron: "0 0 * * 0"
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    steps:      
+    steps:
       - uses: garygrossgarten/github-action-ssh@release
         with:
           command: cd ~/docker/power-comp && docker-compose down && docker-compose up -d
           host: ${{secrets.HOSTNAME}}
           username: ${{secrets.USERNAME}}
-          privateKey: ${{ secrets.SSH_PRIVATE_KEY}}      
+          privateKey: ${{ secrets.SSH_PRIVATE_KEY}}

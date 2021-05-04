@@ -3,7 +3,7 @@
 
 - Getting started
 
-  - [Installation](installation)  
+  - [Installation](installation)
   - [Accessing the server](access)
 
 - Competition

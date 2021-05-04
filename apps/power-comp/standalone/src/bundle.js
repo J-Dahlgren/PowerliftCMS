@@ -28,7 +28,7 @@ const shell = require("shelljs");
   shell.cp(`apps/${standaloneProject}/src/node_sqlite3.node`, `${buildPath}`);
   shell.cp("-r", `dist/apps/${uiProject}/*`, `${buildPath}/client`);
 
-  shell.mkdir("-p", binPath);  
+  shell.mkdir("-p", binPath);
   shell.cp("-r", `${buildPath}/*`, `bin/${standaloneProject}`);
 
   shell.echo("Create url");

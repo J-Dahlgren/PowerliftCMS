@@ -6,7 +6,7 @@
 
 - **Participant table:** Keep meet lifters in a separate database for later use.
 
-  - **Quick add old lifters to meet:** Reduces time spent filling forms.  
+  - **Quick add old lifters to meet:** Reduces time spent filling forms.
   - CSV/Excel import/export.
 
 ## Soon
@@ -20,7 +20,7 @@
 - **Competition info views:** Information accessible to lifters and audience.
 
   - **Schedule:** Overview of when groups have their weigh in and competition time.
-  
+
   - Group lifting order
 
 ## Some day

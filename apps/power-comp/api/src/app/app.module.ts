@@ -41,7 +41,7 @@ if (environment.type === Environment.STANDALONE) {
     })
   );
 }
-if (environment.type === Environment.CLOUD) {  
+if (environment.type === Environment.CLOUD) {
   imports.push(
     ServeStaticModule.forRoot({
       rootPath: join(process.cwd(), "dist/apps/power-comp/ui"),
