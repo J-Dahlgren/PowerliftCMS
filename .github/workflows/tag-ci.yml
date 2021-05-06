@@ -26,3 +26,4 @@ jobs:
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
           dockerfile: apps/power-comp/standalone/src/Dockerfile
           tag_semver: true
+          tags: "latest"
