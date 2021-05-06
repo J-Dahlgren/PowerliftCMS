@@ -21,7 +21,7 @@ More about this [here](access).
 
 **Which operating systems does the program support?**
 
-Currently executeables are only built for Windows. It is possible to download the source and compile it for Linux and MacOS. The server can however always be accessed via any modern browser on devices that are on the same network.
+Currently executeables are only built for Windows but you can run the application via [docker](https://docs.docker.com/get-docker/), see [docker hub](https://hub.docker.com/repository/docker/jesperdahlgren/power-comp) for more info on the image. It is also possible to download the source and compile it for Linux and MacOS. The server can however always be accessed via any modern browser on devices that are on the same network.
 
 **Is it open source?**
 

@@ -23,6 +23,7 @@ import { MatPaginator } from "@angular/material/paginator";
 import { TableContent } from "../table-content.directive";
 import { TableHeader } from "../table-header.directive";
 import { get } from "lodash";
+import { ModalService } from "../../dialog";
 
 @Component({
   selector: "dt-action-table",
@@ -44,6 +45,7 @@ export class ActionTableComponent<T extends {}>
   @Input() paginate: boolean = true;
   @Input() pageSize?: number;
   @Input() pageSizes?: number[];
+  @Input() confirmDelete?: boolean;
   @Input() dataSource!: MatTableDataSource<IEntity<T>[]>;
   @Input() columns!: string[];
   @Input() hideDelete: boolean = false;
@@ -56,7 +58,7 @@ export class ActionTableComponent<T extends {}>
   @ContentChild(TableContent) tableContent!: TableContent;
   @ContentChild(TableHeader) tableHeader!: TableHeader;
 
-  constructor() {}
+  constructor(private modal: ModalService) {}
 
   ngOnInit(): void {
     this.hoverClasses = this.highLightHover ? ["row", "bg-accent"] : [];
@@ -71,7 +73,16 @@ export class ActionTableComponent<T extends {}>
     this.rowClick.emit(entity);
   }
   deleteClick(entity: IEntity<T>) {
-    this.delete.emit(entity);
+    if (this.confirmDelete) {
+      this.modal
+        .openConfirmModal({
+          title: "generic.delete-confirmation.title",
+          message: "generic.delete-confirmation.message"
+        })
+        .confirmed$.subscribe(() => this.delete.emit(entity));
+    } else {
+      this.delete.emit(entity);
+    }
   }
   ngOnDestroy() {
     this.terminate.next();

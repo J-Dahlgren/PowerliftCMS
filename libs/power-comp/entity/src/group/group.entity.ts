@@ -66,7 +66,7 @@ export class GroupEntity extends EntityBase implements IEntity<IGroup> {
     () => PlatformEntity,
     platform => platform.groups,
     {
-      onDelete: "RESTRICT"
+      onDelete: "SET NULL"
     }
   )
   @Type(() => PlatformEntity)

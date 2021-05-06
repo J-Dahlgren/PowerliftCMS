@@ -43,6 +43,8 @@
   "generic.button.edit": "Edit",
   "generic.button.menu": "menu",
   "generic.button.yes": "yes",
+  "generic.delete-confirmation.message": "This action cannot be reversed",
+  "generic.delete-confirmation.title": "Delete?",
   "group": "Group",
   "group.competition-time": "Competition time",
   "group.lifters": "Lifters",

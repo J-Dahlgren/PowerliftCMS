@@ -8,7 +8,7 @@ export default () => {
     database: {
       name:
         process.env.DATABASE_NAME ||
-        join(homedir(), "Power Comp", environment.defaultDatabase)
+        join(homedir(), "power-comp", environment.defaultDatabase)
     },
     logLevel:
       (process.env.LOG_LEVEL as keyof typeof LogLevel | undefined) ||

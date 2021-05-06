@@ -83,7 +83,7 @@
       "projectType": "library",
       "root": "libs/angular/logger",
       "sourceRoot": "libs/angular/logger/src",
-      "prefix": "dt",
+      "prefix": "pc",
       "architect": {
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
@@ -115,7 +115,7 @@
       "projectType": "library",
       "root": "libs/angular/crud-api",
       "sourceRoot": "libs/angular/crud-api/src",
-      "prefix": "dt",
+      "prefix": "pc",
       "architect": {
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
@@ -147,7 +147,7 @@
       "projectType": "library",
       "root": "libs/angular/menu",
       "sourceRoot": "libs/angular/menu/src",
-      "prefix": "dt",
+      "prefix": "pc",
       "architect": {
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
@@ -179,7 +179,7 @@
       "projectType": "library",
       "root": "libs/angular/material",
       "sourceRoot": "libs/angular/material/src",
-      "prefix": "dt",
+      "prefix": "pc",
       "architect": {
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
@@ -211,7 +211,7 @@
       "projectType": "library",
       "root": "libs/angular/util",
       "sourceRoot": "libs/angular/util/src",
-      "prefix": "dt",
+      "prefix": "pc",
       "architect": {
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
@@ -243,7 +243,7 @@
       "projectType": "library",
       "root": "libs/angular/socket",
       "sourceRoot": "libs/angular/socket/src",
-      "prefix": "dt",
+      "prefix": "pc",
       "architect": {
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
@@ -301,7 +301,7 @@
       "projectType": "library",
       "root": "libs/angular/auth",
       "sourceRoot": "libs/angular/auth/src",
-      "prefix": "dt",
+      "prefix": "pc",
       "architect": {
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
@@ -612,7 +612,7 @@
       "projectType": "library",
       "root": "libs/angular/shared",
       "sourceRoot": "libs/angular/shared/src",
-      "prefix": "dt",
+      "prefix": "pc",
       "architect": {
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",

@@ -1,6 +1,7 @@
 <dt-action-table
   matSort
   [dataSource]="dataSource"
+  [confirmDelete]="true"
   [columns]="columns"
   (rowClick)="edit($event)"
   (delete)="delete($event)"

@@ -1,4 +1,5 @@
 <dt-action-table
+  [confirmDelete]="true"
   (rowClick)="edit($event)"
   (delete)="delete($event)"
   [dataSource]="dataSource"

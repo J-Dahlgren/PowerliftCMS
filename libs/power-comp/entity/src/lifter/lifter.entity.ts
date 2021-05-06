@@ -159,7 +159,12 @@ export class LifterEntity extends EntityBase implements LifterData {
 
   @ManyToOne(
     () => GroupEntity,
-    group => group.lifters
+    group => group.lifters,
+    {
+      cascade: [],
+      onDelete: "SET NULL",
+      onUpdate: "NO ACTION"
+    }
   )
   group?: IEntity<IGroup>;
 

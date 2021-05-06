@@ -43,6 +43,8 @@
   "generic.button.edit": "Redigera",
   "generic.button.menu": "Meny",
   "generic.button.yes": "ja",
+  "generic.delete-confirmation.message": "Denna åtgärd kan inte ångras",
+  "generic.delete-confirmation.title": "Radera?",
   "group": "Grupp",
   "group.competition-time": "Tävlingstid",
   "group.lifters": "Lyftare",
