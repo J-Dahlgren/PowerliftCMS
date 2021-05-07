@@ -4,7 +4,7 @@ The control bar sits at the top of the screen below the menu bar.
 
 ### Active group
 
-The active group for the platform can be changed with the dropdown menu. Selecting a different group will reload all lifters and reset the timers. This will affect all screens across all clients that are showing the current platform.
+The active group for the selected platform can be changed with the dropdown menu. Selecting a different group will reload all lifters and reset the timers. This will affect all screens across all clients that are showing the current platform.
 
 ### Timer controls
 
