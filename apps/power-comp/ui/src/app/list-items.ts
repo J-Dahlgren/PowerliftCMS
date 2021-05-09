@@ -28,6 +28,11 @@ export const navItems: NavItem[] = [
     ]
   },
   {
+    displayName: "refereeing",
+    iconName: "gavel",
+    route: "/refereeing"
+  },
+  {
     displayName: "secretariat",
     iconName: "tablet-dashboard",
     route: "/secretariat"

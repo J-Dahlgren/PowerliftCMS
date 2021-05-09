@@ -38,6 +38,8 @@ import { DateHttpInterceptor } from "@dt/angular/util";
 import { DialogModule } from "./admin/dialog";
 import { MatPaginatorIntl } from "@angular/material/paginator";
 import { AppSettingsComponent } from "./app-settings/app-settings.component";
+import { RefereeModule } from "./referee/referee.module";
+import { FlexLayoutModule } from "@angular/flex-layout";
 
 @NgModule({
   declarations: [
@@ -80,8 +82,10 @@ import { AppSettingsComponent } from "./app-settings/app-settings.component";
     MenuModule.forRoot(true),
     SharedDialogModule.forRoot(true),
     AdminModule,
+    RefereeModule,
     DialogModule,
     MiscModule,
+    FlexLayoutModule,
     MatNativeDateModule,
     NgxMatMomentModule
   ],

@@ -1,7 +1,11 @@
 import { NgModule } from "@angular/core";
 import { MaterialModule } from "@dt/angular/material";
 import { TranslateModule } from "@ngx-translate/core";
-import { SERVER_EVENTS_TOKEN, PLATFORM_DATA_TOKEN } from "./token";
+import {
+  SERVER_EVENTS_TOKEN,
+  PLATFORM_DATA_TOKEN,
+  IPlatformEvents
+} from "./token";
 import { PlatformSelectionService } from "./platform-selection.service";
 import {
   PlatformEventsSocketService,
@@ -18,6 +22,10 @@ import {
         serverEvents: PlatformEventsSocketService
       ) => serverEvents.in(() => selection.selectedToString()),
       deps: [PlatformSelectionService, PlatformEventsSocketService]
+    },
+    {
+      provide: IPlatformEvents,
+      useExisting: SERVER_EVENTS_TOKEN
     },
     {
       provide: PLATFORM_DATA_TOKEN,

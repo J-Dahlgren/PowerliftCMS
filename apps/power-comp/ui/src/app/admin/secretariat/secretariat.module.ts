@@ -12,6 +12,7 @@ import { LiftsDialogComponent } from "./lifts-dialog/lifts-dialog.component";
 import { ReactiveFormsModule } from "@angular/forms";
 import { UtilModule } from "@dt/angular/util";
 import { DisplayModule } from "../../display";
+import { FlexLayoutModule } from "@angular/flex-layout";
 import { TimekeeperComponent } from "./timekeeper/timekeeper.component";
 const baseRoute = "secretariat";
 const routes: Route[] = [
@@ -31,6 +32,7 @@ const routes: Route[] = [
     MaterialModule,
     TranslateModule,
     TableModule,
+    FlexLayoutModule,
     UtilModule,
     DisplayModule,
     SharedDialogModule,
