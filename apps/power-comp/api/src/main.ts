@@ -15,6 +15,7 @@ import {
 import { competitionDefaults } from "./defaults";
 import { writeFileSync } from "fs";
 import { sleep } from "@dt/util";
+import { join } from "path";
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule, {
