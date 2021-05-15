@@ -16,15 +16,18 @@ import { DialogModule } from "./dialog";
 import { SecretariatModule } from "./secretariat";
 import { WeightCategoryListComponent } from "./weight-category-list/weight-category-list.component";
 import { ResultListComponent } from "./result-list/result-list.component";
+import { AuthGuard } from "../auth.guard";
 const baseRoute = "competition";
 export const adminRoutes: Route[] = [
   {
     path: baseRoute,
+    canActivate: [AuthGuard],
     component: CompetitionListComponent
   },
   {
     component: CompetitionEditComponent,
     path: `${baseRoute}/:id`,
+    canActivate: [AuthGuard],
     children: [
       { path: "lifters", component: LifterListComponent },
       { path: "groups", component: GroupListComponent },

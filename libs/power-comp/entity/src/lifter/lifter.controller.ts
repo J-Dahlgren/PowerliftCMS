@@ -1,9 +1,10 @@
-import { Controller, Module, Scope, Body, Post, Param } from "@nestjs/common";
+import { Controller, Post, Param, UseGuards } from "@nestjs/common";
 import { CrudController, Crud } from "@nestjsx/crud";
-import { ApiTags, ApiBody, ApiParam } from "@nestjs/swagger";
+import { ApiTags, ApiParam, ApiBearerAuth } from "@nestjs/swagger";
 import { LifterEntityService } from "./lifter-entity.service";
 import { LifterEntity } from "./lifter.entity";
 import { api } from "@dt/power-comp/shared";
+import { SimpleJwtGuard } from "@dt/nest/auth";
 
 @Crud({
   model: {
@@ -18,7 +19,9 @@ import { api } from "@dt/power-comp/shared";
   }
 })
 @ApiTags(api.lifter.root.toUpperCase())
+@ApiBearerAuth()
 @Controller(api.lifter.root)
+@UseGuards(SimpleJwtGuard)
 export class LifterController implements CrudController<LifterEntity> {
   constructor(public service: LifterEntityService) {}
   @ApiParam({ name: "competitionId", type: Number })

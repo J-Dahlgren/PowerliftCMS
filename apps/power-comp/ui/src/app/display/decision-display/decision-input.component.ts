@@ -5,6 +5,8 @@ import { filter, map, auditTime, switchMap, tap } from "rxjs/operators";
 import { ClientEventService } from "../../admin/secretariat/client-event.service";
 import { StateStore } from "@dt/util";
 import { JudgeDecision } from "@dt/power-comp/shared";
+import { AuthService } from "@dt/angular/auth";
+import { AppInfoService } from "../../core";
 
 @Component({
   selector: "pc-decision-input",
@@ -12,10 +14,17 @@ import { JudgeDecision } from "@dt/power-comp/shared";
 })
 export class DecisionInputComponent extends AutoUnsubscribeComponent {
   keys: number[] = [1, 2, 3, 4, 5, 6];
-  constructor(clientEvents: ClientEventService) {
+  constructor(
+    clientEvents: ClientEventService,
+    private authService: AuthService,
+    private appInfo: AppInfoService
+  ) {
     super();
     this.subs.sink = fromEvent<KeyboardEvent>(document.body, "keydown")
       .pipe(
+        filter(
+          () => !appInfo.get("requireAuthentication") || authService.isLoggedIn
+        ),
         filter(event => this.keys.includes(+event.key)),
         map(event => this.getDecision(+event.key))
       )

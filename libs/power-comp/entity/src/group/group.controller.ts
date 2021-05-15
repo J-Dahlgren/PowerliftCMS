@@ -1,9 +1,10 @@
-import { Controller } from "@nestjs/common";
+import { Controller, UseGuards } from "@nestjs/common";
 import { CrudController, Crud } from "@nestjsx/crud";
-import { ApiTags } from "@nestjs/swagger";
+import { ApiBearerAuth, ApiTags } from "@nestjs/swagger";
 import { GroupEntityService } from "./group-entity.service";
 import { GroupEntity } from "./group.entity";
 import { api } from "@dt/power-comp/shared";
+import { SimpleJwtGuard } from "@dt/nest/auth";
 
 @Crud({
   model: {
@@ -19,6 +20,8 @@ import { api } from "@dt/power-comp/shared";
 })
 @ApiTags(api.group.toUpperCase())
 @Controller(api.group)
+@ApiBearerAuth()
+@UseGuards(SimpleJwtGuard)
 export class GroupController implements CrudController<GroupEntity> {
   constructor(public service: GroupEntityService) {}
 }

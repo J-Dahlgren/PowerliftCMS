@@ -46,11 +46,11 @@ export class SimpleLoginComponent implements OnInit {
       .pipe(finalize(() => this.loading$.next(false)))
       .subscribe(
         () => {
-          this.snack.open("Logged in", "primary", 2500);
+          this.snack.openTranslate("authentication.logged-in", "primary", 2500);
           this.router.navigate([this.returnUrl]);
         },
         e => {
-          this.snack.open(e?.error?.message || "Failed to login", "warn", 2500);
+          this.snack.openTranslate("authentication.failed-login", "warn", 2500);
           console.log(e);
         }
       );

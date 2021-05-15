@@ -1,10 +1,10 @@
-import { Controller } from "@nestjs/common";
+import { Controller, UseGuards } from "@nestjs/common";
 import { CrudController, Crud } from "@nestjsx/crud";
-import { ApiTags } from "@nestjs/swagger";
+import { ApiBearerAuth, ApiTags } from "@nestjs/swagger";
 import { CompetitionEntityService } from "./competition-entity.service";
 import { CompetitionEntity } from "./competition.entity";
 import { api } from "@dt/power-comp/shared";
-
+import { SimpleJwtGuard } from "@dt/nest/auth";
 @Crud({
   model: {
     type: CompetitionEntity
@@ -18,7 +18,9 @@ import { api } from "@dt/power-comp/shared";
   }
 })
 @ApiTags(api.competition.toUpperCase())
+@ApiBearerAuth()
 @Controller(api.competition)
+@UseGuards(SimpleJwtGuard)
 export class CompetitionController
   implements CrudController<CompetitionEntity> {
   constructor(public service: CompetitionEntityService) {}

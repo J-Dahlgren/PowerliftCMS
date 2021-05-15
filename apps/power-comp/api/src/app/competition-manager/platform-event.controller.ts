@@ -1,4 +1,4 @@
-import { Controller, Post, Body } from "@nestjs/common";
+import { Controller, Post, Body, UseGuards } from "@nestjs/common";
 import { api } from "@dt/power-comp/shared";
 import {
   ActiveGroupDto,
@@ -7,11 +7,14 @@ import {
   SecretariatDecisionDto
 } from "./platform-events";
 import { PlatformEventService } from "./platform-event.service";
-import { ApiTags, ApiBody } from "@nestjs/swagger";
+import { ApiTags, ApiBody, ApiBearerAuth } from "@nestjs/swagger";
 import { InternalEventBus } from "./internal-event-bus";
+import { SimpleJwtGuard } from "@dt/nest/auth";
 
 @ApiTags(api.events.root.toUpperCase())
 @Controller(api.events.root)
+@UseGuards(SimpleJwtGuard)
+@ApiBearerAuth()
 export class PlatformEventController {
   constructor(
     private eventService: PlatformEventService,

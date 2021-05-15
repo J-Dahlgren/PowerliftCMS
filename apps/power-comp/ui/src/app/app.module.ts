@@ -40,6 +40,7 @@ import { MatPaginatorIntl } from "@angular/material/paginator";
 import { AppSettingsComponent } from "./app-settings/app-settings.component";
 import { RefereeModule } from "./referee/referee.module";
 import { FlexLayoutModule } from "@angular/flex-layout";
+import { AuthModule, SimpleLoginComponent } from "@dt/angular/auth";
 
 @NgModule({
   declarations: [
@@ -70,6 +71,7 @@ import { FlexLayoutModule } from "@angular/flex-layout";
       [
         { path: "", pathMatch: "full", component: HomeComponent },
         { path: "log", component: LogComponent },
+        { path: "login", component: SimpleLoginComponent },
         { path: "error", component: ErrorComponent },
         { path: "**", redirectTo: "error" }
       ],
@@ -79,6 +81,13 @@ import { FlexLayoutModule } from "@angular/flex-layout";
       }
     ),
     MaterialModule,
+    AuthModule.forRoot(
+      {
+        base: "api",
+        path: "auth"
+      },
+      "POWER_COMP_TOKEN"
+    ),
     MenuModule.forRoot(true),
     SharedDialogModule.forRoot(true),
     AdminModule,

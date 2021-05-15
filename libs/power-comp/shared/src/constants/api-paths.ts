@@ -22,6 +22,10 @@ const events: ObjectRoute<IClientPlatformEvents> = {
 };
 
 export const api = {
+  auth: {
+    root: "auth",
+    login: "login"
+  },
   competition: "competition",
   platform: "platform",
   group: "group",

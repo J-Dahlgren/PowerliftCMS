@@ -40,6 +40,7 @@ async function bootstrap() {
   const options = new DocumentBuilder()
     .setTitle("Power Comp")
     .addServer(`/${globalPrefix}`) // This allow hiding of the global prefix in all paths
+    .addBearerAuth()
     .build();
   const swaggerDocument = SwaggerModule.createDocument(app, options, {
     ignoreGlobalPrefix: true
@@ -63,6 +64,7 @@ async function bootstrap() {
       );
       bootLogger.info(`Database file path: ${config.database.name}`);
     }
+    bootLogger.info("Configuration:", configuration());
   });
 }
 

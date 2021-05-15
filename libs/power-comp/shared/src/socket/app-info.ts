@@ -2,6 +2,7 @@ import { IEntity } from "@dt/util";
 import { ICompetition, IPlatform } from "../data-types";
 
 export interface IAppInfo {
+  requireAuthentication?: boolean;
   ipAdresses: string[];
   competitions: IEntity<ICompetition>[];
   platforms: IEntity<IPlatform>[];

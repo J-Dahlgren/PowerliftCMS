@@ -13,6 +13,7 @@ import { startWith, auditTime } from "rxjs/operators";
 
 import { of, merge } from "rxjs";
 import configuration from "../configuration";
+import { ConfigService } from "@nestjs/config";
 
 @WebSocketGateway({ namespace: APP_INFO_NSP })
 export class AppInfoGateway extends NspSocketGateway<IAppInfo>
@@ -23,10 +24,12 @@ export class AppInfoGateway extends NspSocketGateway<IAppInfo>
   constructor(
     @LogInject("AppInfoGateway") logger: ILogService,
     private pService: PlatformEntityService,
+    config: ConfigService,
     private cService: CompetitionEntityService
   ) {
     super(logger, 500);
     this.logger.trace(`Created - active on namespace: "${APP_INFO_NSP}"`);
+    this.store.modify({ requireAuthentication: !!config.get("auth.password") });
   }
   onModuleInit() {
     this.logger.trace("onModuleInit");

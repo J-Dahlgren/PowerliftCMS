@@ -14,14 +14,17 @@ import { UtilModule } from "@dt/angular/util";
 import { DisplayModule } from "../../display";
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { TimekeeperComponent } from "./timekeeper/timekeeper.component";
+import { AuthGuard } from "../../auth.guard";
 const baseRoute = "secretariat";
 const routes: Route[] = [
   {
     path: baseRoute,
+    canActivate: [AuthGuard],
     component: SecretariatMainComponent
   },
   {
     path: "timekeeper",
+    canActivate: [AuthGuard],
     component: TimekeeperComponent
   }
 ];

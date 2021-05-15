@@ -12,6 +12,7 @@ import { SocketModule } from "./socket/socket.module";
 import { PlatformManagerModule } from "./competition-manager";
 import { LogLevel } from "@dt/util";
 import { CompetitionInfoModule } from "./competition-info";
+import { SimpleAuthModule } from "@dt/nest/auth";
 const imports = [
   ConfigModule.forRoot({
     isGlobal: true,
@@ -25,26 +26,24 @@ const imports = [
     autoLoadEntities: true
   }),
   CustomLoggerModule.forRoot(LogLevel[configuration().logLevel]),
-  ApiModule,
+  SimpleAuthModule.forRoot(configuration().auth),
   PlatformManagerModule,
   CompetitionInfoModule,
+  ApiModule,
   SocketModule
 ];
 
-if (environment.type === Environment.STANDALONE) {
-  console.log("STANDALONE BUILD");
+if (
+  environment.type === Environment.STANDALONE ||
+  environment.type === Environment.CLOUD
+) {
+  const path =
+    environment.type === Environment.STANDALONE
+      ? "client"
+      : "dist/apps/power-comp/ui";
   imports.push(
     ServeStaticModule.forRoot({
-      rootPath: join(process.cwd(), "client"),
-      renderPath: "*",
-      exclude: ["/api/(.*)"]
-    })
-  );
-}
-if (environment.type === Environment.CLOUD) {
-  imports.push(
-    ServeStaticModule.forRoot({
-      rootPath: join(process.cwd(), "dist/apps/power-comp/ui"),
+      rootPath: join(process.cwd(), path),
       renderPath: "*",
       exclude: ["/api/(.*)"]
     })

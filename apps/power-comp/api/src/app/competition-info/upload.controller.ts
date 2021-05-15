@@ -4,19 +4,28 @@ import {
   UseInterceptors,
   UploadedFile,
   HttpException,
-  Param
+  Param,
+  UseGuards
 } from "@nestjs/common";
 import { api } from "@dt/power-comp/shared";
-import { ApiConsumes, ApiHeader, ApiTags } from "@nestjs/swagger";
+import {
+  ApiBearerAuth,
+  ApiConsumes,
+  ApiHeader,
+  ApiTags
+} from "@nestjs/swagger";
 import { UploadService } from "./upload.service";
 import { Multer } from "multer";
 import { Express } from "express";
 import { FileInterceptor, MulterModule } from "@nestjs/platform-express";
 import { Workbook } from "exceljs";
 import { unlink } from "fs";
+import { SimpleJwtGuard } from "@dt/nest/auth";
 
 @ApiTags(api.upload.root.toUpperCase())
 @Controller(api.upload.root)
+@UseGuards(SimpleJwtGuard)
+@ApiBearerAuth()
 export class UploadController {
   constructor(private uploadService: UploadService) {}
 
