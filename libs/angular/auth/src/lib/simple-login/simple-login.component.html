@@ -6,7 +6,7 @@
       class="grid single-col"
     >
       <mat-form-field appearance="outline">
-        <mat-label>Password</mat-label>
+        <mat-label>{{ "authentication.password" | translate }}</mat-label>
         <input
           type="password"
           matInput
@@ -21,7 +21,7 @@
         color="primary"
         [disabled]="(loading$ | async) || !loginForm.valid"
       >
-        Login
+        {{ "authentication.login" | translate }}
       </button>
     </form>
   </div>

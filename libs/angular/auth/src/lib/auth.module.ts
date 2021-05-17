@@ -8,10 +8,17 @@ import { authInterceptorProviders } from "./auth.interceptor";
 import { SimpleLoginComponent } from "./simple-login";
 import { ReactiveFormsModule } from "@angular/forms";
 import { MaterialModule } from "@dt/angular/material";
+import { TranslateModule } from "@ngx-translate/core";
 export const authRoutes: Route[] = [];
 
 @NgModule({
-  imports: [CommonModule, RouterModule, ReactiveFormsModule, MaterialModule],
+  imports: [
+    CommonModule,
+    RouterModule,
+    ReactiveFormsModule,
+    MaterialModule,
+    TranslateModule
+  ],
   declarations: [SimpleLoginComponent]
 })
 export class AuthModule {
