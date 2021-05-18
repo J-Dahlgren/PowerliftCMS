@@ -1,12 +1,12 @@
 import { WebSocketGateway } from "@nestjs/websockets";
-import { APP_INFO_NSP, IAppInfo, AppInfo } from "@dt/power-comp/shared";
-import { NspSocketGateway } from "@dt/nest/socket";
-import { StateStore, ILogService, extractKeys } from "@dt/util";
-import { LogInject } from "@dt/nest/logger";
+import { APP_INFO_NSP, IAppInfo, AppInfo } from "@pc/power-comp/shared";
+import { NspSocketGateway } from "@pc/nest/socket";
+import { StateStore, ILogService, extractKeys } from "@pc/util";
+import { LogInject } from "@pc/nest/logger";
 import {
   PlatformEntityService,
   CompetitionEntityService
-} from "@dt/power-comp/entity";
+} from "@pc/power-comp/entity";
 import { networkInterfaces } from "os";
 import { OnModuleInit } from "@nestjs/common";
 import { startWith, auditTime } from "rxjs/operators";

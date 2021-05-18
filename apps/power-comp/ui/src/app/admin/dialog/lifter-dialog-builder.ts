@@ -1,6 +1,6 @@
-import { ILifts, IAttempt } from "@dt/power-comp/shared";
+import { ILifts, IAttempt } from "@pc/power-comp/shared";
 import { FormGroup, FormControl, FormArray, Validators } from "@angular/forms";
-import { extractKeys } from "@dt/util";
+import { extractKeys } from "@pc/util";
 
 export function createLiftsForm(lifts: ILifts) {
   const liftsForm = new FormGroup({});

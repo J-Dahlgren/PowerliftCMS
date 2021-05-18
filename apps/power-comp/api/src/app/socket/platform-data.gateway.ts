@@ -1,8 +1,8 @@
 import { WebSocketGateway } from "@nestjs/websockets";
-import { PLATFORM_NSP, IPlatformData } from "@dt/power-comp/shared";
-import { RoomGateway } from "@dt/nest/socket";
-import { LogInject } from "@dt/nest/logger";
-import { ILogService } from "@dt/util";
+import { PLATFORM_NSP, IPlatformData } from "@pc/power-comp/shared";
+import { RoomGateway } from "@pc/nest/socket";
+import { LogInject } from "@pc/nest/logger";
+import { ILogService } from "@pc/util";
 import { PlatformManagerService } from "../competition-manager/platform-manager.service";
 
 @WebSocketGateway({ namespace: PLATFORM_NSP })

@@ -7,9 +7,9 @@ import {
   LiftFieldTuple,
   LiftStatus,
   defaultWeightClasses
-} from "@dt/power-comp/shared";
+} from "@pc/power-comp/shared";
 import { names, groups } from "./generated";
-import { extractKeys } from "@dt/util";
+import { extractKeys } from "@pc/util";
 
 function randomIntFromInterval(min: number, max: number) {
   // min and max included

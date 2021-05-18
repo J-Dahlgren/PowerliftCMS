@@ -3,7 +3,7 @@ import { platformBrowserDynamic } from "@angular/platform-browser-dynamic";
 
 import { AppModule } from "./app/app.module";
 import { environment } from "./environments/environment";
-import { Environment } from "@dt/power-comp/shared";
+import { Environment } from "@pc/power-comp/shared";
 
 if (environment.type !== Environment.DEVELOP) {
   enableProdMode();

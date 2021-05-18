@@ -2,7 +2,7 @@ import {
   IAttemptInfo,
   LiftFieldExt,
   LiftFieldExtTuple
-} from "@dt/power-comp/shared";
+} from "@pc/power-comp/shared";
 import { ApiPropertyOptional } from "@nestjs/swagger";
 
 export class AttemptInfoDto implements IAttemptInfo {

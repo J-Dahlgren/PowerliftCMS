@@ -1,7 +1,7 @@
 import { ILifts, CompetitionModesEnum, CompetitionModeName } from "./lifts";
 import { ILifter } from "./ILifter";
 import { defaultLifts } from "./defaults";
-import { extractKeys } from "@dt/util";
+import { extractKeys } from "@pc/util";
 
 export function matchLiftConfiguration(
   lifts: ILifts,

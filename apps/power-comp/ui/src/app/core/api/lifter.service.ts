@@ -1,8 +1,8 @@
 import { Injectable } from "@angular/core";
-import { api, ILifter, LifterData } from "@dt/power-comp/shared";
-import { BaseCrudApiService } from "@dt/angular/crud-api";
+import { api, ILifter, LifterData } from "@pc/power-comp/shared";
+import { BaseCrudApiService } from "@pc/angular/crud-api";
 import { HttpClient } from "@angular/common/http";
-import { LogService } from "@dt/angular/logger";
+import { LogService } from "@pc/angular/logger";
 
 @Injectable({ providedIn: "root" })
 export class LifterService extends BaseCrudApiService<ILifter> {

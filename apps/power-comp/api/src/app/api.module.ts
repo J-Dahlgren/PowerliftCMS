@@ -5,7 +5,7 @@ import {
   GroupModule,
   LifterModule,
   WeightCategoryModule
-} from "@dt/power-comp/entity";
+} from "@pc/power-comp/entity";
 @Module({
   imports: [
     CompetitionModule,

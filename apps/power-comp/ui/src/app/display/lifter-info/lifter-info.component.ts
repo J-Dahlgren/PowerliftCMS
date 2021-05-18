@@ -6,7 +6,7 @@ import {
   SquatRackSettingsEnum,
   ISquatSettings,
   IBenchPressSettings
-} from "@dt/power-comp/shared";
+} from "@pc/power-comp/shared";
 import { TranslateService } from "@ngx-translate/core";
 import { switchMap } from "rxjs/operators";
 

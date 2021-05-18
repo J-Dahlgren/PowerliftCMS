@@ -1,4 +1,4 @@
-import { ExtractEnumKeys } from "@dt/util";
+import { ExtractEnumKeys } from "@pc/util";
 
 export enum CompetitionModesEnum {
   SBD,

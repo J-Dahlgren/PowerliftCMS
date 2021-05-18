@@ -1,12 +1,12 @@
 import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from "typeorm";
-import { IEntity } from "@dt/util";
+import { IEntity } from "@pc/util";
 import {
   ICompetition,
   IGroup,
   IPlatform,
   ILifter,
   IWeightClass
-} from "@dt/power-comp/shared";
+} from "@pc/power-comp/shared";
 import { ApiProperty } from "@nestjs/swagger";
 import { Type } from "class-transformer";
 import { PlatformEntity } from "../platform/platform.entity";
@@ -19,8 +19,8 @@ import {
   IsArray,
   ValidateNested
 } from "class-validator";
-import { CREATE, UPDATE } from "@dt/nest/util";
-import { EntityBase } from "@dt/nest/entity-service";
+import { CREATE, UPDATE } from "@pc/nest/util";
+import { EntityBase } from "@pc/nest/entity-service";
 import { WeightCategoryEntity } from "../weight-category";
 @Entity()
 export class CompetitionEntity extends EntityBase

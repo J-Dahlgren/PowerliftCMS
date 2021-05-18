@@ -1,4 +1,4 @@
-import { ExtractEnumKeys } from "@dt/util";
+import { ExtractEnumKeys } from "@pc/util";
 import { LiftField } from "./lifts";
 
 export enum SquatRackSettingsEnum {

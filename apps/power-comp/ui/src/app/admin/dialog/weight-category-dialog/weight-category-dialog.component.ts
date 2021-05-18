@@ -8,12 +8,12 @@ import {
 } from "@angular/forms";
 import { tap } from "rxjs/operators";
 import { Component, Inject } from "@angular/core";
-import { EditDialog } from "@dt/angular/shared";
-import { IWeightClass, Gender } from "@dt/power-comp/shared";
+import { EditDialog } from "@pc/angular/shared";
+import { IWeightClass, Gender } from "@pc/power-comp/shared";
 import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material/dialog";
 import { WeightCategoryService } from "../../../core";
-import { LogService } from "@dt/angular/logger";
-import { IEntity } from "@dt/util";
+import { LogService } from "@pc/angular/logger";
+import { IEntity } from "@pc/util";
 import { PcDialogOptions } from "../dialog-options";
 import { TranslateService } from "@ngx-translate/core";
 

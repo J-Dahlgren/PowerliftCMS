@@ -1,12 +1,12 @@
-import { IEntity, IStateStore, Constructor, StateStore } from "@dt/util";
+import { IEntity, IStateStore, Constructor, StateStore } from "@pc/util";
 import { EntityListComponent } from "./entity-list.component";
-import { IApiService } from "@dt/angular/crud-api";
-import { EditDialog, ModalService } from "@dt/angular/shared";
+import { IApiService } from "@pc/angular/crud-api";
+import { EditDialog, ModalService } from "@pc/angular/shared";
 import { PcDialogOptions } from "./dialog";
 import { CompetitionEditService } from "./competition-edit.service";
 import { OnInit, ViewChild } from "@angular/core";
 import { RequestQueryBuilder } from "@nestjsx/crud-request";
-import { SnackBarService } from "@dt/angular/material";
+import { SnackBarService } from "@pc/angular/material";
 import { TranslateService } from "@ngx-translate/core";
 import { takeUntil } from "rxjs/operators";
 import { MatTableDataSource } from "@angular/material/table";

@@ -1,5 +1,5 @@
 import { NgModule } from "@angular/core";
-import { MaterialModule } from "@dt/angular/material";
+import { MaterialModule } from "@pc/angular/material";
 import { HttpClientModule } from "@angular/common/http";
 import { SecretariatMainComponent } from "./secretariat-main/secretariat-main.component";
 import { RouterModule, Route } from "@angular/router";
@@ -7,10 +7,10 @@ import { SecretariatListComponent } from "./secretariat-list/secretariat-list.co
 import { CommonModule } from "@angular/common";
 import { SecretariatControlComponent } from "./secretariat-control/secretariat-control.component";
 import { TranslateModule } from "@ngx-translate/core";
-import { TableModule, SharedDialogModule } from "@dt/angular/shared";
+import { TableModule, SharedDialogModule } from "@pc/angular/shared";
 import { LiftsDialogComponent } from "./lifts-dialog/lifts-dialog.component";
 import { ReactiveFormsModule } from "@angular/forms";
-import { UtilModule } from "@dt/angular/util";
+import { UtilModule } from "@pc/angular/util";
 import { DisplayModule } from "../../display";
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { TimekeeperComponent } from "./timekeeper/timekeeper.component";

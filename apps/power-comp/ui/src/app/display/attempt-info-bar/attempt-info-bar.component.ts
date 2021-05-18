@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject } from "@angular/core";
-import { InRoom } from "@dt/util";
-import { PersistentPlatformData, LifterData } from "@dt/power-comp/shared";
+import { InRoom } from "@pc/util";
+import { PersistentPlatformData, LifterData } from "@pc/power-comp/shared";
 import {
   PLATFORM_DATA_TOKEN,
   PlatformDataService,

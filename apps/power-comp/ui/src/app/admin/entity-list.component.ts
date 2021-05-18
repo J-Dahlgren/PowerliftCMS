@@ -1,7 +1,7 @@
-import { IEntity, IStateStore } from "@dt/util";
+import { IEntity, IStateStore } from "@pc/util";
 import { Input, OnInit, OnDestroy } from "@angular/core";
 import { Subject, Observable, merge } from "rxjs";
-import { IApiService } from "@dt/angular/crud-api";
+import { IApiService } from "@pc/angular/crud-api";
 import { filter, switchMap, auditTime, debounceTime } from "rxjs/operators";
 import { SubSink } from "subsink";
 

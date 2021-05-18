@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
-import { JudgeDecision } from "@dt/power-comp/shared";
+import { JudgeDecision } from "@pc/power-comp/shared";
 import { Observable } from "rxjs";
 import { map, mergeMap } from "rxjs/operators";
 import { ClientEventService } from "../admin/secretariat/client-event.service";

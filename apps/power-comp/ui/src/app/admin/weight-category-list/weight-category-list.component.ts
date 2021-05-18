@@ -1,14 +1,14 @@
 import { Component } from "@angular/core";
-import { IWeightClass } from "@dt/power-comp/shared";
+import { IWeightClass } from "@pc/power-comp/shared";
 import { CompetitionEditService } from "../competition-edit.service";
 import { WeightCategoryService } from "../../core";
-import { ModalService, EditDialog } from "@dt/angular/shared";
-import { StateStore, IEntity, Constructor } from "@dt/util";
+import { ModalService, EditDialog } from "@pc/angular/shared";
+import { StateStore, IEntity, Constructor } from "@pc/util";
 import { RequestQueryBuilder } from "@nestjsx/crud-request";
 import { WeightCategoryDialogComponent } from "../dialog";
 import { PcDialogOptions } from "../dialog";
 import { PowerCompListComponent } from "../power-comp-list.component";
-import { SnackBarService } from "@dt/angular/material";
+import { SnackBarService } from "@pc/angular/material";
 import { TranslateService } from "@ngx-translate/core";
 
 @Component({

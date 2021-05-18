@@ -7,7 +7,7 @@ import {
   LiftStatus,
   LiftFieldTuple,
   AttemptInfo
-} from "@dt/power-comp/shared";
+} from "@pc/power-comp/shared";
 import { ApiProperty } from "@nestjs/swagger";
 
 export class Lifts implements ILifts {

@@ -1,14 +1,14 @@
 import { Injectable } from "@nestjs/common";
-import { LogInject } from "@dt/nest/logger";
-import { ILogService, groupByKeys } from "@dt/util";
-import { LifterEntityService, LifterEntity } from "@dt/power-comp/entity";
+import { LogInject } from "@pc/nest/logger";
+import { ILogService, groupByKeys } from "@pc/util";
+import { LifterEntityService, LifterEntity } from "@pc/power-comp/entity";
 import {
   LiftOrderFunctions,
   getRank,
   classicRankFn,
   protocolOrder,
   classicRankSort
-} from "@dt/power-comp/shared";
+} from "@pc/power-comp/shared";
 import { chain } from "lodash";
 
 @Injectable()

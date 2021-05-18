@@ -1,10 +1,10 @@
 import { Injectable, OnDestroy, Inject } from "@angular/core";
-import { ProtectedStore, extractKeys, RoomBus, InRoom } from "@dt/util";
+import { ProtectedStore, extractKeys, RoomBus, InRoom } from "@pc/util";
 import {
   IPlatformData,
   LifterInfo,
   PersistentPlatformData
-} from "@dt/power-comp/shared";
+} from "@pc/power-comp/shared";
 import { filter, map } from "rxjs/operators";
 import { SubSink } from "subsink";
 import { PlatformSelectionService } from "./platform-selection.service";

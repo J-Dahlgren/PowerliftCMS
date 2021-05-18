@@ -1,4 +1,4 @@
-import { Null, IEntity } from "@dt/util";
+import { Null, IEntity } from "@pc/util";
 
 /**
  * There are only 2 genders, change my mind

@@ -1,7 +1,7 @@
 import { Injectable } from "@nestjs/common";
-import { LogInject } from "@dt/nest/logger";
-import { ILogService, RoomEventBus } from "@dt/util";
-import { IClientPlatformEvents } from "@dt/power-comp/shared";
+import { LogInject } from "@pc/nest/logger";
+import { ILogService, RoomEventBus } from "@pc/util";
+import { IClientPlatformEvents } from "@pc/power-comp/shared";
 
 @Injectable()
 export class PlatformEventService extends RoomEventBus<IClientPlatformEvents> {

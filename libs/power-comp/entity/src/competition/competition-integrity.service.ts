@@ -5,11 +5,11 @@ import {
 } from "../weight-category";
 import { LifterEntityService, LifterEntity } from "../lifter";
 import { SubSink } from "subsink";
-import { getWeightClass } from "@dt/power-comp/shared";
-import { LogInject } from "@dt/nest/logger";
-import { ILogService, sleep, SECOND } from "@dt/util";
+import { getWeightClass } from "@pc/power-comp/shared";
+import { LogInject } from "@pc/nest/logger";
+import { ILogService, sleep, SECOND } from "@pc/util";
 import { InsertEvent, UpdateEvent } from "typeorm";
-import { EntityEvent } from "@dt/nest/entity-service";
+import { EntityEvent } from "@pc/nest/entity-service";
 import { debounceTime, delay } from "rxjs/operators";
 import { isEqual } from "lodash";
 

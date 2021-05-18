@@ -13,15 +13,15 @@ import {
   SERVER_EVENTS_TOKEN
 } from "../../../core";
 import { ClientEventService } from "../client-event.service";
-import { AutoUnsubscribeComponent } from "@dt/angular/util";
+import { AutoUnsubscribeComponent } from "@pc/angular/util";
 
-import { SECOND, IEntity, Clock, InRoom } from "@dt/util";
+import { SECOND, IEntity, Clock, InRoom } from "@pc/util";
 import {
   IGroup,
   IClientPlatformEvents,
   LifterData,
   IServerPlatformEvents
-} from "@dt/power-comp/shared";
+} from "@pc/power-comp/shared";
 
 import { RequestQueryBuilder } from "@nestjsx/crud-request";
 import { switchMap, map } from "rxjs/operators";

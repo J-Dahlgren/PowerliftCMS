@@ -1,10 +1,10 @@
 import { Component, ViewChild, ElementRef, AfterViewInit } from "@angular/core";
-import { ILifter, LiftFieldTuple, IGroup } from "@dt/power-comp/shared";
-import { StateStore, IEntity, Constructor } from "@dt/util";
+import { ILifter, LiftFieldTuple, IGroup } from "@pc/power-comp/shared";
+import { StateStore, IEntity, Constructor } from "@pc/util";
 import { LifterService, GroupService, DownloadService } from "../../core";
 import { RequestQueryBuilder } from "@nestjsx/crud-request";
 import { CompetitionEditService } from "../competition-edit.service";
-import { ModalService, EditDialog } from "@dt/angular/shared";
+import { ModalService, EditDialog } from "@pc/angular/shared";
 import { PcDialogOptions, LifterDialogComponent } from "../dialog";
 import { PowerCompListComponent } from "../power-comp-list.component";
 import {
@@ -15,11 +15,11 @@ import {
   switchMap
 } from "rxjs/operators";
 import { fromEvent, merge, BehaviorSubject } from "rxjs";
-import { SnackBarService } from "@dt/angular/material";
+import { SnackBarService } from "@pc/angular/material";
 import { TranslateService } from "@ngx-translate/core";
 import { LifterListFilters } from "./lifter-list-filters";
 import { ActivatedRoute, Router } from "@angular/router";
-import { createFileDownload } from "@dt/angular/util";
+import { createFileDownload } from "@pc/angular/util";
 import { UploadService } from "../../core/api/upload.service";
 
 @Component({

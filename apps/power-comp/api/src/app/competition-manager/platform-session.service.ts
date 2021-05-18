@@ -2,12 +2,12 @@ import {
   EntitySessionService,
   IEntitySubscriber,
   IEntitySessionService
-} from "@dt/nest/entity-service";
-import { PlatformEntity, PlatformEntityService } from "@dt/power-comp/entity";
-import { RoomEventBus } from "@dt/util";
-import { IPlatformData } from "@dt/power-comp/shared";
+} from "@pc/nest/entity-service";
+import { PlatformEntity, PlatformEntityService } from "@pc/power-comp/entity";
+import { RoomEventBus } from "@pc/util";
+import { IPlatformData } from "@pc/power-comp/shared";
 import { Injectable, Scope, Inject } from "@nestjs/common";
-import { LogService } from "@dt/nest/logger";
+import { LogService } from "@pc/nest/logger";
 import { PLATFORM_DATA_TOKEN } from "../core/token";
 import { DecisionService } from "./decision.service";
 import { PersistenPlatformDataStore } from "./persistent-platform-data.store";

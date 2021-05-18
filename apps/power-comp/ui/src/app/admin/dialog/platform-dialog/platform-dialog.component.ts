@@ -2,17 +2,17 @@ import { Observable } from "rxjs";
 import { FormControl, Validators, FormGroup, FormArray } from "@angular/forms";
 import { tap } from "rxjs/operators";
 import { Component, Inject } from "@angular/core";
-import { EditDialog, DialogOptions } from "@dt/angular/shared";
+import { EditDialog, DialogOptions } from "@pc/angular/shared";
 import {
   IPlatform,
   defaultPlatformWeights,
   IPlatformWeights,
   IWeightPlate
-} from "@dt/power-comp/shared";
+} from "@pc/power-comp/shared";
 import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material/dialog";
 import { PlatformService } from "../../../core";
-import { LogService } from "@dt/angular/logger";
-import { IEntity } from "@dt/util";
+import { LogService } from "@pc/angular/logger";
+import { IEntity } from "@pc/util";
 import { PcDialogOptions } from "../dialog-options";
 
 @Component({

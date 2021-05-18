@@ -1,6 +1,6 @@
 import { IEnvironment } from "./IEnvironment";
-import { Environment } from "@dt/power-comp/shared";
-import { LogLevel } from "@dt/util";
+import { Environment } from "@pc/power-comp/shared";
+import { LogLevel } from "@pc/util";
 
 export const defaultEnvironment: IEnvironment = {
   type: Environment.DEVELOP,

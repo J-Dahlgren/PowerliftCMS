@@ -1,4 +1,4 @@
-import { Result } from "@dt/power-comp/shared";
+import { Result } from "@pc/power-comp/shared";
 import { ApiPropertyOptional } from "@nestjs/swagger";
 
 export class ResultDto implements Result {

@@ -1,9 +1,9 @@
 import { Injectable } from "@angular/core";
-import { BaseApiService } from "@dt/angular/crud-api";
-import { api } from "@dt/power-comp/shared";
-import { LogService } from "@dt/angular/logger";
+import { BaseApiService } from "@pc/angular/crud-api";
+import { api } from "@pc/power-comp/shared";
+import { LogService } from "@pc/angular/logger";
 import { HttpClient } from "@angular/common/http";
-import { createFileDownload } from "@dt/angular/util";
+import { createFileDownload } from "@pc/angular/util";
 import moment from "moment";
 import { tap } from "rxjs/operators";
 

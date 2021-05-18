@@ -1,10 +1,10 @@
-import { RoomEventGateway, RoomGateway } from "@dt/nest/socket";
+import { RoomEventGateway, RoomGateway } from "@pc/nest/socket";
 import {
   IServerPlatformEvents,
   PLATFORM_EVENTS_NSP
-} from "@dt/power-comp/shared";
-import { ILogService } from "@dt/util";
-import { LogInject } from "@dt/nest/logger";
+} from "@pc/power-comp/shared";
+import { ILogService } from "@pc/util";
+import { LogInject } from "@pc/nest/logger";
 import { WebSocketGateway } from "@nestjs/websockets";
 
 @WebSocketGateway({ namespace: PLATFORM_EVENTS_NSP })

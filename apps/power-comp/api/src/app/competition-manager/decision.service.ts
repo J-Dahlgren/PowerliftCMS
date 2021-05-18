@@ -4,7 +4,7 @@ import {
   flattenToEvent,
   SECOND,
   Sink
-} from "@dt/util";
+} from "@pc/util";
 import {
   IDecisionData,
   JudgeDecision,
@@ -12,10 +12,10 @@ import {
   IServerPlatformEvents,
   allHasDecided,
   majorityApprove
-} from "@dt/power-comp/shared";
+} from "@pc/power-comp/shared";
 import { Injectable, Scope, Inject } from "@nestjs/common";
 import { PLATFORM_DATA_TOKEN, PLATFORM_EVENTS_TOKEN } from "../core";
-import { LogService } from "@dt/nest/logger";
+import { LogService } from "@pc/nest/logger";
 import { PlatformEventService } from "./platform-event.service";
 import { IPlatformHelperService } from "./platform-helper";
 import { exhaustMap } from "rxjs/operators";

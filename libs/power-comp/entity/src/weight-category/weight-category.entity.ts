@@ -6,7 +6,7 @@ import {
   ManyToOne,
   AfterLoad
 } from "typeorm";
-import { IEntity, EnumKeys } from "@dt/util";
+import { IEntity, EnumKeys } from "@pc/util";
 import {
   IPlatform,
   ICompetition,
@@ -14,7 +14,7 @@ import {
   Gender,
   AgeCategoryEnum,
   ILifter
-} from "@dt/power-comp/shared";
+} from "@pc/power-comp/shared";
 import { ApiProperty, ApiPropertyOptional } from "@nestjs/swagger";
 import { CompetitionEntity } from "../competition/competition.entity";
 
@@ -26,8 +26,8 @@ import {
   IsArray,
   ValidateNested
 } from "class-validator";
-import { UPDATE, CREATE } from "@dt/nest/util";
-import { EntityBase } from "@dt/nest/entity-service";
+import { UPDATE, CREATE } from "@pc/nest/util";
+import { EntityBase } from "@pc/nest/entity-service";
 import { LifterEntity } from "../lifter/lifter.entity";
 import { Type } from "class-transformer";
 

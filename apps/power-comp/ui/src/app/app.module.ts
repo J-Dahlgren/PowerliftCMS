@@ -11,17 +11,17 @@ import {
 import { NgxWebstorageModule } from "ngx-webstorage";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { environment } from "../environments/environment";
-import { Environment } from "@dt/power-comp/shared";
+import { Environment } from "@pc/power-comp/shared";
 import { RouterModule } from "@angular/router";
-import { MaterialModule } from "@dt/angular/material";
-import { MenuModule } from "@dt/angular/menu";
+import { MaterialModule } from "@pc/angular/material";
+import { MenuModule } from "@pc/angular/menu";
 import {
   SharedDialogModule,
   TableModule,
   PaginatorIntlService
-} from "@dt/angular/shared";
-import { LanguageModule } from "@dt/angular/shared";
-import { UiLoggerModule, LogComponent } from "@dt/angular/logger";
+} from "@pc/angular/shared";
+import { LanguageModule } from "@pc/angular/shared";
+import { UiLoggerModule, LogComponent } from "@pc/angular/logger";
 import { CoreModule } from "./core";
 import { MiscModule } from "./misc";
 import { ErrorComponent } from "./error.component";
@@ -34,13 +34,13 @@ import {
   NgxMatNativeDateModule,
   NGX_MAT_DATE_FORMATS
 } from "@angular-material-components/datetime-picker";
-import { DateHttpInterceptor } from "@dt/angular/util";
+import { DateHttpInterceptor } from "@pc/angular/util";
 import { DialogModule } from "./admin/dialog";
 import { MatPaginatorIntl } from "@angular/material/paginator";
 import { AppSettingsComponent } from "./app-settings/app-settings.component";
 import { RefereeModule } from "./referee/referee.module";
 import { FlexLayoutModule } from "@angular/flex-layout";
-import { AuthModule, SimpleLoginComponent } from "@dt/angular/auth";
+import { AuthModule, SimpleLoginComponent } from "@pc/angular/auth";
 
 @NgModule({
   declarations: [

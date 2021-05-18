@@ -5,7 +5,7 @@ import {
   LifterModule,
   GroupModule,
   CompetitionModule
-} from "@dt/power-comp/entity";
+} from "@pc/power-comp/entity";
 import { PlatformEventController } from "./platform-event.controller";
 import { PlatformEventService } from "./platform-event.service";
 import { PlatformSessionService } from "./platform-session.service";

@@ -1,11 +1,11 @@
 import { Component, OnInit, OnDestroy, AfterViewInit } from "@angular/core";
 import { Observable, BehaviorSubject, combineLatest } from "rxjs";
-import { IPlatform, ICompetition } from "@dt/power-comp/shared";
+import { IPlatform, ICompetition } from "@pc/power-comp/shared";
 import { map } from "rxjs/operators";
-import { IEntity, flatten } from "@dt/util";
+import { IEntity, flatten } from "@pc/util";
 import { SubSink } from "subsink";
 import { PlatformSelectionService } from "../../core";
-import { LogService, UiLogger } from "@dt/angular/logger";
+import { LogService, UiLogger } from "@pc/angular/logger";
 
 @Component({
   selector: "pc-platform-select",

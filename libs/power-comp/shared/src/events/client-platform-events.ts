@@ -1,5 +1,5 @@
 import { JudgeDecision } from "../data-types/decision";
-import { Clock } from "@dt/util";
+import { Clock } from "@pc/util";
 
 export interface IClientPlatformEvents {
   decision: {

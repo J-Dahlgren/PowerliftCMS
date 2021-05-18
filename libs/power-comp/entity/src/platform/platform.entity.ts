@@ -5,8 +5,8 @@ import {
   OneToMany,
   ManyToOne
 } from "typeorm";
-import { IEntity } from "@dt/util";
-import { IPlatform, ICompetition } from "@dt/power-comp/shared";
+import { IEntity } from "@pc/util";
+import { IPlatform, ICompetition } from "@pc/power-comp/shared";
 import { ApiProperty } from "@nestjs/swagger";
 import { Type } from "class-transformer";
 import { CompetitionEntity } from "../competition/competition.entity";
@@ -19,8 +19,8 @@ import {
   ValidateNested,
   IsArray
 } from "class-validator";
-import { UPDATE } from "@dt/nest/util";
-import { EntityBase } from "@dt/nest/entity-service";
+import { UPDATE } from "@pc/nest/util";
+import { EntityBase } from "@pc/nest/entity-service";
 
 @Entity()
 export class PlatformEntity extends EntityBase implements IEntity<IPlatform> {

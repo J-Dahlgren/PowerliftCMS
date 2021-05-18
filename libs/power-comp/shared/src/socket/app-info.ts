@@ -1,4 +1,4 @@
-import { IEntity } from "@dt/util";
+import { IEntity } from "@pc/util";
 import { ICompetition, IPlatform } from "../data-types";
 
 export interface IAppInfo {

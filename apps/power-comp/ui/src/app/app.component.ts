@@ -1,14 +1,14 @@
 import { Component, OnInit } from "@angular/core";
 import { navItems } from "./list-items";
-import { LogService, UiLogger } from "@dt/angular/logger";
-import { LanguageService, PaginatorIntlService } from "@dt/angular/shared";
-import { SnackBarService, SnackbarColor } from "@dt/angular/material";
+import { LogService, UiLogger } from "@pc/angular/logger";
+import { LanguageService, PaginatorIntlService } from "@pc/angular/shared";
+import { SnackBarService, SnackbarColor } from "@pc/angular/material";
 import { TranslateService } from "@ngx-translate/core";
 import { switchMap, filter } from "rxjs/operators";
 import { of, combineLatest, Observable, fromEvent } from "rxjs";
 import { PlatformDataSocketService } from "./core/socket/platform-data-socket.service";
 import { AppInfoService } from "./core/socket/app-info.service";
-import { HeaderService } from "@dt/angular/menu";
+import { HeaderService } from "@pc/angular/menu";
 
 @Component({
   selector: "pc-root",

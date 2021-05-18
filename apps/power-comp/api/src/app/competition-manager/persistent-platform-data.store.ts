@@ -9,7 +9,7 @@ import {
   MINUTE,
   TimerState,
   Sink
-} from "@dt/util";
+} from "@pc/util";
 import {
   PersistentPlatformData,
   LifterInfo,
@@ -25,10 +25,10 @@ import {
   DEFAULT_TIMER,
   getRank,
   classicRankSort
-} from "@dt/power-comp/shared";
+} from "@pc/power-comp/shared";
 import { Injectable, Scope, Inject } from "@nestjs/common";
-import { LifterEntityService, LifterEntity } from "@dt/power-comp/entity";
-import { LogService } from "@dt/nest/logger";
+import { LifterEntityService, LifterEntity } from "@pc/power-comp/entity";
+import { LogService } from "@pc/nest/logger";
 import { SubSink } from "subsink";
 import {
   filter,

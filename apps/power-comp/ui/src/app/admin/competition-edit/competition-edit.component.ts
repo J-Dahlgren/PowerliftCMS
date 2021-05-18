@@ -1,16 +1,16 @@
 import { Component, OnInit } from "@angular/core";
-import { UiLogger, LogService } from "@dt/angular/logger";
+import { UiLogger, LogService } from "@pc/angular/logger";
 import { Observable, BehaviorSubject } from "rxjs";
-import { IEntity } from "@dt/util";
-import { ICompetition, IPlatform } from "@dt/power-comp/shared";
+import { IEntity } from "@pc/util";
+import { ICompetition, IPlatform } from "@pc/power-comp/shared";
 import { ActivatedRoute, Router } from "@angular/router";
 import { CompetitionService } from "../../core";
-import { ModalService } from "@dt/angular/shared";
+import { ModalService } from "@pc/angular/shared";
 import { switchMap } from "rxjs/operators";
 import { PlatformDialogComponent } from "../dialog";
 import { RequestQueryBuilder } from "@nestjsx/crud-request";
 import { CompetitionEditService } from "../competition-edit.service";
-import { AutoUnsubscribeComponent } from "@dt/angular/util";
+import { AutoUnsubscribeComponent } from "@pc/angular/util";
 import { TranslateService } from "@ngx-translate/core";
 interface Link {
   route: string;

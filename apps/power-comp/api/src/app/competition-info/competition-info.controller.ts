@@ -1,6 +1,6 @@
 import { Controller, Get, Param } from "@nestjs/common";
-import { api } from "@dt/power-comp/shared";
-import { LifterEntityService, LifterEntity } from "@dt/power-comp/entity";
+import { api } from "@pc/power-comp/shared";
+import { LifterEntityService, LifterEntity } from "@pc/power-comp/entity";
 import { ApiTags, ApiResponse, ApiParam } from "@nestjs/swagger";
 import { CompetitionInfoService } from "./competition-info.service";
 import { RankingDto } from "./ranking.dto";

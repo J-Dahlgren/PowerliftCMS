@@ -1,7 +1,7 @@
 import { ILifter } from "./ILifter";
 import { ILifts, IAttempt, LiftStatus, LiftField } from "./lifts";
 import { Gender } from "./IPerson";
-import { IEntity } from "@dt/util";
+import { IEntity } from "@pc/util";
 import { attemptInfo, IAttemptInfo } from "./attempt-info";
 import { Result, getResult, IResult } from "./ranking";
 import { LifterData } from "./lifter-data";

@@ -1,6 +1,6 @@
 import { LiftOrderCompareFunction } from "./lift-order-compare-function";
 import { ILifter, attemptInfo } from "../../data-types";
-import { IEntity } from "@dt/util";
+import { IEntity } from "@pc/util";
 
 export function nextLifterDeterminator<T extends ILifter>(
   lifters: T[],

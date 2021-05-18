@@ -1,4 +1,4 @@
-import { IPlatformEvent, JudgeDecision } from "@dt/power-comp/shared";
+import { IPlatformEvent, JudgeDecision } from "@pc/power-comp/shared";
 import {
   IsNumber,
   IsEnum,
@@ -9,7 +9,7 @@ import {
   IsBoolean
 } from "class-validator";
 import { ApiProperty } from "@nestjs/swagger";
-import { Clock, TimerState, ExtractEnumKeys, EnumKeys } from "@dt/util";
+import { Clock, TimerState, ExtractEnumKeys, EnumKeys } from "@pc/util";
 import { Type, Transform } from "class-transformer";
 
 export abstract class PlatformEventDto {

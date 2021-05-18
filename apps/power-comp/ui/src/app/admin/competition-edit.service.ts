@@ -1,6 +1,6 @@
 import { Injectable, OnDestroy } from "@angular/core";
-import { StateStore, IEntity, SECOND, MINUTE } from "@dt/util";
-import { LogService, UiLogger } from "@dt/angular/logger";
+import { StateStore, IEntity, SECOND, MINUTE } from "@pc/util";
+import { LogService, UiLogger } from "@pc/angular/logger";
 import { skip, filter, takeUntil } from "rxjs/operators";
 import { Subject, interval } from "rxjs";
 import { AppInfoService } from "../core";

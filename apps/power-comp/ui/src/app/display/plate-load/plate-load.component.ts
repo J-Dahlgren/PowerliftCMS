@@ -7,7 +7,7 @@ import {
   findValidPlateCombo,
   getPlateLoading,
   IWeightPlate
-} from "@dt/power-comp/shared";
+} from "@pc/power-comp/shared";
 
 @Component({
   selector: "pc-plate-load",

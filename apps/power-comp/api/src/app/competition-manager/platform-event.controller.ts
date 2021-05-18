@@ -1,5 +1,5 @@
 import { Controller, Post, Body, UseGuards } from "@nestjs/common";
-import { api } from "@dt/power-comp/shared";
+import { api } from "@pc/power-comp/shared";
 import {
   ActiveGroupDto,
   JudgeDecisionDto,
@@ -9,7 +9,7 @@ import {
 import { PlatformEventService } from "./platform-event.service";
 import { ApiTags, ApiBody, ApiBearerAuth } from "@nestjs/swagger";
 import { InternalEventBus } from "./internal-event-bus";
-import { SimpleJwtGuard } from "@dt/nest/auth";
+import { SimpleJwtGuard } from "@pc/nest/auth";
 
 @ApiTags(api.events.root.toUpperCase())
 @Controller(api.events.root)

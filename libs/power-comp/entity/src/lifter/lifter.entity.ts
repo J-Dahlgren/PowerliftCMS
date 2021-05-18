@@ -1,5 +1,5 @@
 import { Entity, Column, ManyToOne, AfterLoad } from "typeorm";
-import { IEntity } from "@dt/util";
+import { IEntity } from "@pc/util";
 import {
   ILifter,
   Gender,
@@ -17,7 +17,7 @@ import {
   competitionModes,
   matchesAnyLiftConfig,
   ipfScoreFormula
-} from "@dt/power-comp/shared";
+} from "@pc/power-comp/shared";
 import {
   IsNumber,
   ValidateNested,
@@ -33,8 +33,8 @@ import { Type } from "class-transformer";
 import { Lifts } from "./lift";
 import { CompetitionEntity } from "../competition/competition.entity";
 import { GroupEntity } from "../group/group.entity";
-import { CREATE, UPDATE } from "@dt/nest/util";
-import { EntityBase } from "@dt/nest/entity-service";
+import { CREATE, UPDATE } from "@pc/nest/util";
+import { EntityBase } from "@pc/nest/entity-service";
 import { AttemptInfoDto } from "./attempt-info.dto";
 import { ResultDto } from "./result.dto";
 import { WeightCategoryEntity } from "../weight-category";

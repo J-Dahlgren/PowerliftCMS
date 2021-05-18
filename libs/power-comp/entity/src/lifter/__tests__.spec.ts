@@ -1,6 +1,6 @@
 import { Attempt } from "./attempt";
 import { Lifts } from "./lift";
-import { attemptInfo, AttemptInfo, LiftStatus } from "@dt/power-comp/shared";
+import { attemptInfo, AttemptInfo, LiftStatus } from "@pc/power-comp/shared";
 
 describe("Attempt", () => {
   test("requestedWeight()", () => {

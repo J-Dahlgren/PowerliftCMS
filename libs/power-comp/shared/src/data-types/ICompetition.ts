@@ -1,7 +1,7 @@
 import { IPlatform } from "./IPlatform";
 import { IGroup } from "./IGroup";
 import { ILifter } from "./ILifter";
-import { IEntity } from "@dt/util";
+import { IEntity } from "@pc/util";
 import { IWeightClass } from "./weight-category";
 
 export interface ICompetition {

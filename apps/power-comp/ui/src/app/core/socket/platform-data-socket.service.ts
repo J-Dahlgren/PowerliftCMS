@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
-import { RoomSocketService } from "@dt/angular/socket";
-import { IPlatformData, PLATFORM_NSP } from "@dt/power-comp/shared";
-import { LogService, UiLogger } from "@dt/angular/logger";
+import { RoomSocketService } from "@pc/angular/socket";
+import { IPlatformData, PLATFORM_NSP } from "@pc/power-comp/shared";
+import { LogService, UiLogger } from "@pc/angular/logger";
 import { AppInfoService } from "./app-info.service";
 
 @Injectable({ providedIn: "root" })

@@ -7,8 +7,8 @@ import {
   AgeCategoryName,
   AgeCategories,
   IGroupEntity
-} from "@dt/power-comp/shared";
-import { StateStore, IEntity, lodashChainMap } from "@dt/util";
+} from "@pc/power-comp/shared";
+import { StateStore, IEntity, lodashChainMap } from "@pc/util";
 import { SubSink } from "subsink";
 import { Subject, Observable, merge } from "rxjs";
 import { debounceTime, switchMap, exhaustMap } from "rxjs/operators";
@@ -18,7 +18,7 @@ import { MatTableDataSource } from "@angular/material/table";
 import { RequestQueryBuilder } from "@nestjsx/crud-request";
 import { MatSort } from "@angular/material/sort";
 import { DownloadService } from "../../core";
-import { createFileDownload } from "@dt/angular/util";
+import { createFileDownload } from "@pc/angular/util";
 import moment from "moment";
 type ResultData = LifterData & IRank;
 

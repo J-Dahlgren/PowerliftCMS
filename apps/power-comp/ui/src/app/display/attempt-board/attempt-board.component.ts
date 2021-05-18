@@ -2,8 +2,8 @@ import { Component, OnInit } from "@angular/core";
 import { PlatformDecisionService } from "../decision-display/platform-decision.service";
 import { Observable } from "rxjs";
 import { PlatformDataService, PlatformTimerService } from "../../core";
-import { IEntity, Clock } from "@dt/util";
-import { LifterData } from "@dt/power-comp/shared";
+import { IEntity, Clock } from "@pc/util";
+import { LifterData } from "@pc/power-comp/shared";
 import { map } from "rxjs/operators";
 
 @Component({
