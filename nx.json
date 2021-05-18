@@ -1,5 +1,5 @@
 {
-  "npmScope": "dt",
+  "npmScope": "pc",
   "implicitDependencies": {
     "angular.json": "*",
     "package.json": {
@@ -26,18 +26,6 @@
     "util": {
       "tags": []
     },
-    "nest-logger": {
-      "tags": []
-    },
-    "nest-entity-service": {
-      "tags": []
-    },
-    "nest-socket": {
-      "tags": []
-    },
-    "nest-auth": {
-      "tags": []
-    },
     "power-comp-shared": {
       "tags": []
     },
@@ -50,12 +38,12 @@
     "power-comp-ui": {
       "tags": []
     },
-    "nest-util": {
-      "tags": []
-    },
     "power-comp-standalone": {
       "tags": [],
       "implicitDependencies": ["power-comp-api", "power-comp-ui"]
+    },
+    "nest": {
+      "tags": []
     }
   }
 }
