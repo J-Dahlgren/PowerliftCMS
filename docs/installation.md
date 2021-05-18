@@ -25,11 +25,49 @@
 To configure the application, go to the install location.
 There will be a file that is called "power-comp.env", you can modify the following environment variables in it:
 
-- Application port
-  - All clients need to "refresh" with the new port number if changed
-- Database filename
-- Log level
+**NOTE:** The application need to be restarted for any changes to take effect.
+
+### `PORT`
+
+Which port the server is accessible on.
+
+All clients need to "refresh" with the new port number if changed
+
+Default is `80`
+
+### `STORAGE_PATH`
+
+Folder where application data is stored.
+
+Defaults to `<home directory>/power-comp` which on Windows 10 usually is `C:\Users\<USERNAME>\power-comp`
+
+### `DATABASE_NAME`
 
 If you want to have a playground with a prepopulated temporary database, set the variable `DATABASE_NAME = ":memory:"`. This will give you an environment similar to the demo site.
 
-The application need to be restarted for any changes to take effect.
+The database file will be stored at `<STORAGE_PATH>/<DATABASE_NAME>`
+
+Default is `db/power-comp.sqlite` i.e. `<STORAGE_PATH>/db/power-comp.sqlite`
+
+### `LOG_LEVEL`
+
+Choose between `"ERROR"`, `"WARN"`,`"INFO"`,`"DEBUG"`,`"TRACE"`.
+
+Default is `"INFO"`
+
+### `PASSWORD`
+
+Setting the password is completly optional and is usually not needed when run on a private network, e.g., behind your own router that you control access to.
+
+If the password is not set, the application data can be edited by anyone that has access to the server.
+
+Power Comp uses something called [JSON Web Token (JWT)](https://jwt.io/introduction) to secure itself.
+Securing the application can be done with two variables:
+
+- `PASSWORD`
+- `JWT_SECRET` (optional)
+
+If the application is hosted and accessible from anywhere in the world, it is recommended to set
+`JWT_SECRET = "s0m3-l0ng-@nd-compl!cted-5ecr3t"`. Nobody is ever required to enter this secret anywhere.
+
+If `JWT_SECRET` is not set, `PASSWORD` will be used as `JWT_SECRET` making the application less secure as anyone with the password can issue JWTs unhindered.

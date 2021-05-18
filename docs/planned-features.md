@@ -1,8 +1,8 @@
 ## Up next
 
-- **Application PIN:** Secure parts of the application against unauthorized users.
-
 - **Quick access to administration**
+
+- **Online scoreboard:** Allow local application server to push data to remote service, reducing load on the local server.
 
 ## Soon
 
@@ -21,9 +21,7 @@
   - **Quick add old lifters to meet:** Reduces time spent filling forms.
   - CSV/Excel import/export.
 
-- **Online scoreboard:** Allow local application server to push data to remote service, reducing load on the local server.
-
-## Some day
+## Maybe some day
 
 - **Package as electron application:** Packaging Power Comp as an Electron application would make it available on many more operating systems.
 
