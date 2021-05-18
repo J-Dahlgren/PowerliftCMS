@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
-import { NspSocketService } from "@dt/angular/socket";
-import { IAppInfo, APP_INFO_NSP, AppInfo } from "@dt/power-comp/shared";
-import { LogService, UiLogger } from "@dt/angular/logger";
+import { NspSocketService } from "@pc/angular/socket";
+import { IAppInfo, APP_INFO_NSP, AppInfo } from "@pc/power-comp/shared";
+import { LogService, UiLogger } from "@pc/angular/logger";
 import { auditTime } from "rxjs/operators";
 @Injectable({ providedIn: "root" })
 export class AppInfoService extends NspSocketService<IAppInfo> {

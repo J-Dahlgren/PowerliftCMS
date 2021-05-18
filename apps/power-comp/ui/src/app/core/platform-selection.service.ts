@@ -1,8 +1,8 @@
 import { Injectable, OnDestroy } from "@angular/core";
-import { ProtectedStore, IEntity } from "@dt/util";
-import { IPlatform, ICompetition } from "@dt/power-comp/shared";
+import { ProtectedStore, IEntity } from "@pc/util";
+import { IPlatform, ICompetition } from "@pc/power-comp/shared";
 import { distinctUntilChanged } from "rxjs/operators";
-import { LogService, UiLogger } from "@dt/angular/logger";
+import { LogService, UiLogger } from "@pc/angular/logger";
 import { SubSink } from "subsink";
 import { AppInfoService } from "./socket/app-info.service";
 import {

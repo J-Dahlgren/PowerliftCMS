@@ -1,10 +1,10 @@
-import { UiLogger } from "@dt/angular/logger";
+import { UiLogger } from "@pc/angular/logger";
 import { RequestQueryBuilder } from "@nestjsx/crud-request";
 import { catchError, tap, map, switchMap } from "rxjs/operators";
 import { HttpClient } from "@angular/common/http";
-import { IEntity } from "@dt/util";
+import { IEntity } from "@pc/util";
 import { Observable } from "rxjs";
-import { minDelay } from "@dt/util";
+import { minDelay } from "@pc/util";
 
 export interface IApiService<T extends object> {
   get(id: string | number, queryStr: string): Observable<IEntity<T>>;

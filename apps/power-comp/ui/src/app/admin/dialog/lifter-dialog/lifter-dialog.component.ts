@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject } from "@angular/core";
-import { EditDialog } from "@dt/angular/shared";
+import { EditDialog } from "@pc/angular/shared";
 import {
   ILifter,
   IGroup,
@@ -12,7 +12,7 @@ import {
   getWeightClass,
   SquatRackSettingsEnum,
   CompetitionModesEnum
-} from "@dt/power-comp/shared";
+} from "@pc/power-comp/shared";
 import { PcDialogOptions } from "../dialog-options";
 import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material/dialog";
 import {
@@ -27,9 +27,9 @@ import {
   FormGroup,
   FormArray
 } from "@angular/forms";
-import { LogService } from "@dt/angular/logger";
+import { LogService } from "@pc/angular/logger";
 import { Observable, BehaviorSubject } from "rxjs";
-import { IEntity, ExtractEnumKeys, EnumKeys, StringKey } from "@dt/util";
+import { IEntity, ExtractEnumKeys, EnumKeys, StringKey } from "@pc/util";
 import { RequestQueryBuilder } from "@nestjsx/crud-request";
 import { createLiftsForm } from "../lifter-dialog-builder";
 

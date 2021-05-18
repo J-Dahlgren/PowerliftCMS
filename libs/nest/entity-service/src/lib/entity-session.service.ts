@@ -1,4 +1,4 @@
-import { IEntity, ILogService, Sink } from "@dt/util";
+import { IEntity, ILogService, Sink } from "@pc/util";
 import { filter } from "rxjs/operators";
 import { cloneDeep } from "lodash";
 import { IEntitySubscriber } from "./entity.subscriber";

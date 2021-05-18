@@ -4,7 +4,7 @@ import { JwtModule } from "@nestjs/jwt";
 import { SIMPLE_AUTH_PASSWORD_TOKEN } from "./tokens";
 import { SimpleAuthService } from "./simple-auth.service";
 import { JWT_SECRET } from "../di-tokens";
-import { LoggerModule } from "@dt/nest/logger";
+import { LoggerModule } from "@pc/nest/logger";
 import { SimpleJwtStrategy } from "./simple-jwt.strategy";
 import { SimpleJwtGuard } from "./simple-jwt.guard";
 @Module({})

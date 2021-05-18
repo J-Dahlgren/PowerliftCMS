@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from "@angular/core";
 import { Observable } from "rxjs";
-import { ModalService, DialogOptions } from "@dt/angular/shared";
+import { ModalService, DialogOptions } from "@pc/angular/shared";
 import { Router, ActivatedRoute } from "@angular/router";
 
 import {
@@ -11,14 +11,14 @@ import {
   auditTime,
   debounceTime
 } from "rxjs/operators";
-import { IEntity, IStateStore, StateStore } from "@dt/util";
-import { ICompetition, defaultPlatformWeights } from "@dt/power-comp/shared";
+import { IEntity, IStateStore, StateStore } from "@pc/util";
+import { ICompetition, defaultPlatformWeights } from "@pc/power-comp/shared";
 import { CompetitionService, AppInfoService } from "../../core";
 import { CompetitionDialogComponent } from "../dialog/competition-dialog/competition-dialog.component";
 import { PlatformService } from "../../core";
 import { EntityListComponent } from "../entity-list.component";
-import { IApiService } from "@dt/angular/crud-api";
-import { SnackBarService } from "@dt/angular/material";
+import { IApiService } from "@pc/angular/crud-api";
+import { SnackBarService } from "@pc/angular/material";
 import { TranslateService } from "@ngx-translate/core";
 import { MatTableDataSource } from "@angular/material/table";
 import { MatSort } from "@angular/material/sort";

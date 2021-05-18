@@ -2,7 +2,7 @@ import { NgModule, ModuleWithProviders } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { logLevelToken } from "./log-level.token";
 import { LogService } from "./log-factory.service";
-import { LogLevel } from "@dt/util";
+import { LogLevel } from "@pc/util";
 import { LogComponent } from "./log/log.component";
 
 @NgModule({

@@ -5,9 +5,9 @@ import {
   HttpClientTestingModule,
   HttpTestingController
 } from "@angular/common/http/testing";
-import { LogService } from "@dt/angular/logger";
+import { LogService } from "@pc/angular/logger";
 import { TestBed } from "@angular/core/testing";
-import { LogLevel } from "@dt/util";
+import { LogLevel } from "@pc/util";
 interface TestType {
   a?: number;
   b?: string;

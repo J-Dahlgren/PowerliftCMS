@@ -1,4 +1,4 @@
-import { NavItem } from "@dt/angular/menu";
+import { NavItem } from "@pc/angular/menu";
 
 export const navItems: NavItem[] = [
   {

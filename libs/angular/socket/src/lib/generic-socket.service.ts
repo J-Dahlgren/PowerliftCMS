@@ -1,8 +1,8 @@
-import { UiLogger } from "@dt/angular/logger";
+import { UiLogger } from "@pc/angular/logger";
 import { BehaviorSubject, fromEvent } from "rxjs";
 import { connect } from "socket.io-client";
 import { distinctUntilChanged, skip } from "rxjs/operators";
-import { ProtectedStore } from "@dt/util";
+import { ProtectedStore } from "@pc/util";
 import { SocketState } from "./socket-state";
 
 export abstract class GenericSocketService<

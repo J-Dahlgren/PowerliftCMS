@@ -1,8 +1,8 @@
 import { Injectable, Inject } from "@angular/core";
-import { IServerPlatformEvents, JudgeDecision } from "@dt/power-comp/shared";
+import { IServerPlatformEvents, JudgeDecision } from "@pc/power-comp/shared";
 import { SERVER_EVENTS_TOKEN } from "../../core";
-import { InRoom, lodashChainMap } from "@dt/util";
-import { AutoUnsubscribeComponent } from "@dt/angular/util";
+import { InRoom, lodashChainMap } from "@pc/util";
+import { AutoUnsubscribeComponent } from "@pc/angular/util";
 import { BehaviorSubject, merge, timer, of } from "rxjs";
 import { switchMap, map } from "rxjs/operators";
 

@@ -1,5 +1,5 @@
 import { IGroup } from "./IGroup";
-import { IEntity } from "@dt/util";
+import { IEntity } from "@pc/util";
 import { ICompetition } from "./ICompetition";
 
 export interface IPlatform {

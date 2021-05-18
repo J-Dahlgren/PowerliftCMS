@@ -4,7 +4,7 @@ import { DialogOptions } from "./generic-edit-dialog";
 import { EditDialog } from "./generic-edit-dialog/edit-dialog";
 import { ConfirmDialogComponent } from "./confirm-dialog/confirm-dialog.component";
 import { ModalData } from "./modal-data";
-import { IEntity } from "@dt/util";
+import { IEntity } from "@pc/util";
 import { filter, mapTo, take } from "rxjs/operators";
 
 @Injectable({ providedIn: "root" })

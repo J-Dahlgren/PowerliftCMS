@@ -1,5 +1,5 @@
-import { IServerPlatformEvents } from "@dt/power-comp/shared";
-import { InRoom, IRoomRequest, RoomEvent } from "@dt/util";
+import { IServerPlatformEvents } from "@pc/power-comp/shared";
+import { InRoom, IRoomRequest, RoomEvent } from "@pc/util";
 import { Observable } from "rxjs";
 
 export const SERVER_EVENTS_TOKEN = "SERVER_EVENTS_TOKEN";

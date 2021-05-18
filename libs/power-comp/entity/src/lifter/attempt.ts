@@ -1,4 +1,4 @@
-import { IAttempt, LiftStatus } from "@dt/power-comp/shared";
+import { IAttempt, LiftStatus } from "@pc/power-comp/shared";
 import { IsEnum, IsOptional, IsNumber } from "class-validator";
 import { ApiProperty } from "@nestjs/swagger";
 import { Transform } from "class-transformer";

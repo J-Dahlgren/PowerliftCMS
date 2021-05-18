@@ -1,4 +1,4 @@
-import { LogLevel } from "@dt/util";
+import { LogLevel } from "@pc/util";
 
 export interface ILogService {
   setContext(context: string): this;

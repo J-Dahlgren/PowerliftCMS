@@ -5,19 +5,19 @@ import {
   FormBuilder,
   FormArray
 } from "@angular/forms";
-import { IEntity, ExtractEnumKeys } from "@dt/util";
+import { IEntity, ExtractEnumKeys } from "@pc/util";
 import { Component, Inject } from "@angular/core";
-import { EditDialog, DialogMode } from "@dt/angular/shared";
+import { EditDialog, DialogMode } from "@pc/angular/shared";
 import {
   ICompetition,
   defaultWeightClasses,
   Gender,
   AgeCategoryName
-} from "@dt/power-comp/shared";
+} from "@pc/power-comp/shared";
 import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material/dialog";
-import { DialogOptions } from "@dt/angular/shared";
+import { DialogOptions } from "@pc/angular/shared";
 import { Observable, merge, of } from "rxjs";
-import { LogService } from "@dt/angular/logger";
+import { LogService } from "@pc/angular/logger";
 import { CompetitionService } from "../../../core";
 import { TranslateService } from "@ngx-translate/core";
 import { switchMap, startWith, map, tap, debounceTime } from "rxjs/operators";

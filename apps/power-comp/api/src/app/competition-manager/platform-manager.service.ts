@@ -1,11 +1,11 @@
 import { Injectable, OnModuleInit, OnModuleDestroy } from "@nestjs/common";
-import { LogInject } from "@dt/nest/logger";
-import { ILogService, RoomEventBus } from "@dt/util";
+import { LogInject } from "@pc/nest/logger";
+import { ILogService, RoomEventBus } from "@pc/util";
 import {
   PlatformEntityService,
   PlatformEntity,
   CompetitionEntityService
-} from "@dt/power-comp/entity";
+} from "@pc/power-comp/entity";
 import { ModuleRef } from "@nestjs/core";
 import {
   PlatformSessionService,
@@ -14,7 +14,7 @@ import {
 import { SubSink } from "subsink";
 import { remove } from "lodash";
 import { auditTime, filter } from "rxjs/operators";
-import { IPlatformData } from "@dt/power-comp/shared";
+import { IPlatformData } from "@pc/power-comp/shared";
 
 @Injectable()
 export class PlatformManagerService extends RoomEventBus<IPlatformData>

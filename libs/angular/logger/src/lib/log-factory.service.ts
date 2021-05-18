@@ -2,7 +2,7 @@ import { Injectable, Optional, Inject } from "@angular/core";
 import { logLevelToken } from "./log-level.token";
 import { UiLogger } from "./ui-logger.service";
 import { Subject } from "rxjs";
-import { RollingList, LogEvent, LogLevel } from "@dt/util";
+import { RollingList, LogEvent, LogLevel } from "@pc/util";
 @Injectable({ providedIn: "root" })
 export class LogService {
   private reportStream = new Subject<LogEvent>();

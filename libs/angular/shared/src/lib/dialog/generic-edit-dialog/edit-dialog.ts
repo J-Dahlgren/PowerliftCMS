@@ -4,9 +4,9 @@ import { FormGroup } from "@angular/forms";
 
 import { DialogOptions } from "./dialog-options";
 import { MatDialogRef } from "@angular/material/dialog";
-import { UiLogger } from "@dt/angular/logger";
-import { ProtectedStore, IEntity } from "@dt/util";
-import { IApiService } from "@dt/angular/crud-api";
+import { UiLogger } from "@pc/angular/logger";
+import { ProtectedStore, IEntity } from "@pc/util";
+import { IApiService } from "@pc/angular/crud-api";
 import { SubSink } from "subsink";
 export interface DialogState {
   loading: boolean;

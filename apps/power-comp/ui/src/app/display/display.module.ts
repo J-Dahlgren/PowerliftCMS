@@ -1,13 +1,13 @@
 import { NgModule } from "@angular/core";
 import { TranslateModule } from "@ngx-translate/core";
-import { UtilModule } from "@dt/angular/util";
+import { UtilModule } from "@pc/angular/util";
 import { PlatformTimerComponent } from "./platform-timer/platform-timer.component";
 import { CommonModule } from "@angular/common";
 import { DecisionDisplayComponent } from "./decision-display/decision-display.component";
 import { AttemptInfoBarComponent } from "./attempt-info-bar/attempt-info-bar.component";
 import { LiftOrderComponent } from "./lift-order/lift-order.component";
 import { Routes, Route, RouterModule } from "@angular/router";
-import { MaterialModule } from "@dt/angular/material";
+import { MaterialModule } from "@pc/angular/material";
 import { CdkTableModule } from "@angular/cdk/table";
 import { DisplayShellComponent } from "./display-shell.component";
 import { ResultBoardComponent } from "./result-board/result-board.component";

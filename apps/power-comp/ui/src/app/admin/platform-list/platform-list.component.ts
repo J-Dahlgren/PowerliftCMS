@@ -1,15 +1,15 @@
 import { Component, OnInit } from "@angular/core";
-import { IPlatform } from "@dt/power-comp/shared";
+import { IPlatform } from "@pc/power-comp/shared";
 import { EntityListComponent } from "../entity-list.component";
 import { CompetitionEditService } from "../competition-edit.service";
 import { PlatformService } from "../../core";
-import { ModalService, EditDialog } from "@dt/angular/shared";
-import { StateStore, IStateStore, IEntity, Constructor } from "@dt/util";
+import { ModalService, EditDialog } from "@pc/angular/shared";
+import { StateStore, IStateStore, IEntity, Constructor } from "@pc/util";
 import { RequestQueryBuilder } from "@nestjsx/crud-request";
 import { PlatformDialogComponent } from "../dialog";
 import { PcDialogOptions } from "../dialog";
 import { PowerCompListComponent } from "../power-comp-list.component";
-import { SnackBarService } from "@dt/angular/material";
+import { SnackBarService } from "@pc/angular/material";
 import { TranslateService } from "@ngx-translate/core";
 @Component({
   selector: "pc-platform-list",

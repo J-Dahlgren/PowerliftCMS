@@ -3,7 +3,7 @@ import * as moment from "moment";
 import { Optional, Injectable, InjectionToken, Inject } from "@angular/core";
 import { logLevelToken } from "./log-level.token";
 import { Subject } from "rxjs";
-import { LogEvent, LogLevel } from "@dt/util";
+import { LogEvent, LogLevel } from "@pc/util";
 const colors: {
   [key in keyof typeof LogLevel]: string;
 } = {

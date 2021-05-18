@@ -1,11 +1,11 @@
-import { BaseApiService, BaseApiOpts } from "@dt/angular/crud-api";
+import { BaseApiService, BaseApiOpts } from "@pc/angular/crud-api";
 import { Inject, Injectable, OnInit } from "@angular/core";
 import { AUTH_DI_TOKEN, JWT_TOKEN, JWT_TOKEN_KEY } from "./auth.token";
-import { LogService } from "@dt/angular/logger";
+import { LogService } from "@pc/angular/logger";
 import { HttpClient } from "@angular/common/http";
 import { LocalStorageService } from "ngx-webstorage";
 import { shareReplay, tap, map, distinctUntilChanged } from "rxjs/operators";
-import { AccessToken, JwtPayload } from "@dt/util";
+import { AccessToken, JwtPayload } from "@pc/util";
 import { JwtHelperService } from "@auth0/angular-jwt";
 import { Observable, merge, interval, of } from "rxjs";
 @Injectable()

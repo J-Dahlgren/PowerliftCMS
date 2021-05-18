@@ -1,4 +1,4 @@
-import { LogLevel, ILogService, LogEvent } from "@dt/util";
+import { LogLevel, ILogService, LogEvent } from "@pc/util";
 import { Injectable, Scope, Optional, Inject } from "@nestjs/common";
 import * as chalk from "chalk";
 import * as moment from "moment";

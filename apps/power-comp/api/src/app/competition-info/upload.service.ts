@@ -1,13 +1,13 @@
 import { Injectable } from "@nestjs/common";
-import { LogInject } from "@dt/nest/logger";
-import { ILogService, extractKeys } from "@dt/util";
+import { LogInject } from "@pc/nest/logger";
+import { ILogService, extractKeys } from "@pc/util";
 import {
   GroupEntity,
   GroupEntityService,
   LifterEntity,
   LifterEntityService,
   Lifts
-} from "@dt/power-comp/entity";
+} from "@pc/power-comp/entity";
 import { environment } from "../../environments/environment";
 import {
   Environment,
@@ -15,7 +15,7 @@ import {
   Gender,
   defaultLifts,
   LiftField
-} from "@dt/power-comp/shared";
+} from "@pc/power-comp/shared";
 import { CellValue, Row, Workbook } from "exceljs";
 import { cloneDeep } from "lodash";
 

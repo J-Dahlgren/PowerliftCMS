@@ -14,7 +14,7 @@ import {
   RoomBus,
   ILogService,
   RoomEvent
-} from "@dt/util";
+} from "@pc/util";
 import { OnModuleDestroy } from "@nestjs/common";
 import { SubSink } from "subsink";
 

@@ -1,20 +1,20 @@
 import { NestFactory, HttpAdapterHost } from "@nestjs/core";
 import { AppModule } from "./app/app.module";
 import { environment } from "./environments/environment";
-import { LogService } from "@dt/nest/logger";
+import { LogService } from "@pc/nest/logger";
 import { SwaggerModule, DocumentBuilder } from "@nestjs/swagger";
 import { AllExceptionsFilter } from "./app/all-exceptions.filter";
 import { ValidationPipe, INestApplication } from "@nestjs/common";
 import configuration from "./app/configuration";
-import { Environment } from "@dt/power-comp/shared";
+import { Environment } from "@pc/power-comp/shared";
 import { IoAdapter } from "@nestjs/platform-socket.io";
 import {
   CompetitionEntityService,
   LifterEntityService
-} from "@dt/power-comp/entity";
+} from "@pc/power-comp/entity";
 import { competitionDefaults } from "./defaults";
 import { writeFileSync } from "fs";
-import { sleep } from "@dt/util";
+import { sleep } from "@pc/util";
 import { join } from "path";
 
 async function bootstrap() {

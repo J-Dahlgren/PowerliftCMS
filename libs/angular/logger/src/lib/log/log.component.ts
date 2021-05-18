@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from "@angular/core";
 import { LogService } from "../log-factory.service";
-import { StateStore } from "@dt/util";
-import { AutoUnsubscribeComponent } from "@dt/angular/util";
+import { StateStore } from "@pc/util";
+import { AutoUnsubscribeComponent } from "@pc/angular/util";
 import { SubSink } from "subsink";
 
 @Component({

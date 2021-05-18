@@ -7,7 +7,7 @@ import {
   Injectable
 } from "@nestjs/common";
 import { BaseExceptionFilter } from "@nestjs/core";
-import { LogService } from "@dt/nest/logger";
+import { LogService } from "@pc/nest/logger";
 
 @Catch()
 export class AllExceptionsFilter extends BaseExceptionFilter {

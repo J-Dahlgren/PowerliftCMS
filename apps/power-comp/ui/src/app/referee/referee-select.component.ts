@@ -1,6 +1,6 @@
 import { Component, Inject, OnInit } from "@angular/core";
-import { JudgeDecision, IServerPlatformEvents } from "@dt/power-comp/shared";
-import { InRoom } from "@dt/util";
+import { JudgeDecision, IServerPlatformEvents } from "@pc/power-comp/shared";
+import { InRoom } from "@pc/util";
 import { BehaviorSubject, Observable } from "rxjs";
 import { SERVER_EVENTS_TOKEN } from "../core";
 

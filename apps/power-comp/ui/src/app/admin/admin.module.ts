@@ -1,15 +1,15 @@
 import { NgModule } from "@angular/core";
-import { MaterialModule } from "@dt/angular/material";
+import { MaterialModule } from "@pc/angular/material";
 import { RouterModule, Route } from "@angular/router";
 import { CompetitionListComponent } from "./competition-list/competition-list.component";
 import { CommonModule } from "@angular/common";
 import { TranslateModule } from "@ngx-translate/core";
-import { UtilModule } from "@dt/angular/util";
+import { UtilModule } from "@pc/angular/util";
 import { CompetitionEditComponent } from "./competition-edit/competition-edit.component";
 import { BrowserModule } from "@angular/platform-browser";
 import { GroupListComponent } from "./group-list/group-list.component";
 import { PlatformListComponent } from "./platform-list/platform-list.component";
-import { TableModule } from "@dt/angular/shared";
+import { TableModule } from "@pc/angular/shared";
 import { LifterListComponent } from "./lifter-list/lifter-list.component";
 import { FormsModule } from "@angular/forms";
 import { DialogModule } from "./dialog";

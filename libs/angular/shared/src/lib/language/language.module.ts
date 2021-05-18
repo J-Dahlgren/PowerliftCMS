@@ -1,7 +1,7 @@
 import { NgModule, ModuleWithProviders } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { LanguageService } from "./language.service";
-import { MaterialModule } from "@dt/angular/material";
+import { MaterialModule } from "@pc/angular/material";
 import { LanguageSelectorComponent } from "./language-selector/language-selector.component";
 import { LanguageCode } from "./language-code";
 import { COUNTRY_CODE_TOKEN } from "./token";

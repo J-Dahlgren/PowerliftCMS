@@ -1,4 +1,4 @@
-import { IEntity } from "@dt/util";
+import { IEntity } from "@pc/util";
 import {
   IAttemptInfo,
   JudgeDecision,

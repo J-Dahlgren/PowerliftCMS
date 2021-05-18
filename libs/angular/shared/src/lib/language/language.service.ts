@@ -1,7 +1,7 @@
 import { Injectable, Inject } from "@angular/core";
 import { TranslateService } from "@ngx-translate/core";
 import { LanguageCode } from "./language-code";
-import { StateStore } from "@dt/util";
+import { StateStore } from "@pc/util";
 import { LocalStorageService } from "ngx-webstorage";
 import { COUNTRY_CODE_TOKEN } from "./token";
 const enLanguage: LanguageCode = { language: "en", flag: "gb" };

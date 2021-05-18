@@ -1,9 +1,9 @@
-import { ProtectedStore, NSP_STATE_EVENT, extractKeys } from "@dt/util";
+import { ProtectedStore, NSP_STATE_EVENT, extractKeys } from "@pc/util";
 import { OnDestroy } from "@angular/core";
 import { SubSink } from "subsink";
 import { fromEvent, BehaviorSubject } from "rxjs";
 import { connect } from "socket.io-client";
-import { APP_INFO_NSP } from "@dt/power-comp/shared";
+import { APP_INFO_NSP } from "@pc/power-comp/shared";
 import { SocketState } from "./socket-state";
 import { distinctUntilChanged } from "rxjs/operators";
 export abstract class NspSocketService<T extends {}> extends ProtectedStore<T>

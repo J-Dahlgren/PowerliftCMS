@@ -1,9 +1,9 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
-import { BaseApiService } from "@dt/angular/crud-api";
-import { api, LifterData, IRank } from "@dt/power-comp/shared";
-import { LogService } from "@dt/angular/logger";
-import { IEntity } from "@dt/util";
+import { BaseApiService } from "@pc/angular/crud-api";
+import { api, LifterData, IRank } from "@pc/power-comp/shared";
+import { LogService } from "@pc/angular/logger";
+import { IEntity } from "@pc/util";
 
 const apiPath = api.competitionInfo;
 @Injectable({ providedIn: "root" })

@@ -1,7 +1,7 @@
 import { NgModule, ModuleWithProviders } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { RouterModule } from "@angular/router";
-import { MaterialModule } from "@dt/angular/material";
+import { MaterialModule } from "@pc/angular/material";
 import { TranslateModule } from "@ngx-translate/core";
 import { SideNavComponent } from "./side-nav/side-nav.component";
 import { ListItemComponent } from "./list-item";

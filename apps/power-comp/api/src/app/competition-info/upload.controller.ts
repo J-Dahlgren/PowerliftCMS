@@ -7,7 +7,7 @@ import {
   Param,
   UseGuards
 } from "@nestjs/common";
-import { api } from "@dt/power-comp/shared";
+import { api } from "@pc/power-comp/shared";
 import {
   ApiBearerAuth,
   ApiConsumes,
@@ -20,7 +20,7 @@ import { Express } from "express";
 import { FileInterceptor, MulterModule } from "@nestjs/platform-express";
 import { Workbook } from "exceljs";
 import { unlink } from "fs";
-import { SimpleJwtGuard } from "@dt/nest/auth";
+import { SimpleJwtGuard } from "@pc/nest/auth";
 
 @ApiTags(api.upload.root.toUpperCase())
 @Controller(api.upload.root)

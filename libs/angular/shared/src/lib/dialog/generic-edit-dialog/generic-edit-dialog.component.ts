@@ -3,7 +3,7 @@ import { Observable, Subject, BehaviorSubject, of } from "rxjs";
 import { FormGroup } from "@angular/forms";
 import { EditDialog } from "./edit-dialog";
 import { tap, switchMap, map, exhaustMap, catchError } from "rxjs/operators";
-import { SnackBarService } from "@dt/angular/material";
+import { SnackBarService } from "@pc/angular/material";
 import { TRANSLATE } from "../token";
 @Component({
   selector: "dt-generic-edit-dialog",

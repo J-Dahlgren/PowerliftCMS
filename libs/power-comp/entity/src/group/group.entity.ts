@@ -5,22 +5,22 @@ import {
   ManyToOne,
   OneToMany
 } from "typeorm";
-import { IEntity } from "@dt/util";
+import { IEntity } from "@pc/util";
 import {
   IGroup,
   ILifter,
   IPlatform,
   ICompetition,
   LifterData
-} from "@dt/power-comp/shared";
+} from "@pc/power-comp/shared";
 import { ApiProperty } from "@nestjs/swagger";
 import { LifterEntity } from "../lifter";
 import { Type } from "class-transformer";
 import { CompetitionEntity } from "../competition/competition.entity";
 import { PlatformEntity } from "../platform/platform.entity";
 import { IsOptional, IsNumber, IsDateString, IsString } from "class-validator";
-import { UPDATE, CREATE } from "@dt/nest/util";
-import { EntityBase } from "@dt/nest/entity-service";
+import { UPDATE, CREATE } from "@pc/nest/util";
+import { EntityBase } from "@pc/nest/entity-service";
 
 @Entity()
 export class GroupEntity extends EntityBase implements IEntity<IGroup> {

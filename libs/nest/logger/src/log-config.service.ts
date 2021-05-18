@@ -1,4 +1,4 @@
-import { RollingList, LogEvent, LogLevel } from "@dt/util";
+import { RollingList, LogEvent, LogLevel } from "@pc/util";
 import { Injectable, Inject, Optional } from "@nestjs/common";
 import { Subject } from "rxjs";
 import { logLevelToken } from "./token";

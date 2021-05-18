@@ -5,7 +5,7 @@ import {
   ConnectedSocket
 } from "@nestjs/websockets";
 import { Socket, Namespace } from "socket.io";
-import { IStateStore, NSP_STATE_EVENT, ILogService } from "@dt/util";
+import { IStateStore, NSP_STATE_EVENT, ILogService } from "@pc/util";
 import { OnModuleDestroy } from "@nestjs/common";
 import { SubSink } from "subsink";
 import { auditTime } from "rxjs/operators";

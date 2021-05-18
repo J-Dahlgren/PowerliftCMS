@@ -2,7 +2,7 @@ import { Component } from "@angular/core";
 import { Observable } from "rxjs";
 import { AppInfoService } from "./core";
 import { environment } from "../environments/environment";
-import { Environment } from "@dt/power-comp/shared";
+import { Environment } from "@pc/power-comp/shared";
 @Component({
   template: `
     <div style="text-align:center;margin-top:10px;">

@@ -1,8 +1,8 @@
 import { Injectable } from "@angular/core";
-import { IGroup, api } from "@dt/power-comp/shared";
-import { BaseCrudApiService } from "@dt/angular/crud-api";
+import { IGroup, api } from "@pc/power-comp/shared";
+import { BaseCrudApiService } from "@pc/angular/crud-api";
 import { HttpClient } from "@angular/common/http";
-import { LogService } from "@dt/angular/logger";
+import { LogService } from "@pc/angular/logger";
 
 @Injectable({ providedIn: "root" })
 export class GroupService extends BaseCrudApiService<IGroup> {

@@ -1,5 +1,5 @@
 import { NgModule } from "@angular/core";
-import { MaterialModule } from "@dt/angular/material";
+import { MaterialModule } from "@pc/angular/material";
 import { TranslateModule } from "@ngx-translate/core";
 import {
   SERVER_EVENTS_TOKEN,

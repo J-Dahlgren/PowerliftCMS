@@ -1,7 +1,7 @@
 import { IsNumber, Min, ValidateNested, IsArray } from "class-validator";
 import { Type } from "class-transformer";
 import { ApiProperty } from "@nestjs/swagger";
-import { IPlatformWeights, IWeightPlate } from "@dt/power-comp/shared";
+import { IPlatformWeights, IWeightPlate } from "@pc/power-comp/shared";
 export class PlatformWeights implements IPlatformWeights {
   @IsNumber({ allowInfinity: false, allowNaN: false }, { always: true })
   @Min(0, { always: true })

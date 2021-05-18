@@ -8,7 +8,7 @@ import {
   getHotValue,
   ProtectedRoomEventBus,
   RoomEvent
-} from "@dt/util";
+} from "@pc/util";
 import { connect } from "socket.io-client";
 import { SubSink } from "subsink";
 import { fromEvent, BehaviorSubject } from "rxjs";

@@ -1,6 +1,6 @@
 import { TypeOrmCrudService } from "@nestjsx/crud-typeorm";
 import { Repository } from "typeorm";
-import { IEntity, ILogService, IEventBus, IEventEmitter } from "@dt/util";
+import { IEntity, ILogService, IEventBus, IEventEmitter } from "@pc/util";
 import { EntityEvents } from ".";
 import { EntityBase } from "./entity-base";
 

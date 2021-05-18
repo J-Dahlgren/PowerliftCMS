@@ -6,9 +6,9 @@ import {
   LiftFieldExtTuple,
   DISCIPLINE,
   IAttemptInfo
-} from "@dt/power-comp/shared";
-import { AutoUnsubscribeComponent } from "@dt/angular/util";
-import { lodashChainMap } from "@dt/util";
+} from "@pc/power-comp/shared";
+import { AutoUnsubscribeComponent } from "@pc/angular/util";
+import { lodashChainMap } from "@pc/util";
 import { MatTableDataSource } from "@angular/material/table";
 
 @Component({

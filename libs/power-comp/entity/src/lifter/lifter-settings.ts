@@ -3,7 +3,7 @@ import {
   ILifterSettings,
   ISquatSettings,
   SquatRackSettingsEnum
-} from "@dt/power-comp/shared";
+} from "@pc/power-comp/shared";
 import {
   IsNumber,
   IsOptional,
@@ -12,7 +12,7 @@ import {
   IsEnum
 } from "class-validator";
 import { ApiProperty, ApiPropertyOptional } from "@nestjs/swagger";
-import { ExtractEnumKeys } from "@dt/util";
+import { ExtractEnumKeys } from "@pc/util";
 import { Type } from "class-transformer";
 
 export class LifterSettings implements ILifterSettings {

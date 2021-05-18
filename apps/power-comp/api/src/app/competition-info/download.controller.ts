@@ -1,5 +1,5 @@
 import { Controller, Get, Param, Header, Res } from "@nestjs/common";
-import { api } from "@dt/power-comp/shared";
+import { api } from "@pc/power-comp/shared";
 import { ApiTags } from "@nestjs/swagger";
 import { DownloadService } from "./download.service";
 import { Response } from "express";

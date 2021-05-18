@@ -1,5 +1,5 @@
-import { LifterEntity } from "@dt/power-comp/entity";
-import { IRank } from "@dt/power-comp/shared";
+import { LifterEntity } from "@pc/power-comp/entity";
+import { IRank } from "@pc/power-comp/shared";
 import { ApiPropertyOptional } from "@nestjs/swagger";
 
 export class RankingDto extends LifterEntity implements IRank {

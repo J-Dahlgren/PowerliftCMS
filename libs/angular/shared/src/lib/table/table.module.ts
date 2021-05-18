@@ -1,7 +1,7 @@
 import { NgModule } from "@angular/core";
 import { ActionTableComponent } from "./action-table/action-table.component";
-import { MaterialModule } from "@dt/angular/material";
-import { UtilModule } from "@dt/angular/util";
+import { MaterialModule } from "@pc/angular/material";
+import { UtilModule } from "@pc/angular/util";
 import { MatPaginatorModule } from "@angular/material/paginator";
 import { TableHeader } from "./table-header.directive";
 import { TableContent } from "./table-content.directive";

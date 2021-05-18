@@ -1,5 +1,5 @@
 import { DynamicModule, Module } from "@nestjs/common";
-import { LogLevel } from "@dt/util";
+import { LogLevel } from "@pc/util";
 import { LogConfigService } from "./log-config.service";
 import { LogService } from "./log.service";
 import { logLevelToken, LOG_SERVICE_TOKEN } from "./token";

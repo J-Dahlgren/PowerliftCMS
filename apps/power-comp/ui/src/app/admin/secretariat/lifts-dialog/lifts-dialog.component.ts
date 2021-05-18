@@ -6,7 +6,7 @@ import {
   ViewChildren,
   QueryList
 } from "@angular/core";
-import { EditDialog, DialogOptions } from "@dt/angular/shared";
+import { EditDialog, DialogOptions } from "@pc/angular/shared";
 import {
   ILifter,
   LiftFieldTuple,
@@ -16,17 +16,17 @@ import {
   LiftStatus,
   IAttempt,
   requestedWeight
-} from "@dt/power-comp/shared";
+} from "@pc/power-comp/shared";
 import { MatDialogRef, MAT_DIALOG_DATA } from "@angular/material/dialog";
-import { IEntity, cutDecimal } from "@dt/util";
+import { IEntity, cutDecimal } from "@pc/util";
 import { Observable, interval, merge, timer } from "rxjs";
 import { FormGroup, FormBuilder, FormArray } from "@angular/forms";
 import { createLiftsForm } from "../../dialog";
 import { LifterService } from "../../../core";
-import { LogService } from "@dt/angular/logger";
+import { LogService } from "@pc/angular/logger";
 import { SubSink } from "subsink";
 import { debounceTime, auditTime } from "rxjs/operators";
-import { FocusElementDirective } from "@dt/angular/util";
+import { FocusElementDirective } from "@pc/angular/util";
 
 @Component({
   templateUrl: "./lifts-dialog.component.html",

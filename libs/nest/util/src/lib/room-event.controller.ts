@@ -1,4 +1,4 @@
-import { IRoomEvent } from "@dt/util";
+import { IRoomEvent } from "@pc/util";
 
 export type IRoomEventController<T extends {}> = {
   [key in keyof T]: RoomEventFn<T[key]>;

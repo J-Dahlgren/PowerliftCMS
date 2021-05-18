@@ -1,19 +1,19 @@
 import { Component, OnInit, ViewChild } from "@angular/core";
 import { PlatformDataService, PlatformService } from "../../../core";
-import { AutoUnsubscribeComponent } from "@dt/angular/util";
+import { AutoUnsubscribeComponent } from "@pc/angular/util";
 import { MatTableDataSource } from "@angular/material/table";
-import { IEntity } from "@dt/util";
+import { IEntity } from "@pc/util";
 import {
   LifterData,
   ILifter,
   LiftFieldTuple,
   protocolOrder
-} from "@dt/power-comp/shared";
+} from "@pc/power-comp/shared";
 import { MatSort } from "@angular/material/sort";
 import { Observable } from "rxjs";
 import { PcDialogOptions, LifterDialogComponent } from "../../dialog";
 import { LiftsDialogComponent } from "../lifts-dialog/lifts-dialog.component";
-import { ModalService, DialogOptions } from "@dt/angular/shared";
+import { ModalService, DialogOptions } from "@pc/angular/shared";
 import { get } from "lodash";
 @Component({
   selector: "pc-secretariat-list",

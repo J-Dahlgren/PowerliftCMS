@@ -1,6 +1,6 @@
-import { EntitySubscriber } from "@dt/nest/entity-service";
+import { EntitySubscriber } from "@pc/nest/entity-service";
 import { EventSubscriber, Connection } from "typeorm";
-import { Constructor } from "@dt/util";
+import { Constructor } from "@pc/util";
 import { GroupEntity } from "./group.entity";
 
 @EventSubscriber()

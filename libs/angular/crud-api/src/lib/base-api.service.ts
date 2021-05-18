@@ -1,4 +1,4 @@
-import { UiLogger } from "@dt/angular/logger";
+import { UiLogger } from "@pc/angular/logger";
 import { tap } from "rxjs/operators";
 import { assert } from "chai";
 

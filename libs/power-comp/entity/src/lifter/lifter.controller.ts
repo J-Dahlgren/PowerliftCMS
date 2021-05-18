@@ -3,8 +3,8 @@ import { CrudController, Crud } from "@nestjsx/crud";
 import { ApiTags, ApiParam, ApiBearerAuth } from "@nestjs/swagger";
 import { LifterEntityService } from "./lifter-entity.service";
 import { LifterEntity } from "./lifter.entity";
-import { api } from "@dt/power-comp/shared";
-import { SimpleJwtGuard } from "@dt/nest/auth";
+import { api } from "@pc/power-comp/shared";
+import { SimpleJwtGuard } from "@pc/nest/auth";
 
 @Crud({
   model: {

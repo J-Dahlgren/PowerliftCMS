@@ -1,6 +1,6 @@
 import { NgModule, ModuleWithProviders } from "@angular/core";
 import { CommonModule } from "@angular/common";
-import { MaterialModule } from "@dt/angular/material";
+import { MaterialModule } from "@pc/angular/material";
 import { ReactiveFormsModule } from "@angular/forms";
 import { GenericEditDialogComponent } from "./generic-edit-dialog/generic-edit-dialog.component";
 import { TranslateModule } from "@ngx-translate/core";

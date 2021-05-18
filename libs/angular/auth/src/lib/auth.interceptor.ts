@@ -9,7 +9,7 @@ import { Injectable, Inject } from "@angular/core";
 import { LocalStorageService } from "ngx-webstorage";
 import { Observable } from "rxjs";
 import { JWT_TOKEN_KEY } from "./auth.token";
-import { LogService } from "@dt/angular/logger";
+import { LogService } from "@pc/angular/logger";
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
   constructor(

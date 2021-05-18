@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
-import { BaseCrudApiService } from "@dt/angular/crud-api";
-import { IPlatform, api } from "@dt/power-comp/shared";
-import { LogService } from "@dt/angular/logger";
+import { BaseCrudApiService } from "@pc/angular/crud-api";
+import { IPlatform, api } from "@pc/power-comp/shared";
+import { LogService } from "@pc/angular/logger";
 import { HttpClient } from "@angular/common/http";
 
 @Injectable({ providedIn: "root" })

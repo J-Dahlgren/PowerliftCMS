@@ -1,7 +1,7 @@
-import { EntitySubscriber } from "@dt/nest/entity-service";
+import { EntitySubscriber } from "@pc/nest/entity-service";
 import { CompetitionEntity } from "./competition.entity";
 import { EventSubscriber, Connection } from "typeorm";
-import { Constructor } from "@dt/util";
+import { Constructor } from "@pc/util";
 
 @EventSubscriber()
 export class CompetitionEntitySubscriber extends EntitySubscriber<

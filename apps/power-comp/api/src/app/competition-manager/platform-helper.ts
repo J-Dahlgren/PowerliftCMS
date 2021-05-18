@@ -1,4 +1,4 @@
-import { SubscriptionLike } from "@dt/util";
+import { SubscriptionLike } from "@pc/util";
 
 export interface IPlatformHelperService<T extends object>
   extends SubscriptionLike {

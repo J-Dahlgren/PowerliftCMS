@@ -1,10 +1,10 @@
 import { Component, OnInit, Inject } from "@angular/core";
-import { IGroup, IPlatform } from "@dt/power-comp/shared";
-import { EditDialog, DialogOptions } from "@dt/angular/shared";
+import { IGroup, IPlatform } from "@pc/power-comp/shared";
+import { EditDialog, DialogOptions } from "@pc/angular/shared";
 import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material/dialog";
-import { LogService } from "@dt/angular/logger";
+import { LogService } from "@pc/angular/logger";
 import { GroupService, PlatformService } from "../../../core";
-import { IEntity } from "@dt/util";
+import { IEntity } from "@pc/util";
 import { Observable } from "rxjs";
 import {
   FormControl,

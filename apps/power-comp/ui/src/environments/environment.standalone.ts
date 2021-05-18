@@ -1,6 +1,6 @@
 import { IEnvironment } from "./IEnvironment";
 import { defaultEnvironment } from "./environment.default";
-import { Environment } from "@dt/power-comp/shared";
+import { Environment } from "@pc/power-comp/shared";
 
 export const environment: IEnvironment = {
   ...defaultEnvironment,

@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { Event, NavigationEnd, Router } from "@angular/router";
-import { ProtectedStore } from "@dt/util";
+import { ProtectedStore } from "@pc/util";
 export interface NavigationState {
   expanded: boolean;
   currentUrl: string;

@@ -3,8 +3,8 @@ import { CrudController, Crud } from "@nestjsx/crud";
 import { ApiBearerAuth, ApiTags } from "@nestjs/swagger";
 import { CompetitionEntityService } from "./competition-entity.service";
 import { CompetitionEntity } from "./competition.entity";
-import { api } from "@dt/power-comp/shared";
-import { SimpleJwtGuard } from "@dt/nest/auth";
+import { api } from "@pc/power-comp/shared";
+import { SimpleJwtGuard } from "@pc/nest/auth";
 @Crud({
   model: {
     type: CompetitionEntity

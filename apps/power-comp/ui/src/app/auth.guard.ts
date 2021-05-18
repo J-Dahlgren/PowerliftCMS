@@ -5,7 +5,7 @@ import {
   ActivatedRouteSnapshot,
   RouterStateSnapshot
 } from "@angular/router";
-import { AuthService } from "@dt/angular/auth";
+import { AuthService } from "@pc/angular/auth";
 import { timer } from "rxjs";
 import { filter, takeUntil } from "rxjs/operators";
 import { AppInfoService } from "./core";

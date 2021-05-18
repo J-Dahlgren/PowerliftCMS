@@ -17,7 +17,7 @@ import {
   IRoomEvent,
   ProtectedRoomEventBus,
   RoomEvent
-} from "@dt/util";
+} from "@pc/util";
 import { OnModuleDestroy } from "@nestjs/common";
 import { SubSink } from "subsink";
 import { take, takeUntil } from "rxjs/operators";

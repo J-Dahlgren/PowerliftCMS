@@ -3,16 +3,16 @@ import { TypeOrmModule } from "@nestjs/typeorm";
 import { ConfigModule } from "@nestjs/config";
 import { ServeStaticModule } from "@nestjs/serve-static";
 import { environment } from "../environments/environment";
-import { Environment } from "@dt/power-comp/shared";
+import { Environment } from "@pc/power-comp/shared";
 import configuration from "./configuration";
-import { CustomLoggerModule } from "@dt/nest/logger";
+import { CustomLoggerModule } from "@pc/nest/logger";
 import { join } from "path";
 import { ApiModule } from "./api.module";
 import { SocketModule } from "./socket/socket.module";
 import { PlatformManagerModule } from "./competition-manager";
-import { LogLevel } from "@dt/util";
+import { LogLevel } from "@pc/util";
 import { CompetitionInfoModule } from "./competition-info";
-import { SimpleAuthModule } from "@dt/nest/auth";
+import { SimpleAuthModule } from "@pc/nest/auth";
 const imports = [
   ConfigModule.forRoot({
     isGlobal: true,

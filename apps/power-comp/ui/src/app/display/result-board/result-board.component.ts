@@ -5,10 +5,10 @@ import {
   LifterData,
   LiftFieldTuple,
   protocolOrder
-} from "@dt/power-comp/shared";
+} from "@pc/power-comp/shared";
 import { Observable } from "rxjs";
 import { map } from "rxjs/operators";
-import { IEntity } from "@dt/util";
+import { IEntity } from "@pc/util";
 
 @Component({
   selector: "pc-result-board",

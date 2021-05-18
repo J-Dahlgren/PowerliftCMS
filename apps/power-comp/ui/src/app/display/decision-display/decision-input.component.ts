@@ -1,11 +1,11 @@
-import { AutoUnsubscribeComponent } from "@dt/angular/util";
+import { AutoUnsubscribeComponent } from "@pc/angular/util";
 import { Component } from "@angular/core";
 import { fromEvent } from "rxjs";
 import { filter, map, auditTime, switchMap, tap } from "rxjs/operators";
 import { ClientEventService } from "../../admin/secretariat/client-event.service";
-import { StateStore } from "@dt/util";
-import { JudgeDecision } from "@dt/power-comp/shared";
-import { AuthService } from "@dt/angular/auth";
+import { StateStore } from "@pc/util";
+import { JudgeDecision } from "@pc/power-comp/shared";
+import { AuthService } from "@pc/angular/auth";
 import { AppInfoService } from "../../core";
 
 @Component({

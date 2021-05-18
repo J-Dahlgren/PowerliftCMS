@@ -1,5 +1,5 @@
 import { ILifter } from "./ILifter";
-import { IEntity } from "@dt/util";
+import { IEntity } from "@pc/util";
 import { IPlatform } from "./IPlatform";
 
 export interface IGroup {

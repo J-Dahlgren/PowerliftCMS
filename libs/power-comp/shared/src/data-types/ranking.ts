@@ -1,5 +1,5 @@
 import { LiftField, IAttempt, LiftStatus } from "./lifts";
-import { extractKeys } from "@dt/util";
+import { extractKeys } from "@pc/util";
 import { ILifter } from "./ILifter";
 export interface IResult {
   result: Result;

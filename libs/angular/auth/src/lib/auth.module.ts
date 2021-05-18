@@ -2,12 +2,12 @@ import { NgModule, ModuleWithProviders } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { RouterModule, Route } from "@angular/router";
 import { AuthService } from "./auth.service";
-import { BaseApiOpts } from "@dt/angular/crud-api";
+import { BaseApiOpts } from "@pc/angular/crud-api";
 import { AUTH_DI_TOKEN, JWT_TOKEN_KEY } from "./auth.token";
 import { authInterceptorProviders } from "./auth.interceptor";
 import { SimpleLoginComponent } from "./simple-login";
 import { ReactiveFormsModule } from "@angular/forms";
-import { MaterialModule } from "@dt/angular/material";
+import { MaterialModule } from "@pc/angular/material";
 import { TranslateModule } from "@ngx-translate/core";
 export const authRoutes: Route[] = [];
 

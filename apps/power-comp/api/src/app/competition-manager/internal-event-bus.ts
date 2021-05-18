@@ -1,6 +1,6 @@
-import { RoomEventBus, ILogService, Clock } from "@dt/util";
+import { RoomEventBus, ILogService, Clock } from "@pc/util";
 import { Injectable } from "@nestjs/common";
-import { LogInject } from "@dt/nest/logger";
+import { LogInject } from "@pc/nest/logger";
 
 export interface InternalEvents {
   setTimer: Clock;

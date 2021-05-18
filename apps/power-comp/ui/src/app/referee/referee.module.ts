@@ -5,7 +5,7 @@ import { RefereeRoutingModule } from "./referee-routing.module";
 import { RefereeMainComponent } from "./main.component";
 import { RefereeSelectComponent } from "./referee-select.component";
 import { FlexLayoutModule } from "@angular/flex-layout";
-import { MaterialModule } from "@dt/angular/material";
+import { MaterialModule } from "@pc/angular/material";
 import { RefereeComponent } from "./referee.component";
 import { TranslateModule } from "@ngx-translate/core";
 

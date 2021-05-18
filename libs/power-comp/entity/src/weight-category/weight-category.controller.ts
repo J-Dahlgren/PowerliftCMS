@@ -2,9 +2,9 @@ import { Controller, UseGuards } from "@nestjs/common";
 import { CrudController, Crud } from "@nestjsx/crud";
 import { ApiBearerAuth, ApiTags } from "@nestjs/swagger";
 import { WeightCategoryEntityService } from "./weight-category-entity.service";
-import { api } from "@dt/power-comp/shared";
+import { api } from "@pc/power-comp/shared";
 import { WeightCategoryEntity } from "./weight-category.entity";
-import { SimpleJwtGuard } from "@dt/nest/auth";
+import { SimpleJwtGuard } from "@pc/nest/auth";
 
 @Crud({
   model: {

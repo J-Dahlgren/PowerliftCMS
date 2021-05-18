@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit } from "@angular/core";
-import { IServerPlatformEvents } from "@dt/power-comp/shared";
+import { IServerPlatformEvents } from "@pc/power-comp/shared";
 import { SECOND } from "@pc/util/constants";
 import { InRoom } from "@pc/util/event-bus";
 import { Clock } from "@pc/util/misc";

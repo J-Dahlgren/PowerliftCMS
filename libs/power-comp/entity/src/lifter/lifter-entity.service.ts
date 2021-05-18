@@ -1,15 +1,15 @@
-import { CrudService } from "@dt/nest/entity-service";
+import { CrudService } from "@pc/nest/entity-service";
 import { Injectable, OnModuleInit, OnModuleDestroy } from "@nestjs/common";
 import { Repository } from "typeorm";
 import { InjectRepository } from "@nestjs/typeorm";
-import { ILogService, generateArray, MINUTE } from "@dt/util";
-import { LogInject } from "@dt/nest/logger";
+import { ILogService, generateArray, MINUTE } from "@pc/util";
+import { LogInject } from "@pc/nest/logger";
 import { LifterEntity } from "./lifter.entity";
 import { LifterEntitySubscriber } from "./lifter-entity.subscriber";
 import { WeightCategoryEntityService } from "../weight-category";
 import { SubSink } from "subsink";
 import { merge } from "rxjs";
-import { getWeightClass } from "@dt/power-comp/shared";
+import { getWeightClass } from "@pc/power-comp/shared";
 
 @Injectable()
 export class LifterEntityService extends CrudService<LifterEntity>

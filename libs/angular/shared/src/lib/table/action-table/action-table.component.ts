@@ -13,7 +13,7 @@ import {
   ContentChild
 } from "@angular/core";
 import { Subject } from "rxjs";
-import { IEntity } from "@dt/util";
+import { IEntity } from "@pc/util";
 import {
   MatTable,
   MatColumnDef,

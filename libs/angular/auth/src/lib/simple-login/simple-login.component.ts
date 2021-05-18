@@ -8,7 +8,7 @@ import {
   FormGroup
 } from "@angular/forms";
 import { BehaviorSubject } from "rxjs";
-import { SnackBarService } from "@dt/angular/material";
+import { SnackBarService } from "@pc/angular/material";
 import { finalize, delay } from "rxjs/operators";
 
 @Component({

@@ -7,7 +7,7 @@ import {
 } from "@nestjs/websockets";
 import { OnModuleDestroy, Logger } from "@nestjs/common";
 import { Observable } from "rxjs";
-import { extractKeys, IEvent, ILogService } from "@dt/util";
+import { extractKeys, IEvent, ILogService } from "@pc/util";
 export abstract class GlobalSocketGateway<T extends object>
   implements OnModuleDestroy, OnGatewayConnection {
   protected abstract logger: ILogService;

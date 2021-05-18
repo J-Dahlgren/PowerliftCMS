@@ -1,8 +1,8 @@
 import { Injectable } from "@angular/core";
-import { BaseApiService } from "@dt/angular/crud-api";
+import { BaseApiService } from "@pc/angular/crud-api";
 import { HttpClient } from "@angular/common/http";
-import { LogService } from "@dt/angular/logger";
-import { api, IClientPlatformEvents, ObjectPath } from "@dt/power-comp/shared";
+import { LogService } from "@pc/angular/logger";
+import { api, IClientPlatformEvents, ObjectPath } from "@pc/power-comp/shared";
 import { PlatformSelectionService } from "../../core";
 
 @Injectable({ providedIn: "root" })

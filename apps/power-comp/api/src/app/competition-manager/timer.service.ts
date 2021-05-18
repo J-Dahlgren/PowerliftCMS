@@ -1,17 +1,17 @@
 import { Injectable, Scope, Inject } from "@nestjs/common";
 import { IPlatformHelperService } from "./platform-helper";
-import { LogService } from "@dt/nest/logger";
+import { LogService } from "@pc/nest/logger";
 import {
   SubscriptionLike,
   RoomEventBus,
   CountdownTimer,
   MINUTE,
   Sink
-} from "@dt/util";
+} from "@pc/util";
 import { InternalEventBus } from "./internal-event-bus";
 import { SubSink } from "subsink";
 import { PLATFORM_EVENTS_TOKEN } from "../core";
-import { IServerPlatformEvents, DEFAULT_TIMER } from "@dt/power-comp/shared";
+import { IServerPlatformEvents, DEFAULT_TIMER } from "@pc/power-comp/shared";
 import { filter, tap } from "rxjs/operators";
 
 @Injectable({ scope: Scope.TRANSIENT })

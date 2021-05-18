@@ -1,7 +1,7 @@
 import { IEnvironment } from "./IEnvironment";
 
 import { defaultEnvironment } from "./environment.default";
-import { LogLevel } from "@dt/util";
+import { LogLevel } from "@pc/util";
 
 export const environment: IEnvironment = {
   ...defaultEnvironment,

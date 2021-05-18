@@ -1,6 +1,6 @@
 import { LifterData } from "../../data-types";
 import { RankCompareFunction, RankSortFunction } from "./rank-compare-function";
-import { groupByKeys, extractKeys } from "@dt/util";
+import { groupByKeys, extractKeys } from "@pc/util";
 import { protocolOrder } from "../protocol-order";
 
 export interface IRank {

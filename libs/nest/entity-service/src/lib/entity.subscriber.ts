@@ -9,7 +9,7 @@ import {
   ProtectedEventBus,
   IEventEmitter,
   IEntity
-} from "@dt/util";
+} from "@pc/util";
 export interface EntityEvents<T extends {}> {
   upsert: InsertEvent<T> | UpdateEvent<T>;
   insert: InsertEvent<T>;

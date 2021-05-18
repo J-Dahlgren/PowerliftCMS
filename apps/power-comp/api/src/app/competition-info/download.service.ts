@@ -1,14 +1,14 @@
 import { Injectable } from "@nestjs/common";
-import { LogInject } from "@dt/nest/logger";
-import { ILogService, extractKeys } from "@dt/util";
-import { GroupEntityService } from "@dt/power-comp/entity";
+import { LogInject } from "@pc/nest/logger";
+import { ILogService, extractKeys } from "@pc/util";
+import { GroupEntityService } from "@pc/power-comp/entity";
 import { environment } from "../../environments/environment";
 import {
   Environment,
   LiftStatus,
   getRank,
   classicRankSort
-} from "@dt/power-comp/shared";
+} from "@pc/power-comp/shared";
 import { promisify } from "util";
 import { readFile, writeFile } from "fs";
 import XlsxTemplate from "xlsx-template";
