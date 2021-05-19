@@ -16,6 +16,7 @@ AppUpdatesURL=https://j-dahlgren.github.io/Power-Comp/
 DefaultDirName={%USERPROFILE}\power-comp
 DisableDirPage=false
 DisableProgramGroupPage=yes
+UsePreviousAppDir=no
 PrivilegesRequired=admin
 Compression=lzma
 SolidCompression=yes
@@ -34,7 +35,7 @@ Source: "standalone\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs cr
 
 [Icons]
 Name: "{%USERPROFILE}\power-comp"; Filename: "{app}\powercomp.exe"
-Name: "{userdesktop}\power-comp"; Filename: "{app}\powercomp.exe"; Tasks: desktopicon
+Name: "{commondesktop}\Power-Comp"; Filename: "{app}\powercomp.exe"; Tasks: desktopicon
 
 [Run]
 Filename: "{app}\powercomp.exe"; Description: "{cm:LaunchProgram,Power Comp}"; Flags: nowait postinstall skipifsilent

@@ -9,7 +9,7 @@
 
 - **Windows installer:** Get the latest installation file called `powercomp-setup.exe` at https://github.com/J-Dahlgren/Power-Comp/releases/latest in the assets section.
 
-  - The browser may warn against downloading the file, download anyway.
+  - The browser may warn against downloading the file, download/keep anyway.
 
 - Run the installer by double-clicking it.
 
@@ -40,6 +40,8 @@ Default is `80`
 Folder where application data is stored.
 
 Defaults to `<home directory>/power-comp` which on Windows 10 usually is `C:\Users\<USERNAME>\power-comp`
+
+If the default is used along with the default installation path, all application files will reside in the same folder (`C:\Users\<USERNAME>\power-comp`)
 
 ### `DATABASE_NAME`
 
