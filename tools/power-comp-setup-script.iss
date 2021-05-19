@@ -13,7 +13,7 @@ AppPublisher=Dahlgren Tech
 AppPublisherURL=https://j-dahlgren.github.io/Power-Comp/
 AppSupportURL=https://j-dahlgren.github.io/Power-Comp/
 AppUpdatesURL=https://j-dahlgren.github.io/Power-Comp/
-DefaultDirName={pf}\Power Comp
+DefaultDirName={%USERPROFILE}\power-comp
 DisableDirPage=false
 DisableProgramGroupPage=yes
 PrivilegesRequired=admin
@@ -33,8 +33,8 @@ Source: "standalone\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs cr
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Icons]
-Name: "{commonprograms}\Power Comp"; Filename: "{app}\powercomp.exe"
-Name: "{commondesktop}\Power Comp"; Filename: "{app}\powercomp.exe"; Tasks: desktopicon
+Name: "{%USERPROFILE}\power-comp"; Filename: "{app}\powercomp.exe"
+Name: "{userdesktop}\power-comp"; Filename: "{app}\powercomp.exe"; Tasks: desktopicon
 
 [Run]
 Filename: "{app}\powercomp.exe"; Description: "{cm:LaunchProgram,Power Comp}"; Flags: nowait postinstall skipifsilent
