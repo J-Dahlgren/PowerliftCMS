@@ -13,6 +13,7 @@ import { PlatformManagerModule } from "./competition-manager";
 import { LogLevel } from "@pc/util";
 import { CompetitionInfoModule } from "./competition-info";
 import { SimpleAuthModule } from "@pc/nest/auth";
+
 const imports = [
   ConfigModule.forRoot({
     isGlobal: true,
@@ -21,9 +22,10 @@ const imports = [
   }),
   TypeOrmModule.forRoot({
     type: "sqlite",
-    synchronize: true,
     database: configuration().database.name,
-    autoLoadEntities: true
+    autoLoadEntities: true,
+    migrationsRun: configuration().database.runMigration,
+    migrations: environment.migrations
   }),
   CustomLoggerModule.forRoot(LogLevel[configuration().logLevel]),
   SimpleAuthModule.forRoot(configuration().auth),

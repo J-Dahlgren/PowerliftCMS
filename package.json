@@ -25,7 +25,10 @@
     "workspace-schematic": "nx workspace-schematic",
     "dep-graph": "nx dep-graph",
     "help": "nx help",
-    "postinstall": "ngcc --properties es2015 browser module main --first-only --create-ivy-entry-points"
+    "postinstall": "ngcc --properties es2015 browser module main --first-only --create-ivy-entry-points",
+    "migration:generate:api": "npm run typeorm migration:generate -- -o -f apps/power-comp/api/ormconfig.js",
+    "typeorm": "node --require module-alias/register ./node_modules/typeorm/cli.js",
+    "tsc:api": "npx tsc -P apps/power-comp/api/tsconfig.app.json -m commonjs"
   },
   "private": true,
   "dependencies": {
@@ -71,7 +74,7 @@
     "sqlite3": "^4.2.0",
     "subsink": "^1.0.1",
     "swagger-ui-express": "^4.1.4",
-    "typeorm": "^0.2.24",
+    "typeorm": "^0.2.32",
     "uuid": "^8.1.0",
     "xlsx-template": "^1.2.0"
   },
@@ -116,6 +119,7 @@
     "eslint": "6.8.0",
     "jest": "25.2.3",
     "jest-preset-angular": "8.1.2",
+    "module-alias": "^2.2.2",
     "ncc": "^0.3.6",
     "pkg": "^4.4.9",
     "prettier": "1.19.1",
@@ -125,5 +129,23 @@
     "tslint": "~6.0.0",
     "typescript": "~3.8.3",
     "zone.js": "^0.10.2"
+  },
+  "_moduleAliases": {
+    "@pc/nest": "dist/out-tsc/libs/nest/src",
+    "@pc/nest/auth": "dist/out-tsc/libs/nest/src/auth",
+    "@pc/nest/entity-service": "dist/out-tsc/libs/nest/src/entity-service",
+    "@pc/nest/logger": "dist/out-tsc/libs/nest/src/logger",
+    "@pc/nest/socket": "dist/out-tsc/libs/nest/src/socket",
+    "@pc/nest/util": "dist/out-tsc/libs/nest/src/util",
+    "@pc/power-comp/shared": "dist/out-tsc/libs/power-comp/shared/src",
+    "@pc/power-comp/entity": "dist/out-tsc/libs/power-comp/entity/src",
+    "@pc/util": "dist/out-tsc/libs/util/src",
+    "@pc/util/array": "dist/out-tsc/libs/util/src/array",
+    "@pc/util/constants": "dist/out-tsc/libs/util/src/constants",
+    "@pc/util/event-bus": "dist/out-tsc/libs/util/src/event-bus",
+    "@pc/util/misc": "dist/out-tsc/libs/util/src/misc",
+    "@pc/util/rxjs": "dist/out-tsc/libs/util/src/rxjs",
+    "@pc/util/state": "dist/out-tsc/libs/util/src/state",
+    "@pc/util/types": "dist/out-tsc/libs/util/src/types"
   }
 }

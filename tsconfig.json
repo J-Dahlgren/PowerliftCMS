@@ -27,10 +27,9 @@
       "@pc/nest/logger": ["libs/nest/src/logger/index.ts"],
       "@pc/nest/socket": ["libs/nest/src/socket/index.ts"],
       "@pc/nest/util": ["libs/nest/src/util/index.ts"],
-
-      "@pc/power-comp/entity": ["libs/power-comp/entity/src/index.ts"],
       "@pc/power-comp/shared": ["libs/power-comp/shared/src/index.ts"],
-      
+      "@pc/power-comp/entity": ["libs/power-comp/entity/src/index.ts"],
+
       "@pc/util": ["libs/util/src/index.ts"],
       "@pc/util/array": ["libs/util/src/array/index.ts"],
       "@pc/util/constants": ["libs/util/src/constants/index.ts"],

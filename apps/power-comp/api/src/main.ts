@@ -15,7 +15,6 @@ import {
 import { competitionDefaults } from "./defaults";
 import { writeFileSync } from "fs";
 import { sleep } from "@pc/util";
-import { join } from "path";
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule, {
@@ -45,9 +44,7 @@ async function bootstrap() {
   const swaggerDocument = SwaggerModule.createDocument(app, options, {
     ignoreGlobalPrefix: true
   });
-  if (environment.type === Environment.STANDALONE) {
-    writeFileSync("client/swagger-spec.json", JSON.stringify(swaggerDocument));
-  } else {
+  if (environment.type !== Environment.STANDALONE) {
     SwaggerModule.setup("docs", app, swaggerDocument);
   }
 

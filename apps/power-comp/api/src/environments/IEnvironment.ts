@@ -5,4 +5,5 @@ export interface IEnvironment {
   logLevel: LogLevel;
   serverPort: number;
   defaultDatabase: string;
+  migrations: string[];
 }

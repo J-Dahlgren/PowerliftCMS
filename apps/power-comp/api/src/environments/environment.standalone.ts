@@ -7,5 +7,6 @@ export const environment: IEnvironment = {
   ...defaultEnvironment,
   type: Environment.STANDALONE,
   logLevel: LogLevel.info,
-  serverPort: 80
+  serverPort: 80,
+  migrations: ["migration/*.js"]
 };
