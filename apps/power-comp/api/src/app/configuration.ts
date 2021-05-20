@@ -7,6 +7,7 @@ import { Environment } from "@pc/power-comp/shared";
 export default () => {
   const defaultStorageLocation = join(homedir(), "power-comp");
   const storage = process.env.STORAGE_PATH || defaultStorageLocation;
+  const inMemoryDB = process.env.DATABASE_NAME === ":memory:";
   return {
     port: process.env.PORT || environment.serverPort,
     storageLocation: process.env.STORAGE_PATH || defaultStorageLocation,
@@ -22,7 +23,9 @@ export default () => {
               storage,
               "db",
               process.env.DATABASE_NAME || environment.defaultDatabase
-            )
+            ),
+      runMigrations: !inMemoryDB && environment.type !== Environment.STANDALONE,
+      synchronize: inMemoryDB || environment.type === Environment.STANDALONE
     },
     logLevel:
       (process.env.LOG_LEVEL as keyof typeof LogLevel | undefined) ||

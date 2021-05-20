@@ -22,10 +22,10 @@ const imports = [
   }),
   TypeOrmModule.forRoot({
     type: "sqlite",
-    database: configuration().database.name,
     autoLoadEntities: true,
-    synchronize:environment.type === Environment.STANDALONE,
-    migrationsRun: environment.type !== Environment.STANDALONE,
+    database: configuration().database.name,
+    synchronize: configuration().database.synchronize,
+    migrationsRun: configuration().database.runMigrations,
     migrations: environment.migrations
   }),
   CustomLoggerModule.forRoot(LogLevel[configuration().logLevel]),
