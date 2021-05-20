@@ -22,10 +22,7 @@ export default () => {
               storage,
               "db",
               process.env.DATABASE_NAME || environment.defaultDatabase
-            ),
-      runMigration:
-        process.env.DATABASE_NAME !== ":memory:" &&
-        environment.type !== Environment.STANDALONE
+            )
     },
     logLevel:
       (process.env.LOG_LEVEL as keyof typeof LogLevel | undefined) ||

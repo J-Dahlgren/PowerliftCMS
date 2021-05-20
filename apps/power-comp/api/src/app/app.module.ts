@@ -24,7 +24,7 @@ const imports = [
     type: "sqlite",
     database: configuration().database.name,
     autoLoadEntities: true,
-    migrationsRun: configuration().database.runMigration,
+    migrationsRun: true,
     migrations: environment.migrations
   }),
   CustomLoggerModule.forRoot(LogLevel[configuration().logLevel]),
