@@ -24,7 +24,8 @@ const imports = [
     type: "sqlite",
     database: configuration().database.name,
     autoLoadEntities: true,
-    migrationsRun: true,
+    synchronize:environment.type === Environment.STANDALONE,
+    migrationsRun: environment.type !== Environment.STANDALONE,
     migrations: environment.migrations
   }),
   CustomLoggerModule.forRoot(LogLevel[configuration().logLevel]),
