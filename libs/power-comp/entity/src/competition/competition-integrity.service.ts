@@ -31,7 +31,6 @@ export class CompetitionIntegrityService implements OnModuleDestroy {
       this.subs.sink = weightCategoryService.stream.any().subscribe(e => {
         const event = e.payload;
         const id = event.entity?.competitionId;
-        console.log(id);
         if (id) {
           this.onCategoryUpdate(id, event);
         }

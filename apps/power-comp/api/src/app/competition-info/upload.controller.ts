@@ -38,7 +38,6 @@ export class UploadController {
   ) {
     if (!file) throw new HttpException("No file provided", 400);
     try {
-      console.log(file);
       const wb = await new Workbook().xlsx.readFile(file.path);
       this.uploadService.parseRegistration(wb, competitionId);
       unlink(file.path, () => {});
