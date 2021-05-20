@@ -10,13 +10,15 @@ import { ConfirmDialogComponent } from "./confirm-dialog/confirm-dialog.componen
   imports: [CommonModule, MaterialModule, ReactiveFormsModule, TranslateModule],
   providers: [],
   declarations: [GenericEditDialogComponent, ConfirmDialogComponent],
-  exports: [GenericEditDialogComponent]
+  exports: [GenericEditDialogComponent],
 })
 export class SharedDialogModule {
-  static forRoot(translated?: boolean): ModuleWithProviders {
+  static forRoot(
+    translated?: boolean
+  ): ModuleWithProviders<SharedDialogModule> {
     return {
       ngModule: SharedDialogModule,
-      providers: [{ provide: TRANSLATE, useValue: translated || false }]
+      providers: [{ provide: TRANSLATE, useValue: translated || false }],
     };
   }
 }

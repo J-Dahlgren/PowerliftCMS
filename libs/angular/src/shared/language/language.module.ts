@@ -8,19 +8,19 @@ import { COUNTRY_CODE_TOKEN } from "./token";
 @NgModule({
   imports: [CommonModule, MaterialModule],
   declarations: [LanguageSelectorComponent],
-  exports: [LanguageSelectorComponent]
+  exports: [LanguageSelectorComponent],
 })
 export class LanguageModule {
-  static forRoot(codes: LanguageCode[]): ModuleWithProviders {
+  static forRoot(codes: LanguageCode[]): ModuleWithProviders<LanguageModule> {
     return {
       ngModule: LanguageModule,
       providers: [
         {
           provide: COUNTRY_CODE_TOKEN,
-          useValue: codes
+          useValue: codes,
         },
-        LanguageService
-      ]
+        LanguageService,
+      ],
     };
   }
 }

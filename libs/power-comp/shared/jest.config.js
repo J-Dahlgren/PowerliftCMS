@@ -1,10 +1,11 @@
 module.exports = {
-  name: "power-comp-shared",
-  preset: "../../../jest.config.js",
+  preset: "../../../jest.preset.js",
   testEnvironment: "node",
   transform: {
-    "^.+\\.[tj]sx?$": "ts-jest"
+    "^.+\\.[tj]sx?$": "ts-jest",
   },
   moduleFileExtensions: ["ts", "tsx", "js", "jsx", "html"],
-  coverageDirectory: "../../../coverage/libs/power-comp/shared"
+  coverageDirectory: "../../../coverage/libs/power-comp/shared",
+  globals: { "ts-jest": { tsConfig: "<rootDir>/tsconfig.spec.json" } },
+  displayName: "power-comp-shared",
 };

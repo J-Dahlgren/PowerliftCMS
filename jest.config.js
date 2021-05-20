@@ -1,10 +1,11 @@
 module.exports = {
-  testMatch: ["**/+(*.)+(spec|test).+(ts|js)?(x)"],
-  transform: {
-    "^.+\\.(ts|js|html)$": "ts-jest"
-  },
-  resolver: "@nrwl/jest/plugins/resolver",
-  moduleFileExtensions: ["ts", "js", "html"],
-  collectCoverage: true
-  //coverageReporters: ["html"]
+  projects: [
+    "<rootDir>/libs/angular",
+    "<rootDir>/libs/util",
+    "<rootDir>/libs/power-comp/shared",
+    "<rootDir>/libs/power-comp/entity",
+    "<rootDir>/apps/power-comp/api",
+    "<rootDir>/apps/power-comp/ui",
+    "<rootDir>/libs/nest",
+  ],
 };

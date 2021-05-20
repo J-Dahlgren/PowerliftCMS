@@ -17,20 +17,23 @@ export const authRoutes: Route[] = [];
     RouterModule,
     ReactiveFormsModule,
     MaterialModule,
-    TranslateModule
+    TranslateModule,
   ],
-  declarations: [SimpleLoginComponent]
+  declarations: [SimpleLoginComponent],
 })
 export class AuthModule {
-  static forRoot(apiOpts: BaseApiOpts, tokenKey: string): ModuleWithProviders {
+  static forRoot(
+    apiOpts: BaseApiOpts,
+    tokenKey: string
+  ): ModuleWithProviders<AuthModule> {
     return {
       ngModule: AuthModule,
       providers: [
         { provide: AUTH_DI_TOKEN, useValue: apiOpts },
         { provide: JWT_TOKEN_KEY, useValue: tokenKey },
         AuthService,
-        ...authInterceptorProviders
-      ]
+        ...authInterceptorProviders,
+      ],
     };
   }
 }

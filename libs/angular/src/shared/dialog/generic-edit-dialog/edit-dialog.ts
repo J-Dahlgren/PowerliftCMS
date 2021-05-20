@@ -1,5 +1,5 @@
 import { Observable, Subject } from "rxjs";
-import { OnInit, OnDestroy } from "@angular/core";
+import { OnInit, OnDestroy, Directive } from "@angular/core";
 import { FormGroup } from "@angular/forms";
 
 import { DialogOptions } from "./dialog-options";
@@ -14,12 +14,15 @@ export interface DialogState {
 }
 export enum DialogMode {
   ADD,
-  EDIT
+  EDIT,
 }
+@Directive()
 export abstract class EditDialog<
-  T extends object,
-  DO extends DialogOptions = DialogOptions
-> extends ProtectedStore<DialogState> implements OnInit, OnDestroy {
+    T extends object,
+    DO extends DialogOptions = DialogOptions
+  >
+  extends ProtectedStore<DialogState>
+  implements OnInit, OnDestroy {
   protected subs = new SubSink();
   form: FormGroup = new FormGroup({});
   error$ = new Subject<any>();
@@ -50,12 +53,12 @@ export abstract class EditDialog<
       this._dialogMode = DialogMode[DialogMode.EDIT];
       this.set("loading", true);
       this.getData$(this.config.id).subscribe(
-        data => {
+        (data) => {
           this.form = this.buildForm(data);
           this.form.patchValue(data);
           this.afterBuild();
         },
-        e => {
+        (e) => {
           this.set("loading", false);
           this.error$.next(e);
           this.dialogRef.close();

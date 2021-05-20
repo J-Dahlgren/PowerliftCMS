@@ -4,6 +4,7 @@
     "angular.ng-template",
     "ms-vscode.vscode-typescript-tslint-plugin",
     "esbenp.prettier-vscode",
-    "lokalise.i18n-ally"
+    "lokalise.i18n-ally",
+    "firsttris.vscode-jest-runner"
   ]
 }

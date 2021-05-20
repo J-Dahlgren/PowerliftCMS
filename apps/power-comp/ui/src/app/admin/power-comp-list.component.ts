@@ -4,17 +4,20 @@ import { IApiService } from "@pc/angular/crud-api";
 import { EditDialog, ModalService } from "@pc/angular/shared";
 import { PcDialogOptions } from "./dialog";
 import { CompetitionEditService } from "./competition-edit.service";
-import { OnInit, ViewChild } from "@angular/core";
+import { Directive, OnInit, ViewChild } from "@angular/core";
 import { RequestQueryBuilder } from "@nestjsx/crud-request";
 import { SnackBarService } from "@pc/angular/material";
 import { TranslateService } from "@ngx-translate/core";
 import { takeUntil } from "rxjs/operators";
 import { MatTableDataSource } from "@angular/material/table";
 import { MatSort } from "@angular/material/sort";
+@Directive()
 export abstract class PowerCompListComponent<
-  T extends {},
-  FilterT extends {} = {}
-> extends EntityListComponent<T, FilterT> implements OnInit {
+    T extends {},
+    FilterT extends {} = {}
+  >
+  extends EntityListComponent<T, FilterT>
+  implements OnInit {
   abstract filters: StateStore<FilterT>;
   protected abstract entityService: IApiService<T>;
   protected abstract editService: CompetitionEditService;
@@ -38,7 +41,7 @@ export abstract class PowerCompListComponent<
     super.ngOnInit();
     this.subs.sink = this.editService.onEdit$.subscribe(() => this.refresh());
 
-    this.subs.sink = this.elements$.subscribe(data => {
+    this.subs.sink = this.elements$.subscribe((data) => {
       this.dataSource.data = data;
       if (this.sort) {
         this.dataSource.sort = this.sort;
@@ -49,8 +52,8 @@ export abstract class PowerCompListComponent<
     this.modalService
       .openEditModal<T, PcDialogOptions>(this.getDialogComponentType(), {
         data: {
-          competitionId: +this.editService.get("id")
-        }
+          competitionId: +this.editService.get("id"),
+        },
       })
       .afterClosed()
       .subscribe(() => this.editService.emitEdited());
@@ -68,8 +71,8 @@ export abstract class PowerCompListComponent<
       filter: {
         field: "competitionId",
         operator: "eq",
-        value: +this.editService.get("id")
-      }
+        value: +this.editService.get("id"),
+      },
     });
     return this.queryBuilder(queryBuilder).query();
   }
@@ -79,8 +82,8 @@ export abstract class PowerCompListComponent<
         data: {
           id: +entity.id,
           title: this.getEntityTitle(entity),
-          competitionId: +this.editService.get("id")
-        }
+          competitionId: +this.editService.get("id"),
+        },
       })
       .afterClosed()
       .subscribe(() => this.editService.emitEdited());
@@ -90,10 +93,10 @@ export abstract class PowerCompListComponent<
       () => {
         this.editService.emitEdited();
       },
-      e =>
+      (e) =>
         this.translate
           .get("error.delete-fail")
-          .subscribe(m => this.snack.open(m, "warn", 2500))
+          .subscribe((m) => this.snack.open(m, "warn", 2500))
     );
   }
 }

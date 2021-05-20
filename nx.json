@@ -7,9 +7,10 @@
       "devDependencies": "*"
     },
     ".github/workflows/master-ci.yml": "*",
-    "tsconfig.json": "*",
     "tslint.json": "*",
-    "nx.json": "*"
+    "nx.json": "*",
+    "tsconfig.base.json": "*",
+    ".eslintrc.json": "*"
   },
   "tasksRunnerOptions": {
     "default": {
@@ -45,5 +46,8 @@
     "nest": {
       "tags": []
     }
+  },
+  "affected": {
+    "defaultBase": "master"
   }
 }

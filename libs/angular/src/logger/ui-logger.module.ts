@@ -7,19 +7,19 @@ import { LogComponent } from "./log/log.component";
 
 @NgModule({
   imports: [CommonModule],
-  declarations: [LogComponent]
+  declarations: [LogComponent],
 })
 export class UiLoggerModule {
-  static forRoot(logLevel: LogLevel): ModuleWithProviders {
+  static forRoot(logLevel: LogLevel): ModuleWithProviders<UiLoggerModule> {
     return {
       ngModule: UiLoggerModule,
       providers: [
         LogService,
         {
           provide: logLevelToken,
-          useValue: logLevel
-        }
-      ]
+          useValue: logLevel,
+        },
+      ],
     };
   }
 }

@@ -1,10 +1,10 @@
 import { IEntity, IStateStore } from "@pc/util";
-import { Input, OnInit, OnDestroy } from "@angular/core";
+import { Input, OnInit, OnDestroy, Directive } from "@angular/core";
 import { Subject, Observable, merge } from "rxjs";
 import { IApiService } from "@pc/angular/crud-api";
 import { filter, switchMap, auditTime, debounceTime } from "rxjs/operators";
 import { SubSink } from "subsink";
-
+@Directive()
 export abstract class EntityListComponent<T extends {}, FilterT extends {} = {}>
   implements OnInit, OnDestroy {
   protected subs = new SubSink();

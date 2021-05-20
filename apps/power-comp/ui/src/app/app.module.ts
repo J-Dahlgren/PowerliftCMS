@@ -6,7 +6,7 @@ import { AppComponent } from "./app.component";
 import {
   HttpClient,
   HttpClientModule,
-  HTTP_INTERCEPTORS
+  HTTP_INTERCEPTORS,
 } from "@angular/common/http";
 import { NgxWebstorageModule } from "ngx-webstorage";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
@@ -18,7 +18,7 @@ import { MenuModule } from "@pc/angular/menu";
 import {
   SharedDialogModule,
   TableModule,
-  PaginatorIntlService
+  PaginatorIntlService,
 } from "@pc/angular/shared";
 import { LanguageModule } from "@pc/angular/shared";
 import { UiLoggerModule, LogComponent } from "@pc/angular/logger";
@@ -32,7 +32,7 @@ import { MatNativeDateModule } from "@angular/material/core";
 import { NgxMatMomentModule } from "@angular-material-components/moment-adapter";
 import {
   NgxMatNativeDateModule,
-  NGX_MAT_DATE_FORMATS
+  NGX_MAT_DATE_FORMATS,
 } from "@angular-material-components/datetime-picker";
 import { DateHttpInterceptor } from "@pc/angular/util";
 import { DialogModule } from "./admin/dialog";
@@ -47,7 +47,7 @@ import { AuthModule, SimpleLoginComponent } from "@pc/angular/auth";
     AppComponent,
     ErrorComponent,
     HomeComponent,
-    AppSettingsComponent
+    AppSettingsComponent,
   ],
   imports: [
     BrowserModule,
@@ -60,12 +60,12 @@ import { AuthModule, SimpleLoginComponent } from "@pc/angular/auth";
       loader: {
         provide: TranslateLoader,
         useFactory: HttpLoaderFactory,
-        deps: [HttpClient]
-      }
+        deps: [HttpClient],
+      },
     }),
     LanguageModule.forRoot([
       { language: "en", flag: "gb" },
-      { language: "sv", flag: "se" }
+      { language: "sv", flag: "se" },
     ]),
     RouterModule.forRoot(
       [
@@ -73,18 +73,19 @@ import { AuthModule, SimpleLoginComponent } from "@pc/angular/auth";
         { path: "log", component: LogComponent },
         { path: "login", component: SimpleLoginComponent },
         { path: "error", component: ErrorComponent },
-        { path: "**", redirectTo: "error" }
+        { path: "**", redirectTo: "error" },
       ],
       {
         onSameUrlNavigation: "reload",
-        useHash: environment.type === Environment.DEVELOP
+        useHash: environment.type === Environment.DEVELOP,
+        relativeLinkResolution: "legacy",
       }
     ),
     MaterialModule,
     AuthModule.forRoot(
       {
         base: "api",
-        path: "auth"
+        path: "auth",
       },
       "POWER_COMP_TOKEN"
     ),
@@ -96,30 +97,30 @@ import { AuthModule, SimpleLoginComponent } from "@pc/angular/auth";
     MiscModule,
     FlexLayoutModule,
     MatNativeDateModule,
-    NgxMatMomentModule
+    NgxMatMomentModule,
   ],
   providers: [
     {
       provide: MatPaginatorIntl,
-      useClass: PaginatorIntlService
+      useClass: PaginatorIntlService,
     },
     {
       provide: NGX_MAT_DATE_FORMATS,
       useValue: {
         parse: {
-          dateInput: "YYYY-MM-DD HH:mm"
+          dateInput: "YYYY-MM-DD HH:mm",
         },
         display: {
           dateInput: "YYYY-MM-DD HH:mm",
           monthYearLabel: "MMM YYYY",
           dateA11yLabel: "LL",
-          monthYearA11yLabel: "MMMM YYYY"
-        }
-      }
+          monthYearA11yLabel: "MMMM YYYY",
+        },
+      },
     },
-    { provide: HTTP_INTERCEPTORS, useClass: DateHttpInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: DateHttpInterceptor, multi: true },
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule {
   constructor(matIconRegistry: MatIconRegistry, domSanitizer: DomSanitizer) {

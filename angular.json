@@ -14,17 +14,16 @@
               "libs/angular/tsconfig.lib.json",
               "libs/angular/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/angular/**"]
+            "exclude": ["**/node_modules/**", "!libs/angular/**/*"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/angular/jest.config.js",
-            "tsConfig": "libs/angular/tsconfig.spec.json",
-            "passWithNoTests": true,
-            "setupFile": "libs/angular/src/test-setup.ts"
-          }
+            "passWithNoTests": true
+          },
+          "outputs": ["coverage/libs/angular"]
         }
       },
       "schematics": {
@@ -46,16 +45,16 @@
               "libs/util/tsconfig.lib.json",
               "libs/util/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/util/**"]
+            "exclude": ["**/node_modules/**", "!libs/util/**/*"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/util/jest.config.js",
-            "tsConfig": "libs/util/tsconfig.spec.json",
             "passWithNoTests": true
-          }
+          },
+          "outputs": ["coverage/libs/util"]
         }
       }
     },
@@ -72,16 +71,16 @@
               "libs/power-comp/shared/tsconfig.lib.json",
               "libs/power-comp/shared/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/power-comp/shared/**"]
+            "exclude": ["**/node_modules/**", "!libs/power-comp/shared/**/*"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/power-comp/shared/jest.config.js",
-            "tsConfig": "libs/power-comp/shared/tsconfig.spec.json",
             "passWithNoTests": true
-          }
+          },
+          "outputs": ["coverage/libs/power-comp/shared"]
         }
       }
     },
@@ -98,16 +97,16 @@
               "libs/power-comp/entity/tsconfig.lib.json",
               "libs/power-comp/entity/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/power-comp/entity/**"]
+            "exclude": ["**/node_modules/**", "!libs/power-comp/entity/**/*"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/power-comp/entity/jest.config.js",
-            "tsConfig": "libs/power-comp/entity/tsconfig.spec.json",
             "passWithNoTests": true
-          }
+          },
+          "outputs": ["coverage/libs/power-comp/entity"]
         }
       }
     },
@@ -150,7 +149,8 @@
                 }
               ]
             }
-          }
+          },
+          "outputs": ["{options.outputPath}"]
         },
         "serve": {
           "builder": "@nrwl/node:execute",
@@ -167,16 +167,16 @@
               "apps/power-comp/api/tsconfig.app.json",
               "apps/power-comp/api/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!apps/power-comp/api/**"]
+            "exclude": ["**/node_modules/**", "!apps/power-comp/api/**/*"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "apps/power-comp/api/jest.config.js",
-            "tsConfig": "apps/power-comp/api/tsconfig.spec.json",
             "passWithNoTests": true
-          }
+          },
+          "outputs": ["coverage/apps/power-comp/api"]
         }
       }
     },
@@ -225,7 +225,6 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
               "extractLicenses": true,
               "vendorChunk": false,
@@ -253,7 +252,6 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
               "extractLicenses": true,
               "vendorChunk": false,
@@ -271,7 +269,8 @@
                 }
               ]
             }
-          }
+          },
+          "outputs": ["{options.outputPath}"]
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
@@ -298,17 +297,16 @@
               "apps/power-comp/ui/tsconfig.app.json",
               "apps/power-comp/ui/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!apps/power-comp/ui/**"]
+            "exclude": ["**/node_modules/**", "!apps/power-comp/ui/**/*"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "apps/power-comp/ui/jest.config.js",
-            "tsConfig": "apps/power-comp/ui/tsconfig.spec.json",
-            "passWithNoTests": true,
-            "setupFile": "apps/power-comp/ui/src/test-setup.ts"
-          }
+            "passWithNoTests": true
+          },
+          "outputs": ["coverage/apps/power-comp/ui"]
         }
       }
     },
@@ -352,16 +350,16 @@
               "libs/nest/tsconfig.lib.json",
               "libs/nest/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/nest/**"]
+            "exclude": ["**/node_modules/**", "!libs/nest/**/*"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/nest/jest.config.js",
-            "tsConfig": "libs/nest/tsconfig.spec.json",
             "passWithNoTests": true
-          }
+          },
+          "outputs": ["coverage/libs/nest"]
         }
       }
     }

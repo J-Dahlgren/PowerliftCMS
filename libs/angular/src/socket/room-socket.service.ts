@@ -2,15 +2,17 @@ import {
   NSP_PARTIAL_STATE_EVENT,
   ROOM,
   ProtectedRoomEventBus,
-  RoomEvent
+  RoomEvent,
 } from "@pc/util";
 import { connect } from "socket.io-client";
 import { SubSink } from "subsink";
 import { fromEvent, BehaviorSubject } from "rxjs";
 import { distinctUntilChanged } from "rxjs/operators";
-import { OnDestroy } from "@angular/core";
+import { Directive, Injectable, OnDestroy } from "@angular/core";
 
-export class RoomSocketService<T extends {}> extends ProtectedRoomEventBus<T>
+@Directive()
+export class RoomSocketService<T extends {}>
+  extends ProtectedRoomEventBus<T>
   implements OnDestroy {
   protected subs = new SubSink();
   socket: SocketIOClient.Socket;
@@ -24,7 +26,7 @@ export class RoomSocketService<T extends {}> extends ProtectedRoomEventBus<T>
     ).subscribe(({ room, type, payload }) => this._emit(room, type, payload));
     this.socket.on("connect", () => this.connected.next(true));
     this.socket.on("connect_error", () => this.connected.next(false));
-    this.onRoomRequest().subscribe(req => {
+    this.onRoomRequest().subscribe((req) => {
       this.join(req.room);
       req.receiver.complete();
     });
