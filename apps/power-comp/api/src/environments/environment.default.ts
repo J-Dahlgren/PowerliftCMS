@@ -7,5 +7,5 @@ export const defaultEnvironment: IEnvironment = {
   logLevel: LogLevel.trace,
   serverPort: 3333,
   defaultDatabase: "power-comp.sqlite",
-  migrations: ["apps/power-comp/api/src/assets/migration/**/*.js"]
+  migrations: ["dist/apps/power-comp/api/assets/migration/**/*.js"]
 };
