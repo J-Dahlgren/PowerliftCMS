@@ -8,5 +8,6 @@ export const environment: IEnvironment = {
   type: Environment.STANDALONE,
   logLevel: LogLevel.info,
   serverPort: 80,
-  migrations: ["migration/*.js"]
+  assetsDir: "client/assets",
+  migrations: ["migration/*.js"],
 };

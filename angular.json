@@ -203,6 +203,11 @@
             "assets": [
               "apps/power-comp/ui/src/assets",
               {
+                "glob": "*.*",
+                "input": "tools/i18n",
+                "output": "./assets/i18n"
+              },
+              {
                 "glob": "mdi.svg",
                 "input": "node_modules/@mdi/angular-material/",
                 "output": "./assets"
