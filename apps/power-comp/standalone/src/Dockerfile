@@ -10,7 +10,7 @@ RUN npx nx build power-comp-api --configuration=cloud
 
 RUN npm prune --production
 
-FROM node:14-alpine
+FROM node:14-alpine as dist
 
 WORKDIR /var/www/power-comp
 
