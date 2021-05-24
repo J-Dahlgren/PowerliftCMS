@@ -2,14 +2,14 @@ import {
   IBenchPressSettings,
   ILifterSettings,
   ISquatSettings,
-  SquatRackSettingsEnum
+  SquatRackSettingsEnum,
 } from "@pc/power-comp/shared";
 import {
   IsNumber,
   IsOptional,
   IsBoolean,
   ValidateNested,
-  IsEnum
+  IsEnum,
 } from "class-validator";
 import { ApiProperty, ApiPropertyOptional } from "@nestjs/swagger";
 import { ExtractEnumKeys } from "@pc/util";

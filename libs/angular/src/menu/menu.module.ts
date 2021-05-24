@@ -15,17 +15,19 @@ import { MENU_IS_TRANSLATED } from "./token";
     CommonModule,
     MaterialModule,
     RouterModule,
-    TranslateModule
+    TranslateModule,
   ],
   declarations: [SideNavComponent, ListItemComponent, HeaderComponent],
   providers: [NavigationService, HeaderService],
-  exports: [SideNavComponent, ListItemComponent, HeaderComponent]
+  exports: [SideNavComponent, ListItemComponent, HeaderComponent],
 })
 export class MenuModule {
   static forRoot(translate?: boolean): ModuleWithProviders<MenuModule> {
     return {
       ngModule: MenuModule,
-      providers: [{ provide: MENU_IS_TRANSLATED, useValue: translate || false }]
+      providers: [
+        { provide: MENU_IS_TRANSLATED, useValue: translate || false },
+      ],
     };
   }
 }

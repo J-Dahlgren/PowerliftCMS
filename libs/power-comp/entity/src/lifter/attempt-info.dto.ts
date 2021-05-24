@@ -1,7 +1,7 @@
 import {
   IAttemptInfo,
   LiftFieldExt,
-  LiftFieldExtTuple
+  LiftFieldExtTuple,
 } from "@pc/power-comp/shared";
 import { ApiPropertyOptional } from "@nestjs/swagger";
 

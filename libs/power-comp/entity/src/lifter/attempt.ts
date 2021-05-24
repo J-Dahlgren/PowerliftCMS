@@ -10,7 +10,7 @@ export class Attempt implements IAttempt {
   @IsEnum(LiftStatus)
   @ApiProperty({
     enum: LiftStatus,
-    default: LiftStatus[LiftStatus.NOT_ATTEMPTED]
+    default: LiftStatus[LiftStatus.NOT_ATTEMPTED],
   })
   @Transform((status: LiftStatus) =>
     typeof status === "string" ? LiftStatus[status] : status

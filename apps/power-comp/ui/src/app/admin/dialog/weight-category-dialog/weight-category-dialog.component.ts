@@ -4,7 +4,7 @@ import {
   Validators,
   FormGroup,
   FormArray,
-  FormBuilder
+  FormBuilder,
 } from "@angular/forms";
 import { tap } from "rxjs/operators";
 import { Component, Inject } from "@angular/core";
@@ -20,7 +20,7 @@ import { TranslateService } from "@ngx-translate/core";
 @Component({
   selector: "pc-weight-category-dialog",
   templateUrl: "./weight-category-dialog.component.html",
-  styleUrls: ["./weight-category-dialog.component.scss"]
+  styleUrls: ["./weight-category-dialog.component.scss"],
 })
 export class WeightCategoryDialogComponent extends EditDialog<
   IWeightClass,
@@ -42,7 +42,7 @@ export class WeightCategoryDialogComponent extends EditDialog<
     config.title = config.title || "weight-category";
   }
   getData$(id: number): Observable<IEntity<IWeightClass>> {
-    return this.platformService.get(id).pipe(tap(data => {}));
+    return this.platformService.get(id).pipe(tap((data) => {}));
   }
   buildForm(data?: IEntity<IWeightClass>) {
     if (data) {
@@ -57,7 +57,7 @@ export class WeightCategoryDialogComponent extends EditDialog<
       gender: [Gender.MALE],
       minExclusive: [null, [Validators.required, Validators.min(0)]],
       maxInclusive: [null, Validators.min(0)],
-      active: [true]
+      active: [true],
     });
     return form;
   }

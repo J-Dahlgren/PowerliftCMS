@@ -6,7 +6,7 @@ import { AutoUnsubscribeComponent } from "@pc/angular/util";
 @Component({
   selector: "dt-log",
   templateUrl: "./log.component.html",
-  styleUrls: ["./log.component.scss"]
+  styleUrls: ["./log.component.scss"],
 })
 export class LogComponent extends AutoUnsubscribeComponent implements OnInit {
   private filters = new StateStore<{}>({});

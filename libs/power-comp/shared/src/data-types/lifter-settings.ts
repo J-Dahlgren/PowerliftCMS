@@ -5,7 +5,7 @@ export enum SquatRackSettingsEnum {
   NONE = 0,
   BOTH,
   LEFT,
-  RIGHT
+  RIGHT,
 }
 export const squatRackSettings = ExtractEnumKeys(SquatRackSettingsEnum);
 export interface IBenchPressSettings {

@@ -16,8 +16,8 @@ export class ClassBus {
   }
   on<T extends object>(event: Constructor<T>) {
     return this.$.pipe(
-      filter(e => e instanceof event),
-      map(e => e as T)
+      filter((e) => e instanceof event),
+      map((e) => e as T)
     );
   }
 }

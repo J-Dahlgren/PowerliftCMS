@@ -6,7 +6,7 @@ import {
   RoomEventBus,
   CountdownTimer,
   MINUTE,
-  Sink
+  Sink,
 } from "@pc/util";
 import { InternalEventBus } from "./internal-event-bus";
 import { SubSink } from "subsink";
@@ -36,21 +36,21 @@ export class TimerService
     this.liftTimer.pause(DEFAULT_TIMER);
     this.subs.sink = this.internalEvents
       .onIn("setTimer", () => this.room)
-      .subscribe(c => this.liftTimer.setClock(c));
+      .subscribe((c) => this.liftTimer.setClock(c));
     this.subs.sink = serverEvents
       .onRoomRequest(() => this.room)
-      .subscribe(req => req.receiver.next(this.getState()));
+      .subscribe((req) => req.receiver.next(this.getState()));
 
     this.liftTimer
       .select("state")
-      .pipe(tap(c => this.logger.debug(this.liftTimer.toString())))
-      .subscribe(s =>
+      .pipe(tap((c) => this.logger.debug(this.liftTimer.toString())))
+      .subscribe((s) =>
         serverEvents.emit(this.room, "liftTimer", this.liftTimer.state)
       );
     this.liftTimer
       .select("remainingMillis")
-      .pipe(filter(t => this.liftTimer.get("state") === "OFF"))
-      .subscribe(s => {
+      .pipe(filter((t) => this.liftTimer.get("state") === "OFF"))
+      .subscribe((s) => {
         serverEvents.emit(this.room, "liftTimer", this.liftTimer.state);
       });
   }
@@ -62,7 +62,7 @@ export class TimerService
   unsubscribe() {}
   getState(): Partial<IServerPlatformEvents> {
     return {
-      liftTimer: this.liftTimer.state
+      liftTimer: this.liftTimer.state,
     };
   }
 }

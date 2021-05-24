@@ -19,17 +19,17 @@
       </th>
       <td mat-cell *matCellDef="let element">
         <a
-          style="min-width: 50%;"
+          style="min-width: 50%"
           color="primary"
           [routerLink]="[element.id, 'lifters']"
           mat-raised-button
           [matTooltip]="'compeition.manage' | translate"
         >
           <div class="flex center-y">
-            <span style="float: left;">{{ element.name }}</span>
+            <span style="float: left">{{ element.name }}</span>
 
             <mat-icon
-              style="flex: auto;text-align: right;"
+              style="flex: auto; text-align: right"
               svgIcon="arrow-right"
             ></mat-icon>
           </div>

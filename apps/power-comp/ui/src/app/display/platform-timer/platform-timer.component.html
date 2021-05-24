@@ -1,6 +1,6 @@
 <div
   class="timer flex center-x center-y"
-  style="height: 100%;"
+  style="height: 100%"
   [class.running]="(timer.status$ | async) === 'ON'"
 >
   {{ timer.remainingMillis$ | async | moment: format }}

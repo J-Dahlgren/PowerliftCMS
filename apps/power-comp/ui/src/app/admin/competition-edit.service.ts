@@ -6,7 +6,8 @@ import { Subject, interval } from "rxjs";
 import { AppInfoService } from "../core";
 
 @Injectable()
-export class CompetitionEditService extends StateStore<IEntity>
+export class CompetitionEditService
+  extends StateStore<IEntity>
   implements OnDestroy {
   protected terminate = new Subject();
   protected _onEdit = new Subject();
@@ -19,8 +20,8 @@ export class CompetitionEditService extends StateStore<IEntity>
       .setContext("CompetitionEditService")
       .trace("Created");
     this.select("id")
-      .pipe(filter(id => !!id))
-      .subscribe(id =>
+      .pipe(filter((id) => !!id))
+      .subscribe((id) =>
         this.logger.setContext(`CompetitionEditService_${id}`).trace("Id set")
       );
 
@@ -33,7 +34,7 @@ export class CompetitionEditService extends StateStore<IEntity>
     appInfo.connected$
       .pipe(
         takeUntil(this.terminate),
-        filter(c => c)
+        filter((c) => c)
       )
       .subscribe(() => this.emitEdited());
   }

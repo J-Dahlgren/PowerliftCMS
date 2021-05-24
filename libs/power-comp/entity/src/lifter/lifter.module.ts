@@ -10,6 +10,6 @@ import { WeightCategoryModule } from "../weight-category";
   imports: [TypeOrmModule.forFeature([LifterEntity])],
   controllers: [LifterController],
   providers: [LifterEntityService, LifterEntitySubscriber],
-  exports: [LifterEntityService]
+  exports: [LifterEntityService],
 })
 export class LifterModule {}

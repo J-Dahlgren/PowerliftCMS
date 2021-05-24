@@ -68,10 +68,8 @@ export abstract class PowerCompListComponent<
 
   createQueryString() {
     const queryBuilder = RequestQueryBuilder.create({
-      filter: {
-        field: "competitionId",
-        operator: "eq",
-        value: +this.editService.get("id"),
+      search: {
+        competitionId: +this.editService.get("id"),
       },
     });
     return this.queryBuilder(queryBuilder).query();

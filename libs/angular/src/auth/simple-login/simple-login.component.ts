@@ -5,14 +5,14 @@ import {
   FormBuilder,
   FormControl,
   Validators,
-  FormGroup
+  FormGroup,
 } from "@angular/forms";
 import { BehaviorSubject } from "rxjs";
 import { SnackBarService } from "../../material";
 import { finalize, delay } from "rxjs/operators";
 
 @Component({
-  templateUrl: "./simple-login.component.html"
+  templateUrl: "./simple-login.component.html",
 })
 export class SimpleLoginComponent implements OnInit {
   loginForm!: FormGroup;
@@ -33,7 +33,7 @@ export class SimpleLoginComponent implements OnInit {
   ngOnInit() {
     // get return url from route parameters or default to '/'
     this.loginForm = this.formBuilder.group({
-      password: ["", Validators.required]
+      password: ["", Validators.required],
     });
     this.returnUrl = this.route.snapshot.queryParams["returnUrl"] || "/";
     document.getElementById("password_input")?.focus();
@@ -49,7 +49,7 @@ export class SimpleLoginComponent implements OnInit {
           this.snack.openTranslate("authentication.logged-in", "primary", 2500);
           this.router.navigate([this.returnUrl]);
         },
-        e => {
+        (e) => {
           this.snack.openTranslate("authentication.failed-login", "warn", 2500);
           console.log(e);
         }

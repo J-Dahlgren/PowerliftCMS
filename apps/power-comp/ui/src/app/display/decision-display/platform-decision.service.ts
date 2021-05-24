@@ -19,18 +19,18 @@ export class PlatformDecisionService extends AutoUnsubscribeComponent {
     this.subs.sink = serverEvents
       .on("decisions")
       .pipe(
-        lodashChainMap(c =>
-          c.map(d => JudgeDecision[d] as keyof typeof JudgeDecision)
+        lodashChainMap((c) =>
+          c.map((d) => JudgeDecision[d] as keyof typeof JudgeDecision)
         )
       )
-      .subscribe(d => this._decisions.next(d));
+      .subscribe((d) => this._decisions.next(d));
     serverEvents.request().subscribe();
   }
 
   public get show$() {
     return this.serverEvents
       .on("displayDecisions")
-      .pipe(switchMap(t => merge(of(true), timer(t).pipe(map(() => false)))));
+      .pipe(switchMap((t) => merge(of(true), timer(t).pipe(map(() => false)))));
   }
   public get $() {
     return this._decisions.asObservable();

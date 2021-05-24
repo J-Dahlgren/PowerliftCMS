@@ -2,7 +2,7 @@ import {
   OnGatewayInit,
   WebSocketServer,
   OnGatewayConnection,
-  ConnectedSocket
+  ConnectedSocket,
 } from "@nestjs/websockets";
 import { Socket, Namespace } from "socket.io";
 import { IStateStore, NSP_STATE_EVENT, ILogService } from "@pc/util";
@@ -22,7 +22,7 @@ export abstract class NspSocketGateway<T extends {}>
     this.logger.trace("afterInit");
     this.subs.sink = this.store.$.pipe(
       auditTime(this.audit || 0)
-    ).subscribe(state => this.nsp.emit(NSP_STATE_EVENT, state));
+    ).subscribe((state) => this.nsp.emit(NSP_STATE_EVENT, state));
   }
 
   handleConnection(@ConnectedSocket() client: Socket) {

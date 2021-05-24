@@ -6,7 +6,7 @@ import {
   LiftFieldTuple,
   AgeCategoryName,
   AgeCategories,
-  IGroupEntity
+  IGroupEntity,
 } from "@pc/power-comp/shared";
 import { StateStore, IEntity, lodashChainMap } from "@pc/util";
 import { SubSink } from "subsink";
@@ -25,7 +25,7 @@ type ResultData = LifterData & IRank;
 @Component({
   selector: "pc-result-list",
   templateUrl: "./result-list.component.html",
-  styleUrls: ["./result-list.component.scss"]
+  styleUrls: ["./result-list.component.scss"],
 })
 export class ResultListComponent implements OnInit, AfterViewInit {
   columns = [
@@ -42,7 +42,7 @@ export class ResultListComponent implements OnInit, AfterViewInit {
     ...LiftFieldTuple,
     "total",
     "rank",
-    "score"
+    "score",
   ];
   ageCategories = AgeCategories;
   liftFields = LiftFieldTuple;
@@ -71,9 +71,9 @@ export class ResultListComponent implements OnInit, AfterViewInit {
         this.competitionInfoService
           .result(this.editService.get("id"), this.filters.get("group")?.id)
           .pipe(
-            lodashChainMap(lifters =>
+            lodashChainMap((lifters) =>
               lifters.filter(
-                l =>
+                (l) =>
                   !this.filters.get("ageCategory") ||
                   l.ageCategory === this.filters.get("ageCategory")
               )
@@ -85,15 +85,13 @@ export class ResultListComponent implements OnInit, AfterViewInit {
       exhaustMap(() =>
         groupService.getMany(
           RequestQueryBuilder.create({
-            filter: {
-              field: "competitionId",
-              operator: "eq",
-              value: this.competitionId
+            search: {
+              competitionId: this.competitionId,
             },
             sort: {
               field: "name",
-              order: "ASC"
-            }
+              order: "ASC",
+            },
           }).query()
         )
       )
@@ -109,7 +107,7 @@ export class ResultListComponent implements OnInit, AfterViewInit {
     this.filters.modify(() => ({}));
   }
   ngOnInit(): void {
-    this.subs.sink = this.elements$.subscribe(data => {
+    this.subs.sink = this.elements$.subscribe((data) => {
       this.dataSource.data = data;
       if (this.sort) {
         this.dataSource.sort = this.sort;
@@ -119,7 +117,7 @@ export class ResultListComponent implements OnInit, AfterViewInit {
   download() {
     const group = this.filters.get("group");
     if (group) {
-      this.downloadService.getProtocol(group.id).subscribe(data => {
+      this.downloadService.getProtocol(group.id).subscribe((data) => {
         createFileDownload(
           data,
           `Result_${group.name}_${moment(Date.now()).format(

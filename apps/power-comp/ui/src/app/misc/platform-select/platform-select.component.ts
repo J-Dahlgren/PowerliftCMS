@@ -10,7 +10,7 @@ import { LogService, UiLogger } from "@pc/angular/logger";
 @Component({
   selector: "pc-platform-select",
   templateUrl: "./platform-select.component.html",
-  styleUrls: ["./platform-select.component.scss"]
+  styleUrls: ["./platform-select.component.scss"],
 })
 export class PlatformSelectComponent
   implements OnInit, OnDestroy, AfterViewInit {
@@ -28,20 +28,24 @@ export class PlatformSelectComponent
     this.competitions$ = platformSelection.select("competitions");
     this.selected$ = combineLatest([
       platformSelection.select("selectedPlatform"),
-      this.competitions$
+      this.competitions$,
     ]).pipe(
       map(([s, comps]) =>
-        s ? { ...s, competition: comps.find(c => c.id === s.competitionId) } : s
+        s
+          ? { ...s, competition: comps.find((c) => c.id === s.competitionId) }
+          : s
       )
     );
 
     this.competitions$
-      .pipe(map(competitions => flatten(competitions.map(c => c.platforms))))
-      .subscribe(platforms => {
+      .pipe(
+        map((competitions) => flatten(competitions.map((c) => c.platforms)))
+      )
+      .subscribe((platforms) => {
         const current = this.platformSelection.get("selectedPlatform");
         setTimeout(() => {
           this.platformSelection.selectPlatform(
-            platforms.find(p => p.id === current?.id) || platforms[0] || null
+            platforms.find((p) => p.id === current?.id) || platforms[0] || null
           );
         }, 10);
       });

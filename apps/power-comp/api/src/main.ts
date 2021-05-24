@@ -10,7 +10,7 @@ import { Environment } from "@pc/power-comp/shared";
 import { IoAdapter } from "@nestjs/platform-socket.io";
 import {
   CompetitionEntityService,
-  LifterEntityService
+  LifterEntityService,
 } from "@pc/power-comp/entity";
 import { competitionDefaults } from "./defaults";
 import { writeFileSync } from "fs";
@@ -18,7 +18,7 @@ import { sleep } from "@pc/util";
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule, {
-    logger: ["error", "warn"]
+    logger: ["error", "warn"],
   });
   const config = configuration();
   app.setGlobalPrefix("api");
@@ -42,7 +42,7 @@ async function bootstrap() {
     .addBearerAuth()
     .build();
   const swaggerDocument = SwaggerModule.createDocument(app, options, {
-    ignoreGlobalPrefix: true
+    ignoreGlobalPrefix: true,
   });
   if (environment.type !== Environment.STANDALONE) {
     SwaggerModule.setup("docs", app, swaggerDocument);

@@ -10,14 +10,12 @@
       <ng-container *ngIf="translated">
         {{ "generic.button.menu" | translate | titlecase }}
       </ng-container>
-      <ng-container *ngIf="!translated">
-        Menu
-      </ng-container>
+      <ng-container *ngIf="!translated"> Menu </ng-container>
     </button>
     <a mat-button *ngIf="appName" class="app-name" routerLink="/">
       {{ appName }}
     </a>
-    <span style="flex: 1 1 auto;"></span>
+    <span style="flex: 1 1 auto"></span>
     <ng-content> </ng-content>
   </mat-toolbar>
 </div>

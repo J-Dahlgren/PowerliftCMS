@@ -20,9 +20,10 @@ interface Link {
   selector: "pc-competition-edit",
   templateUrl: "./competition-edit.component.html",
   styleUrls: ["./competition-edit.component.scss"],
-  providers: [CompetitionEditService]
+  providers: [CompetitionEditService],
 })
-export class CompetitionEditComponent extends AutoUnsubscribeComponent
+export class CompetitionEditComponent
+  extends AutoUnsubscribeComponent
   implements OnInit {
   logger: UiLogger;
   id: number;
@@ -33,24 +34,24 @@ export class CompetitionEditComponent extends AutoUnsubscribeComponent
   _links: Link[] = [
     {
       route: "lifters",
-      icon: "weight-lifter"
+      icon: "weight-lifter",
     },
     {
       route: "groups",
-      icon: "account-group"
+      icon: "account-group",
     },
     {
       route: "platforms",
-      icon: "vector-square"
+      icon: "vector-square",
     },
     {
       route: "weight-categories",
-      icon: "weight-kilogram"
+      icon: "weight-kilogram",
     },
     {
       route: "results",
-      icon: "podium"
-    }
+      icon: "podium",
+    },
   ];
   constructor(
     route: ActivatedRoute,
@@ -65,26 +66,26 @@ export class CompetitionEditComponent extends AutoUnsubscribeComponent
     this.id = +route.snapshot.params.id;
     competitionService.get(this.id).subscribe(
       () => {},
-      e => router.navigate(["competition"])
+      (e) => router.navigate(["competition"])
     );
     editService.set("id", this.id);
     const query = RequestQueryBuilder.create({
       join: [
         {
-          field: "platforms"
+          field: "platforms",
         },
-        { field: "platform.groups" }
-      ]
+        { field: "platform.groups" },
+      ],
     }).query();
     this.logger = logService.create("CompetitionEditComponent");
     this.comp$ = route.params.pipe(
-      switchMap(params => competitionService.getAllRelations(+params.id))
+      switchMap((params) => competitionService.getAllRelations(+params.id))
     );
   }
   editPlatform(platform: IEntity<IPlatform>) {
     this.dialog.openEditModal(PlatformDialogComponent, {
       data: { id: +platform.id },
-      minWidth: "300px"
+      minWidth: "300px",
     });
   }
   ngOnInit(): void {}

@@ -15,5 +15,5 @@ function plateFn(
   return findValidPlateCombo(
     (weight - 20) / 2 - weights.collarWeight, // (Weight - bar) - collars
     weights.plates
-  ).map(p => p.weight);
+  ).map((p) => p.weight);
 }

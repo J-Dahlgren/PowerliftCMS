@@ -21,7 +21,7 @@ export class CancelToken implements ICancelToken {
   public static get NONE(): ICancelToken {
     return {
       isCanceled: false,
-      throwIfRequested: () => {}
+      throwIfRequested: () => {},
     };
   }
 }

@@ -3,7 +3,7 @@ import { ProtectedStore, extractKeys, RoomBus, InRoom } from "@pc/util";
 import {
   IPlatformData,
   LifterInfo,
-  PersistentPlatformData
+  PersistentPlatformData,
 } from "@pc/power-comp/shared";
 import { filter, map } from "rxjs/operators";
 import { SubSink } from "subsink";
@@ -12,7 +12,8 @@ import { PlatformDataSocketService } from "./socket";
 import { PLATFORM_DATA_TOKEN } from "./token";
 
 @Injectable({ providedIn: "root" })
-export class PlatformDataService extends ProtectedStore<IPlatformData>
+export class PlatformDataService
+  extends ProtectedStore<IPlatformData>
   implements OnDestroy {
   private subs = new SubSink();
   constructor(
@@ -20,7 +21,7 @@ export class PlatformDataService extends ProtectedStore<IPlatformData>
   ) {
     super({
       activeGroupId: null,
-      ...new LifterInfo()
+      ...new LifterInfo(),
     });
     this.subs.sink = platformDataEvents
       .any()

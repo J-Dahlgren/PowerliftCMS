@@ -7,7 +7,7 @@ import {
   LifterData,
   ILifter,
   LiftFieldTuple,
-  protocolOrder
+  protocolOrder,
 } from "@pc/power-comp/shared";
 import { MatSort } from "@angular/material/sort";
 import { Observable } from "rxjs";
@@ -18,9 +18,10 @@ import { get } from "lodash";
 @Component({
   selector: "pc-secretariat-list",
   templateUrl: "./secretariat-list.component.html",
-  styleUrls: ["./secretariat-list.component.scss"]
+  styleUrls: ["./secretariat-list.component.scss"],
 })
-export class SecretariatListComponent extends AutoUnsubscribeComponent
+export class SecretariatListComponent
+  extends AutoUnsubscribeComponent
   implements OnInit {
   columns = [
     "lot",
@@ -31,7 +32,7 @@ export class SecretariatListComponent extends AutoUnsubscribeComponent
     "competitionMode",
     "attempt",
     "attemptInfo.weight",
-    "edit"
+    "edit",
   ];
   liftFields = LiftFieldTuple;
   dataSource: MatTableDataSource<IEntity<LifterData>> = new MatTableDataSource(
@@ -49,7 +50,7 @@ export class SecretariatListComponent extends AutoUnsubscribeComponent
     this.dataSource.sortingDataAccessor = get;
     this.subs.sink = platformDataService
       .select("lifters")
-      .subscribe(lifters => {
+      .subscribe((lifters) => {
         this.dataSource.data = protocolOrder(lifters);
         this.dataSource.sort = this.sort;
       });
@@ -61,8 +62,8 @@ export class SecretariatListComponent extends AutoUnsubscribeComponent
       .openEditModal<ILifter, DialogOptions>(LiftsDialogComponent, {
         data: {
           id: +entity.id,
-          title: this.getEntityTitle(entity)
-        }
+          title: this.getEntityTitle(entity),
+        },
       })
       .afterClosed()
       .subscribe();
@@ -73,8 +74,8 @@ export class SecretariatListComponent extends AutoUnsubscribeComponent
         data: {
           id: +entity.id,
           competitionId: entity.competitionId,
-          title: this.getEntityTitle(entity)
-        }
+          title: this.getEntityTitle(entity),
+        },
       })
       .afterClosed()
       .subscribe();

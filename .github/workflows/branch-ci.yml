@@ -1,21 +1,21 @@
 name: Branches CI
 on:
-    push:
-      branches-ignore:
-        - master
-    pull_request:
-      branches:
-        - master
+  push:
+    branches-ignore:
+      - master
+  pull_request:
+    branches:
+      - master
 jobs:
-    branch_test:
-      runs-on: ubuntu-latest
-      steps:
-        - uses: actions/checkout@v2
-          with:
-            fetch-depth: 0
-        - uses: actions/setup-node@v1
-          with:
-            node-version: "14.5"
-        - run: git fetch --no-tags --prune --depth=5 origin master
-        - run: npm ci
-        - run: npx nx affected:test --base=origin/master
+  branch_test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v1
+        with:
+          node-version: "14.5"
+      - run: git fetch --no-tags --prune --depth=5 origin master
+      - run: npm ci
+      - run: npx nx affected:test --base=origin/master

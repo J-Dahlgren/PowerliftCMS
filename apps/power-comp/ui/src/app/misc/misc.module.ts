@@ -7,6 +7,6 @@ import { CoreModule } from "../core";
 @NgModule({
   imports: [MaterialModule, TranslateModule, CoreModule],
   declarations: [PlatformSelectComponent],
-  exports: [PlatformSelectComponent]
+  exports: [PlatformSelectComponent],
 })
 export class MiscModule {}

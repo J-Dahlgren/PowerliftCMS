@@ -14,9 +14,10 @@ import { TranslateService } from "@ngx-translate/core";
 @Component({
   selector: "pc-group-list",
   templateUrl: "./group-list.component.html",
-  styleUrls: ["./group-list.component.scss"]
+  styleUrls: ["./group-list.component.scss"],
 })
-export class GroupListComponent extends PowerCompListComponent<IGroup>
+export class GroupListComponent
+  extends PowerCompListComponent<IGroup>
   implements OnInit {
   columns = ["name", "weighInTime", "competitionTime", "lifters", "platform"];
   filters: StateStore<{}> = new StateStore({});
@@ -39,7 +40,7 @@ export class GroupListComponent extends PowerCompListComponent<IGroup>
   }
   getLifterNamesTooltip(lifters?: ILifter[]): string {
     return !!lifters
-      ? sortBy(lifters.map(l => `${l.firstname} ${l.lastname}`)).join("\n")
+      ? sortBy(lifters.map((l) => `${l.firstname} ${l.lastname}`)).join("\n")
       : "";
   }
   getDialogComponentType(): Constructor<EditDialog<IGroup, PcDialogOptions>> {

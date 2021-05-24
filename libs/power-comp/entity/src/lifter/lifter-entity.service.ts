@@ -12,7 +12,8 @@ import { merge } from "rxjs";
 import { getWeightClass } from "@pc/power-comp/shared";
 
 @Injectable()
-export class LifterEntityService extends CrudService<LifterEntity>
+export class LifterEntityService
+  extends CrudService<LifterEntity>
   implements OnModuleInit, OnModuleDestroy {
   private subs = new SubSink();
   constructor(

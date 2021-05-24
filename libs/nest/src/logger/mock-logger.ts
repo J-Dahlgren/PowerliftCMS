@@ -3,7 +3,7 @@ import {
   Provider,
   Logger,
   Injectable,
-  Scope
+  Scope,
 } from "@nestjs/common";
 @Injectable({ scope: Scope.TRANSIENT })
 export class MockLogger extends Logger {

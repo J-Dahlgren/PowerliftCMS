@@ -7,5 +7,5 @@ type liftOrderFunctions = {
 };
 export const LiftOrderFunctions: liftOrderFunctions = {
   SBD: classicCompareFunction,
-  B: classicCompareFunction
+  B: classicCompareFunction,
 };

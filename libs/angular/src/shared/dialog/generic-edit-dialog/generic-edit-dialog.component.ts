@@ -8,7 +8,7 @@ import { TRANSLATE } from "../token";
 @Component({
   selector: "dt-generic-edit-dialog",
   styleUrls: ["./generic-edit-dialog.component.scss"],
-  templateUrl: "./generic-edit-dialog.component.html"
+  templateUrl: "./generic-edit-dialog.component.html",
 })
 export class GenericEditDialogComponent<T extends object> implements OnInit {
   @Input() parent!: EditDialog<T>;
@@ -23,7 +23,7 @@ export class GenericEditDialogComponent<T extends object> implements OnInit {
   ) {}
   ngOnInit() {
     this.loading$ = this.parent.select("loading");
-    this.parent.error$.subscribe(e =>
+    this.parent.error$.subscribe((e) =>
       this.snackBar.open(e?.message, "warn", 2500)
     );
     this.submitClick$
@@ -32,11 +32,11 @@ export class GenericEditDialogComponent<T extends object> implements OnInit {
         exhaustMap(() =>
           this.parent.save().pipe(
             tap(
-              entity => {
+              (entity) => {
                 this.snackBar.open("Saved", "accent", 2500);
                 this.parent.dialogRef.close(entity);
               },
-              e => {
+              (e) => {
                 this.snackBar.open(e?.message, "warn", 2500);
                 this.saving$.next(false);
               },

@@ -22,14 +22,14 @@ export abstract class TypedSocketService<
     const socket = connect(socketUrl, {
       reconnection: true,
       reconnectionDelay: 2000,
-      reconnectionDelayMax: 10000
+      reconnectionDelayMax: 10000,
     });
     this._socket = socket;
     socket.on("connect", () => this.set("connected", true));
     socket.on("connect_error", () => this.set("connected", false));
     this.select("connected")
       .pipe(skip(1))
-      .subscribe(connected =>
+      .subscribe((connected) =>
         connected
           ? this.logger.log("Connected")
           : this.logger.warn("Disconnected")
@@ -44,8 +44,8 @@ export abstract class TypedSocketService<
 
   public on<K extends keyof RxT>(event: K) {
     return this.any$().pipe(
-      filter(e => e.type === event),
-      map(e => e.payload as RxT[K])
+      filter((e) => e.type === event),
+      map((e) => e.payload as RxT[K])
     );
   }
 }

@@ -21,9 +21,9 @@ export class ModalService {
       afterClosed$: base,
       confirmed$: base.pipe(
         take(1),
-        filter(confirmed => !!confirmed),
+        filter((confirmed) => !!confirmed),
         mapTo(true)
-      )
+      ),
     };
   }
   openEditModal<

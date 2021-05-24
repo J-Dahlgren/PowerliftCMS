@@ -7,7 +7,7 @@ import { extractKeys } from "../types/extract";
 
 type compareFn<T> = (a: T, b: T) => number;
 export function filterMap<T>(predicate: (value: T) => boolean) {
-  return map<T[], T[]>(values => values.filter(predicate));
+  return map<T[], T[]>((values) => values.filter(predicate));
 }
 
 export function lodashChainMap<InputT, ResultT>(
@@ -15,14 +15,14 @@ export function lodashChainMap<InputT, ResultT>(
     collectionChain: CollectionChain<InputT>
   ) => CollectionChain<ResultT>
 ) {
-  return map<InputT[], ResultT[]>(values => chainFn(chain(values)).value());
+  return map<InputT[], ResultT[]>((values) => chainFn(chain(values)).value());
 }
 
 export function flattenToEvent<T extends {}>() {
-  return flatMap<T, ObservableInput<IEvent<T>>>(state =>
-    extractKeys(state).map(key => ({ type: key, payload: state[key] }))
+  return flatMap<T, ObservableInput<IEvent<T>>>((state) =>
+    extractKeys(state).map((key) => ({ type: key, payload: state[key] }))
   );
 }
 export function sortMap<T>(comparator: compareFn<T>) {
-  return map<T[], T[]>(values => values.sort(comparator));
+  return map<T[], T[]>((values) => values.sort(comparator));
 }

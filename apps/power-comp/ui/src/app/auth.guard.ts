@@ -3,7 +3,7 @@ import {
   Router,
   CanActivate,
   ActivatedRouteSnapshot,
-  RouterStateSnapshot
+  RouterStateSnapshot,
 } from "@angular/router";
 import { AuthService } from "@pc/angular/auth";
 import { timer } from "rxjs";
@@ -30,7 +30,7 @@ export class AuthGuard implements CanActivate {
       .select("requireAuthentication")
       .pipe(
         takeUntil(timer(1000)),
-        filter(requireAuth => !requireAuth)
+        filter((requireAuth) => !requireAuth)
       )
       .subscribe(() => this.router.navigate([state.url]));
 

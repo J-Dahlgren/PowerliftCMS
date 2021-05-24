@@ -13,14 +13,14 @@ import { TranslateModule } from "@ngx-translate/core";
   declarations: [
     RefereeMainComponent,
     RefereeSelectComponent,
-    RefereeComponent
+    RefereeComponent,
   ],
   imports: [
     CommonModule,
     FlexLayoutModule,
     RefereeRoutingModule,
     TranslateModule,
-    MaterialModule
-  ]
+    MaterialModule,
+  ],
 })
 export class RefereeModule {}

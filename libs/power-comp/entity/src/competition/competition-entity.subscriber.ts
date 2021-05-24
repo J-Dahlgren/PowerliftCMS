@@ -4,9 +4,7 @@ import { EventSubscriber, Connection } from "typeorm";
 import { Constructor } from "@pc/util";
 
 @EventSubscriber()
-export class CompetitionEntitySubscriber extends EntitySubscriber<
-  CompetitionEntity
-> {
+export class CompetitionEntitySubscriber extends EntitySubscriber<CompetitionEntity> {
   constructor(connection: Connection) {
     super();
     connection.subscribers.push(this);

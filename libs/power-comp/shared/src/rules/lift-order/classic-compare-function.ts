@@ -5,7 +5,7 @@ export const CLASSIC_LIFTS_ORDER: { [key in LiftFieldExt]: number } = {
   squat: 1,
   bench: 2,
   deadlift: 3,
-  done: 4
+  done: 4,
 };
 
 export const classicCompareFunction: LiftOrderCompareFunction<ILifter> = (

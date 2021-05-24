@@ -8,11 +8,11 @@ export function nextLifterDeterminator<T extends ILifter>(
 ) {
   const sorted = lifters.sort(comparator);
   const filtered = sorted.filter(
-    lifter => attemptInfo(lifter.lifts).liftName !== "done"
+    (lifter) => attemptInfo(lifter.lifts).liftName !== "done"
   );
   return {
     liftOrder: sorted,
     currentLifter: (filtered[0] || null) as T | null,
-    nextLifter: (filtered[1] || null) as T | null
+    nextLifter: (filtered[1] || null) as T | null,
   };
 }

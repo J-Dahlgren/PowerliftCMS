@@ -16,7 +16,7 @@ import { SERVER_EVENTS_TOKEN } from "../core";
         >{{ "referee" | translate }} {{ i + 1 }}</a
       >
     </div>
-  `
+  `,
 })
 export class RefereeSelectComponent implements OnInit {
   referees$: Observable<number[]>;

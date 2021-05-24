@@ -3,7 +3,7 @@ import {
   LifterData,
   LiftFieldTuple,
   LiftStatus,
-  ILifter
+  ILifter,
 } from "../../data-types";
 import moment from "moment";
 import { IRank } from "./rank";
@@ -41,11 +41,11 @@ export function classicRankSort<T extends LifterData>(lifters: T[]) {
   return orderBy(
     lifters,
     [
-      l => l.result.total,
-      l => moment(l.group?.competitionTime || now).valueOf(),
-      l => l.bodyWeight || Number.MAX_SAFE_INTEGER,
-      l => attemptNumberForTotal(l),
-      l => l.lot
+      (l) => l.result.total,
+      (l) => moment(l.group?.competitionTime || now).valueOf(),
+      (l) => l.bodyWeight || Number.MAX_SAFE_INTEGER,
+      (l) => attemptNumberForTotal(l),
+      (l) => l.lot,
     ],
     ["desc", "asc", "asc", "asc", "asc"]
   );

@@ -3,7 +3,7 @@ import { Server, Socket } from "socket.io";
 import {
   WebSocketServer,
   OnGatewayInit,
-  OnGatewayConnection
+  OnGatewayConnection,
 } from "@nestjs/websockets";
 import { OnModuleDestroy, Logger } from "@nestjs/common";
 import { Observable } from "rxjs";

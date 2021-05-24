@@ -1,7 +1,7 @@
 import {
   EntitySessionService,
   IEntitySubscriber,
-  IEntitySessionService
+  IEntitySessionService,
 } from "@pc/nest/entity-service";
 import { PlatformEntity, PlatformEntityService } from "@pc/power-comp/entity";
 import { RoomEventBus } from "@pc/util";
@@ -16,7 +16,8 @@ import { TimerService } from "./timer.service";
 export interface IPlatformSessionService
   extends IEntitySessionService<PlatformEntity> {}
 @Injectable({ scope: Scope.TRANSIENT })
-export class PlatformSessionService extends EntitySessionService<PlatformEntity>
+export class PlatformSessionService
+  extends EntitySessionService<PlatformEntity>
   implements IPlatformSessionService {
   protected stream: IEntitySubscriber<PlatformEntity>;
 

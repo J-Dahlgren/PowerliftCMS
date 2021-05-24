@@ -3,7 +3,7 @@ import {
   PrimaryGeneratedColumn,
   Column,
   OneToMany,
-  ManyToOne
+  ManyToOne,
 } from "typeorm";
 import { IEntity } from "@pc/util";
 import { IPlatform, ICompetition } from "@pc/power-comp/shared";
@@ -17,7 +17,7 @@ import {
   IsNumber,
   IsString,
   ValidateNested,
-  IsArray
+  IsArray,
 } from "class-validator";
 import { UPDATE } from "@pc/nest/util";
 import { EntityBase } from "@pc/nest/entity-service";
@@ -45,11 +45,9 @@ export class PlatformEntity extends EntityBase implements IEntity<IPlatform> {
 
   /* Relations */
 
-  @OneToMany(
-    () => GroupEntity,
-    group => group.platform,
-    { cascade: ["insert", "update"] }
-  )
+  @OneToMany(() => GroupEntity, (group) => group.platform, {
+    cascade: ["insert", "update"],
+  })
   @IsOptional({ always: true })
   @IsArray({ always: true })
   @ValidateNested({ always: true, each: true })
@@ -57,15 +55,11 @@ export class PlatformEntity extends EntityBase implements IEntity<IPlatform> {
   @Type(() => GroupEntity)
   groups!: IEntity<GroupEntity>[];
 
-  @ManyToOne(
-    () => CompetitionEntity,
-    competition => competition.platforms,
-    {
-      cascade: [],
-      onDelete: "RESTRICT",
-      onUpdate: "CASCADE"
-    }
-  )
+  @ManyToOne(() => CompetitionEntity, (competition) => competition.platforms, {
+    cascade: [],
+    onDelete: "RESTRICT",
+    onUpdate: "CASCADE",
+  })
   competition!: IEntity<ICompetition>;
 
   toString() {

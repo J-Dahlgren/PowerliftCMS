@@ -6,13 +6,13 @@ import {
   defaultPlatformWeights,
   findValidPlateCombo,
   getPlateLoading,
-  IWeightPlate
+  IWeightPlate,
 } from "@pc/power-comp/shared";
 
 @Component({
   selector: "pc-plate-load",
   templateUrl: "./plate-load.component.html",
-  styleUrls: ["./plate-load.component.scss"]
+  styleUrls: ["./plate-load.component.scss"],
 })
 export class PlateLoadComponent implements OnInit {
   @Input() next = false;
@@ -31,11 +31,11 @@ export class PlateLoadComponent implements OnInit {
   ngOnInit(): void {
     const attemptWeight$ = this.platformDataService
       .select(this.next ? "nextLifter" : "currentLifter")
-      .pipe(map(lifter => lifter?.attemptInfo.weight || 0));
+      .pipe(map((lifter) => lifter?.attemptInfo.weight || 0));
 
     const weights$ = this.pSelection
       .select("selectedPlatform")
-      .pipe(map(platform => platform?.weights || defaultPlatformWeights));
+      .pipe(map((platform) => platform?.weights || defaultPlatformWeights));
 
     this.plates$ = combineLatest([attemptWeight$, weights$]).pipe(
       map(([attemptWeight, weights]) => getPlateLoading(attemptWeight, weights))

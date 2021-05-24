@@ -9,7 +9,7 @@ import {
   exhaustMap,
   switchMap,
   auditTime,
-  debounceTime
+  debounceTime,
 } from "rxjs/operators";
 import { IEntity, IStateStore, StateStore } from "@pc/util";
 import { ICompetition, defaultPlatformWeights } from "@pc/power-comp/shared";
@@ -25,9 +25,10 @@ import { MatSort } from "@angular/material/sort";
 @Component({
   selector: "pc-competition-list",
   templateUrl: "./competition-list.component.html",
-  styleUrls: ["./competition-list.component.scss"]
+  styleUrls: ["./competition-list.component.scss"],
 })
-export class CompetitionListComponent extends EntityListComponent<ICompetition>
+export class CompetitionListComponent
+  extends EntityListComponent<ICompetition>
   implements OnInit {
   dataSource: MatTableDataSource<
     IEntity<ICompetition>
@@ -51,9 +52,9 @@ export class CompetitionListComponent extends EntityListComponent<ICompetition>
   ngOnInit() {
     super.ngOnInit();
     this.subs.sink = this.appInfo.connected$
-      .pipe(filter(c => c))
+      .pipe(filter((c) => c))
       .subscribe(() => this.refresh());
-    this.subs.sink = this.elements$.subscribe(data => {
+    this.subs.sink = this.elements$.subscribe((data) => {
       this.dataSource.data = data;
       if (this.sort) {
         this.dataSource.sort = this.sort;
@@ -67,31 +68,31 @@ export class CompetitionListComponent extends EntityListComponent<ICompetition>
   delete(entity: IEntity<ICompetition>): void {
     this.entityService.delete(entity.id).subscribe(
       () => this.refresh(),
-      e =>
+      (e) =>
         this.translate
           .get("error.delete-fail")
-          .subscribe(m => this.snack.open(m, "warn", 2500))
+          .subscribe((m) => this.snack.open(m, "warn", 2500))
     );
   }
   create(): void {
     this.modalService
       .openEditModal<ICompetition>(CompetitionDialogComponent, {
         data: { title: "" },
-        minHeight: "300"
+        minHeight: "300",
       })
       .afterClosed()
       .pipe(
-        filter(r => !!r),
-        map(r => r as IEntity<ICompetition>)
+        filter((r) => !!r),
+        map((r) => r as IEntity<ICompetition>)
       )
-      .subscribe(r => {
+      .subscribe((r) => {
         this.platformService
           .create({
             competitionId: +r.id,
             weights: defaultPlatformWeights,
-            name: "P1"
+            name: "P1",
           })
-          .subscribe(e => this.click(+r.id));
+          .subscribe((e) => this.click(+r.id));
       });
   }
   edit(entity: IEntity<ICompetition>): void {
@@ -99,8 +100,8 @@ export class CompetitionListComponent extends EntityListComponent<ICompetition>
       .openEditModal<ICompetition, DialogOptions>(CompetitionDialogComponent, {
         data: {
           id: +entity.id,
-          title: entity.name
-        }
+          title: entity.name,
+        },
       })
       .afterClosed()
       .subscribe(() => this.refresh());

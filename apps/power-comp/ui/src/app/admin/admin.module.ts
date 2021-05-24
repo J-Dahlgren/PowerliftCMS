@@ -22,7 +22,7 @@ export const adminRoutes: Route[] = [
   {
     path: baseRoute,
     canActivate: [AuthGuard],
-    component: CompetitionListComponent
+    component: CompetitionListComponent,
   },
   {
     component: CompetitionEditComponent,
@@ -33,9 +33,9 @@ export const adminRoutes: Route[] = [
       { path: "groups", component: GroupListComponent },
       { path: "platforms", component: PlatformListComponent },
       { path: "weight-categories", component: WeightCategoryListComponent },
-      { path: "results", component: ResultListComponent }
-    ]
-  }
+      { path: "results", component: ResultListComponent },
+    ],
+  },
 ];
 
 @NgModule({
@@ -49,7 +49,7 @@ export const adminRoutes: Route[] = [
     TableModule,
     MaterialModule,
     TranslateModule,
-    RouterModule.forChild(adminRoutes)
+    RouterModule.forChild(adminRoutes),
   ],
   declarations: [
     CompetitionListComponent,
@@ -58,7 +58,7 @@ export const adminRoutes: Route[] = [
     PlatformListComponent,
     LifterListComponent,
     WeightCategoryListComponent,
-    ResultListComponent
-  ]
+    ResultListComponent,
+  ],
 })
 export class AdminModule {}

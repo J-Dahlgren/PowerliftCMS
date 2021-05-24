@@ -9,7 +9,7 @@ export class AppInfoService extends NspSocketService<IAppInfo> {
   constructor(logService: LogService) {
     super(APP_INFO_NSP, { ...new AppInfo(), requireAuthentication: true });
     this.logger = logService.create("AppInfoService");
-    this.$.pipe(auditTime(500)).subscribe(state =>
+    this.$.pipe(auditTime(500)).subscribe((state) =>
       this.logger.trace("State", state)
     );
   }

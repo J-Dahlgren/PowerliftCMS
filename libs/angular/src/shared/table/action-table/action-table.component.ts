@@ -10,14 +10,14 @@ import {
   QueryList,
   AfterViewInit,
   OnDestroy,
-  ContentChild
+  ContentChild,
 } from "@angular/core";
 import { Subject } from "rxjs";
 import { IEntity } from "@pc/util";
 import {
   MatTable,
   MatColumnDef,
-  MatTableDataSource
+  MatTableDataSource,
 } from "@angular/material/table";
 import { MatPaginator } from "@angular/material/paginator";
 import { TableContent } from "../table-content.directive";
@@ -28,7 +28,7 @@ import { ModalService } from "../../dialog";
 @Component({
   selector: "dt-action-table",
   templateUrl: "./action-table.component.html",
-  styleUrls: ["./action-table.component.scss"]
+  styleUrls: ["./action-table.component.scss"],
 })
 export class ActionTableComponent<T extends {}>
   implements
@@ -77,7 +77,7 @@ export class ActionTableComponent<T extends {}>
       this.modal
         .openConfirmModal({
           title: "generic.delete-confirmation.title",
-          message: "generic.delete-confirmation.message"
+          message: "generic.delete-confirmation.message",
         })
         .confirmed$.subscribe(() => this.delete.emit(entity));
     } else {
@@ -88,6 +88,6 @@ export class ActionTableComponent<T extends {}>
     this.terminate.next();
   }
   ngAfterContentInit() {
-    this.columnDefs.forEach(columnDef => this.table.addColumnDef(columnDef));
+    this.columnDefs.forEach((columnDef) => this.table.addColumnDef(columnDef));
   }
 }

@@ -4,7 +4,7 @@ import {
   IRank,
   LifterData,
   LiftFieldTuple,
-  protocolOrder
+  protocolOrder,
 } from "@pc/power-comp/shared";
 import { Observable } from "rxjs";
 import { map } from "rxjs/operators";
@@ -13,7 +13,7 @@ import { IEntity } from "@pc/util";
 @Component({
   selector: "pc-result-board",
   templateUrl: "./result-board.component.html",
-  styleUrls: ["./result-board.component.scss"]
+  styleUrls: ["./result-board.component.scss"],
 })
 export class ResultBoardComponent implements OnInit {
   liftFields = LiftFieldTuple;
@@ -26,7 +26,7 @@ export class ResultBoardComponent implements OnInit {
     ...this.liftFields,
     "total",
     "rank",
-    "score"
+    "score",
   ];
   lifters$: Observable<(LifterData & IRank)[]>;
   current$: Observable<IEntity<LifterData> | null>;

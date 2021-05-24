@@ -2,7 +2,7 @@ import {
   Component,
   OnInit,
   ChangeDetectionStrategy,
-  Inject
+  Inject,
 } from "@angular/core";
 import {
   PlatformDataService,
@@ -10,7 +10,7 @@ import {
   GroupService,
   PlatformSelectionService,
   PlatformTimerService,
-  SERVER_EVENTS_TOKEN
+  SERVER_EVENTS_TOKEN,
 } from "../../../core";
 import { ClientEventService } from "../client-event.service";
 import { AutoUnsubscribeComponent } from "@pc/angular/util";
@@ -20,7 +20,7 @@ import {
   IGroup,
   IClientPlatformEvents,
   LifterData,
-  IServerPlatformEvents
+  IServerPlatformEvents,
 } from "@pc/power-comp/shared";
 
 import { RequestQueryBuilder } from "@nestjsx/crud-request";
@@ -30,9 +30,10 @@ import { merge, of, Observable, Subject, timer } from "rxjs";
 @Component({
   selector: "pc-secretariat-control",
   templateUrl: "./secretariat-control.component.html",
-  styleUrls: ["./secretariat-control.component.scss"]
+  styleUrls: ["./secretariat-control.component.scss"],
 })
-export class SecretariatControlComponent extends AutoUnsubscribeComponent
+export class SecretariatControlComponent
+  extends AutoUnsubscribeComponent
   implements OnInit {
   groups$: Observable<IEntity<IGroup>[]>;
   activeGroupId$: Observable<number | null>;
@@ -52,27 +53,25 @@ export class SecretariatControlComponent extends AutoUnsubscribeComponent
 
     this.showDecisions$ = serverEvents
       .on("displayDecisions")
-      .pipe(switchMap(t => merge(of(true), timer(t).pipe(map(() => false)))));
+      .pipe(switchMap((t) => merge(of(true), timer(t).pipe(map(() => false)))));
 
     this.groups$ = this.platformSelection.select("selectedPlatform").pipe(
-      switchMap(platform =>
+      switchMap((platform) =>
         groupService.getMany(
           RequestQueryBuilder.create({
-            filter: {
-              field: "platformId",
-              operator: "eq",
-              value: platform?.id || -1
+            search: {
+              platformId: platform?.id || -1,
             },
             sort: {
               field: "name",
-              order: "ASC"
-            }
+              order: "ASC",
+            },
           }).query()
         )
       )
     );
     this.currentLifter$ = platformDataService.select("currentLifter");
-    this.timerClicks.subscribe(c =>
+    this.timerClicks.subscribe((c) =>
       this.clientEventService.emitEvent("liftTimer", c).subscribe()
     );
   }

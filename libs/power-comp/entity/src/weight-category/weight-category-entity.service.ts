@@ -8,9 +8,7 @@ import { WeightCategoryEntity } from "./weight-category.entity";
 import { WeightCategoryEntitySubscriber } from "./weight-category-entity.subscriber";
 
 @Injectable()
-export class WeightCategoryEntityService extends CrudService<
-  WeightCategoryEntity
-> {
+export class WeightCategoryEntityService extends CrudService<WeightCategoryEntity> {
   constructor(
     @InjectRepository(WeightCategoryEntity)
     repo: Repository<WeightCategoryEntity>,

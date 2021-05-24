@@ -3,7 +3,7 @@ import {
   FormControl,
   FormGroup,
   FormBuilder,
-  FormArray
+  FormArray,
 } from "@angular/forms";
 import { IEntity, ExtractEnumKeys } from "@pc/util";
 import { Component, Inject } from "@angular/core";
@@ -12,7 +12,7 @@ import {
   ICompetition,
   defaultWeightClasses,
   Gender,
-  AgeCategoryName
+  AgeCategoryName,
 } from "@pc/power-comp/shared";
 import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material/dialog";
 import { DialogOptions } from "@pc/angular/shared";
@@ -26,13 +26,13 @@ import { values } from "lodash";
 @Component({
   selector: "pc-competition-dialog",
   templateUrl: "./competition-dialog.component.html",
-  styleUrls: ["./competition-dialog.component.scss"]
+  styleUrls: ["./competition-dialog.component.scss"],
 })
 export class CompetitionDialogComponent extends EditDialog<
   ICompetition,
   DialogOptions
 > {
-  genders = ExtractEnumKeys(Gender).map(g => Gender[g]);
+  genders = ExtractEnumKeys(Gender).map((g) => Gender[g]);
 
   constructor(
     @Inject(MAT_DIALOG_DATA) config: DialogOptions,
@@ -67,7 +67,7 @@ export class CompetitionDialogComponent extends EditDialog<
       for (const wClass of defaultWeightClasses) {
         const restrictions = new FormArray(
           wClass.ageRestriction
-            ? wClass.ageRestriction.map(r => this.fb.control(r))
+            ? wClass.ageRestriction.map((r) => this.fb.control(r))
             : []
         );
         const group = this.fb.group({
@@ -75,7 +75,7 @@ export class CompetitionDialogComponent extends EditDialog<
           minExclusive: [wClass.minExclusive],
           maxInclusive: [wClass.maxInclusive],
           gender: [wClass.gender],
-          name: [wClass.name]
+          name: [wClass.name],
         });
         group.addControl("ageRestriction", restrictions);
         weightCategories.push(group);
@@ -98,14 +98,14 @@ export class CompetitionDialogComponent extends EditDialog<
     const restrictionsNames =
       ((group.get("ageRestriction") as FormArray).value as AgeCategoryName[]) ||
       [];
-    const translateKeys = restrictionsNames.map(r => "age-category." + r);
+    const translateKeys = restrictionsNames.map((r) => "age-category." + r);
 
     if (!translateKeys.length) {
       return of("");
     }
     return this.translate
       .get(translateKeys)
-      .pipe(map(v => values(v).join("\n")));
+      .pipe(map((v) => values(v).join("\n")));
     // return merge(
     //   this.translate.get(translateKeys),
     //   this.translate.onLangChange.pipe(

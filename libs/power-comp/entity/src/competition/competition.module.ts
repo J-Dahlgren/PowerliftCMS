@@ -12,14 +12,14 @@ import { LifterModule } from "../lifter";
   imports: [
     TypeOrmModule.forFeature([CompetitionEntity]),
     WeightCategoryModule,
-    LifterModule
+    LifterModule,
   ],
   controllers: [CompetitionController],
   providers: [
     CompetitionEntityService,
     CompetitionEntitySubscriber,
-    CompetitionIntegrityService
+    CompetitionIntegrityService,
   ],
-  exports: [CompetitionEntityService]
+  exports: [CompetitionEntityService],
 })
 export class CompetitionModule {}

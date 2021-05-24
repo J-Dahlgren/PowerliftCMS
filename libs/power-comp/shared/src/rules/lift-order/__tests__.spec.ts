@@ -3,7 +3,7 @@ import {
   ILifter,
   createILifter,
   createIAttempt,
-  LiftStatus
+  LiftStatus,
 } from "../../data-types";
 import { nextLifterDeterminator } from "./next-lifter-determinator";
 
@@ -31,7 +31,7 @@ describe("ClassicCompareFunction", () => {
   test("sorts on attempt index", () => {
     A.lifts.bench = [
       createIAttempt({ requested: 100, status: LiftStatus.SUCCESSFUL }),
-      createIAttempt({ automatic: 110 })
+      createIAttempt({ automatic: 110 }),
     ];
     B.lifts.bench = [createIAttempt({ requested: 100 }), createIAttempt()];
     expect(classicCompareFunction(A, B)).toBe(1);
@@ -60,7 +60,7 @@ describe("nextLifterDeterminator", () => {
     ).toStrictEqual({
       liftOrder: [A, B, C],
       currentLifter: null,
-      nextLifter: null
+      nextLifter: null,
     });
   });
 
@@ -73,7 +73,7 @@ describe("nextLifterDeterminator", () => {
     ).toStrictEqual({
       liftOrder: [B, A, C],
       currentLifter: B,
-      nextLifter: A
+      nextLifter: A,
     });
   });
 });

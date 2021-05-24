@@ -1,7 +1,7 @@
 import { Injectable, OnModuleDestroy } from "@nestjs/common";
 import {
   WeightCategoryEntityService,
-  WeightCategoryEntity
+  WeightCategoryEntity,
 } from "../weight-category";
 import { LifterEntityService, LifterEntity } from "../lifter";
 import { SubSink } from "subsink";
@@ -24,11 +24,11 @@ export class CompetitionIntegrityService implements OnModuleDestroy {
   ) {
     this.subs.sink = lifterService.stream
       .on("upsert")
-      .subscribe(e => this.onLifterUpdate(e));
+      .subscribe((e) => this.onLifterUpdate(e));
 
     setTimeout(() => {
       logger.trace("Listening on weight catefory changes");
-      this.subs.sink = weightCategoryService.stream.any().subscribe(e => {
+      this.subs.sink = weightCategoryService.stream.any().subscribe((e) => {
         const event = e.payload;
         const id = event.entity?.competitionId;
         if (id) {
@@ -47,8 +47,8 @@ export class CompetitionIntegrityService implements OnModuleDestroy {
         where: {
           competitionId: lifter.competitionId,
           gender: lifter.gender,
-          active: true
-        }
+          active: true,
+        },
       });
 
       const nextClass = getWeightClass(lifter, categories);

@@ -4,14 +4,14 @@ import {
   Input,
   OnDestroy,
   Optional,
-  Inject
+  Inject,
 } from "@angular/core";
 import {
   trigger,
   state,
   style,
   transition,
-  animate
+  animate,
 } from "@angular/animations";
 import { NavItem } from "./nav-item";
 import { NavigationService } from "../navigation.service";
@@ -29,9 +29,9 @@ import { MENU_IS_TRANSLATED } from "../token";
       transition(
         "expanded <=> collapsed",
         animate("225ms cubic-bezier(0.4,0.0,0.2,1)")
-      )
-    ])
-  ]
+      ),
+    ]),
+  ],
 })
 export class ListItemComponent implements OnInit, OnDestroy {
   private subs = new SubSink();

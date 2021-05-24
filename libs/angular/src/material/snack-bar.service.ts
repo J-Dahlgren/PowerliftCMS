@@ -4,7 +4,7 @@ import { TranslateService } from "@ngx-translate/core";
 export type SnackbarColor = "primary" | "accent" | "warn";
 
 @Injectable({
-  providedIn: "root"
+  providedIn: "root",
 })
 export class SnackBarService {
   constructor(
@@ -14,14 +14,14 @@ export class SnackBarService {
   open(message: string, panelClass: SnackbarColor, duration?: number) {
     this.snack.open(message, "X", {
       panelClass: `snack-bar-${panelClass}`,
-      duration
+      duration,
     });
   }
   openTranslate(message: string, panelClass: SnackbarColor, duration?: number) {
-    this.translateService.get(message).subscribe(translatedMessage =>
+    this.translateService.get(message).subscribe((translatedMessage) =>
       this.snack.open(translatedMessage, "X", {
         panelClass: `snack-bar-${panelClass}`,
-        duration
+        duration,
       })
     );
   }

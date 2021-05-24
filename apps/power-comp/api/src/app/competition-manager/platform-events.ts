@@ -6,7 +6,7 @@ import {
   IsArray,
   ValidateNested,
   Min,
-  IsBoolean
+  IsBoolean,
 } from "class-validator";
 import { ApiProperty } from "@nestjs/swagger";
 import { Clock, TimerState, ExtractEnumKeys, EnumKeys } from "@pc/util";
@@ -18,7 +18,8 @@ export abstract class PlatformEventDto {
   room!: number;
 }
 
-export class ActiveGroupDto extends PlatformEventDto
+export class ActiveGroupDto
+  extends PlatformEventDto
   implements IPlatformEvent<"activeGroupId"> {
   @ApiProperty({ required: false, type: () => Number })
   @IsOptional()
@@ -26,11 +27,12 @@ export class ActiveGroupDto extends PlatformEventDto
   data: number | undefined;
 }
 
-export class JudgeDecisionDto extends PlatformEventDto
+export class JudgeDecisionDto
+  extends PlatformEventDto
   implements IPlatformEvent<"decision"> {
   @ApiProperty({
     type: () => Decision,
-    required: true
+    required: true,
   })
   @ValidateNested()
   @Type(() => Decision)
@@ -43,7 +45,7 @@ export class Decision {
   @IsEnum(ExtractEnumKeys(JudgeDecision))
   @ApiProperty({
     enum: ExtractEnumKeys(JudgeDecision),
-    required: true
+    required: true,
   })
   d!: keyof typeof JudgeDecision;
 
@@ -63,7 +65,8 @@ export class ClockDto implements Clock {
   @Min(0)
   remainingMillis?: number;
 }
-export class LiftTimerDto extends PlatformEventDto
+export class LiftTimerDto
+  extends PlatformEventDto
   implements IPlatformEvent<"liftTimer"> {
   @ApiProperty({ type: () => ClockDto, required: true })
   @Type(() => ClockDto)
@@ -71,7 +74,8 @@ export class LiftTimerDto extends PlatformEventDto
   data!: ClockDto;
 }
 
-export class SecretariatDecisionDto extends PlatformEventDto
+export class SecretariatDecisionDto
+  extends PlatformEventDto
   implements IPlatformEvent<"secretariatDecision"> {
   @ApiProperty({ required: true })
   @IsBoolean()

@@ -13,7 +13,7 @@ export class SimpleAuthModule {
     const { secret, password } = auth;
     const tokenProviders = [
       { provide: SIMPLE_AUTH_PASSWORD_TOKEN, useValue: password },
-      { provide: JWT_SECRET, useValue: secret }
+      { provide: JWT_SECRET, useValue: secret },
     ];
     return {
       module: SimpleAuthModule,
@@ -22,14 +22,14 @@ export class SimpleAuthModule {
         LoggerModule,
         JwtModule.register({
           secret,
-          signOptions: { expiresIn: "1w" }
-        })
+          signOptions: { expiresIn: "1w" },
+        }),
       ],
       providers: [
         ...tokenProviders,
         SimpleAuthService,
         SimpleJwtGuard,
-        SimpleJwtStrategy
+        SimpleJwtStrategy,
       ],
       controllers: [SimpleAuthController],
       exports: [
@@ -37,8 +37,8 @@ export class SimpleAuthModule {
         JWT_SECRET,
         SimpleAuthService,
         SimpleJwtGuard,
-        SimpleJwtStrategy
-      ]
+        SimpleJwtStrategy,
+      ],
     };
   }
 }

@@ -17,7 +17,7 @@ export function getWeightClass<T extends ILifter, WC extends IWeightClass>(
   classes: WC[]
 ): WC | null {
   const bw = lifter.bodyWeight || -1;
-  for (const wClass of classes.filter(c => c.gender === lifter.gender)) {
+  for (const wClass of classes.filter((c) => c.gender === lifter.gender)) {
     const ageCat = getAgeCategory(lifter);
 
     if (

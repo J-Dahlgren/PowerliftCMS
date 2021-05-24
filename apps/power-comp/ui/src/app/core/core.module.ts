@@ -4,12 +4,12 @@ import { TranslateModule } from "@ngx-translate/core";
 import {
   SERVER_EVENTS_TOKEN,
   PLATFORM_DATA_TOKEN,
-  IPlatformEvents
+  IPlatformEvents,
 } from "./token";
 import { PlatformSelectionService } from "./platform-selection.service";
 import {
   PlatformEventsSocketService,
-  PlatformDataSocketService
+  PlatformDataSocketService,
 } from "./socket";
 
 @NgModule({
@@ -21,11 +21,11 @@ import {
         selection: PlatformSelectionService,
         serverEvents: PlatformEventsSocketService
       ) => serverEvents.in(() => selection.selectedToString()),
-      deps: [PlatformSelectionService, PlatformEventsSocketService]
+      deps: [PlatformSelectionService, PlatformEventsSocketService],
     },
     {
       provide: IPlatformEvents,
-      useExisting: SERVER_EVENTS_TOKEN
+      useExisting: SERVER_EVENTS_TOKEN,
     },
     {
       provide: PLATFORM_DATA_TOKEN,
@@ -33,8 +33,8 @@ import {
         selection: PlatformSelectionService,
         platformDataEvents: PlatformDataSocketService
       ) => platformDataEvents.in(() => selection.selectedToString()),
-      deps: [PlatformSelectionService, PlatformDataSocketService]
-    }
-  ]
+      deps: [PlatformSelectionService, PlatformDataSocketService],
+    },
+  ],
 })
 export class CoreModule {}

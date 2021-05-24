@@ -3,7 +3,7 @@ import {
   RoomEventBus,
   flattenToEvent,
   SECOND,
-  Sink
+  Sink,
 } from "@pc/util";
 import {
   IDecisionData,
@@ -11,7 +11,7 @@ import {
   IPlatformData,
   IServerPlatformEvents,
   allHasDecided,
-  majorityApprove
+  majorityApprove,
 } from "@pc/power-comp/shared";
 import { Injectable, Scope, Inject } from "@nestjs/common";
 import { PLATFORM_DATA_TOKEN, PLATFORM_EVENTS_TOKEN } from "../core";
@@ -25,7 +25,8 @@ import { timer } from "rxjs";
 const displayTime = 4 * SECOND;
 
 @Injectable({ scope: Scope.TRANSIENT })
-export class DecisionService extends ProtectedStore<IDecisionData>
+export class DecisionService
+  extends ProtectedStore<IDecisionData>
   implements IPlatformHelperService<IDecisionData> {
   subs = new Sink();
   protected room = "-1";
@@ -42,15 +43,15 @@ export class DecisionService extends ProtectedStore<IDecisionData>
       decisions: [
         JudgeDecision.NOT_DECIDED,
         JudgeDecision.NOT_DECIDED,
-        JudgeDecision.NOT_DECIDED
-      ]
+        JudgeDecision.NOT_DECIDED,
+      ],
     });
     const clientEventsIn = clientEvents.in(() => this.room);
     const serverEventsIn = serverEvents.in(() => this.room);
     const internalEventsIn = internalEvents.in(() => this.room);
 
     // Secretariat decision
-    this.subs.sink = clientEventsIn.on("secretariatDecision").subscribe(v => {
+    this.subs.sink = clientEventsIn.on("secretariatDecision").subscribe((v) => {
       const decision = v ? JudgeDecision.SUCCESS : JudgeDecision.FAILED;
       this.logger.info(`Decision from secretariat: ${JudgeDecision[decision]}`);
 
@@ -63,10 +64,10 @@ export class DecisionService extends ProtectedStore<IDecisionData>
     // Reset all after display event.
     this.subs.sink = serverEventsIn
       .on("displayDecisions")
-      .pipe(exhaustMap(t => timer(t)))
+      .pipe(exhaustMap((t) => timer(t)))
       .subscribe(() => this.reset());
 
-    this.subs.sink = clientEventsIn.on("decision").subscribe(d => {
+    this.subs.sink = clientEventsIn.on("decision").subscribe((d) => {
       const decisions = this.get("decisions");
       const preSet = allHasDecided(decisions);
 
@@ -94,7 +95,7 @@ export class DecisionService extends ProtectedStore<IDecisionData>
 
     this.subs.sink = this.serverEvents
       .onRoomRequest(() => this.room)
-      .subscribe(req => req.receiver.next(this.getState()));
+      .subscribe((req) => req.receiver.next(this.getState()));
   }
   init(context: string, room: string): void {
     this.room = room;

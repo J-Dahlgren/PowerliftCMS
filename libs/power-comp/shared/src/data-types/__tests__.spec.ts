@@ -5,7 +5,7 @@ import {
   JudgeDecision,
   majorityApprove,
   allHasDecided,
-  majorityHasDecided
+  majorityHasDecided,
 } from "./decision";
 import { getBestOfLifts, getResult } from "./ranking";
 
@@ -30,14 +30,14 @@ describe("Lifts", () => {
   test("attemptInfo", () => {
     lifts.squat = [
       createIAttempt({ status: LiftStatus.SUCCESSFUL, requested: 1 }),
-      createIAttempt({ automatic: 2 })
+      createIAttempt({ automatic: 2 }),
     ];
     const info = attemptInfo(lifts);
     expect(info).toStrictEqual(
       new AttemptInfo({
         liftName: "squat",
         attemptNumberOneIndexed: 2,
-        weight: 2
+        weight: 2,
       })
     );
   });
@@ -83,9 +83,9 @@ describe("result", () => {
     createIAttempt({
       status: LiftStatus.SUCCESSFUL,
       automatic: 3,
-      requested: 4
+      requested: 4,
     }),
-    createIAttempt({ status: LiftStatus.SUCCESSFUL })
+    createIAttempt({ status: LiftStatus.SUCCESSFUL }),
   ];
   test("getBestOfLifts", () => {
     expect(getBestOfLifts(attempts)).toEqual(4);

@@ -2,7 +2,7 @@ import { ProtectedStore } from "../state/protected-store";
 import moment from "moment";
 export enum TimerState {
   OFF,
-  ON
+  ON,
 }
 
 export interface Clock {
@@ -14,12 +14,12 @@ export class CountdownTimer extends ProtectedStore<Clock> {
   protected endTime: number = 0;
   constructor(protected tickInvervalMillis: number = 100) {
     super({ state: "OFF", remainingMillis: 0 });
-    this.select("remainingMillis").subscribe(t => {
+    this.select("remainingMillis").subscribe((t) => {
       if (!t || t < 0) {
         this._state.next({ state: "OFF", remainingMillis: 0 });
       }
     });
-    this.select("state").subscribe(status => {
+    this.select("state").subscribe((status) => {
       if (status === "ON") {
         this.endTime = Date.now() + (this.get("remainingMillis") || 0);
         this.setInterval();

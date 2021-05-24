@@ -12,7 +12,7 @@ export class StateStore<T extends {}> extends AbstractStateStore<T> {
   }
   select<K extends keyof T>(key: K) {
     return this._state.asObservable().pipe(
-      map(state => state[key]),
+      map((state) => state[key]),
       distinctUntilChanged((a, b) => this.distinctChange && isEqual(a, b))
     );
   }

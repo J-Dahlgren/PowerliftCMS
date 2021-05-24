@@ -1,7 +1,7 @@
 export enum JudgeDecision {
   NOT_DECIDED,
   SUCCESS,
-  FAILED
+  FAILED,
 }
 
 export function majorityApprove(decisions: JudgeDecision[]) {
@@ -15,7 +15,7 @@ export function majorityApprove(decisions: JudgeDecision[]) {
 }
 export function allHasDecided(decisions: JudgeDecision[]): boolean {
   return decisions.length
-    ? !decisions.some(decision => decision === JudgeDecision.NOT_DECIDED)
+    ? !decisions.some((decision) => decision === JudgeDecision.NOT_DECIDED)
     : false;
 }
 export function majorityHasDecided(decisions: JudgeDecision[]): boolean {

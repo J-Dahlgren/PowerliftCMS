@@ -4,7 +4,7 @@ import {
   Column,
   OneToMany,
   ManyToOne,
-  AfterLoad
+  AfterLoad,
 } from "typeorm";
 import { IEntity, EnumKeys } from "@pc/util";
 import {
@@ -13,7 +13,7 @@ import {
   IWeightClass,
   Gender,
   AgeCategoryEnum,
-  ILifter
+  ILifter,
 } from "@pc/power-comp/shared";
 import { ApiProperty, ApiPropertyOptional } from "@nestjs/swagger";
 import { CompetitionEntity } from "../competition/competition.entity";
@@ -24,7 +24,7 @@ import {
   IsBoolean,
   IsEnum,
   IsArray,
-  ValidateNested
+  ValidateNested,
 } from "class-validator";
 import { UPDATE, CREATE } from "@pc/nest/util";
 import { EntityBase } from "@pc/nest/entity-service";
@@ -75,21 +75,19 @@ export class WeightCategoryEntity extends EntityBase implements IWeightClass {
 
   @ManyToOne(
     () => CompetitionEntity,
-    competition => competition.weightCategories,
+    (competition) => competition.weightCategories,
     {
       cascade: [],
       onDelete: "CASCADE",
-      onUpdate: "CASCADE"
+      onUpdate: "CASCADE",
     }
   )
   competition!: IEntity<ICompetition>;
 
   @Type(() => LifterEntity)
-  @OneToMany(
-    () => LifterEntity,
-    lifter => lifter.competition,
-    { cascade: ["insert", "update"] }
-  )
+  @OneToMany(() => LifterEntity, (lifter) => lifter.competition, {
+    cascade: ["insert", "update"],
+  })
   @IsOptional({ always: true })
   @IsArray({ always: true })
   @ValidateNested({ each: true })

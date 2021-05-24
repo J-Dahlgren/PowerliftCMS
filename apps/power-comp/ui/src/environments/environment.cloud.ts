@@ -4,5 +4,5 @@ import { Environment } from "@pc/power-comp/shared";
 
 export const environment: IEnvironment = {
   ...defaultEnvironment,
-  type: Environment.CLOUD
+  type: Environment.CLOUD,
 };

@@ -7,7 +7,7 @@ import {
   getRank,
   classicRankFn,
   protocolOrder,
-  classicRankSort
+  classicRankSort,
 } from "@pc/power-comp/shared";
 import { chain } from "lodash";
 
@@ -27,7 +27,7 @@ export class CompetitionInfoService {
     }
     const lifters = await this.lifterService.find({
       where: filter,
-      relations: ["group"]
+      relations: ["group"],
     });
     return getRank<LifterEntity>(lifters, classicRankSort);
   }

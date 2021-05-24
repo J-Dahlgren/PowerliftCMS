@@ -5,9 +5,9 @@ import { AbstractStateStore } from "./abstract-state-store";
 import { extractKeys } from "../types/extract";
 
 type StateFunction<T> = (state: T) => T;
-export abstract class ProtectedStore<T extends {}> extends AbstractStateStore<
-  T
-> {
+export abstract class ProtectedStore<
+  T extends {}
+> extends AbstractStateStore<T> {
   protected _state: BehaviorSubject<T>;
   constructor(initialState: T, private distinctChange = true) {
     super();
@@ -15,7 +15,7 @@ export abstract class ProtectedStore<T extends {}> extends AbstractStateStore<
   }
   select<K extends keyof T>(key: K) {
     return this._state.asObservable().pipe(
-      map(state => state[key]),
+      map((state) => state[key]),
       distinctUntilChanged((a, b) => this.distinctChange && isEqual(a, b))
     );
   }
@@ -26,8 +26,8 @@ export abstract class ProtectedStore<T extends {}> extends AbstractStateStore<
   }
   flat() {
     return this.$.pipe(
-      flatMap(state =>
-        extractKeys(state).map(key => ({ type: key, payload: state[key] }))
+      flatMap((state) =>
+        extractKeys(state).map((key) => ({ type: key, payload: state[key] }))
       )
     );
   }

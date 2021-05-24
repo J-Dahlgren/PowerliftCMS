@@ -6,7 +6,7 @@ export function removeKey<
 >(keyToRemove: K, obj: KeyT) {
   const result = {} as any;
   Object.keys(obj)
-    .filter(k => k !== keyToRemove)
-    .forEach(k => (result[k] = (obj as any)[k]));
+    .filter((k) => k !== keyToRemove)
+    .forEach((k) => (result[k] = (obj as any)[k]));
   return result as KeyT;
 }

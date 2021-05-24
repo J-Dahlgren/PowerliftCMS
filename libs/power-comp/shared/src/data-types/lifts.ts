@@ -2,7 +2,7 @@ import { ExtractEnumKeys } from "@pc/util";
 
 export enum CompetitionModesEnum {
   SBD,
-  B
+  B,
 }
 export const competitionModes = ExtractEnumKeys(CompetitionModesEnum);
 export type CompetitionModeName = keyof typeof CompetitionModesEnum;
@@ -17,7 +17,7 @@ export const DISCIPLINE: { [key in LiftFieldExt]: number } = {
   squat: 0,
   bench: 1,
   deadlift: 2,
-  done: 4
+  done: 4,
 };
 export const Disc: {
   [key in LiftFieldExt]: number;
@@ -25,13 +25,13 @@ export const Disc: {
   squat: 0,
   bench: 1,
   deadlift: 2,
-  done: 0
+  done: 0,
 };
 export enum LiftStatus {
   //FAILED_NOT_TAKEN = -2,
   FAILED = -1,
   NOT_ATTEMPTED = 0,
-  SUCCESSFUL = 1
+  SUCCESSFUL = 1,
 }
 
 export interface IAttempt {
@@ -49,7 +49,7 @@ export const LiftFieldExtTuple: LiftFieldExt[] = [
   "squat",
   "bench",
   "deadlift",
-  "done"
+  "done",
 ];
 
 export type ILifts = {

@@ -6,7 +6,7 @@ import {
   GroupEntityService,
   LifterEntity,
   LifterEntityService,
-  Lifts
+  Lifts,
 } from "@pc/power-comp/entity";
 import { environment } from "../../environments/environment";
 import {
@@ -14,7 +14,7 @@ import {
   competitionModes,
   Gender,
   defaultLifts,
-  LiftField
+  LiftField,
 } from "@pc/power-comp/shared";
 import { CellValue, Row, Workbook } from "exceljs";
 import { cloneDeep } from "lodash";
@@ -35,7 +35,7 @@ export class UploadService {
   }
   async parseRegistration(workBook: Workbook, competitionId: number) {
     const groups = await this.groupService.repo.find({
-      where: { competitionId }
+      where: { competitionId },
     });
     const sheet = workBook.worksheets[0];
     const baseRowNumber = 3;
@@ -46,7 +46,7 @@ export class UploadService {
         if (lifter) {
           const values = row.values as CellValue[];
           lifter.competitionId = competitionId;
-          lifter.groupId = groups.find(g => g.name === values[14] + "")?.id;
+          lifter.groupId = groups.find((g) => g.name === values[14] + "")?.id;
           lifters.push(lifter);
         }
       }
@@ -99,7 +99,8 @@ export class UploadService {
     const deadlift = +(values[13] || 0);
     const lifts: { [key in LiftField]: number } = { squat, bench, deadlift };
     const mode =
-      competitionModes.find(m => m === (values[9] + "").toUpperCase()) || "SBD";
+      competitionModes.find((m) => m === (values[9] + "").toUpperCase()) ||
+      "SBD";
 
     lifter.lifts = new Lifts(cloneDeep(defaultLifts[mode]));
     for (const key of extractKeys(lifts)) {

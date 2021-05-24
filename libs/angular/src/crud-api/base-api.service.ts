@@ -23,7 +23,7 @@ export class BaseApiService {
   protected errorTap<K>() {
     return tap<K>(
       () => {},
-      err => this.logger.error(err?.message ?? "An error occurred")
+      (err) => this.logger.error(err?.message ?? "An error occurred")
     );
   }
 }

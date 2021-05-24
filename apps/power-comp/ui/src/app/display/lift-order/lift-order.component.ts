@@ -5,7 +5,7 @@ import {
   LifterData,
   LiftFieldExtTuple,
   DISCIPLINE,
-  IAttemptInfo
+  IAttemptInfo,
 } from "@pc/power-comp/shared";
 import { AutoUnsubscribeComponent } from "@pc/angular/util";
 import { lodashChainMap } from "@pc/util";
@@ -14,9 +14,10 @@ import { MatTableDataSource } from "@angular/material/table";
 @Component({
   selector: "pc-lift-order",
   templateUrl: "./lift-order.component.html",
-  styleUrls: ["./lift-order.component.scss"]
+  styleUrls: ["./lift-order.component.scss"],
 })
-export class LiftOrderComponent extends AutoUnsubscribeComponent
+export class LiftOrderComponent
+  extends AutoUnsubscribeComponent
   implements OnInit {
   columns = ["lot", "fullname", "team", "category", "attempt", "weight"];
   attemptGroups: string[] = [];
@@ -26,15 +27,15 @@ export class LiftOrderComponent extends AutoUnsubscribeComponent
     this.lifters$ = platformDataService.select("lifters");
     this.subs.sink = this.lifters$
       .pipe(
-        lodashChainMap(lifters =>
+        lodashChainMap((lifters) =>
           lifters
-            .map(l => l.attemptInfo)
-            .sortBy([a => DISCIPLINE[a.liftName], "attemptNumberOneIndexed"])
-            .map(a => `${a.liftName}${a.attemptNumberOneIndexed}`)
+            .map((l) => l.attemptInfo)
+            .sortBy([(a) => DISCIPLINE[a.liftName], "attemptNumberOneIndexed"])
+            .map((a) => `${a.liftName}${a.attemptNumberOneIndexed}`)
             .uniq()
         )
       )
-      .subscribe(infos => (this.attemptGroups = infos));
+      .subscribe((infos) => (this.attemptGroups = infos));
   }
   getIndexOfAttempt(attemptInfo: IAttemptInfo) {
     const searchString = `${attemptInfo.liftName}${attemptInfo.attemptNumberOneIndexed}`;

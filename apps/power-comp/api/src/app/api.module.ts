@@ -4,7 +4,7 @@ import {
   PlatformModule,
   GroupModule,
   LifterModule,
-  WeightCategoryModule
+  WeightCategoryModule,
 } from "@pc/power-comp/entity";
 @Module({
   imports: [
@@ -12,14 +12,14 @@ import {
     PlatformModule,
     GroupModule,
     LifterModule,
-    WeightCategoryModule
+    WeightCategoryModule,
   ],
   exports: [
     CompetitionModule,
     PlatformModule,
     GroupModule,
     LifterModule,
-    WeightCategoryModule
-  ]
+    WeightCategoryModule,
+  ],
 })
 export class ApiModule {}

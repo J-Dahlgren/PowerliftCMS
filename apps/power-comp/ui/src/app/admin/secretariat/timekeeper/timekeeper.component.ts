@@ -8,14 +8,14 @@ import { map, switchMap } from "rxjs/operators";
 import {
   PlatformDataService,
   PlatformTimerService,
-  SERVER_EVENTS_TOKEN
+  SERVER_EVENTS_TOKEN,
 } from "../../../core";
 import { ClientEventService } from "../client-event.service";
 
 @Component({
   selector: "pc-timekeeper",
   templateUrl: "./timekeeper.component.html",
-  styleUrls: ["./timekeeper.component.scss"]
+  styleUrls: ["./timekeeper.component.scss"],
 })
 export class TimekeeperComponent implements OnInit {
   private timerClicks = new Subject<Clock>();
@@ -28,13 +28,13 @@ export class TimekeeperComponent implements OnInit {
     @Inject(SERVER_EVENTS_TOKEN) serverEvents: InRoom<IServerPlatformEvents>,
     public timerService: PlatformTimerService
   ) {
-    this.timerClicks.subscribe(c =>
+    this.timerClicks.subscribe((c) =>
       this.clientEventService.emitEvent("liftTimer", c).subscribe()
     );
     this.activeGroupId$ = platformDataService.select("activeGroupId");
     this.showDecisions$ = serverEvents
       .on("displayDecisions")
-      .pipe(switchMap(t => merge(of(true), timer(t).pipe(map(() => false)))));
+      .pipe(switchMap((t) => merge(of(true), timer(t).pipe(map(() => false)))));
   }
   timerClick(c: Clock) {
     this.timerClicks.next(c);

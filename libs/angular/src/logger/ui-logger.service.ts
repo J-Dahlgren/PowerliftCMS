@@ -12,7 +12,7 @@ const colors: {
   warn: "orangered",
   info: "darkgreen",
   debug: "mediumslateblue",
-  trace: "magenta"
+  trace: "magenta",
 };
 @Injectable()
 export class UiLogger implements ILogService {
@@ -47,7 +47,7 @@ export class UiLogger implements ILogService {
       logLevel,
       message,
       data,
-      context: this.createContext(this.context)
+      context: this.createContext(this.context),
     };
     this.reportStream.next(event);
     if (logLevel <= this.logLevel) {
@@ -78,8 +78,6 @@ export class UiLogger implements ILogService {
     return context.length ? `[${context}]` : "";
   }
   private timestamp(time = Date.now()) {
-    return moment(time)
-      .format("HH:mm:ss.SSS")
-      .toString();
+    return moment(time).format("HH:mm:ss.SSS").toString();
   }
 }

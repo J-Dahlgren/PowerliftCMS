@@ -7,7 +7,7 @@ import { MENU_IS_TRANSLATED } from "../token";
 @Component({
   selector: "dt-header",
   templateUrl: "./header.component.html",
-  styleUrls: ["./header.component.scss"]
+  styleUrls: ["./header.component.scss"],
 })
 export class HeaderComponent implements OnInit {
   visible$: Observable<boolean>;

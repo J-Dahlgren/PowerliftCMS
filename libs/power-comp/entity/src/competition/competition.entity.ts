@@ -5,7 +5,7 @@ import {
   IGroup,
   IPlatform,
   ILifter,
-  IWeightClass
+  IWeightClass,
 } from "@pc/power-comp/shared";
 import { ApiProperty } from "@nestjs/swagger";
 import { Type } from "class-transformer";
@@ -17,13 +17,14 @@ import {
   IsString,
   IsBoolean,
   IsArray,
-  ValidateNested
+  ValidateNested,
 } from "class-validator";
 import { CREATE, UPDATE } from "@pc/nest/util";
 import { EntityBase } from "@pc/nest/entity-service";
 import { WeightCategoryEntity } from "../weight-category";
 @Entity()
-export class CompetitionEntity extends EntityBase
+export class CompetitionEntity
+  extends EntityBase
   implements IEntity<ICompetition> {
   @ApiProperty({ required: true })
   @Column({ nullable: false })
@@ -52,11 +53,9 @@ export class CompetitionEntity extends EntityBase
   /* Relations */
 
   @Type(() => PlatformEntity)
-  @OneToMany(
-    () => PlatformEntity,
-    platform => platform.competition,
-    { cascade: ["insert", "update"] }
-  )
+  @OneToMany(() => PlatformEntity, (platform) => platform.competition, {
+    cascade: ["insert", "update"],
+  })
   @IsOptional({ always: true })
   @IsArray({ always: true })
   @ValidateNested({ each: true })
@@ -64,33 +63,27 @@ export class CompetitionEntity extends EntityBase
   platforms!: IEntity<IPlatform>[];
 
   @Type(() => GroupEntity)
-  @OneToMany(
-    () => GroupEntity,
-    group => group.competition,
-    { cascade: ["insert", "update"] }
-  )
+  @OneToMany(() => GroupEntity, (group) => group.competition, {
+    cascade: ["insert", "update"],
+  })
   @IsOptional({ always: true })
   @IsArray({ always: true })
   @ValidateNested({ each: true })
   groups!: IEntity<IGroup>[];
 
   @Type(() => LifterEntity)
-  @OneToMany(
-    () => LifterEntity,
-    lifter => lifter.competition,
-    { cascade: ["insert", "update"] }
-  )
+  @OneToMany(() => LifterEntity, (lifter) => lifter.competition, {
+    cascade: ["insert", "update"],
+  })
   @IsOptional({ always: true })
   @IsArray({ always: true })
   @ValidateNested({ each: true })
   lifters!: IEntity<ILifter>[];
 
   @Type(() => WeightCategoryEntity)
-  @OneToMany(
-    () => WeightCategoryEntity,
-    category => category.competition,
-    { cascade: ["insert", "update"] }
-  )
+  @OneToMany(() => WeightCategoryEntity, (category) => category.competition, {
+    cascade: ["insert", "update"],
+  })
   @IsOptional({ always: true })
   @IsArray({ always: true })
   @ValidateNested({ each: true })

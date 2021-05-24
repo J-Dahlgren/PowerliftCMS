@@ -15,7 +15,7 @@ export class CompetitionInfoController {
       "Returns lifters in competition (and group if specified) in protocol order with calculated ranking.",
     type: RankingDto,
     isArray: true,
-    status: 200
+    status: 200,
   })
   @ApiParam({ name: "groupId", required: false })
   @ApiParam({ name: "competitionId", required: true })
@@ -31,7 +31,8 @@ export class CompetitionInfoController {
     type: () => LifterEntity,
     isArray: true,
     status: 200,
-    description: "Returns lifters sorted from first in order at index 0 to last"
+    description:
+      "Returns lifters sorted from first in order at index 0 to last",
   })
   @Get(`${api.competitionInfo.liftOrder}/:groupId`)
   liftOrder(@Param("groupId") groupId: number) {

@@ -26,23 +26,23 @@ export abstract class ProtectedRoomEventBus<T extends object> {
   any(room?: HotValue<string>) {
     return this.bus
       .asObservable()
-      .pipe(filter(e => !room || e.room === getHotValue(room)));
+      .pipe(filter((e) => !room || e.room === getHotValue(room)));
   }
 
   onRoomRequest(room?: HotValue<string>): Observable<IRoomRequest<T>> {
     return this.roomRequests
       .asObservable()
-      .pipe(filter(event => !room || event.room === getHotValue(room)));
+      .pipe(filter((event) => !room || event.room === getHotValue(room)));
   }
   requestRoom(room: HotValue<string>): Observable<Partial<T>> {
-    return new Observable<Partial<T>>(receiver => {
+    return new Observable<Partial<T>>((receiver) => {
       this.roomRequests.next({ room: getHotValue(room), receiver });
     });
   }
   onIn<K extends keyof T>(type: K, room: HotValue<string>) {
     return this.on(type).pipe(
-      filter(event => event.room === getHotValue(room)),
-      map(event => event.payload as T[K])
+      filter((event) => event.room === getHotValue(room)),
+      map((event) => event.payload as T[K])
     );
   }
   in(room: HotValue<string>): InRoom<T> {
@@ -51,12 +51,12 @@ export abstract class ProtectedRoomEventBus<T extends object> {
       emit: <K extends keyof T>(type: K, payload: T[K]) => {},
       any: () => this.any(room),
       onRequest: () => this.onRoomRequest(room),
-      request: () => this.requestRoom(room)
+      request: () => this.requestRoom(room),
     };
   }
 
   on<K extends keyof T>(type: K) {
-    return this.bus.asObservable().pipe(filter(event => event.type === type));
+    return this.bus.asObservable().pipe(filter((event) => event.type === type));
   }
 }
 
@@ -74,7 +74,7 @@ export class RoomEventBus<T extends object> extends ProtectedRoomEventBus<T> {
         this._emit(getHotValue(room), type, payload),
       any: () => this.any(room),
       onRequest: () => this.onRoomRequest(room),
-      request: () => this.requestRoom(room)
+      request: () => this.requestRoom(room),
     };
   }
 }

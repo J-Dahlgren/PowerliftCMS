@@ -9,7 +9,7 @@ export class LogConfigService {
   readonly logLevel: LogLevel;
   constructor(@Optional() @Inject(logLevelToken) logLevel: LogLevel) {
     this.logLevel = logLevel || LogLevel.off;
-    this.reportStream.subscribe(event => this.logBuffer.add(event));
+    this.reportStream.subscribe((event) => this.logBuffer.add(event));
   }
   get log$() {
     return this.reportStream.asObservable();

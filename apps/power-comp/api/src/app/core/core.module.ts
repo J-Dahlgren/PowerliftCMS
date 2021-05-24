@@ -8,8 +8,8 @@ import { PlatformEventsGateway } from "../socket/platform-events.gateway";
   imports: [SocketModule],
   providers: [
     { provide: PLATFORM_DATA_TOKEN, useExisting: PlatformDataGateway },
-    { provide: PLATFORM_EVENTS_TOKEN, useExisting: PlatformEventsGateway }
+    { provide: PLATFORM_EVENTS_TOKEN, useExisting: PlatformEventsGateway },
   ],
-  exports: [PLATFORM_DATA_TOKEN, PLATFORM_EVENTS_TOKEN]
+  exports: [PLATFORM_DATA_TOKEN, PLATFORM_EVENTS_TOKEN],
 })
 export class CoreModule {}

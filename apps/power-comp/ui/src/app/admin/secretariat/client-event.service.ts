@@ -24,7 +24,7 @@ export class ClientEventService extends BaseApiService {
   ) {
     const e = {
       room: this.platformId,
-      data
+      data,
     };
     const route = api.events[event];
     return this.http

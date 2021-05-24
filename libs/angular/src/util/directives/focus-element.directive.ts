@@ -1,7 +1,7 @@
 import { Directive, ElementRef } from "@angular/core";
 
 @Directive({
-  selector: "[dtFocusElement]"
+  selector: "[dtFocusElement]",
 })
 export class FocusElementDirective {
   constructor(private el: ElementRef) {

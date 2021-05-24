@@ -6,7 +6,7 @@ export function groupByKeys<T extends {}>(
 ): { [key: string]: T[] } {
   const groups = {} as { [key: string]: T[] };
   for (const item of items) {
-    const keyValues = keys.map(key => `${get(item, key)}`).join("_");
+    const keyValues = keys.map((key) => `${get(item, key)}`).join("_");
     if (!keyValues) {
       continue;
     }

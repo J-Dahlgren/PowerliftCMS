@@ -7,7 +7,7 @@ export const names = [
     competitionId: 1,
     groupId: 8,
     bodyWeight: 144.49,
-    equipped: false
+    equipped: false,
   },
   {
     firstname: "Brana",
@@ -17,7 +17,7 @@ export const names = [
     competitionId: 1,
     groupId: 7,
     bodyWeight: 83.52,
-    equipped: true
+    equipped: true,
   },
   {
     firstname: "Trstram",
@@ -27,7 +27,7 @@ export const names = [
     competitionId: 1,
     groupId: 5,
     bodyWeight: 70.87,
-    equipped: true
+    equipped: true,
   },
   {
     firstname: "Tammi",
@@ -37,7 +37,7 @@ export const names = [
     competitionId: 1,
     groupId: 8,
     bodyWeight: 100.87,
-    equipped: true
+    equipped: true,
   },
   {
     firstname: "Kimmy",
@@ -46,7 +46,7 @@ export const names = [
     competitionId: 1,
     groupId: 7,
     bodyWeight: 64.5,
-    equipped: false
+    equipped: false,
   },
   {
     firstname: "Octavia",
@@ -56,7 +56,7 @@ export const names = [
     competitionId: 1,
     groupId: 3,
     bodyWeight: 93.07,
-    equipped: false
+    equipped: false,
   },
   {
     firstname: "Temple",
@@ -66,7 +66,7 @@ export const names = [
     competitionId: 1,
     groupId: 7,
     bodyWeight: 89.39,
-    equipped: false
+    equipped: false,
   },
   {
     firstname: "Tommy",
@@ -76,7 +76,7 @@ export const names = [
     competitionId: 1,
     groupId: 2,
     bodyWeight: 132.49,
-    equipped: true
+    equipped: true,
   },
   {
     firstname: "Berty",
@@ -86,7 +86,7 @@ export const names = [
     competitionId: 1,
     groupId: 10,
     bodyWeight: 82.57,
-    equipped: false
+    equipped: false,
   },
   {
     firstname: "Milty",
@@ -96,7 +96,7 @@ export const names = [
     competitionId: 1,
     groupId: 10,
     bodyWeight: 87.87,
-    equipped: true
+    equipped: true,
   },
   {
     firstname: "Bamby",
@@ -105,7 +105,7 @@ export const names = [
     competitionId: 1,
     groupId: 2,
     bodyWeight: 138.23,
-    equipped: true
+    equipped: true,
   },
   {
     firstname: "Cayla",
@@ -115,7 +115,7 @@ export const names = [
     competitionId: 1,
     groupId: 1,
     bodyWeight: 101.28,
-    equipped: false
+    equipped: false,
   },
   {
     firstname: "Gordy",
@@ -125,7 +125,7 @@ export const names = [
     competitionId: 1,
     groupId: 9,
     bodyWeight: 137.2,
-    equipped: true
+    equipped: true,
   },
   {
     firstname: "Sam",
@@ -135,7 +135,7 @@ export const names = [
     competitionId: 1,
     groupId: 6,
     bodyWeight: 126.03,
-    equipped: false
+    equipped: false,
   },
   {
     firstname: "Verna",
@@ -145,7 +145,7 @@ export const names = [
     competitionId: 1,
     groupId: 7,
     bodyWeight: 125.77,
-    equipped: true
+    equipped: true,
   },
   {
     firstname: "Edlin",
@@ -155,7 +155,7 @@ export const names = [
     competitionId: 1,
     groupId: 8,
     bodyWeight: 67.37,
-    equipped: true
+    equipped: true,
   },
   {
     firstname: "Georgina",
@@ -165,7 +165,7 @@ export const names = [
     competitionId: 1,
     groupId: 4,
     bodyWeight: 125.16,
-    equipped: true
+    equipped: true,
   },
   {
     firstname: "Dale",
@@ -175,7 +175,7 @@ export const names = [
     competitionId: 1,
     groupId: 1,
     bodyWeight: 86.11,
-    equipped: false
+    equipped: false,
   },
   {
     firstname: "Archy",
@@ -185,7 +185,7 @@ export const names = [
     competitionId: 1,
     groupId: 1,
     bodyWeight: 108.43,
-    equipped: false
+    equipped: false,
   },
   {
     firstname: "Natalina",
@@ -195,7 +195,7 @@ export const names = [
     competitionId: 1,
     groupId: 7,
     bodyWeight: 97.15,
-    equipped: false
+    equipped: false,
   },
   {
     firstname: "Elsinore",
@@ -205,7 +205,7 @@ export const names = [
     competitionId: 1,
     groupId: 7,
     bodyWeight: 145.18,
-    equipped: false
+    equipped: false,
   },
   {
     firstname: "Vilma",
@@ -215,7 +215,7 @@ export const names = [
     competitionId: 1,
     groupId: 4,
     bodyWeight: 69.63,
-    equipped: false
+    equipped: false,
   },
   {
     firstname: "Estel",
@@ -225,7 +225,7 @@ export const names = [
     competitionId: 1,
     groupId: 9,
     bodyWeight: 52.28,
-    equipped: true
+    equipped: true,
   },
   {
     firstname: "Gwenore",
@@ -235,7 +235,7 @@ export const names = [
     competitionId: 1,
     groupId: 10,
     bodyWeight: 125.77,
-    equipped: true
+    equipped: true,
   },
   {
     firstname: "Benson",
@@ -245,7 +245,7 @@ export const names = [
     competitionId: 1,
     groupId: 3,
     bodyWeight: 103.13,
-    equipped: false
+    equipped: false,
   },
   {
     firstname: "Cordy",
@@ -255,7 +255,7 @@ export const names = [
     competitionId: 1,
     groupId: 8,
     bodyWeight: 125.1,
-    equipped: true
+    equipped: true,
   },
   {
     firstname: "Kareem",
@@ -264,7 +264,7 @@ export const names = [
     competitionId: 1,
     groupId: 9,
     bodyWeight: 104.23,
-    equipped: false
+    equipped: false,
   },
   {
     firstname: "Gabi",
@@ -273,7 +273,7 @@ export const names = [
     competitionId: 1,
     groupId: 6,
     bodyWeight: 103.05,
-    equipped: true
+    equipped: true,
   },
   {
     firstname: "Raven",
@@ -283,7 +283,7 @@ export const names = [
     competitionId: 1,
     groupId: 10,
     bodyWeight: 75.84,
-    equipped: false
+    equipped: false,
   },
   {
     firstname: "Joete",
@@ -293,7 +293,7 @@ export const names = [
     competitionId: 1,
     groupId: 7,
     bodyWeight: 139.58,
-    equipped: true
+    equipped: true,
   },
   {
     firstname: "Hyacinthie",
@@ -303,7 +303,7 @@ export const names = [
     competitionId: 1,
     groupId: 10,
     bodyWeight: 81.72,
-    equipped: false
+    equipped: false,
   },
   {
     firstname: "Andrea",
@@ -313,7 +313,7 @@ export const names = [
     competitionId: 1,
     groupId: 10,
     bodyWeight: 94.34,
-    equipped: true
+    equipped: true,
   },
   {
     firstname: "Conney",
@@ -323,7 +323,7 @@ export const names = [
     competitionId: 1,
     groupId: 1,
     bodyWeight: 63.73,
-    equipped: true
+    equipped: true,
   },
   {
     firstname: "Cord",
@@ -333,7 +333,7 @@ export const names = [
     competitionId: 1,
     groupId: 7,
     bodyWeight: 125.67,
-    equipped: false
+    equipped: false,
   },
   {
     firstname: "Jarrad",
@@ -343,7 +343,7 @@ export const names = [
     competitionId: 1,
     groupId: 8,
     bodyWeight: 67.61,
-    equipped: true
+    equipped: true,
   },
   {
     firstname: "Renard",
@@ -352,7 +352,7 @@ export const names = [
     competitionId: 1,
     groupId: 3,
     bodyWeight: 78.02,
-    equipped: true
+    equipped: true,
   },
   {
     firstname: "Genovera",
@@ -361,7 +361,7 @@ export const names = [
     competitionId: 1,
     groupId: 1,
     bodyWeight: 111.37,
-    equipped: true
+    equipped: true,
   },
   {
     firstname: "Kikelia",
@@ -371,7 +371,7 @@ export const names = [
     competitionId: 1,
     groupId: 7,
     bodyWeight: 117.67,
-    equipped: true
+    equipped: true,
   },
   {
     firstname: "Melisande",
@@ -381,7 +381,7 @@ export const names = [
     competitionId: 1,
     groupId: 1,
     bodyWeight: 95.09,
-    equipped: true
+    equipped: true,
   },
   {
     firstname: "Kettie",
@@ -391,7 +391,7 @@ export const names = [
     competitionId: 1,
     groupId: 10,
     bodyWeight: 123.74,
-    equipped: false
+    equipped: false,
   },
   {
     firstname: "Jasmine",
@@ -401,7 +401,7 @@ export const names = [
     competitionId: 1,
     groupId: 3,
     bodyWeight: 126.73,
-    equipped: true
+    equipped: true,
   },
   {
     firstname: "Laura",
@@ -411,7 +411,7 @@ export const names = [
     competitionId: 1,
     groupId: 5,
     bodyWeight: 99.37,
-    equipped: true
+    equipped: true,
   },
   {
     firstname: "Fields",
@@ -421,7 +421,7 @@ export const names = [
     competitionId: 1,
     groupId: 5,
     bodyWeight: 114.23,
-    equipped: false
+    equipped: false,
   },
   {
     firstname: "Brennan",
@@ -431,7 +431,7 @@ export const names = [
     competitionId: 1,
     groupId: 10,
     bodyWeight: 101.7,
-    equipped: false
+    equipped: false,
   },
   {
     firstname: "Aluino",
@@ -441,7 +441,7 @@ export const names = [
     competitionId: 1,
     groupId: 8,
     bodyWeight: 54.55,
-    equipped: true
+    equipped: true,
   },
   {
     firstname: "Katerina",
@@ -451,7 +451,7 @@ export const names = [
     competitionId: 1,
     groupId: 6,
     bodyWeight: 112.5,
-    equipped: true
+    equipped: true,
   },
   {
     firstname: "Adeline",
@@ -461,7 +461,7 @@ export const names = [
     competitionId: 1,
     groupId: 9,
     bodyWeight: 59.9,
-    equipped: true
+    equipped: true,
   },
   {
     firstname: "Niki",
@@ -471,7 +471,7 @@ export const names = [
     competitionId: 1,
     groupId: 8,
     bodyWeight: 92.57,
-    equipped: false
+    equipped: false,
   },
   {
     firstname: "Riley",
@@ -481,7 +481,7 @@ export const names = [
     competitionId: 1,
     groupId: 8,
     bodyWeight: 130.91,
-    equipped: true
+    equipped: true,
   },
   {
     firstname: "Freddy",
@@ -491,7 +491,7 @@ export const names = [
     competitionId: 1,
     groupId: 7,
     bodyWeight: 70.28,
-    equipped: true
+    equipped: true,
   },
   {
     firstname: "Udell",
@@ -501,7 +501,7 @@ export const names = [
     competitionId: 1,
     groupId: 6,
     bodyWeight: 107.95,
-    equipped: true
+    equipped: true,
   },
   {
     firstname: "Leona",
@@ -511,7 +511,7 @@ export const names = [
     competitionId: 1,
     groupId: 2,
     bodyWeight: 110.07,
-    equipped: true
+    equipped: true,
   },
   {
     firstname: "Nev",
@@ -521,7 +521,7 @@ export const names = [
     competitionId: 1,
     groupId: 1,
     bodyWeight: 78.05,
-    equipped: true
+    equipped: true,
   },
   {
     firstname: "Jacques",
@@ -531,7 +531,7 @@ export const names = [
     competitionId: 1,
     groupId: 3,
     bodyWeight: 106.22,
-    equipped: false
+    equipped: false,
   },
   {
     firstname: "Eleonore",
@@ -541,7 +541,7 @@ export const names = [
     competitionId: 1,
     groupId: 2,
     bodyWeight: 114.17,
-    equipped: false
+    equipped: false,
   },
   {
     firstname: "Agretha",
@@ -551,7 +551,7 @@ export const names = [
     competitionId: 1,
     groupId: 3,
     bodyWeight: 71.53,
-    equipped: true
+    equipped: true,
   },
   {
     firstname: "Eula",
@@ -560,7 +560,7 @@ export const names = [
     competitionId: 1,
     groupId: 8,
     bodyWeight: 95.32,
-    equipped: true
+    equipped: true,
   },
   {
     firstname: "Gwenni",
@@ -570,7 +570,7 @@ export const names = [
     competitionId: 1,
     groupId: 3,
     bodyWeight: 67.24,
-    equipped: false
+    equipped: false,
   },
   {
     firstname: "Aurore",
@@ -579,7 +579,7 @@ export const names = [
     competitionId: 1,
     groupId: 6,
     bodyWeight: 132.19,
-    equipped: false
+    equipped: false,
   },
   {
     firstname: "Doyle",
@@ -589,7 +589,7 @@ export const names = [
     competitionId: 1,
     groupId: 8,
     bodyWeight: 134.94,
-    equipped: true
+    equipped: true,
   },
   {
     firstname: "Kirby",
@@ -599,7 +599,7 @@ export const names = [
     competitionId: 1,
     groupId: 5,
     bodyWeight: 59.83,
-    equipped: false
+    equipped: false,
   },
   {
     firstname: "Samaria",
@@ -609,7 +609,7 @@ export const names = [
     competitionId: 1,
     groupId: 8,
     bodyWeight: 110.7,
-    equipped: false
+    equipped: false,
   },
   {
     firstname: "Lonnard",
@@ -619,7 +619,7 @@ export const names = [
     competitionId: 1,
     groupId: 1,
     bodyWeight: 124.68,
-    equipped: false
+    equipped: false,
   },
   {
     firstname: "Tillie",
@@ -629,7 +629,7 @@ export const names = [
     competitionId: 1,
     groupId: 5,
     bodyWeight: 76.85,
-    equipped: true
+    equipped: true,
   },
   {
     firstname: "Ambros",
@@ -639,7 +639,7 @@ export const names = [
     competitionId: 1,
     groupId: 4,
     bodyWeight: 65.28,
-    equipped: false
+    equipped: false,
   },
   {
     firstname: "Mischa",
@@ -649,7 +649,7 @@ export const names = [
     competitionId: 1,
     groupId: 3,
     bodyWeight: 134.4,
-    equipped: false
+    equipped: false,
   },
   {
     firstname: "Rudiger",
@@ -659,7 +659,7 @@ export const names = [
     competitionId: 1,
     groupId: 6,
     bodyWeight: 119.99,
-    equipped: false
+    equipped: false,
   },
   {
     firstname: "Victor",
@@ -669,7 +669,7 @@ export const names = [
     competitionId: 1,
     groupId: 10,
     bodyWeight: 69.93,
-    equipped: true
+    equipped: true,
   },
   {
     firstname: "Saundra",
@@ -679,7 +679,7 @@ export const names = [
     competitionId: 1,
     groupId: 6,
     bodyWeight: 56.03,
-    equipped: false
+    equipped: false,
   },
   {
     firstname: "Gabbi",
@@ -689,7 +689,7 @@ export const names = [
     competitionId: 1,
     groupId: 9,
     bodyWeight: 122.01,
-    equipped: true
+    equipped: true,
   },
   {
     firstname: "Rivy",
@@ -699,7 +699,7 @@ export const names = [
     competitionId: 1,
     groupId: 6,
     bodyWeight: 138.16,
-    equipped: true
+    equipped: true,
   },
   {
     firstname: "Felicle",
@@ -709,7 +709,7 @@ export const names = [
     competitionId: 1,
     groupId: 5,
     bodyWeight: 127.92,
-    equipped: false
+    equipped: false,
   },
   {
     firstname: "Sephira",
@@ -719,7 +719,7 @@ export const names = [
     competitionId: 1,
     groupId: 8,
     bodyWeight: 72.99,
-    equipped: false
+    equipped: false,
   },
   {
     firstname: "Josiah",
@@ -728,7 +728,7 @@ export const names = [
     competitionId: 1,
     groupId: 8,
     bodyWeight: 134.13,
-    equipped: false
+    equipped: false,
   },
   {
     firstname: "Thacher",
@@ -738,7 +738,7 @@ export const names = [
     competitionId: 1,
     groupId: 1,
     bodyWeight: 81.46,
-    equipped: true
+    equipped: true,
   },
   {
     firstname: "Seana",
@@ -748,7 +748,7 @@ export const names = [
     competitionId: 1,
     groupId: 2,
     bodyWeight: 98.28,
-    equipped: true
+    equipped: true,
   },
   {
     firstname: "Rock",
@@ -758,7 +758,7 @@ export const names = [
     competitionId: 1,
     groupId: 2,
     bodyWeight: 94.68,
-    equipped: false
+    equipped: false,
   },
   {
     firstname: "Rurik",
@@ -767,7 +767,7 @@ export const names = [
     competitionId: 1,
     groupId: 7,
     bodyWeight: 138.98,
-    equipped: false
+    equipped: false,
   },
   {
     firstname: "Carroll",
@@ -777,7 +777,7 @@ export const names = [
     competitionId: 1,
     groupId: 7,
     bodyWeight: 121.74,
-    equipped: true
+    equipped: true,
   },
   {
     firstname: "Rochella",
@@ -786,7 +786,7 @@ export const names = [
     competitionId: 1,
     groupId: 5,
     bodyWeight: 105.46,
-    equipped: false
+    equipped: false,
   },
   {
     firstname: "Ricca",
@@ -796,7 +796,7 @@ export const names = [
     competitionId: 1,
     groupId: 10,
     bodyWeight: 121.84,
-    equipped: false
+    equipped: false,
   },
   {
     firstname: "Mandi",
@@ -806,7 +806,7 @@ export const names = [
     competitionId: 1,
     groupId: 1,
     bodyWeight: 119.99,
-    equipped: false
+    equipped: false,
   },
   {
     firstname: "Davina",
@@ -816,7 +816,7 @@ export const names = [
     competitionId: 1,
     groupId: 9,
     bodyWeight: 110.18,
-    equipped: true
+    equipped: true,
   },
   {
     firstname: "Claudie",
@@ -826,7 +826,7 @@ export const names = [
     competitionId: 1,
     groupId: 7,
     bodyWeight: 68.44,
-    equipped: true
+    equipped: true,
   },
   {
     firstname: "Sidoney",
@@ -836,7 +836,7 @@ export const names = [
     competitionId: 1,
     groupId: 8,
     bodyWeight: 131.15,
-    equipped: true
+    equipped: true,
   },
   {
     firstname: "Danyelle",
@@ -846,7 +846,7 @@ export const names = [
     competitionId: 1,
     groupId: 10,
     bodyWeight: 104.11,
-    equipped: false
+    equipped: false,
   },
   {
     firstname: "Codi",
@@ -856,7 +856,7 @@ export const names = [
     competitionId: 1,
     groupId: 4,
     bodyWeight: 132.72,
-    equipped: false
+    equipped: false,
   },
   {
     firstname: "Giff",
@@ -866,7 +866,7 @@ export const names = [
     competitionId: 1,
     groupId: 10,
     bodyWeight: 145.09,
-    equipped: true
+    equipped: true,
   },
   {
     firstname: "Timothy",
@@ -876,7 +876,7 @@ export const names = [
     competitionId: 1,
     groupId: 3,
     bodyWeight: 97.91,
-    equipped: true
+    equipped: true,
   },
   {
     firstname: "Lena",
@@ -886,7 +886,7 @@ export const names = [
     competitionId: 1,
     groupId: 7,
     bodyWeight: 116.3,
-    equipped: false
+    equipped: false,
   },
   {
     firstname: "Hamish",
@@ -896,7 +896,7 @@ export const names = [
     competitionId: 1,
     groupId: 1,
     bodyWeight: 143.41,
-    equipped: true
+    equipped: true,
   },
   {
     firstname: "Ozzy",
@@ -906,7 +906,7 @@ export const names = [
     competitionId: 1,
     groupId: 1,
     bodyWeight: 71.65,
-    equipped: true
+    equipped: true,
   },
   {
     firstname: "Marcile",
@@ -916,7 +916,7 @@ export const names = [
     competitionId: 1,
     groupId: 1,
     bodyWeight: 127.93,
-    equipped: false
+    equipped: false,
   },
   {
     firstname: "Cymbre",
@@ -926,7 +926,7 @@ export const names = [
     competitionId: 1,
     groupId: 5,
     bodyWeight: 143.03,
-    equipped: true
+    equipped: true,
   },
   {
     firstname: "Gawain",
@@ -936,7 +936,7 @@ export const names = [
     competitionId: 1,
     groupId: 6,
     bodyWeight: 113.65,
-    equipped: true
+    equipped: true,
   },
   {
     firstname: "Alex",
@@ -946,7 +946,7 @@ export const names = [
     competitionId: 1,
     groupId: 6,
     bodyWeight: 107.5,
-    equipped: true
+    equipped: true,
   },
   {
     firstname: "Harrietta",
@@ -956,7 +956,7 @@ export const names = [
     competitionId: 1,
     groupId: 1,
     bodyWeight: 109.53,
-    equipped: true
+    equipped: true,
   },
   {
     firstname: "Carlyn",
@@ -966,7 +966,7 @@ export const names = [
     competitionId: 1,
     groupId: 1,
     bodyWeight: 131.37,
-    equipped: false
+    equipped: false,
   },
   {
     firstname: "Cherye",
@@ -976,7 +976,7 @@ export const names = [
     competitionId: 1,
     groupId: 2,
     bodyWeight: 83.69,
-    equipped: true
+    equipped: true,
   },
   {
     firstname: "Margarete",
@@ -985,6 +985,6 @@ export const names = [
     competitionId: 1,
     groupId: 9,
     bodyWeight: 79.75,
-    equipped: false
-  }
+    equipped: false,
+  },
 ];

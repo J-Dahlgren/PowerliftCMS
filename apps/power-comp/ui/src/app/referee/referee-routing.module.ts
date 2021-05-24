@@ -12,13 +12,13 @@ const routes: Routes = [
     component: RefereeMainComponent,
     children: [
       { path: "", component: RefereeSelectComponent },
-      { path: ":id", component: RefereeComponent }
-    ]
-  }
+      { path: ":id", component: RefereeComponent },
+    ],
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class RefereeRoutingModule {}

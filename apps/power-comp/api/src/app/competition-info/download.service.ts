@@ -7,7 +7,7 @@ import {
   Environment,
   LiftStatus,
   getRank,
-  classicRankSort
+  classicRankSort,
 } from "@pc/power-comp/shared";
 import { promisify } from "util";
 import { readFile, writeFile } from "fs";
@@ -36,19 +36,19 @@ export class DownloadService {
     );
     const template = new XlsxTemplate(file);
     const group = await this.groupService.findOne(groupId, {
-      relations: ["competition", "lifters"]
+      relations: ["competition", "lifters"],
     });
     if (!group) {
       throw new Error(`No group with id ${groupId} exists`);
     }
 
-    const lifters = getRank(group.lifters, classicRankSort).map(l => {
+    const lifters = getRank(group.lifters, classicRankSort).map((l) => {
       const result = {
-        ...l
+        ...l,
       } as any;
       for (const field of extractKeys(l.lifts)) {
         result[field] = {
-          best: l.result[field] || undefined
+          best: l.result[field] || undefined,
         };
 
         l.lifts[field].forEach((attempt, index) => {
@@ -78,8 +78,8 @@ export class DownloadService {
         ...group,
         competitionTime: group.competitionTime
           ? moment(group.competitionTime).format("YYYY-MM-DD hh:mm")
-          : undefined
-      }
+          : undefined,
+      },
     } as { [key: string]: any };
 
     template.substitute(1, values);

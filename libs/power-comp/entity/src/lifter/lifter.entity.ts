@@ -16,7 +16,7 @@ import {
   CompetitionModeName,
   competitionModes,
   matchesAnyLiftConfig,
-  ipfScoreFormula
+  ipfScoreFormula,
 } from "@pc/power-comp/shared";
 import {
   IsNumber,
@@ -25,7 +25,7 @@ import {
   IsString,
   IsEnum,
   Min,
-  IsBoolean
+  IsBoolean,
 } from "class-validator";
 import { ApiProperty, ApiProduces, ApiPropertyOptional } from "@nestjs/swagger";
 
@@ -151,33 +151,22 @@ export class LifterEntity extends EntityBase implements LifterData {
 
   /* Relations */
 
-  @ManyToOne(
-    () => CompetitionEntity,
-    competition => competition.lifters
-  )
+  @ManyToOne(() => CompetitionEntity, (competition) => competition.lifters)
   competition!: IEntity<ICompetition>;
 
-  @ManyToOne(
-    () => GroupEntity,
-    group => group.lifters,
-    {
-      cascade: [],
-      onDelete: "SET NULL",
-      onUpdate: "NO ACTION"
-    }
-  )
+  @ManyToOne(() => GroupEntity, (group) => group.lifters, {
+    cascade: [],
+    onDelete: "SET NULL",
+    onUpdate: "NO ACTION",
+  })
   group?: IEntity<IGroup>;
 
-  @ManyToOne(
-    () => WeightCategoryEntity,
-    category => category.lifters,
-    {
-      eager: true,
-      cascade: [],
-      onDelete: "SET NULL",
-      onUpdate: "NO ACTION"
-    }
-  )
+  @ManyToOne(() => WeightCategoryEntity, (category) => category.lifters, {
+    eager: true,
+    cascade: [],
+    onDelete: "SET NULL",
+    onUpdate: "NO ACTION",
+  })
   @ApiPropertyOptional({ type: WeightCategoryEntity, readOnly: true })
   weightCategory?: IWeightClass | null;
 

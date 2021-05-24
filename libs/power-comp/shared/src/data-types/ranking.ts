@@ -18,8 +18,8 @@ export function getResult(lifter: ILifter): Result {
 }
 export function getBestOfLifts(attempts: IAttempt[]) {
   const liftedWeights = attempts
-    .filter(a => a.status === LiftStatus.SUCCESSFUL)
-    .map(a => a.requested || a.automatic || 0);
+    .filter((a) => a.status === LiftStatus.SUCCESSFUL)
+    .map((a) => a.requested || a.automatic || 0);
 
   return Math.max(...liftedWeights, 0);
 }

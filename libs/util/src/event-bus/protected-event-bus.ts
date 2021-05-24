@@ -13,8 +13,8 @@ export class ProtectedEventBus<T extends object> implements IEventEmitter<T> {
   }
   on<K extends keyof T>(type: K): Observable<T[K]> {
     return this.bus.asObservable().pipe(
-      filter(event => event.type === type),
-      map(event => event.payload as T[K])
+      filter((event) => event.type === type),
+      map((event) => event.payload as T[K])
     );
   }
 }

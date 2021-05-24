@@ -4,8 +4,8 @@ describe("mergeIndicators", () => {
   let source: { source: number }[];
   let other: { other: number }[];
   beforeEach(() => {
-    source = [1, 2, 3, 4, 5].map(n => ({ source: n }));
-    other = [3, 4, 5].map(n => ({ other: n }));
+    source = [1, 2, 3, 4, 5].map((n) => ({ source: n }));
+    other = [3, 4, 5].map((n) => ({ other: n }));
   });
   it("shortens left", () => {
     const result = mergeArrays(source, other);

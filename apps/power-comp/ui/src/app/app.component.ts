@@ -13,7 +13,7 @@ import { HeaderService } from "@pc/angular/menu";
 @Component({
   selector: "pc-root",
   templateUrl: "./app.component.html",
-  styleUrls: ["./app.component.scss"]
+  styleUrls: ["./app.component.scss"],
 })
 export class AppComponent implements OnInit {
   title = "Power Comp";
@@ -34,19 +34,19 @@ export class AppComponent implements OnInit {
     this.latency = appInfo.latency$;
     this.connected = appInfo.connected$;
     fromEvent<KeyboardEvent>(document, "keyup")
-      .pipe(filter(event => event.code === "Space" && event.ctrlKey))
+      .pipe(filter((event) => event.code === "Space" && event.ctrlKey))
       .subscribe(() => headerService.toggle());
   }
   ngOnInit() {
     this.appInfo.connected$
       .pipe(
-        switchMap(connected =>
+        switchMap((connected) =>
           combineLatest([
             this.translate.get(
               `socket.${connected ? "connected" : "disconnected"}`
             ),
             of((connected ? "primary" : "warn") as SnackbarColor),
-            of(connected ? 2500 : undefined)
+            of(connected ? 2500 : undefined),
           ])
         )
       )

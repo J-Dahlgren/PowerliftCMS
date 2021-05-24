@@ -12,7 +12,7 @@ import {
   filter,
   skip,
   exhaustMap,
-  switchMap
+  switchMap,
 } from "rxjs/operators";
 import { fromEvent, merge, BehaviorSubject } from "rxjs";
 import { SnackBarService } from "@pc/angular/material";
@@ -25,7 +25,7 @@ import { UploadService } from "../../core/api/upload.service";
 @Component({
   selector: "pc-lifter-list",
   templateUrl: "./lifter-list.component.html",
-  styleUrls: ["./lifter-list.component.scss"]
+  styleUrls: ["./lifter-list.component.scss"],
 })
 export class LifterListComponent
   extends PowerCompListComponent<ILifter, LifterListFilters>
@@ -45,7 +45,7 @@ export class LifterListComponent
     "weightCategory.name",
     "equipped",
     "group.name",
-    ...LiftFieldTuple
+    ...LiftFieldTuple,
   ];
   @ViewChild("freeTextFilterInput") textInput!: ElementRef<HTMLInputElement>;
   @ViewChild("fileInput") fileInput!: ElementRef;
@@ -75,20 +75,18 @@ export class LifterListComponent
         exhaustMap(() =>
           this.groupService.getMany(
             RequestQueryBuilder.create({
-              filter: {
-                field: "competitionId",
-                operator: "eq",
-                value: this.competitionId
+              search: {
+                competitionId: this.competitionId,
               },
               sort: {
                 field: "name",
-                order: "ASC"
-              }
+                order: "ASC",
+              },
             }).query()
           )
         )
       )
-      .subscribe(g => this.groups$.next(g));
+      .subscribe((g) => this.groups$.next(g));
   }
   ngAfterViewInit() {
     this.refresh();
@@ -96,7 +94,7 @@ export class LifterListComponent
       fromEvent<KeyboardEvent>(this.textInput.nativeElement, "keydown"),
       fromEvent<KeyboardEvent>(this.textInput.nativeElement, "keyup")
     )
-      .pipe(filter(event => event.key === "Escape"))
+      .pipe(filter((event) => event.key === "Escape"))
       .subscribe(() => this.applyTextFilter(""));
   }
   protected queryBuilder(
@@ -104,10 +102,8 @@ export class LifterListComponent
   ): RequestQueryBuilder {
     const groupId = this.filters.get("groupId");
     if (groupId !== null) {
-      queryBuilder.setFilter({
-        field: "groupId",
-        operator: "eq",
-        value: groupId
+      queryBuilder.search({
+        groupId,
       });
     }
     return queryBuilder.setJoin({ field: "group" });
@@ -133,7 +129,7 @@ export class LifterListComponent
     this.modalService
       .openConfirmModal({
         message: "lifter.draw-lot.confirm.message",
-        title: "lifter.draw-lot.confirm.title"
+        title: "lifter.draw-lot.confirm.title",
       })
       .confirmed$.pipe(
         switchMap(() => this.entityService.drawLots(+this.competitionId))
@@ -141,7 +137,7 @@ export class LifterListComponent
       .subscribe(() => this.refresh());
   }
   download() {
-    this.downloadService.getRegistrationTemplate().subscribe(data => {
+    this.downloadService.getRegistrationTemplate().subscribe((data) => {
       createFileDownload(data, `RegistrationTemplate_en.xlsx`);
     });
   }

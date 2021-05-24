@@ -1,5 +1,5 @@
 <dt-generic-edit-dialog [parent]="model" [form]="form">
-  <div [formGroup]="form" style="display: flex; flex-direction: column;">
+  <div [formGroup]="form" style="display: flex; flex-direction: column">
     <div class="name s-single-col">
       <mat-form-field appearance="outline">
         <mat-label>{{ "lifter.firstname" | translate | titlecase }}</mat-label>
@@ -44,7 +44,7 @@
           <mat-label>{{ "lifter.body-weight" | translate }}</mat-label>
           <input matInput type="number" min="1" formControlName="bodyWeight" />
         </mat-form-field>
-        <div class="flex center-y center-x" style="min-width: 20px;">
+        <div class="flex center-y center-x" style="min-width: 20px">
           <h1 *ngIf="currentCategory$ | async as category">
             {{
               ("weight-category." + category.gender | translate) + category.name

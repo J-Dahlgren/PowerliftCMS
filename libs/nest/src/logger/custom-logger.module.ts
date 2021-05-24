@@ -8,7 +8,7 @@ import { createLoggerProviders } from "./logger.provider";
 @Module({})
 export class CustomLoggerModule {
   static forRoot(logLevel: LogLevel = LogLevel.trace): Promise<DynamicModule> {
-    return new Promise(resolve => {
+    return new Promise((resolve) => {
       setTimeout(() => {
         const loggerProviders = createLoggerProviders();
         resolve({
@@ -18,23 +18,23 @@ export class CustomLoggerModule {
           providers: [
             {
               provide: logLevelToken,
-              useValue: logLevel
+              useValue: logLevel,
             },
             {
               provide: LOG_SERVICE_TOKEN,
-              useClass: LogService
+              useClass: LogService,
             },
             LogConfigService,
             LogService,
-            ...loggerProviders
+            ...loggerProviders,
           ],
           exports: [
             logLevelToken,
             LOG_SERVICE_TOKEN,
             LogConfigService,
             LogService,
-            ...loggerProviders
-          ]
+            ...loggerProviders,
+          ],
         });
       }, 0);
     });

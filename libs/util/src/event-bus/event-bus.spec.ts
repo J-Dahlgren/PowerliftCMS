@@ -7,28 +7,28 @@ interface TestEventList {
 describe("EventBus", () => {
   let bus: EventBus<TestEventList>;
   beforeEach(() => (bus = new EventBus()));
-  test("Emits events of correct type", done => {
-    bus.on("a").subscribe(event => {
+  test("Emits events of correct type", (done) => {
+    bus.on("a").subscribe((event) => {
       expect(typeof event).toEqual("number");
       expect(event).toBe(10);
       done();
     });
     bus.emit("a", 10);
   });
-  test("Request", done => {
-    bus.onRequest("b").subscribe(res => {
+  test("Request", (done) => {
+    bus.onRequest("b").subscribe((res) => {
       res.next("response");
       res.complete();
     });
-    bus.request("b").subscribe(response => {
+    bus.request("b").subscribe((response) => {
       expect(response).toBe("response");
       done();
     });
   }, 200);
-  test("Request times out", done => {
+  test("Request times out", (done) => {
     bus.request("b", 50).subscribe(
       () => {},
-      error => {
+      (error) => {
         done();
       }
     );

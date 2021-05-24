@@ -5,14 +5,14 @@ import {
   UploadedFile,
   HttpException,
   Param,
-  UseGuards
+  UseGuards,
 } from "@nestjs/common";
 import { api } from "@pc/power-comp/shared";
 import {
   ApiBearerAuth,
   ApiConsumes,
   ApiHeader,
-  ApiTags
+  ApiTags,
 } from "@nestjs/swagger";
 import { UploadService } from "./upload.service";
 import { Multer } from "multer";

@@ -8,14 +8,14 @@ import { SimpleJwtGuard } from "@pc/nest/auth";
 
 @Crud({
   model: {
-    type: WeightCategoryEntity
+    type: WeightCategoryEntity,
   },
   query: {
     join: {
       competition: {},
-      lifters: {}
-    }
-  }
+      lifters: {},
+    },
+  },
 })
 @ApiTags(api.weightCategory.toUpperCase())
 @Controller(api.weightCategory)

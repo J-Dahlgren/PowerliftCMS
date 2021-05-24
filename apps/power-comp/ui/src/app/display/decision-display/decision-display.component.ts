@@ -9,16 +9,17 @@ import {
   switchMap,
   concatMapTo,
   mergeAll,
-  map
+  map,
 } from "rxjs/operators";
 import { PlatformDecisionService } from "./platform-decision.service";
 
 @Component({
   selector: "pc-decision-display",
   templateUrl: "./decision-display.component.html",
-  styleUrls: ["./decision-display.component.scss"]
+  styleUrls: ["./decision-display.component.scss"],
 })
-export class DecisionDisplayComponent extends AutoUnsubscribeComponent
+export class DecisionDisplayComponent
+  extends AutoUnsubscribeComponent
   implements OnInit {
   @Input() display: boolean = false;
 
@@ -34,7 +35,7 @@ export class DecisionDisplayComponent extends AutoUnsubscribeComponent
 
     this.show$ = serverEvents
       .on("displayDecisions")
-      .pipe(switchMap(t => merge(of(true), timer(t).pipe(map(() => false)))));
+      .pipe(switchMap((t) => merge(of(true), timer(t).pipe(map(() => false)))));
   }
 
   ngOnInit(): void {}

@@ -9,7 +9,7 @@ import { map } from "rxjs/operators";
 @Component({
   selector: "pc-attempt-board",
   templateUrl: "./attempt-board.component.html",
-  styleUrls: ["./attempt-board.component.scss"]
+  styleUrls: ["./attempt-board.component.scss"],
 })
 export class AttemptBoardComponent implements OnInit {
   show$: Observable<boolean>;

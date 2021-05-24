@@ -36,7 +36,7 @@
     <mat-form-field
       appearance="outline"
       color="accent"
-      style="min-width: 240px;"
+      style="min-width: 240px"
     >
       <mat-label>
         {{ "filter.free-text" | translate }}
@@ -185,14 +185,14 @@
           mat-raised-button
           [matMenuTriggerFor]="groupMenu"
           (click)="$event.stopPropagation()"
-          style="width: 80%; "
+          style="width: 80%"
         >
-          <div class="flex center-y" style="float:right;width: 100%;">
-            <span style="float:left">{{ element?.group?.name || "-" }}</span>
-            <div style="flex: 1;"></div>
+          <div class="flex center-y" style="float: right; width: 100%">
+            <span style="float: left">{{ element?.group?.name || "-" }}</span>
+            <div style="flex: 1"></div>
             <mat-icon
               svgIcon="menu-down"
-              style="position: relative;right: 0;"
+              style="position: relative; right: 0"
             ></mat-icon>
           </div>
         </button>

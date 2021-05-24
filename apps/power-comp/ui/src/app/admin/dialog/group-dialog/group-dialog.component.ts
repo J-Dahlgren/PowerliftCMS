@@ -10,7 +10,7 @@ import {
   FormControl,
   Validators,
   FormBuilder,
-  FormGroup
+  FormGroup,
 } from "@angular/forms";
 import { RequestQueryBuilder } from "@nestjsx/crud-request";
 
@@ -19,7 +19,7 @@ import { PcDialogOptions } from "../dialog-options";
 @Component({
   selector: "pc-group-dialog",
   templateUrl: "./group-dialog.component.html",
-  styleUrls: ["./group-dialog.component.scss"]
+  styleUrls: ["./group-dialog.component.scss"],
 })
 export class GroupDialogComponent extends EditDialog<IGroup, PcDialogOptions> {
   platforms$: Observable<IEntity<IPlatform>[]>;
@@ -44,7 +44,7 @@ export class GroupDialogComponent extends EditDialog<IGroup, PcDialogOptions> {
         .setFilter({
           field: "competitionId",
           operator: "eq",
-          value: config.competitionId
+          value: config.competitionId,
         })
         .query()
     );

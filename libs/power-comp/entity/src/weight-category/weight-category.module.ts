@@ -9,6 +9,6 @@ import { WeightCategoryEntitySubscriber } from "./weight-category-entity.subscri
   imports: [TypeOrmModule.forFeature([WeightCategoryEntity])],
   controllers: [WeightCategoryController],
   providers: [WeightCategoryEntityService, WeightCategoryEntitySubscriber],
-  exports: [WeightCategoryEntityService]
+  exports: [WeightCategoryEntityService],
 })
 export class WeightCategoryModule {}

@@ -4,7 +4,7 @@ export enum LogLevel {
   warn,
   info,
   debug,
-  trace
+  trace,
 }
 
 export interface LogEvent {

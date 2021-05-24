@@ -4,5 +4,5 @@ import { LogLevel } from "@pc/util";
 
 export const defaultEnvironment: IEnvironment = {
   type: Environment.DEVELOP,
-  logLevel: LogLevel.info
+  logLevel: LogLevel.info,
 };

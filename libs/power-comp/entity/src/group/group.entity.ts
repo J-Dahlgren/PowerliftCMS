@@ -3,7 +3,7 @@ import {
   PrimaryGeneratedColumn,
   Column,
   ManyToOne,
-  OneToMany
+  OneToMany,
 } from "typeorm";
 import { IEntity } from "@pc/util";
 import {
@@ -11,7 +11,7 @@ import {
   ILifter,
   IPlatform,
   ICompetition,
-  LifterData
+  LifterData,
 } from "@pc/power-comp/shared";
 import { ApiProperty } from "@nestjs/swagger";
 import { LifterEntity } from "../lifter";
@@ -56,27 +56,18 @@ export class GroupEntity extends EntityBase implements IEntity<IGroup> {
 
   /* Relations */
 
-  @ManyToOne(
-    () => CompetitionEntity,
-    competition => competition.groups
-  )
+  @ManyToOne(() => CompetitionEntity, (competition) => competition.groups)
   competition!: IEntity<ICompetition>;
 
-  @ManyToOne(
-    () => PlatformEntity,
-    platform => platform.groups,
-    {
-      onDelete: "SET NULL"
-    }
-  )
+  @ManyToOne(() => PlatformEntity, (platform) => platform.groups, {
+    onDelete: "SET NULL",
+  })
   @Type(() => PlatformEntity)
   platform!: IEntity<IPlatform>;
 
-  @OneToMany(
-    () => LifterEntity,
-    lifter => lifter.group,
-    { cascade: ["insert", "update"] }
-  )
+  @OneToMany(() => LifterEntity, (lifter) => lifter.group, {
+    cascade: ["insert", "update"],
+  })
   lifters!: IEntity<LifterData>[];
   toString() {
     return this.name;

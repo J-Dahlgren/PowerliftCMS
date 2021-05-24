@@ -7,7 +7,7 @@ import { Observable } from "rxjs";
 @Component({
   selector: "dt-language-selector",
   templateUrl: "./language-selector.component.html",
-  styleUrls: ["./language-selector.component.scss"]
+  styleUrls: ["./language-selector.component.scss"],
 })
 export class LanguageSelectorComponent implements OnInit {
   selected$: Observable<LanguageCode>;

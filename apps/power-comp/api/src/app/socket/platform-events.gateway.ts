@@ -1,7 +1,7 @@
 import { RoomEventGateway, RoomGateway } from "@pc/nest/socket";
 import {
   IServerPlatformEvents,
-  PLATFORM_EVENTS_NSP
+  PLATFORM_EVENTS_NSP,
 } from "@pc/power-comp/shared";
 import { ILogService } from "@pc/util";
 import { LogInject } from "@pc/nest/logger";

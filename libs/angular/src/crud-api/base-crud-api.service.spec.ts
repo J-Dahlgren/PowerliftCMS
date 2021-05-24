@@ -3,7 +3,7 @@ import { Injectable, inject } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import {
   HttpClientTestingModule,
-  HttpTestingController
+  HttpTestingController,
 } from "@angular/common/http/testing";
 import { LogService } from "../logger";
 import { TestBed } from "@angular/core/testing";
@@ -26,14 +26,14 @@ describe("BaseApiService", () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [LogService, MockApiService],
-      imports: [HttpClientTestingModule]
+      imports: [HttpClientTestingModule],
     });
     service = TestBed.inject(MockApiService);
     httpMock = TestBed.inject(HttpTestingController);
   });
 
-  it("Gets one", done => {
-    service.get(1).subscribe(data => {
+  it("Gets one", (done) => {
+    service.get(1).subscribe((data) => {
       expect(data.id).toBe(1);
       expect(data.a).toBe(1);
       done();
@@ -44,8 +44,8 @@ describe("BaseApiService", () => {
     httpMock.verify();
   });
 
-  it("Gets many", done => {
-    service.getMany().subscribe(data => {
+  it("Gets many", (done) => {
+    service.getMany().subscribe((data) => {
       expect(data.length).toBe(0);
       done();
     });
@@ -55,8 +55,8 @@ describe("BaseApiService", () => {
     httpMock.verify();
   });
 
-  it("Creates", done => {
-    service.create({}).subscribe(data => {
+  it("Creates", (done) => {
+    service.create({}).subscribe((data) => {
       expect(data.id).toBe(2);
       expect(data.a).toBe(2);
       done();
@@ -67,8 +67,8 @@ describe("BaseApiService", () => {
     httpMock.verify();
   });
 
-  it("Updates", done => {
-    service.update({ id: 2, b: "2" }).subscribe(data => {
+  it("Updates", (done) => {
+    service.update({ id: 2, b: "2" }).subscribe((data) => {
       expect(data.b).toBe("2");
       done();
     });
@@ -78,8 +78,8 @@ describe("BaseApiService", () => {
     httpMock.verify();
   });
 
-  it("Deletes", done => {
-    service.delete(2).subscribe(data => {
+  it("Deletes", (done) => {
+    service.delete(2).subscribe((data) => {
       done();
     });
 
@@ -89,11 +89,11 @@ describe("BaseApiService", () => {
     httpMock.verify();
   });
 
-  it("Emits log on error", done => {
+  it("Emits log on error", (done) => {
     const logService = TestBed.inject(LogService);
     service.get(1).subscribe(
-      data => done(1),
-      err => {
+      (data) => done(1),
+      (err) => {
         expect(err.message).toBe(
           "Http failure response for /api/test/1: 500 ERROR"
         );
@@ -101,7 +101,7 @@ describe("BaseApiService", () => {
       }
     );
 
-    logService.log$.subscribe(event => {
+    logService.log$.subscribe((event) => {
       expect(event.logLevel).toBe(LogLevel.error);
     });
     const req = httpMock.expectOne("/api/test/1");

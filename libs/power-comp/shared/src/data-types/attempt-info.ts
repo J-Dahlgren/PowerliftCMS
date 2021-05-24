@@ -3,7 +3,7 @@ import {
   LiftFieldTuple,
   LiftStatus,
   ILifts,
-  requestedWeight
+  requestedWeight,
 } from "./lifts";
 export interface IAttemptInfo {
   liftName: LiftFieldExt;
@@ -31,7 +31,7 @@ export function attemptInfo(lifts: ILifts) {
         return new AttemptInfo({
           weight: requestedWeight(attempt),
           liftName: field,
-          attemptNumberOneIndexed: i + 1
+          attemptNumberOneIndexed: i + 1,
         });
       }
     }

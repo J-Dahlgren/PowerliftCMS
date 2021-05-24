@@ -8,7 +8,7 @@ import { filter } from "rxjs/operators";
 @Component({
   selector: "dt-side-nav",
   templateUrl: "./side-nav.component.html",
-  styleUrls: ["./side-nav.component.scss"]
+  styleUrls: ["./side-nav.component.scss"],
 })
 export class SideNavComponent implements OnInit, OnDestroy {
   private subs = new SubSink();
@@ -19,10 +19,10 @@ export class SideNavComponent implements OnInit, OnDestroy {
   constructor(private navService: NavigationService) {
     this.expanded$ = navService.select("expanded");
     this.subs.sink = fromEvent<KeyboardEvent>(document, "keyup")
-      .pipe(filter(event => event.key === "Escape"))
+      .pipe(filter((event) => event.key === "Escape"))
       .subscribe(() => this.closeNav());
     this.subs.sink = fromEvent<KeyboardEvent>(document, "keyup")
-      .pipe(filter(event => event.key === "q" && event.ctrlKey))
+      .pipe(filter((event) => event.key === "q" && event.ctrlKey))
       .subscribe(() => this.navService.toggle());
   }
 

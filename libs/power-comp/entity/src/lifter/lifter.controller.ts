@@ -8,15 +8,15 @@ import { SimpleJwtGuard } from "@pc/nest/auth";
 
 @Crud({
   model: {
-    type: LifterEntity
+    type: LifterEntity,
   },
   query: {
     join: {
       competition: {},
       group: {},
-      weightCategory: { eager: true }
-    }
-  }
+      weightCategory: { eager: true },
+    },
+  },
 })
 @ApiTags(api.lifter.root.toUpperCase())
 @ApiBearerAuth()

@@ -4,7 +4,7 @@ import { PersistentPlatformData, LifterData } from "@pc/power-comp/shared";
 import {
   PLATFORM_DATA_TOKEN,
   PlatformDataService,
-  GroupService
+  GroupService,
 } from "../../core";
 import { Observable, of } from "rxjs";
 import { switchMap, map, catchError } from "rxjs/operators";
@@ -12,19 +12,19 @@ import { switchMap, map, catchError } from "rxjs/operators";
 @Component({
   selector: "pc-attempt-info-bar",
   templateUrl: "./attempt-info-bar.component.html",
-  styleUrls: ["./attempt-info-bar.component.scss"]
+  styleUrls: ["./attempt-info-bar.component.scss"],
 })
 export class AttemptInfoBarComponent implements OnInit {
   current$: Observable<LifterData | null>;
   group$: Observable<string>;
   constructor(platformData: PlatformDataService, groupService: GroupService) {
     this.group$ = platformData.select("activeGroupId").pipe(
-      switchMap(id =>
+      switchMap((id) =>
         !id
           ? of("")
           : groupService.get(id).pipe(
-              map(g => g.name),
-              catchError(e => "")
+              map((g) => g.name),
+              catchError((e) => "")
             )
       )
     );

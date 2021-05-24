@@ -9,7 +9,7 @@ export function matchLiftConfiguration(
 ) {
   const targetMatch = defaultLifts[mode];
   return !extractKeys(targetMatch).some(
-    key => lifts[key].length !== targetMatch[key].length
+    (key) => lifts[key].length !== targetMatch[key].length
   );
 }
 

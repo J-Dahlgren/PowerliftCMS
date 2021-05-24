@@ -3,11 +3,11 @@ import {
   ElementRef,
   HostListener,
   Input,
-  Renderer2
+  Renderer2,
 } from "@angular/core";
 
 @Directive({
-  selector: "[dtHoverClass]"
+  selector: "[dtHoverClass]",
 })
 export class HoverClassDirective {
   @Input() classes: string[] = [];
@@ -21,7 +21,7 @@ export class HoverClassDirective {
     this.setClasses(false);
   }
   private setClasses(enabled: boolean) {
-    this.classes.forEach(c => {
+    this.classes.forEach((c) => {
       if (enabled) {
         this.renderer.addClass(this.el.nativeElement, c);
       } else {

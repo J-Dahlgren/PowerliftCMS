@@ -14,7 +14,7 @@ import { TranslateService } from "@ngx-translate/core";
 @Component({
   selector: "pc-platform-list",
   templateUrl: "./platform-list.component.html",
-  styleUrls: ["./platform-list.component.scss"]
+  styleUrls: ["./platform-list.component.scss"],
 })
 export class PlatformListComponent extends PowerCompListComponent<IPlatform> {
   constructor(

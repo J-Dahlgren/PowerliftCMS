@@ -6,7 +6,7 @@ export interface NavigationState {
   currentUrl: string;
 }
 @Injectable({
-  providedIn: "root"
+  providedIn: "root",
 })
 export class NavigationService extends ProtectedStore<NavigationState> {
   constructor(private router: Router) {

@@ -1,6 +1,6 @@
 <div class="container">
   <div
-    style="min-height: 50px; height: 100%;font-size: 0.7em;"
+    style="min-height: 50px; height: 100%; font-size: 0.7em"
     class="mat-elevation-z8"
   >
     <pc-attempt-info-bar></pc-attempt-info-bar>
@@ -22,7 +22,7 @@
           (current$ | async)?.fullname === element?.fullname
         "
         [class.next-lifter]="(next$ | async)?.fullname === element?.fullname"
-        style="text-align: left !important; padding-left: 5px;"
+        style="text-align: left !important; padding-left: 5px"
       >
         {{ element.lastname }}, {{ element.firstname }}
       </td>
@@ -53,7 +53,7 @@
       <th cdk-header-cell *cdkHeaderCellDef>
         {{ "lifter.competition-mode" | translate }}
       </th>
-      <td cdk-cell *cdkCellDef="let element" style="height: 10px;">
+      <td cdk-cell *cdkCellDef="let element" style="height: 10px">
         {{
           "competition-mode." + (element.competitionMode || "CLASSIC")
             | translate
@@ -115,7 +115,7 @@
     <tr
       cdk-row
       *cdkRowDef="let row; columns: columns"
-      style="height: auto;"
+      style="height: auto"
     ></tr>
   </table>
 </div>

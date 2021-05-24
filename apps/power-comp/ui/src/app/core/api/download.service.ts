@@ -18,14 +18,14 @@ export class DownloadService extends BaseApiService {
   getProtocol(groupId: number | string) {
     return this.http
       .get(`${this.path}/${api.download.protocol}/${groupId}`, {
-        responseType: "arraybuffer"
+        responseType: "arraybuffer",
       })
       .pipe(this.errorTap());
   }
   getRegistrationTemplate() {
     return this.http
       .get(`${this.path}/${api.download.registration}`, {
-        responseType: "arraybuffer"
+        responseType: "arraybuffer",
       })
       .pipe(this.errorTap());
   }

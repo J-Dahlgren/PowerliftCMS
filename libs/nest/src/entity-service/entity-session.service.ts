@@ -6,7 +6,7 @@ import { IEntitySubscriber } from "./entity.subscriber";
 export enum EntitySessionServiceStatus {
   NOT_INITIALIZED,
   ACTIVE,
-  TERMINATED
+  TERMINATED,
 }
 
 export interface IEntitySessionService<T extends IEntity> {
@@ -48,12 +48,12 @@ export abstract class EntitySessionService<T extends IEntity>
 
       this.subs.sink = this.stream
         .on("update")
-        .pipe(filter(e => e.databaseEntity.id === this._entity?.id))
-        .subscribe(e => (this._entity = e.databaseEntity));
+        .pipe(filter((e) => e.databaseEntity.id === this._entity?.id))
+        .subscribe((e) => (this._entity = e.databaseEntity));
 
       this.subs.sink = this.stream
         .on("remove")
-        .pipe(filter(e => e.databaseEntity.id === this._entity?.id))
+        .pipe(filter((e) => e.databaseEntity.id === this._entity?.id))
         .subscribe(() => this.terminate());
       this.afterInit();
     }

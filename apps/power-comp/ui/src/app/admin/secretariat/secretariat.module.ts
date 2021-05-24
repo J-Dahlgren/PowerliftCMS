@@ -20,13 +20,13 @@ const routes: Route[] = [
   {
     path: baseRoute,
     canActivate: [AuthGuard],
-    component: SecretariatMainComponent
+    component: SecretariatMainComponent,
   },
   {
     path: "timekeeper",
     canActivate: [AuthGuard],
-    component: TimekeeperComponent
-  }
+    component: TimekeeperComponent,
+  },
 ];
 
 @NgModule({
@@ -41,15 +41,15 @@ const routes: Route[] = [
     SharedDialogModule,
     ReactiveFormsModule,
     HttpClientModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
   ],
   declarations: [
     SecretariatMainComponent,
     SecretariatListComponent,
     SecretariatControlComponent,
     LiftsDialogComponent,
-    TimekeeperComponent
+    TimekeeperComponent,
   ],
-  exports: []
+  exports: [],
 })
 export class SecretariatModule {}

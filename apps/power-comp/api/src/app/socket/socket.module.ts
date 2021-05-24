@@ -7,6 +7,6 @@ import { PlatformEventsGateway } from "./platform-events.gateway";
 @Module({
   imports: [ApiModule],
   providers: [AppInfoGateway, PlatformDataGateway, PlatformEventsGateway],
-  exports: [AppInfoGateway, PlatformDataGateway, PlatformEventsGateway]
+  exports: [AppInfoGateway, PlatformDataGateway, PlatformEventsGateway],
 })
 export class SocketModule {}

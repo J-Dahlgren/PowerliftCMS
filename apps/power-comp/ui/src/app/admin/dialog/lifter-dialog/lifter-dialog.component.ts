@@ -11,21 +11,21 @@ import {
   IWeightClass,
   getWeightClass,
   SquatRackSettingsEnum,
-  CompetitionModesEnum
+  CompetitionModesEnum,
 } from "@pc/power-comp/shared";
 import { PcDialogOptions } from "../dialog-options";
 import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material/dialog";
 import {
   LifterService,
   GroupService,
-  WeightCategoryService
+  WeightCategoryService,
 } from "../../../core";
 import {
   FormBuilder,
   FormControl,
   Validators,
   FormGroup,
-  FormArray
+  FormArray,
 } from "@angular/forms";
 import { LogService } from "@pc/angular/logger";
 import { Observable, BehaviorSubject } from "rxjs";
@@ -36,7 +36,7 @@ import { createLiftsForm } from "../lifter-dialog-builder";
 @Component({
   selector: "pc-lifter-dialog",
   templateUrl: "./lifter-dialog.component.html",
-  styleUrls: ["./lifter-dialog.component.scss"]
+  styleUrls: ["./lifter-dialog.component.scss"],
 })
 export class LifterDialogComponent extends EditDialog<
   ILifter,
@@ -72,14 +72,14 @@ export class LifterDialogComponent extends EditDialog<
       .setFilter({
         field: "competitionId",
         operator: "eq",
-        value: +config.competitionId
+        value: +config.competitionId,
       })
       .query();
 
     this.groups$ = groupService.getMany(compQuery);
     wCategoryService
       .getMany(compQuery)
-      .subscribe(wc => (this.wCategories = wc));
+      .subscribe((wc) => (this.wCategories = wc));
   }
 
   modeSelectionChanged(key: EnumKeys<typeof CompetitionModesEnum>) {
@@ -110,19 +110,19 @@ export class LifterDialogComponent extends EditDialog<
       lot: [0],
       bornYear: [
         null,
-        [Validators.min(1900), Validators.max(this.currentYear)]
+        [Validators.min(1900), Validators.max(this.currentYear)],
       ],
       settings: fb.group({
         squat: fb.group({
           rackHeight: [null, Validators.min(0)],
-          rackTilt: [SquatRackSettingsEnum[SquatRackSettingsEnum.NONE]]
+          rackTilt: [SquatRackSettingsEnum[SquatRackSettingsEnum.NONE]],
         }),
         bench: fb.group({
           rackHeight: [null, Validators.min(0)],
           safetyRackHeight: [null, Validators.min(0)],
-          liftOffAssistance: [true]
-        })
-      })
+          liftOffAssistance: [true],
+        }),
+      }),
     });
     form
       .get("bodyWeight")

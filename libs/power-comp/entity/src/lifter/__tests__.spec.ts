@@ -26,7 +26,7 @@ describe("Lifts", () => {
       new AttemptInfo({
         liftName: "squat",
         attemptNumberOneIndexed: 1,
-        weight: 1
+        weight: 1,
       })
     );
   });

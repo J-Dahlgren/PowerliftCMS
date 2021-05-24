@@ -8,6 +8,6 @@ import { Component } from "@angular/core";
     <h3 style="text-align:center;">
       {{ "navigation.not-found.message" | translate }}
     </h3>
-  `
+  `,
 })
 export class ErrorComponent {}

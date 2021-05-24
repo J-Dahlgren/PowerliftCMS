@@ -5,9 +5,7 @@ import { Constructor } from "@pc/util";
 import { WeightCategoryEntity } from "./weight-category.entity";
 
 @EventSubscriber()
-export class WeightCategoryEntitySubscriber extends EntitySubscriber<
-  WeightCategoryEntity
-> {
+export class WeightCategoryEntitySubscriber extends EntitySubscriber<WeightCategoryEntity> {
   constructor(connection: Connection) {
     super();
     connection.subscribers.push(this);

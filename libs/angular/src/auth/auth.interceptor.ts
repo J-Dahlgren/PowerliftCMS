@@ -3,7 +3,7 @@ import {
   HttpRequest,
   HttpHandler,
   HttpEvent,
-  HTTP_INTERCEPTORS
+  HTTP_INTERCEPTORS,
 } from "@angular/common/http";
 import { Injectable, Inject } from "@angular/core";
 import { LocalStorageService } from "ngx-webstorage";
@@ -27,12 +27,12 @@ export class AuthInterceptor implements HttpInterceptor {
     const token = this.storage.retrieve(this.tokenKey);
     if (token) {
       authReq = req.clone({
-        headers: req.headers.set("Authorization", `Bearer ${token}`)
+        headers: req.headers.set("Authorization", `Bearer ${token}`),
       });
     }
     return next.handle(authReq);
   }
 }
 export const authInterceptorProviders = [
-  { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
+  { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
 ];

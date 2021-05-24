@@ -4,7 +4,7 @@ import {
   ActiveGroupDto,
   JudgeDecisionDto,
   LiftTimerDto,
-  SecretariatDecisionDto
+  SecretariatDecisionDto,
 } from "./platform-events";
 import { PlatformEventService } from "./platform-event.service";
 import { ApiTags, ApiBody, ApiBearerAuth } from "@nestjs/swagger";

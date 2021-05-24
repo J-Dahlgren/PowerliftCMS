@@ -6,7 +6,7 @@ import {
   IGroup,
   Result,
   IResult,
-  LifterData
+  LifterData,
 } from "../data-types";
 import { IServerPlatformEvents } from "./server-events";
 import { IRank } from "../rules";

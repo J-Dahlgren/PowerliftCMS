@@ -2,13 +2,13 @@ import {
   EntitySubscriberInterface,
   InsertEvent,
   UpdateEvent,
-  RemoveEvent
+  RemoveEvent,
 } from "typeorm";
 import {
   Constructor,
   ProtectedEventBus,
   IEventEmitter,
-  IEntity
+  IEntity,
 } from "@pc/util";
 export interface EntityEvents<T extends {}> {
   upsert: InsertEvent<T> | UpdateEvent<T>;

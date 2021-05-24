@@ -5,7 +5,7 @@ import { Null, IEntity } from "@pc/util";
  */
 export enum Gender {
   MALE = "m",
-  FEMALE = "f"
+  FEMALE = "f",
 }
 export interface IPerson {
   license?: string | Null;

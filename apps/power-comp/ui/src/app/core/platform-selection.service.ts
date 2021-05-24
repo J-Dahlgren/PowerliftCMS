@@ -7,7 +7,7 @@ import { SubSink } from "subsink";
 import { AppInfoService } from "./socket/app-info.service";
 import {
   PlatformDataSocketService,
-  PlatformEventsSocketService
+  PlatformEventsSocketService,
 } from "./socket";
 
 @Injectable({ providedIn: "root" })
@@ -27,19 +27,19 @@ export class PlatformSelectionService
   ) {
     super({ competitions: [], selectedPlatform: null });
     this.logger = logService.create("PlatformSelectionService");
-    this.$.subscribe(state => this.logger.trace("state", state));
+    this.$.subscribe((state) => this.logger.trace("state", state));
     this.subs.sink = appInfo
       .select("competitions")
-      .subscribe(platforms => this.set("competitions", platforms));
+      .subscribe((platforms) => this.set("competitions", platforms));
 
     this.select("selectedPlatform")
       .pipe(distinctUntilChanged((a, b) => a?.id === b?.id))
-      .subscribe(selected => {
+      .subscribe((selected) => {
         if (!!selected) {
           this.joinSockets(this.selectedToString());
         }
       });
-    this.subs.sink = appInfo.connected$.subscribe(connected => {
+    this.subs.sink = appInfo.connected$.subscribe((connected) => {
       if (connected) {
         this.joinSockets(this.selectedToString());
       }
@@ -60,7 +60,7 @@ export class PlatformSelectionService
   }
   get platforms() {
     return ([] as IEntity<IPlatform>[]).concat.apply(
-      this.get("competitions").map(c => c.platforms)
+      this.get("competitions").map((c) => c.platforms)
     );
   }
   selectFirstPlatform() {

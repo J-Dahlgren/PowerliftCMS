@@ -3,7 +3,7 @@ import {
   Injectable,
   Inject,
   UnauthorizedException,
-  Optional
+  Optional,
 } from "@nestjs/common";
 import { ConfigService } from "@nestjs/config";
 import { SIMPLE_AUTH_PASSWORD_TOKEN } from "./tokens";
@@ -21,7 +21,7 @@ export class SimpleAuthService {
       throw new UnauthorizedException("Password is incorrect");
     }
     return {
-      access_token: this.jwtService.sign({})
+      access_token: this.jwtService.sign({}),
     };
   }
 }

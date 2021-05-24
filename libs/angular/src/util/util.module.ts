@@ -7,8 +7,8 @@ import { MomentPipe, KeysPipe } from "./pipes";
     HoverClassDirective,
     FocusElementDirective,
     MomentPipe,
-    KeysPipe
+    KeysPipe,
   ],
-  exports: [HoverClassDirective, FocusElementDirective, MomentPipe, KeysPipe]
+  exports: [HoverClassDirective, FocusElementDirective, MomentPipe, KeysPipe],
 })
 export class UtilModule {}

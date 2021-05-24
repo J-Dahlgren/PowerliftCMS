@@ -17,7 +17,7 @@ export class PlatformTimerService implements OnDestroy {
     this.logger = logService.create("PlatformTimerService");
     this.subs.sink = serverEvents
       .on("liftTimer")
-      .subscribe(t => this.timer.setClock(t));
+      .subscribe((t) => this.timer.setClock(t));
     serverEvents.request().subscribe();
   }
   get $() {

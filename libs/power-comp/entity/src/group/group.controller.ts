@@ -8,15 +8,15 @@ import { SimpleJwtGuard } from "@pc/nest/auth";
 
 @Crud({
   model: {
-    type: GroupEntity
+    type: GroupEntity,
   },
   query: {
     join: {
       competition: {},
       platform: {},
-      lifters: {}
-    }
-  }
+      lifters: {},
+    },
+  },
 })
 @ApiTags(api.group.toUpperCase())
 @Controller(api.group)

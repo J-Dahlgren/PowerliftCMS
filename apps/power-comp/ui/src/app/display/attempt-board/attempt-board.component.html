@@ -1,5 +1,5 @@
 <pc-decision-input></pc-decision-input>
-<div style="height: 65%;" class="grid auto-cols">
+<div style="height: 65%" class="grid auto-cols">
   <div class="lifter-info">
     <h1>{{ "attempt-board.current" | translate }}</h1>
 
@@ -14,7 +14,7 @@
 <div
   *ngIf="!(show$ | async)"
   class="grid auto-cols"
-  style="height: 35%; font-size: 2em;"
+  style="height: 35%; font-size: 2em"
 >
   <div>
     <pc-plate-load
@@ -37,6 +37,6 @@
     <pc-plate-load [next]="true"> </pc-plate-load>
   </div>
 </div>
-<div *ngIf="show$ | async" style="height:35%;width: 100%;">
+<div *ngIf="show$ | async" style="height: 35%; width: 100%">
   <pc-decision-display [display]="true"></pc-decision-display>
 </div>

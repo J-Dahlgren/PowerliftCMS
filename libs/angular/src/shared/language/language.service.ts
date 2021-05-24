@@ -21,13 +21,18 @@ export class LanguageService {
     translateService.setDefaultLang("en");
 
     const lang: LanguageCode | undefined = lsService.retrieve("LANGUAGE");
-    if (!lang && codes.findIndex(l => l.language === initialLang) >= 0) {
-      this.setLanguage(codes[codes.findIndex(l => l.language === initialLang)]);
-    } else if (lang && codes.findIndex(l => l.language === lang.language) < 0) {
+    if (!lang && codes.findIndex((l) => l.language === initialLang) >= 0) {
+      this.setLanguage(
+        codes[codes.findIndex((l) => l.language === initialLang)]
+      );
+    } else if (
+      lang &&
+      codes.findIndex((l) => l.language === lang.language) < 0
+    ) {
       this.setLanguage(enLanguage);
     } else {
       this.setLanguage(
-        codes[codes.findIndex(l => l.language === lang?.language)]
+        codes[codes.findIndex((l) => l.language === lang?.language)]
       );
     }
   }

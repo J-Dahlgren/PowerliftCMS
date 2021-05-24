@@ -7,7 +7,7 @@ import {
   IPlatform,
   defaultPlatformWeights,
   IPlatformWeights,
-  IWeightPlate
+  IWeightPlate,
 } from "@pc/power-comp/shared";
 import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material/dialog";
 import { PlatformService } from "../../../core";
@@ -18,7 +18,7 @@ import { PcDialogOptions } from "../dialog-options";
 @Component({
   selector: "pc-platform-dialog",
   templateUrl: "./platform-dialog.component.html",
-  styleUrls: ["./platform-dialog.component.scss"]
+  styleUrls: ["./platform-dialog.component.scss"],
 })
 export class PlatformDialogComponent extends EditDialog<
   IPlatform,
@@ -60,24 +60,24 @@ export class PlatformDialogComponent extends EditDialog<
     return new FormGroup({
       collarWeight: new FormControl(weights.collarWeight, [
         Validators.required,
-        Validators.min(1)
+        Validators.min(1),
       ]),
       barWeight: new FormControl(weights.barWeight, [
         Validators.required,
-        Validators.min(1)
+        Validators.min(1),
       ]),
-      plates: new FormArray(this.createPlates(weights.plates))
+      plates: new FormArray(this.createPlates(weights.plates)),
     });
   }
   createPlates(plates: IWeightPlate[]) {
     return plates.map(
-      plate =>
+      (plate) =>
         new FormGroup({
           weight: new FormControl(plate.weight, [
             Validators.required,
-            Validators.min(0)
+            Validators.min(0),
           ]),
-          quantity: new FormControl(plate.quantity, [Validators.max(20)])
+          quantity: new FormControl(plate.quantity, [Validators.max(20)]),
         })
     );
   }

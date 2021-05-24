@@ -12,7 +12,7 @@ const colors: {
   warn: chalk.yellow,
   info: chalk.green,
   debug: chalk.blueBright,
-  trace: chalk.magentaBright
+  trace: chalk.magentaBright,
 };
 
 @Injectable({ scope: Scope.TRANSIENT })
@@ -63,7 +63,7 @@ export class LogService implements ILogService {
       logLevel,
       message,
       data,
-      context: this._context || ""
+      context: this._context || "",
     };
     this.logService?.reportEvent(event);
     if (logLevel <= this.logLevel) {
@@ -91,8 +91,6 @@ export class LogService implements ILogService {
     return context?.length ? `[${context}]` : "";
   }
   private timestamp(time = Date.now()) {
-    return moment(time)
-      .format("HH:mm:ss.SSS")
-      .toString();
+    return moment(time).format("HH:mm:ss.SSS").toString();
   }
 }

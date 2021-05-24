@@ -4,7 +4,7 @@ import {
   AfterViewInit,
   OnDestroy,
   ViewChildren,
-  QueryList
+  QueryList,
 } from "@angular/core";
 import { EditDialog, DialogOptions } from "@pc/angular/shared";
 import {
@@ -15,7 +15,7 @@ import {
   defaultLifts,
   LiftStatus,
   IAttempt,
-  requestedWeight
+  requestedWeight,
 } from "@pc/power-comp/shared";
 import { MatDialogRef, MAT_DIALOG_DATA } from "@angular/material/dialog";
 import { IEntity, cutDecimal } from "@pc/util";
@@ -30,16 +30,16 @@ import { FocusElementDirective } from "@pc/angular/util";
 
 @Component({
   templateUrl: "./lifts-dialog.component.html",
-  styleUrls: ["lifts-dialog.component.scss"]
+  styleUrls: ["lifts-dialog.component.scss"],
 })
-export class LiftsDialogComponent extends EditDialog<ILifter>
+export class LiftsDialogComponent
+  extends EditDialog<ILifter>
   implements OnDestroy, AfterViewInit {
   subs = new SubSink();
   readonly statuses = LiftStatus;
 
-  @ViewChildren(FocusElementDirective) focusDirectives!: QueryList<
-    FocusElementDirective
-  >;
+  @ViewChildren(FocusElementDirective)
+  focusDirectives!: QueryList<FocusElementDirective>;
 
   constructor(
     @Inject(MAT_DIALOG_DATA) config: DialogOptions,
@@ -84,8 +84,8 @@ export class LiftsDialogComponent extends EditDialog<ILifter>
   }
   createStatusListeners() {
     const formArrays = this.liftFields
-      .map(f => this.getLiftFormArray(f))
-      .filter(f => !!f);
+      .map((f) => this.getLiftFormArray(f))
+      .filter((f) => !!f);
     for (const formArray of formArrays) {
       for (let i = 0; i < formArray.length - 1; i++) {
         // Don't add listener for last

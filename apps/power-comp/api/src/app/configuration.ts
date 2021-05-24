@@ -13,7 +13,7 @@ export default () => {
     storageLocation: process.env.STORAGE_PATH || defaultStorageLocation,
     auth: {
       password: process.env.PASSWORD || "",
-      secret: process.env.JWT_SECRET || process.env.PASSWORD || v4()
+      secret: process.env.JWT_SECRET || process.env.PASSWORD || v4(),
     },
     database: {
       name:
@@ -25,10 +25,10 @@ export default () => {
               process.env.DATABASE_NAME || environment.defaultDatabase
             ),
       runMigrations: !inMemoryDB && environment.type !== Environment.STANDALONE,
-      synchronize: inMemoryDB || environment.type === Environment.STANDALONE
+      synchronize: inMemoryDB || environment.type === Environment.STANDALONE,
     },
     logLevel:
       (process.env.LOG_LEVEL as keyof typeof LogLevel | undefined) ||
-      (LogLevel[environment.logLevel] as keyof typeof LogLevel)
+      (LogLevel[environment.logLevel] as keyof typeof LogLevel),
   };
 };

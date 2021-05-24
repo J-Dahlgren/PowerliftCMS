@@ -7,15 +7,15 @@ import { api } from "@pc/power-comp/shared";
 import { SimpleJwtGuard } from "@pc/nest/auth";
 @Crud({
   model: {
-    type: CompetitionEntity
+    type: CompetitionEntity,
   },
   query: {
     join: {
       platforms: {},
       groups: {},
-      lifters: {}
-    }
-  }
+      lifters: {},
+    },
+  },
 })
 @ApiTags(api.competition.toUpperCase())
 @ApiBearerAuth()

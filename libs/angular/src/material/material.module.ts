@@ -47,12 +47,12 @@ const imports = [
   MatCheckboxModule,
   MatTabsModule,
   MatDatepickerModule,
-  MatRadioModule
+  MatRadioModule,
 ];
 
 @NgModule({
   imports,
   providers: [SnackBarService],
-  exports: imports
+  exports: imports,
 })
 export class MaterialModule {}

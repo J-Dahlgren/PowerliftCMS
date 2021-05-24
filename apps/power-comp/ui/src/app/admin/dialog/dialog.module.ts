@@ -22,15 +22,15 @@ import { WeightCategoryDialogComponent } from "./weight-category-dialog/weight-c
     TranslateModule,
     MaterialModule,
     NgxMatDatetimePickerModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   declarations: [
     CompetitionDialogComponent,
     PlatformDialogComponent,
     GroupDialogComponent,
     LifterDialogComponent,
-    WeightCategoryDialogComponent
+    WeightCategoryDialogComponent,
   ],
-  exports: [CompetitionDialogComponent, PlatformDialogComponent]
+  exports: [CompetitionDialogComponent, PlatformDialogComponent],
 })
 export class DialogModule {}

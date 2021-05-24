@@ -16,7 +16,7 @@ export class CrudService<T extends EntityBase> extends TypeOrmCrudService<T> {
 
     stream
       .on("insert")
-      .subscribe(event =>
+      .subscribe((event) =>
         logger.trace(
           `Inserted: ${event?.entity?.id}_${event.entity?.toString()}`
         )
@@ -24,7 +24,7 @@ export class CrudService<T extends EntityBase> extends TypeOrmCrudService<T> {
 
     stream
       .on("update")
-      .subscribe(event =>
+      .subscribe((event) =>
         logger.trace(
           `Updated: ${event?.entity?.id}_${event.entity?.toString()}`
         )
@@ -32,7 +32,7 @@ export class CrudService<T extends EntityBase> extends TypeOrmCrudService<T> {
 
     stream
       .on("remove")
-      .subscribe(event =>
+      .subscribe((event) =>
         logger.trace(
           `Removed: ${
             event?.databaseEntity.id

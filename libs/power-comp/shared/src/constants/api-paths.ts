@@ -18,36 +18,36 @@ const events: ObjectRoute<IClientPlatformEvents> = {
   decision: "decision",
   activeGroupId: "active-group",
   liftTimer: "lift-timer",
-  secretariatDecision: "secretariat-decision"
+  secretariatDecision: "secretariat-decision",
 };
 
 export const api = {
   auth: {
     root: "auth",
-    login: "login"
+    login: "login",
   },
   competition: "competition",
   platform: "platform",
   group: "group",
   lifter: {
     root: "lifter",
-    drawLot: "draw-lot"
+    drawLot: "draw-lot",
   },
 
   download: {
     root: "download",
     protocol: "protocol",
-    registration: "registration"
+    registration: "registration",
   },
   upload: {
     root: "upload",
-    registration: "registration"
+    registration: "registration",
   },
   weightCategory: "weight-category",
   events,
   competitionInfo: {
     root: "competition-info",
     result: "result",
-    liftOrder: "lift-order"
-  }
+    liftOrder: "lift-order",
+  },
 };

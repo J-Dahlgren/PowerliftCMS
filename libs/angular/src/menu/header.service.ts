@@ -4,7 +4,7 @@ export interface HeaderState {
   visible: boolean;
 }
 @Injectable({
-  providedIn: "root"
+  providedIn: "root",
 })
 export class HeaderService extends ProtectedStore<HeaderState> {
   constructor() {

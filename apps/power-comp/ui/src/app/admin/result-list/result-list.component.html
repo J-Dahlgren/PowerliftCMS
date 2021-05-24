@@ -174,10 +174,10 @@
     </ng-container>
     <ng-container *ngFor="let field of liftFields">
       <ng-container [matColumnDef]="field">
-        <th mat-header-cell *matHeaderCellDef style="text-align: center;">
+        <th mat-header-cell *matHeaderCellDef style="text-align: center">
           {{ "lifts." + field | translate | titlecase }}
         </th>
-        <td mat-cell *matCellDef="let element" style="height: 100%;">
+        <td mat-cell *matCellDef="let element" style="height: 100%">
           <div class="lift-data">
             <ng-container
               *ngFor="let attempt of element.lifts[field]; let i = index"
@@ -196,19 +196,19 @@
     </ng-container>
 
     <ng-container matColumnDef="total">
-      <th mat-header-cell *matHeaderCellDef style="text-align: center;">
+      <th mat-header-cell *matHeaderCellDef style="text-align: center">
         {{ "lifter.total" | translate }}
       </th>
-      <td mat-cell *matCellDef="let element" style="text-align: center;">
+      <td mat-cell *matCellDef="let element" style="text-align: center">
         {{ element.result.total || "-" }}
       </td>
     </ng-container>
 
     <ng-container matColumnDef="rank">
-      <th mat-header-cell *matHeaderCellDef style="text-align: center;">
+      <th mat-header-cell *matHeaderCellDef style="text-align: center">
         {{ "lifter.rank" | translate }}
       </th>
-      <td mat-cell *matCellDef="let element" style="text-align: center;">
+      <td mat-cell *matCellDef="let element" style="text-align: center">
         {{ element.rank }}
       </td>
     </ng-container>

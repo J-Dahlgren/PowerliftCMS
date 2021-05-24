@@ -3,7 +3,7 @@ import {
   ConnectedSocket,
   OnGatewayInit,
   SubscribeMessage,
-  MessageBody
+  MessageBody,
 } from "@nestjs/websockets";
 import { Namespace, Socket } from "socket.io";
 import {
@@ -16,14 +16,15 @@ import {
   ILogService,
   IRoomEvent,
   ProtectedRoomEventBus,
-  RoomEvent
+  RoomEvent,
 } from "@pc/util";
 import { OnModuleDestroy } from "@nestjs/common";
 import { SubSink } from "subsink";
 import { take, takeUntil } from "rxjs/operators";
 import { timer } from "rxjs";
 
-export abstract class RoomGateway<T extends {}> extends RoomEventBus<T>
+export abstract class RoomGateway<T extends {}>
+  extends RoomEventBus<T>
   implements OnGatewayInit, OnModuleDestroy {
   protected abstract logger: ILogService;
   constructor() {
@@ -35,7 +36,7 @@ export abstract class RoomGateway<T extends {}> extends RoomEventBus<T>
   nsp!: Namespace;
   afterInit(nsp: Namespace) {
     this.logger.trace("afterInit");
-    this.subs.sink = this.any().subscribe(e => {
+    this.subs.sink = this.any().subscribe((e) => {
       nsp.in(e.room).emit(NSP_PARTIAL_STATE_EVENT, e);
     });
   }
@@ -48,15 +49,15 @@ export abstract class RoomGateway<T extends {}> extends RoomEventBus<T>
     this.requestRoom(room)
       .pipe(takeUntil(timer(1000)))
       .subscribe(
-        data =>
-          extractKeys(data).forEach(key =>
+        (data) =>
+          extractKeys(data).forEach((key) =>
             this.emitToClient(client, {
               room,
               type: key,
-              payload: data[key] as T[keyof T]
+              payload: data[key] as T[keyof T],
             })
           ),
-        error =>
+        (error) =>
           this.logger.warn(
             `Request by ${client.id} for room ${room} failed: ${error}`
           )

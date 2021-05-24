@@ -56,7 +56,7 @@ import { IPlatformEvents } from "../core";
         <mat-icon svgIcon="close" class="x2"></mat-icon>
       </button>
     </div>
-  `
+  `,
 })
 export class RefereeComponent implements OnInit {
   judgeNumber: number;
@@ -71,7 +71,7 @@ export class RefereeComponent implements OnInit {
       .on("decisions")
       .pipe(
         map(
-          decisions =>
+          (decisions) =>
             decisions[this.judgeNumber - 1] || JudgeDecision.NOT_DECIDED
         )
       );
@@ -80,7 +80,7 @@ export class RefereeComponent implements OnInit {
     this.clientEvents
       .emitEvent("decision", {
         d: JudgeDecision[decision] as keyof typeof JudgeDecision,
-        judgeNumber: this.judgeNumber
+        judgeNumber: this.judgeNumber,
       })
       .subscribe();
   }

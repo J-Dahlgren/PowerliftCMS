@@ -10,7 +10,7 @@ import { AppInfoService } from "../../core";
 
 @Component({
   selector: "pc-decision-input",
-  template: ""
+  template: "",
 })
 export class DecisionInputComponent extends AutoUnsubscribeComponent {
   keys: number[] = [1, 2, 3, 4, 5, 6];
@@ -25,17 +25,17 @@ export class DecisionInputComponent extends AutoUnsubscribeComponent {
         filter(
           () => !appInfo.get("requireAuthentication") || authService.isLoggedIn
         ),
-        filter(event => this.keys.includes(+event.key)),
-        map(event => this.getDecision(+event.key))
+        filter((event) => this.keys.includes(+event.key)),
+        map((event) => this.getDecision(+event.key))
       )
-      .subscribe(d => clientEvents.emitEvent("decision", d).subscribe());
+      .subscribe((d) => clientEvents.emitEvent("decision", d).subscribe());
   }
   getDecision(num: number) {
     return {
       d: JudgeDecision[
         num % 2 === 0 ? JudgeDecision.FAILED : JudgeDecision.SUCCESS
       ] as keyof typeof JudgeDecision,
-      judgeNumber: Math.floor((1 + num) / 2)
+      judgeNumber: Math.floor((1 + num) / 2),
     };
   }
 }

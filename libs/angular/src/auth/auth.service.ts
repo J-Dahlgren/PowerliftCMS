@@ -21,7 +21,7 @@ export class AuthService extends BaseApiService {
     super(opts, logService.create("AuthService"));
     this.isLoggedIn$
       .pipe(distinctUntilChanged())
-      .subscribe(isLoggedIn => this.logger.trace(`Logged in: ${isLoggedIn}`));
+      .subscribe((isLoggedIn) => this.logger.trace(`Logged in: ${isLoggedIn}`));
   }
   get isLoggedIn() {
     return !this.jwtService.isTokenExpired(this.token);
@@ -34,7 +34,7 @@ export class AuthService extends BaseApiService {
   }
   decodedToken$<T extends JwtPayload = JwtPayload>() {
     return this.token$.pipe(
-      map(token => this.jwtService.decodeToken(this.token) as T | null)
+      map((token) => this.jwtService.decodeToken(this.token) as T | null)
     );
   }
   get isLoggedIn$() {
@@ -43,7 +43,7 @@ export class AuthService extends BaseApiService {
       this.token$,
       interval(1000 * 60).pipe(map(() => this.token))
     ).pipe(
-      map(token => !this.jwtService.isTokenExpired(token)),
+      map((token) => !this.jwtService.isTokenExpired(token)),
       distinctUntilChanged()
     );
   }
@@ -54,7 +54,7 @@ export class AuthService extends BaseApiService {
   login(body: any) {
     return this.http.post<AccessToken>(`${this.path}/login`, body).pipe(
       shareReplay(),
-      tap(resp => this.storage.store(this.tokenKey, resp.access_token))
+      tap((resp) => this.storage.store(this.tokenKey, resp.access_token))
     );
   }
   logOut() {

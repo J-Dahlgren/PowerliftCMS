@@ -14,11 +14,9 @@ import { TranslateService } from "@ngx-translate/core";
 @Component({
   selector: "pc-weight-category-list",
   templateUrl: "./weight-category-list.component.html",
-  styleUrls: ["./weight-category-list.component.scss"]
+  styleUrls: ["./weight-category-list.component.scss"],
 })
-export class WeightCategoryListComponent extends PowerCompListComponent<
-  IWeightClass
-> {
+export class WeightCategoryListComponent extends PowerCompListComponent<IWeightClass> {
   constructor(
     protected editService: CompetitionEditService,
     protected entityService: WeightCategoryService,

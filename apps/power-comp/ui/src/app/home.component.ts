@@ -21,7 +21,7 @@ import { Environment } from "@pc/power-comp/shared";
         >
       </div>
     </div>
-  `
+  `,
 })
 export class HomeComponent {
   get displayIp() {

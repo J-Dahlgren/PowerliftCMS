@@ -3,10 +3,8 @@ import { HeaderService } from "@pc/angular/menu";
 
 @Component({
   selector: "pc-display-shell",
-  template: `
-    <router-outlet> </router-outlet>
-  `,
-  styles: []
+  template: ` <router-outlet> </router-outlet> `,
+  styles: [],
 })
 export class DisplayShellComponent implements OnInit, OnDestroy {
   constructor(private header: HeaderService) {}

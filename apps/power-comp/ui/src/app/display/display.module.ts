@@ -23,18 +23,18 @@ const routes: Route[] = [
     children: [
       {
         path: "lift-order",
-        component: LiftOrderComponent
+        component: LiftOrderComponent,
       },
       {
         path: "result-board",
-        component: ResultBoardComponent
+        component: ResultBoardComponent,
       },
       {
         path: "attempt-board",
-        component: AttemptBoardComponent
-      }
-    ]
-  }
+        component: AttemptBoardComponent,
+      },
+    ],
+  },
 ];
 
 @NgModule({
@@ -44,7 +44,7 @@ const routes: Route[] = [
     MaterialModule,
     CdkTableModule,
     UtilModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
   ],
   declarations: [
     PlatformTimerComponent,
@@ -56,8 +56,8 @@ const routes: Route[] = [
     ResultBoardComponent,
     AttemptBoardComponent,
     PlateLoadComponent,
-    LifterInfoComponent
+    LifterInfoComponent,
   ],
-  exports: [PlatformTimerComponent, DecisionDisplayComponent]
+  exports: [PlatformTimerComponent, DecisionDisplayComponent],
 })
 export class DisplayModule {}

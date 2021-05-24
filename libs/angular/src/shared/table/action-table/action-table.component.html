@@ -3,7 +3,7 @@
     <ng-content select="[dtTableHeader]"></ng-content>
   </div>
   <div class="table-container">
-    <table mat-table [dataSource]="dataSource" style="width: 100%;">
+    <table mat-table [dataSource]="dataSource" style="width: 100%">
       <ng-content select="[dtTableContent]"></ng-content>
 
       <ng-container matColumnDef="delete">
@@ -13,7 +13,7 @@
             mat-mini-fab
             color="warn"
             (click)="$event.stopPropagation(); deleteClick(element)"
-            style="float: right;"
+            style="float: right"
           >
             <mat-icon svgIcon="delete"> </mat-icon>
           </button>
@@ -39,7 +39,7 @@
       ></tr>
     </table>
 
-    <div style="position: sticky;bottom: 0px;">
+    <div style="position: sticky; bottom: 0px">
       <mat-paginator
         *ngIf="paginate"
         [pageSize]="!pageSize ? 50 : pageSize"

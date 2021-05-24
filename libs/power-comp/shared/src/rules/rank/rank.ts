@@ -14,7 +14,7 @@ export function getRank<T extends LifterData>(
     "gender",
     "weightCategory.name",
     "competitionMode",
-    "equipped"
+    "equipped",
   ]);
   const result: (T & IRank)[] = [];
   for (const groupKey of extractKeys(groups)) {

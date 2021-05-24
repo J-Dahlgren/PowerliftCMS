@@ -6,7 +6,7 @@ import {
   generateLiftFields,
   LiftFieldTuple,
   LiftStatus,
-  defaultWeightClasses
+  defaultWeightClasses,
 } from "@pc/power-comp/shared";
 import { names, groups } from "./generated";
 import { extractKeys } from "@pc/util";
@@ -22,16 +22,16 @@ function generateLifts() {
     lifts[key][0] = {
       status: LiftStatus.NOT_ATTEMPTED,
       requested:
-        randomIntFromInterval(80, 250) + (Math.round(Math.random()) ? 0.5 : 0)
+        randomIntFromInterval(80, 250) + (Math.round(Math.random()) ? 0.5 : 0),
     };
   }
   return { lifts };
 }
-const lifters: ILifter[] = names.map(person =>
+const lifters: ILifter[] = names.map((person) =>
   createILifter({
     ...(person as Partial<ILifter>),
     ...generateLifts(),
-    bornYear: randomIntFromInterval(1970, 2005)
+    bornYear: randomIntFromInterval(1970, 2005),
   })
 );
 
@@ -44,12 +44,12 @@ export const competitionDefaults = {
     {
       name: "P1",
       weights: defaultPlatformWeights,
-      competitionId: 1
+      competitionId: 1,
     },
     {
       name: "P2",
       weights: defaultPlatformWeights,
-      competitionId: 1
-    }
-  ]
+      competitionId: 1,
+    },
+  ],
 };

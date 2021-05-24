@@ -5,7 +5,7 @@ import {
   LiftFieldExt,
   SquatRackSettingsEnum,
   ISquatSettings,
-  IBenchPressSettings
+  IBenchPressSettings,
 } from "@pc/power-comp/shared";
 import { TranslateService } from "@ngx-translate/core";
 import { switchMap } from "rxjs/operators";
@@ -13,7 +13,7 @@ import { switchMap } from "rxjs/operators";
 @Component({
   selector: "pc-lifter-info",
   templateUrl: "./lifter-info.component.html",
-  styleUrls: ["./lifter-info.component.scss"]
+  styleUrls: ["./lifter-info.component.scss"],
 })
 export class LifterInfoComponent implements OnInit {
   @Input() lifter!: Observable<LifterData | null>;

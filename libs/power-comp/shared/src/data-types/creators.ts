@@ -16,7 +16,7 @@ export function createILifter(initial: Partial<ILifter> = {}): ILifter {
     competitionId: 0,
     gender: Gender.MALE,
     lifts: createILifts(),
-    ...initial
+    ...initial,
   };
 }
 export function createSettings(
@@ -36,7 +36,7 @@ export function getCompleteLifterInfo(
   return {
     ...lifter,
     attemptInfo: attemptInfo(lifter.lifts),
-    result: getResult(lifter)
+    result: getResult(lifter),
   };
 }
 
@@ -48,7 +48,7 @@ export function createIAttempt(initial: Partial<IAttempt> = {}): IAttempt {
 }
 export function generateLiftFields(...config: LiftField[]): ILifts {
   const fields = createILifts();
-  config.forEach(field => (fields[field] = generateLifts(3)));
+  config.forEach((field) => (fields[field] = generateLifts(3)));
   return fields;
 }
 export function generateLifts(count: number): IAttempt[] {

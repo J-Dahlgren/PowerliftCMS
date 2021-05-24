@@ -6,7 +6,7 @@ export function trimArrays<
   }
 >(target: T, cutFromStart = true) {
   const targetLength = Math.min(
-    ...extractKeys(target).map(key => target[key].length)
+    ...extractKeys(target).map((key) => target[key].length)
   );
   const result = {} as T;
   for (const key of extractKeys(target)) {

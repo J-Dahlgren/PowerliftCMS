@@ -8,7 +8,7 @@ import {
   TimerOff,
   MINUTE,
   TimerState,
-  Sink
+  Sink,
 } from "@pc/util";
 import {
   PersistentPlatformData,
@@ -24,7 +24,7 @@ import {
   LiftStatus,
   DEFAULT_TIMER,
   getRank,
-  classicRankSort
+  classicRankSort,
 } from "@pc/power-comp/shared";
 import { Injectable, Scope, Inject } from "@nestjs/common";
 import { LifterEntityService, LifterEntity } from "@pc/power-comp/entity";
@@ -36,7 +36,7 @@ import {
   map,
   skip,
   auditTime,
-  distinctUntilKeyChanged
+  distinctUntilKeyChanged,
 } from "rxjs/operators";
 import { PlatformEventService } from "./platform-event.service";
 import { IPlatformHelperService } from "./platform-helper";
@@ -81,30 +81,30 @@ export class PersistenPlatformDataStore
       this.select("activeGroupId")
     )
       .pipe(skip(1))
-      .subscribe(id => this.fetchLifters(id));
+      .subscribe((id) => this.fetchLifters(id));
 
     this.subs.sink = room
       .on("activeGroupId")
       .pipe(auditTime(50))
-      .subscribe(id => this.setActiveGroup(id || null));
+      .subscribe((id) => this.setActiveGroup(id || null));
 
-    this.$.pipe(debounceTime(200), flattenToEvent()).subscribe(e =>
+    this.$.pipe(debounceTime(200), flattenToEvent()).subscribe((e) =>
       this.eventBus.emit(this.room, e.type, e.payload)
     );
 
     this.subs.sink = this.eventBus
       .onRoomRequest(() => this.room)
-      .subscribe(req => req.receiver.next(this.getState()));
+      .subscribe((req) => req.receiver.next(this.getState()));
 
-    this.select("currentLifter").subscribe(c => this.currentLifterUpdate(c));
+    this.select("currentLifter").subscribe((c) => this.currentLifterUpdate(c));
 
     this.subs.sink = this.serverEvents
       .on("liftTimer")
       .pipe(
         distinctUntilKeyChanged("state"),
-        filter(t => t.state === "OFF")
+        filter((t) => t.state === "OFF")
       )
-      .subscribe(t => {
+      .subscribe((t) => {
         this.logger.debug(
           `Clock paused, preserving time: ${this.formatTime(
             t.remainingMillis || 0
@@ -114,7 +114,7 @@ export class PersistenPlatformDataStore
         this.latestTimerState = t.state;
       });
 
-    this.subs.sink = this.serverEvents.on("liftTimer").subscribe(t => {
+    this.subs.sink = this.serverEvents.on("liftTimer").subscribe((t) => {
       if (t.state === "ON") {
         const c = this.get("currentLifter");
         this.lock = c;
@@ -126,7 +126,7 @@ export class PersistenPlatformDataStore
 
     this.subs.sink = this.internalIn
       .on("verdict")
-      .subscribe(v => this.updateLifterFromVerdict(v));
+      .subscribe((v) => this.updateLifterFromVerdict(v));
   }
   logNewLifter(lifter: IEntity<LifterData>) {
     this.logger.info(`New lifter: ${this.getAttemptText(lifter)}`);
@@ -134,7 +134,7 @@ export class PersistenPlatformDataStore
   updateLifterFromVerdict(verdict: boolean) {
     const current = this.get("currentLifter");
     const liftName = LiftFieldTuple.find(
-      f => f === current?.attemptInfo.liftName
+      (f) => f === current?.attemptInfo.liftName
     );
     if (current && liftName && current.attemptInfo.weight) {
       const index = current.attemptInfo.attemptNumberOneIndexed - 1;
@@ -148,17 +148,19 @@ export class PersistenPlatformDataStore
       }
       this.lifterService.repo
         .save(lifter)
-        .catch(e => this.logger.error(`Error updating lifter`, e));
+        .catch((e) => this.logger.error(`Error updating lifter`, e));
     }
   }
   currentLifterUpdate(current: IEntity<LifterData> | null) {
     if (current && this.lock) {
-      const c = { id: current.id, ...current.attemptInfo } as IEntity<
-        AttemptInfo
-      >;
-      const l = { id: this.lock.id, ...this.lock.attemptInfo } as IEntity<
-        AttemptInfo
-      >;
+      const c = {
+        id: current.id,
+        ...current.attemptInfo,
+      } as IEntity<AttemptInfo>;
+      const l = {
+        id: this.lock.id,
+        ...this.lock.attemptInfo,
+      } as IEntity<AttemptInfo>;
       if (c.id !== l.id) {
         // New lifter
         this.logNewLifter(current);
@@ -214,7 +216,7 @@ export class PersistenPlatformDataStore
     this.logger.trace("Fetching lifters");
     try {
       const lifters = await this.lifterService.find({
-        where: { groupId: groupId || -1 }
+        where: { groupId: groupId || -1 },
       });
       if (groupId && !lifters.length) {
         this.logger.warn("No lifters in group");
@@ -228,11 +230,11 @@ export class PersistenPlatformDataStore
       //const preparedLifters =
       //.orderBy(["gender", "weightCategory.minExclusive", "equipped", "lot"])
       //.value();
-      this.modify(state => ({
+      this.modify((state) => ({
         ...state,
         currentLifter,
         nextLifter,
-        lifters: liftOrder
+        lifters: liftOrder,
       }));
     } catch (e) {
       this.logger.error(e?.message || e);

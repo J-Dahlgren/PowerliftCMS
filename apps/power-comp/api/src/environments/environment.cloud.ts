@@ -7,5 +7,5 @@ export const environment: IEnvironment = {
   ...defaultEnvironment,
   type: Environment.CLOUD,
   logLevel: LogLevel.info,
-  serverPort: 3334
+  serverPort: 3334,
 };

@@ -9,7 +9,7 @@
   class="menu-list-item"
 >
   <mat-icon [svgIcon]="item.iconName"></mat-icon>
-  <div style="margin-left: 10px;">
+  <div style="margin-left: 10px">
     <ng-container *ngIf="translated">
       {{ "navigation." + item.displayName | translate | titlecase }}
     </ng-container>

@@ -16,8 +16,8 @@ const ormConfig = {
       : join(storage, "db", process.env.DATABASE_NAME || "power-comp.sqlite"),
   entities: ["dist/out-tsc/libs/**/*.entity{.ts,.js}"],
   cli: {
-    migrationsDir: "apps/power-comp/api/src/assets/migration"
-  }
+    migrationsDir: "apps/power-comp/api/src/assets/migration",
+  },
 };
 console.log(ormConfig);
 module.exports = ormConfig;

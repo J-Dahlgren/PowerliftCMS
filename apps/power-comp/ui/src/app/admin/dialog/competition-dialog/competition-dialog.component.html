@@ -1,6 +1,6 @@
 <dt-generic-edit-dialog [parent]="model" [form]="form">
   <div>
-    <div [formGroup]="form" style="display: flex; flex-direction: column;">
+    <div [formGroup]="form" style="display: flex; flex-direction: column">
       <mat-form-field>
         <mat-label>{{ "competition.name" | translate | titlecase }}</mat-label>
         <input matInput formControlName="name" />
@@ -31,7 +31,7 @@
           >
             <div
               *ngIf="gender === classGroup.get('gender')?.value"
-              style="display: flex; flex-direction: column;"
+              style="display: flex; flex-direction: column"
             >
               <ng-container *ngIf="classGroup.value as groupValue">
                 <mat-checkbox formControlName="active">

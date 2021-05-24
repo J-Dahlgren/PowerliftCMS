@@ -12,7 +12,7 @@ export class LogService {
       this.logLevel = LogLevel.off;
     }
     this.create("LogServiceFactory");
-    this.reportStream.subscribe(event => this.logBuffer.add(event));
+    this.reportStream.subscribe((event) => this.logBuffer.add(event));
   }
   get log$() {
     return this.reportStream.asObservable();

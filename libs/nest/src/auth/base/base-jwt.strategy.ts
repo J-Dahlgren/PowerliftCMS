@@ -7,7 +7,7 @@ export abstract class BaseJwtStrategy extends PassportStrategy(Strategy) {
     super({
       jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
       ignoreExpiration: false,
-      secretOrKey: secret
+      secretOrKey: secret,
     });
   }
   abstract validate(payload: any): Promise<any>;

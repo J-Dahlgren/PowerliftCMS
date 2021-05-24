@@ -58,7 +58,7 @@ export abstract class BaseCrudApiService<T extends object>
   protected errorTap<K>() {
     return tap<K>(
       () => {},
-      err => this.logger.error(err?.message ?? "An error occurred")
+      (err) => this.logger.error(err?.message ?? "An error occurred")
     );
   }
 }

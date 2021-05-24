@@ -8,7 +8,7 @@
       }}
     </h2>
     <mat-dialog-content>
-      <form [formGroup]="form" id="gForm" style="margin: 10px 5px;">
+      <form [formGroup]="form" id="gForm" style="margin: 10px 5px">
         <ng-content></ng-content>
       </form>
     </mat-dialog-content>
@@ -32,8 +32,8 @@
     </mat-dialog-actions>
   </ng-container>
   <!-- If user is loaded show the form, else show the loading template -->
-  <div style="text-align: center;">
-    <div style="display: inline-block;">
+  <div style="text-align: center">
+    <div style="display: inline-block">
       <mat-spinner *ngIf="loading$ | async" mode="indeterminate"></mat-spinner>
     </div>
   </div>

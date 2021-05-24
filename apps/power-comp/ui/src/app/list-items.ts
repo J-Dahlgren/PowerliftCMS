@@ -4,7 +4,7 @@ export const navItems: NavItem[] = [
   {
     displayName: "admin",
     iconName: "cog",
-    route: "/competition"
+    route: "/competition",
   },
   {
     displayName: "display",
@@ -13,33 +13,33 @@ export const navItems: NavItem[] = [
       {
         displayName: "display.main-result",
         iconName: "",
-        route: "display/result-board"
+        route: "display/result-board",
       },
       {
         displayName: "display.lift-order",
         iconName: "",
-        route: "display/lift-order"
+        route: "display/lift-order",
       },
       {
         displayName: "display.attempt-board",
         iconName: "",
-        route: "display/attempt-board"
-      }
-    ]
+        route: "display/attempt-board",
+      },
+    ],
   },
   {
     displayName: "refereeing",
     iconName: "gavel",
-    route: "/refereeing"
+    route: "/refereeing",
   },
   {
     displayName: "secretariat",
     iconName: "tablet-dashboard",
-    route: "/secretariat"
+    route: "/secretariat",
   },
   {
     displayName: "timekeeper",
     iconName: "timer",
-    route: "/timekeeper"
-  }
+    route: "/timekeeper",
+  },
 ];

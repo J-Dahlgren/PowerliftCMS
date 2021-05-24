@@ -3,7 +3,7 @@ import {
   ConnectedSocket,
   OnGatewayInit,
   SubscribeMessage,
-  MessageBody
+  MessageBody,
 } from "@nestjs/websockets";
 import { Namespace, Socket } from "socket.io";
 import {
@@ -13,12 +13,13 @@ import {
   NSP_PARTIAL_STATE_EVENT,
   RoomBus,
   ILogService,
-  RoomEvent
+  RoomEvent,
 } from "@pc/util";
 import { OnModuleDestroy } from "@nestjs/common";
 import { SubSink } from "subsink";
 
-export abstract class RoomEventGateway<T extends {}> extends RoomEventBus<T>
+export abstract class RoomEventGateway<T extends {}>
+  extends RoomEventBus<T>
   implements OnGatewayInit, OnModuleDestroy {
   protected abstract logger: ILogService;
   constructor() {

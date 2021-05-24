@@ -8,7 +8,7 @@ import { LogLevel } from "@pc/util";
 
 export const environment: IEnvironment = {
   ...defaultEnvironment,
-  logLevel: LogLevel.trace
+  logLevel: LogLevel.trace,
 };
 /*
  * For easier debugging in development mode, you can import the following file

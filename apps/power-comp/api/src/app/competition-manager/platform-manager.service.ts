@@ -4,12 +4,12 @@ import { ILogService, RoomEventBus } from "@pc/util";
 import {
   PlatformEntityService,
   PlatformEntity,
-  CompetitionEntityService
+  CompetitionEntityService,
 } from "@pc/power-comp/entity";
 import { ModuleRef } from "@nestjs/core";
 import {
   PlatformSessionService,
-  IPlatformSessionService
+  IPlatformSessionService,
 } from "./platform-session.service";
 import { SubSink } from "subsink";
 import { remove } from "lodash";
@@ -17,7 +17,8 @@ import { auditTime, filter } from "rxjs/operators";
 import { IPlatformData } from "@pc/power-comp/shared";
 
 @Injectable()
-export class PlatformManagerService extends RoomEventBus<IPlatformData>
+export class PlatformManagerService
+  extends RoomEventBus<IPlatformData>
   implements OnModuleInit, OnModuleDestroy {
   private subs = new SubSink();
   readonly platforms: IPlatformSessionService[] = [];
@@ -36,13 +37,13 @@ export class PlatformManagerService extends RoomEventBus<IPlatformData>
     // Pre-fetch all platforms
     this.pService
       .find()
-      .then(platforms =>
-        platforms.forEach(platform => this.createPlatformService(platform))
+      .then((platforms) =>
+        platforms.forEach((platform) => this.createPlatformService(platform))
       );
     // Create platform when inserted
     this.subs.sink = this.pService.stream
       .on("insert")
-      .subscribe(inserted => this.createPlatformService(inserted.entity));
+      .subscribe((inserted) => this.createPlatformService(inserted.entity));
 
     // Remove platform when deleted
     this.subs.sink = this.pService.stream
@@ -50,11 +51,11 @@ export class PlatformManagerService extends RoomEventBus<IPlatformData>
       .pipe(auditTime(500)) // Platforms are self-terminating, use auditTime to remove in chunks
       .subscribe(() => this.cleanInactivePlatforms());
 
-    this.subs.sink = this.cService.stream.on("update").subscribe(c => {
+    this.subs.sink = this.cService.stream.on("update").subscribe((c) => {
       if (!c.entity.active) {
         this.platforms
-          .filter(p => p.entity.competitionId === c.entity.id)
-          .forEach(p => p.terminate());
+          .filter((p) => p.entity.competitionId === c.entity.id)
+          .forEach((p) => p.terminate());
         this.cleanInactivePlatforms();
       } else {
         this.createMissingPlatformsForCompetition(c.entity.id);
@@ -65,7 +66,7 @@ export class PlatformManagerService extends RoomEventBus<IPlatformData>
   private createMissingPlatformsForCompetition(id: number) {
     this.pService
       .find({ where: { competitionId: id } })
-      .then(ps => ps.forEach(p => this.createPlatformService(p)));
+      .then((ps) => ps.forEach((p) => this.createPlatformService(p)));
   }
 
   onModuleDestroy() {
@@ -75,7 +76,7 @@ export class PlatformManagerService extends RoomEventBus<IPlatformData>
   private async createPlatformService(platform: PlatformEntity) {
     try {
       const service = await this.moduleRef.resolve(PlatformSessionService);
-      if (!this.platforms.find(p => p.entity.id === platform.id)) {
+      if (!this.platforms.find((p) => p.entity.id === platform.id)) {
         this.platforms.push(service.init(platform));
       }
     } catch (e) {
@@ -84,7 +85,7 @@ export class PlatformManagerService extends RoomEventBus<IPlatformData>
   }
 
   private cleanInactivePlatforms() {
-    const removed = remove(this.platforms, p => !p.active);
+    const removed = remove(this.platforms, (p) => !p.active);
     this.logger.trace(`Removed ${removed.length} platforms`);
   }
 }

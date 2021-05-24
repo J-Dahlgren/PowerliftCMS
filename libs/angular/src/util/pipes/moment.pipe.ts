@@ -3,7 +3,7 @@ import * as momentImported from "moment";
 const moment = momentImported;
 
 @Pipe({
-  name: "moment"
+  name: "moment",
 })
 export class MomentPipe implements PipeTransform {
   transform(value: Date | number | momentImported.Moment, ...args: any[]): any {

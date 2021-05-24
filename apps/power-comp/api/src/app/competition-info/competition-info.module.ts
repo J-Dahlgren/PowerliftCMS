@@ -15,15 +15,15 @@ import { join } from "path";
   imports: [
     ApiModule,
     MulterModule.register({
-      dest: join(configuration().storageLocation, "upload")
-    })
+      dest: join(configuration().storageLocation, "upload"),
+    }),
   ],
   controllers: [
     CompetitionInfoController,
     DownloadController,
-    UploadController
+    UploadController,
   ],
   providers: [CompetitionInfoService, DownloadService, UploadService],
-  exports: []
+  exports: [],
 })
 export class CompetitionInfoModule {}

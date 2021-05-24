@@ -6,7 +6,7 @@ import {
   LiftField,
   LiftStatus,
   LiftFieldTuple,
-  AttemptInfo
+  AttemptInfo,
 } from "@pc/power-comp/shared";
 import { ApiProperty } from "@nestjs/swagger";
 
@@ -49,7 +49,7 @@ export class Lifts implements ILifts {
           return new AttemptInfo({
             weight: attempt.requestedWeight(),
             liftName: field,
-            attemptNumberOneIndexed: i + 1
+            attemptNumberOneIndexed: i + 1,
           });
         }
       }

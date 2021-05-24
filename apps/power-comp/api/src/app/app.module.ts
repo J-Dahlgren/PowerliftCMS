@@ -18,7 +18,7 @@ const imports = [
   ConfigModule.forRoot({
     isGlobal: true,
     envFilePath: "power-comp.env",
-    load: [configuration]
+    load: [configuration],
   }),
   TypeOrmModule.forRoot({
     type: "sqlite",
@@ -26,14 +26,14 @@ const imports = [
     database: configuration().database.name,
     synchronize: configuration().database.synchronize,
     migrationsRun: configuration().database.runMigrations,
-    migrations: environment.migrations
+    migrations: environment.migrations,
   }),
   CustomLoggerModule.forRoot(LogLevel[configuration().logLevel]),
   SimpleAuthModule.forRoot(configuration().auth),
   PlatformManagerModule,
   CompetitionInfoModule,
   ApiModule,
-  SocketModule
+  SocketModule,
 ];
 
 if (
@@ -48,7 +48,7 @@ if (
     ServeStaticModule.forRoot({
       rootPath: join(process.cwd(), path),
       renderPath: "*",
-      exclude: ["/api/(.*)"]
+      exclude: ["/api/(.*)"],
     })
   );
 }
@@ -56,6 +56,6 @@ if (
 @Module({
   imports,
   controllers: [],
-  providers: []
+  providers: [],
 })
 export class AppModule {}

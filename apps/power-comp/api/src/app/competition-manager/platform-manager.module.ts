@@ -4,7 +4,7 @@ import {
   PlatformModule,
   LifterModule,
   GroupModule,
-  CompetitionModule
+  CompetitionModule,
 } from "@pc/power-comp/entity";
 import { PlatformEventController } from "./platform-event.controller";
 import { PlatformEventService } from "./platform-event.service";
@@ -22,7 +22,7 @@ import { InternalEventBus } from "./internal-event-bus";
     PlatformModule,
     LifterModule,
     CoreModule,
-    GroupModule
+    GroupModule,
   ],
   providers: [
     InternalEventBus,
@@ -31,8 +31,8 @@ import { InternalEventBus } from "./internal-event-bus";
     DecisionService,
     PlatformManagerService,
     PlatformEventService,
-    PlatformSessionService
+    PlatformSessionService,
   ],
-  exports: [PlatformManagerService, PlatformEventService]
+  exports: [PlatformManagerService, PlatformEventService],
 })
 export class PlatformManagerModule {}

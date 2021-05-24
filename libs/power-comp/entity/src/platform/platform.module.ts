@@ -9,6 +9,6 @@ import { PlatformEntityService } from "./platform-entity.service";
   imports: [TypeOrmModule.forFeature([PlatformEntity])],
   controllers: [PlatformController],
   providers: [PlatformEntityService, PlatformEntitySubscriber],
-  exports: [PlatformEntityService]
+  exports: [PlatformEntityService],
 })
 export class PlatformModule {}

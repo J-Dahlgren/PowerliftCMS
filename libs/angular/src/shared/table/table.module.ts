@@ -10,6 +10,6 @@ import { CommonModule } from "@angular/common";
 @NgModule({
   imports: [CommonModule, MaterialModule, UtilModule, MatPaginatorModule],
   declarations: [ActionTableComponent, TableHeader, TableContent],
-  exports: [ActionTableComponent, TableHeader, TableContent]
+  exports: [ActionTableComponent, TableHeader, TableContent],
 })
 export class TableModule {}
