@@ -4,9 +4,9 @@ COPY . .
 
 RUN npm install
 
-RUN npx nx build power-comp-ui --configuration=cloud
+RUN npx nx run power-comp-ui:build:cloud
 
-RUN npx nx build power-comp-api --configuration=cloud
+RUN npx nx run power-comp-api:build:cloud
 
 RUN npm prune --production
 
