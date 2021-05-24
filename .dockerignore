@@ -6,6 +6,7 @@ node_modules
 upload/*
 
 tools
+!tools/i18n
 coverage
 docs
 dist

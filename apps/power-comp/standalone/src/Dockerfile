@@ -8,6 +8,8 @@ RUN npx nx run power-comp-ui:build:cloud
 
 RUN npx nx run power-comp-api:build:cloud
 
+RUN ls dist/apps/power-comp/ui/assets -l
+
 RUN npm prune --production
 
 FROM node:14-alpine as dist
