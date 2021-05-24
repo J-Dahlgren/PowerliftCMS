@@ -70,12 +70,12 @@ export class LifterListComponent
     this.filters.modify({
       groupId: +params.groupId || null,
       notWeighedIn: params.notWeighedIn === "true",
-    });    
-    this.filters.$.pipe(
-      skip(1),
-      debounceTime(100)
-    ).subscribe(({ groupId, notWeighedIn }) =>
-      router.navigate([], { queryParams: { groupId, notWeighedIn } })
+    });
+    this.filters.$.pipe(skip(1), debounceTime(100)).subscribe(
+      ({ groupId, notWeighedIn }) =>
+        router.navigate([], {
+          queryParams: { groupId, notWeighedIn: notWeighedIn || undefined },
+        })
     );
     this.subs.sink = this.refresh$
       .pipe(
@@ -115,13 +115,11 @@ export class LifterListComponent
         groupId,
       });
     }
-    console.log(notWeighedIn);
     if (notWeighedIn) {
       queryBuilder.search({
-        bodyWeight: { $isnull: true },
+        bodyWeight: notWeighedIn ? { $isnull: true } : undefined,
       });
     }
-
     return queryBuilder.setJoin({ field: "group" });
   }
   changeGroup(lifter: IEntity<ILifter>, group: IEntity<IGroup> | undefined) {

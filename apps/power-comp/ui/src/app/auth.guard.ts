@@ -6,8 +6,8 @@ import {
   RouterStateSnapshot,
 } from "@angular/router";
 import { AuthService } from "@pc/angular/auth";
-import { timer } from "rxjs";
-import { filter, takeUntil } from "rxjs/operators";
+
+import { debounceTime, map, take, tap } from "rxjs/operators";
 import { AppInfoService } from "./core";
 
 @Injectable({ providedIn: "root" })
@@ -25,17 +25,20 @@ export class AuthGuard implements CanActivate {
     ) {
       return true;
     }
-
-    this.appInfo
-      .select("requireAuthentication")
-      .pipe(
-        takeUntil(timer(1000)),
-        filter((requireAuth) => !requireAuth)
-      )
-      .subscribe(() => this.router.navigate([state.url]));
-
-    // not logged in so redirect to login page with the return url
-    this.router.navigate(["/login"], { queryParams: { returnUrl: state.url } });
-    return false;
+    // This solves initial navigation when AppInfo hasn't been synced
+    return this.appInfo.select("requireAuthentication").pipe(
+      map(
+        (requireAuth) => !requireAuth || this.authenticationService.isLoggedIn
+      ),
+      debounceTime(200),
+      take(1),
+      tap((allow) => {
+        if (!allow) {
+          this.router.navigate(["/login"], {
+            queryParams: { returnUrl: state.url },
+          });
+        }
+      })
+    );
   }
 }
