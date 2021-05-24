@@ -30,7 +30,10 @@ import { UploadService } from "../../core/api/upload.service";
 export class LifterListComponent
   extends PowerCompListComponent<ILifter, LifterListFilters>
   implements AfterViewInit {
-  filters = new StateStore<LifterListFilters>({ groupId: null });
+  filters = new StateStore<LifterListFilters>({
+    groupId: null,
+    notWeighedIn: false,
+  });
   textFilter: string = "";
   columns = [
     "lot",
@@ -64,10 +67,15 @@ export class LifterListComponent
   ) {
     super();
     const params = route.snapshot.queryParams;
-
-    this.filters.set("groupId", +params.groupId || null);
-    this.filters.$.pipe(skip(1), debounceTime(100)).subscribe(({ groupId }) =>
-      router.navigate([], { queryParams: { groupId } })
+    this.filters.modify({
+      groupId: +params.groupId || null,
+      notWeighedIn: params.notWeighedIn === "true",
+    });    
+    this.filters.$.pipe(
+      skip(1),
+      debounceTime(100)
+    ).subscribe(({ groupId, notWeighedIn }) =>
+      router.navigate([], { queryParams: { groupId, notWeighedIn } })
     );
     this.subs.sink = this.refresh$
       .pipe(
@@ -100,12 +108,20 @@ export class LifterListComponent
   protected queryBuilder(
     queryBuilder: RequestQueryBuilder
   ): RequestQueryBuilder {
-    const groupId = this.filters.get("groupId");
+    const { groupId, notWeighedIn } = this.filters.state;
+
     if (groupId !== null) {
       queryBuilder.search({
         groupId,
       });
     }
+    console.log(notWeighedIn);
+    if (notWeighedIn) {
+      queryBuilder.search({
+        bodyWeight: { $isnull: true },
+      });
+    }
+
     return queryBuilder.setJoin({ field: "group" });
   }
   changeGroup(lifter: IEntity<ILifter>, group: IEntity<IGroup> | undefined) {
@@ -122,7 +138,7 @@ export class LifterListComponent
     return `${entity.firstname} ${entity.lastname}`;
   }
   clearFilters() {
-    this.filters.modify(() => ({ groupId: null }));
+    this.filters.modify(() => ({ groupId: null, notWeighedIn: false }));
     this.applyTextFilter("");
   }
   drawLot() {

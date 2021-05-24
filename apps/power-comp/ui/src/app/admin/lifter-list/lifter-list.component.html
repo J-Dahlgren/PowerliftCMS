@@ -16,6 +16,13 @@
     <button mat-raised-button (click)="drawLot()">
       {{ "lifter.draw-lot" | translate }}
     </button>
+    <mat-checkbox
+      
+      (change)="filters.set('notWeighedIn', $event.checked)"
+      [checked]="!!(filters.select('notWeighedIn') | async)"
+      
+      >Not Weighed in</mat-checkbox
+    >
     <!-- Group filter -->
     <mat-form-field appearance="outline" color="accent">
       <mat-label>{{ "filter.group" | translate }}</mat-label>
