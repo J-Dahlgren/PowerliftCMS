@@ -33,7 +33,11 @@ export class GenericEditDialogComponent<T extends object> implements OnInit {
           this.parent.save().pipe(
             tap(
               (entity) => {
-                this.snackBar.open("Saved", "accent", 2500);
+                this.snackBar.openTranslate(
+                  "notification.saved",
+                  "accent",
+                  2500
+                );
                 this.parent.dialogRef.close(entity);
               },
               (e) => {
