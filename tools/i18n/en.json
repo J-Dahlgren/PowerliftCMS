@@ -161,6 +161,7 @@
   "weight-category.short": "Cat.",
   "welcome.author": "Author",
   "welcome.ip-notice": "The server is accessible on the following IP adresses",
+  "welcome.source-code": "Source code",
   "welcome.title": "Welcome to Power Comp",
   "yes": "Yes"
 }
