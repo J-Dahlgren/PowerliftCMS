@@ -1,4 +1,4 @@
-import { Controller, Get, Param, Header, Res } from "@nestjs/common";
+import { Controller, Get, Param, Header, Res, Query } from "@nestjs/common";
 import { api } from "@pc/power-comp/shared";
 import { ApiTags } from "@nestjs/swagger";
 import { DownloadService } from "./download.service";
@@ -16,9 +16,13 @@ export class DownloadController {
   )
   async groupProtocol(
     @Param("groupId") groupId: number,
-    @Res() response: Response
+    @Res() response: Response,
+    @Query("language") language?: string
   ) {
-    const buffer = await this.downloadService.generateGroupProtocol(groupId);
+    const buffer = await this.downloadService.generateGroupProtocol(
+      groupId,
+      language
+    );
     response.send(buffer);
     response.end();
   }
@@ -32,7 +36,10 @@ export class DownloadController {
     "Content-Type",
     "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
   )
-  async registrationTemplate(@Res() response: Response) {
+  async registrationTemplate(
+    @Res() response: Response,
+    @Query("language") language?: string
+  ) {
     const buffer = await this.downloadService.getRegistrationTemplate();
     response.send(buffer);
     response.end();

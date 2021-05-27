@@ -7,7 +7,7 @@ import { DownloadController } from "./download.controller";
 import { UploadController } from "./upload.controller";
 import { UploadService } from "./upload.service";
 import { MulterModule } from "@nestjs/platform-express";
-
+import { TranslateService } from "@pc/nest";
 import configuration from "../configuration";
 import { join } from "path";
 
@@ -23,7 +23,12 @@ import { join } from "path";
     DownloadController,
     UploadController,
   ],
-  providers: [CompetitionInfoService, DownloadService, UploadService],
+  providers: [
+    TranslateService,
+    CompetitionInfoService,
+    DownloadService,
+    UploadService,
+  ],
   exports: [],
 })
 export class CompetitionInfoModule {}

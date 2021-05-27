@@ -36,6 +36,9 @@ export class LanguageService {
       );
     }
   }
+  public get selected() {
+    return this.store.state.selected;
+  }
   public setLanguage(lang: LanguageCode) {
     this.store.set("selected", lang);
     this.lsService.store("LANGUAGE", lang);

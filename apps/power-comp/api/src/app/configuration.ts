@@ -8,6 +8,7 @@ export default () => {
   const defaultStorageLocation = join(homedir(), "power-comp");
   const storage = process.env.STORAGE_PATH || defaultStorageLocation;
   const inMemoryDB = process.env.DATABASE_NAME === ":memory:";
+  const isDev = environment.type === Environment.DEVELOP;
   return {
     port: process.env.PORT || environment.serverPort,
     storageLocation: process.env.STORAGE_PATH || defaultStorageLocation,
@@ -27,6 +28,11 @@ export default () => {
       runMigrations: !inMemoryDB && environment.type !== Environment.STANDALONE,
       synchronize: inMemoryDB || environment.type === Environment.STANDALONE,
     },
+    translation: {
+      dir: join(isDev ? "tools" : environment.uiAssetsDir, "i18n"),
+      defaultLanguage: "en", // TODO: Change
+    },
+
     logLevel:
       (process.env.LOG_LEVEL as keyof typeof LogLevel | undefined) ||
       (LogLevel[environment.logLevel] as keyof typeof LogLevel),

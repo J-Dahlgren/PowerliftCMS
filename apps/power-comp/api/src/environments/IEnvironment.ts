@@ -6,6 +6,6 @@ export interface IEnvironment {
   serverPort: number;
   defaultDatabase: string;
   migrations: string[];
-  assetsDir: string;
+  uiAssetsDir: string;
   availableLanguages: string[];
 }

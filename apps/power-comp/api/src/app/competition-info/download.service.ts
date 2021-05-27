@@ -13,6 +13,7 @@ import { promisify } from "util";
 import { readFile, writeFile } from "fs";
 import XlsxTemplate from "xlsx-template";
 import moment from "moment";
+import { TranslateService } from "@pc/nest";
 
 const readFileAsync = promisify(readFile);
 
@@ -25,15 +26,17 @@ const assetsFolder =
 export class DownloadService {
   constructor(
     @LogInject("DownloadService") private logger: ILogService,
-    private groupService: GroupEntityService
+    private groupService: GroupEntityService,
+    private translate: TranslateService
   ) {
     logger.trace("Created");
     logger.debug(`Assets folder: ${assetsFolder}`);
   }
-  async generateGroupProtocol(groupId: number) {
+  async generateGroupProtocol(groupId: number, language?: string) {
     const file = await readFileAsync(
       `${assetsFolder}/templates/ProtocolSheetTemplate_en.xlsx`
     );
+    const translations = await this.translate.getTranslation(language);
     const template = new XlsxTemplate(file);
     const group = await this.groupService.findOne(groupId, {
       relations: ["competition", "lifters"],
@@ -62,9 +65,8 @@ export class DownloadService {
           result[field][index + 1] = strWeight;
         });
       }
-      result.competitionMode = `${l.competitionMode || "SBD"}${
-        l.equipped ? "-E" : ""
-      }`;
+      const mode = `${l.competitionMode || "SBD"}${l.equipped ? "-E" : ""}`;
+      result.competitionMode = translations[`competition-mode.${mode}`];
       if (result.result) {
         result.result.total = l.result.total || undefined;
       }
@@ -80,6 +82,7 @@ export class DownloadService {
           ? moment(group.competitionTime).format("YYYY-MM-DD hh:mm")
           : undefined,
       },
+      t: translations,
     } as { [key: string]: any };
 
     template.substitute(1, values);
