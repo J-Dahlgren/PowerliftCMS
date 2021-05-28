@@ -27,9 +27,11 @@ export class DownloadService extends BaseApiService {
       .pipe(this.errorTap());
   }
   getRegistrationTemplate() {
+    const language = this.languageService.selected.language;
     return this.http
       .get(`${this.path}/${api.download.registration}`, {
         responseType: "arraybuffer",
+        params: { language },
       })
       .pipe(this.errorTap());
   }

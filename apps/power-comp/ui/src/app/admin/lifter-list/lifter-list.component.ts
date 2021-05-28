@@ -4,7 +4,7 @@ import { StateStore, IEntity, Constructor } from "@pc/util";
 import { LifterService, GroupService, DownloadService } from "../../core";
 import { RequestQueryBuilder } from "@nestjsx/crud-request";
 import { CompetitionEditService } from "../competition-edit.service";
-import { ModalService, EditDialog } from "@pc/angular/shared";
+import { ModalService, EditDialog, LanguageService } from "@pc/angular/shared";
 import { PcDialogOptions, LifterDialogComponent } from "../dialog";
 import { PowerCompListComponent } from "../power-comp-list.component";
 import {
@@ -62,6 +62,7 @@ export class LifterListComponent
     protected translate: TranslateService,
     protected downloadService: DownloadService,
     protected upload: UploadService,
+    private language: LanguageService,
     router: Router,
     route: ActivatedRoute
   ) {
@@ -152,7 +153,10 @@ export class LifterListComponent
   }
   download() {
     this.downloadService.getRegistrationTemplate().subscribe((data) => {
-      createFileDownload(data, `RegistrationTemplate_en.xlsx`);
+      createFileDownload(
+        data,
+        `RegistrationTemplate_${this.language.selected.language}.xlsx`
+      );
     });
   }
 

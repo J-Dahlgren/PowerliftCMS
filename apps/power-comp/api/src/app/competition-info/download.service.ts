@@ -9,13 +9,11 @@ import {
   getRank,
   classicRankSort,
 } from "@pc/power-comp/shared";
-import { promisify } from "util";
-import { readFile, writeFile } from "fs";
+import { promises as fs } from "fs";
 import XlsxTemplate from "xlsx-template";
 import moment from "moment";
 import { TranslateService } from "@pc/nest";
-
-const readFileAsync = promisify(readFile);
+import { ConfigService } from "@nestjs/config";
 
 const assetsFolder =
   environment.type === Environment.STANDALONE
@@ -27,13 +25,14 @@ export class DownloadService {
   constructor(
     @LogInject("DownloadService") private logger: ILogService,
     private groupService: GroupEntityService,
-    private translate: TranslateService
+    private translate: TranslateService,
+    private config: ConfigService
   ) {
     logger.trace("Created");
     logger.debug(`Assets folder: ${assetsFolder}`);
   }
   async generateGroupProtocol(groupId: number, language?: string) {
-    const file = await readFileAsync(
+    const file = await fs.readFile(
       `${assetsFolder}/templates/ProtocolSheetTemplate_en.xlsx`
     );
     const translations = await this.translate.getTranslation(language);
@@ -89,9 +88,19 @@ export class DownloadService {
     const buffer = template.generate({ type: "nodebuffer" });
     return buffer;
   }
-  async getRegistrationTemplate() {
-    return readFileAsync(
+  async getRegistrationTemplate(language?: string) {
+    const file = await fs.readFile(
       `${assetsFolder}/templates/RegistrationTemplate_en.xlsx`
     );
+
+    const translations = await this.translate.getTranslation(language);
+    const template = new XlsxTemplate(file);
+    const defaultLang = this.config.get("translation.defaultLanguage");
+    template.substitute(1, {
+      t: translations,
+      language: language || defaultLang,
+    });
+    const buffer = template.generate({ type: "nodebuffer" });
+    return buffer;
   }
 }

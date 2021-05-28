@@ -20,6 +20,7 @@ import { MatSort } from "@angular/material/sort";
 import { DownloadService } from "../../core";
 import { createFileDownload } from "@pc/angular/util";
 import moment from "moment";
+import { LanguageService } from "@pc/angular/shared";
 type ResultData = LifterData & IRank;
 
 @Component({
@@ -63,6 +64,7 @@ export class ResultListComponent implements OnInit, AfterViewInit {
     private competitionInfoService: CompetitionInfoService,
     private editService: CompetitionEditService,
     private downloadService: DownloadService,
+    private language: LanguageService,
     groupService: GroupService
   ) {
     this.elements$ = merge(this.refresh$, this.filters.$).pipe(
@@ -122,7 +124,7 @@ export class ResultListComponent implements OnInit, AfterViewInit {
           data,
           `Result_${group.name}_${moment(Date.now()).format(
             "YYYYMMDD_HH_mm_ss"
-          )}.xlsx`
+          )}_${this.language.selected.language}.xlsx`
         );
       });
     }
