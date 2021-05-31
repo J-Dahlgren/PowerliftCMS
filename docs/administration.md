@@ -52,5 +52,5 @@ Here you can alter which weight categories are enabled and the different limits 
 ### Results
 
 View of the results and IPF-GL score of all lifters in the competition. You can also filter lifters based on their group and age category.
-Exporting the results to an .xlsx file is enabled when a group has been selected.
+Exporting the results to an .xlsx file is enabled when a group has been selected. The text of the exported file will be in the same language as the currently selected language.
 ![](images/admin/result-list.png)

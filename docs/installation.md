@@ -73,3 +73,9 @@ If the application is hosted and accessible from anywhere in the world, it is re
 `JWT_SECRET = "s0m3-l0ng-@nd-compl!cted-5ecr3t"` and serving the application over HTTPS. Nobody is ever required to enter this secret anywhere.
 
 If `JWT_SECRET` is not set, `PASSWORD` will be used as `JWT_SECRET` making the application less secure as anyone with the password can issue JWTs unhindered.
+
+### `LANGUAGE_RESTRICTION`
+
+It is possible to restrict client language to a single one and removes the ability to change it.
+
+Available languages are: `"en"` (english) and `"sv"` (svenska).
