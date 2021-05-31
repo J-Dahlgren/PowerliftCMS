@@ -4,7 +4,9 @@
       *ngFor="let decision of decisions$ | async"
       class="decision"
       [class.white]="decision === 'SUCCESS'"
-      [class.red]="decision === 'FAILED'"
+      [class.red]="decision === 'FAILED_RED'"
+      [class.failed_blue]="decision === 'FAILED_BLUE'"
+      [class.yellow]="decision === 'FAILED_YELLOW'"
     ></div>
   </ng-container>
 </div>

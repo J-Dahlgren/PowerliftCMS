@@ -1,7 +1,9 @@
 export enum JudgeDecision {
   NOT_DECIDED,
   SUCCESS,
-  FAILED,
+  FAILED_RED,
+  FAILED_BLUE,
+  FAILED_YELLOW,
 }
 
 export function majorityApprove(decisions: JudgeDecision[]) {
@@ -11,7 +13,7 @@ export function majorityApprove(decisions: JudgeDecision[]) {
       ApproveCount++;
     }
   }
-  return ApproveCount > Math.floor(decisions.length / 2);
+  return ApproveCount >= Math.ceil(decisions.length / 2);
 }
 export function allHasDecided(decisions: JudgeDecision[]): boolean {
   return decisions.length
@@ -25,6 +27,6 @@ export function majorityHasDecided(decisions: JudgeDecision[]): boolean {
       decideCount++;
     }
   }
-  const majority = Math.floor(decisions.length / 2);
-  return decideCount > majority;
+  const majority = Math.ceil(decisions.length / 2);
+  return decideCount >= majority;
 }

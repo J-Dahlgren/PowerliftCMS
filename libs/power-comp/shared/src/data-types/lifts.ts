@@ -28,7 +28,6 @@ export const Disc: {
   done: 0,
 };
 export enum LiftStatus {
-  //FAILED_NOT_TAKEN = -2,
   FAILED = -1,
   NOT_ATTEMPTED = 0,
   SUCCESSFUL = 1,

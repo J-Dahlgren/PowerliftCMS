@@ -52,7 +52,7 @@ export class DecisionService
 
     // Secretariat decision
     this.subs.sink = clientEventsIn.on("secretariatDecision").subscribe((v) => {
-      const decision = v ? JudgeDecision.SUCCESS : JudgeDecision.FAILED;
+      const decision = v ? JudgeDecision.SUCCESS : JudgeDecision.FAILED_RED;
       this.logger.info(`Decision from secretariat: ${JudgeDecision[decision]}`);
 
       const decisions = this.get("decisions").map(() => decision);

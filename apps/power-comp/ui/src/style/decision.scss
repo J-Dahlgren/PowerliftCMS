@@ -1,0 +1,14 @@
+$failedBlue: #5659f0;
+$failedYellow: yellow;
+.failed_blue {
+  color: black;
+  background-color: $failedBlue;
+}
+.failed_yellow {
+  background-color: $failedYellow;
+  color: black;
+}
+.decision_success {
+  background-color: white;
+  color: black;
+}

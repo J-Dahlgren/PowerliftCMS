@@ -33,7 +33,7 @@ export class DecisionInputComponent extends AutoUnsubscribeComponent {
   getDecision(num: number) {
     return {
       d: JudgeDecision[
-        num % 2 === 0 ? JudgeDecision.FAILED : JudgeDecision.SUCCESS
+        num % 2 === 0 ? JudgeDecision.FAILED_RED : JudgeDecision.SUCCESS
       ] as keyof typeof JudgeDecision,
       judgeNumber: Math.floor((1 + num) / 2),
     };

@@ -11,10 +11,10 @@ import { IPlatformEvents } from "../core";
   template: `
     <style>
       .x2 {
-        transform: scale(3);
+        transform: scale(2);
       }
       .buttons {
-        padding: 30px;
+        padding: 10px;
         height: 100%;
         & > button {
           max-height: 250px;
@@ -22,7 +22,7 @@ import { IPlatformEvents } from "../core";
       }
     </style>
     <div
-      fxLayoutGap="50px"
+      fxLayoutGap="30px"
       fxLayout="column"
       fxLayout.gt-xs="row"
       class="buttons"
@@ -30,7 +30,7 @@ import { IPlatformEvents } from "../core";
       <button
         fxFlex
         mat-raised-button
-        color="primary"
+        class="decision_success"
         (click)="goodLift()"
         [disabled]="(currentDecision$ | async) === 1"
       >
@@ -39,10 +39,9 @@ import { IPlatformEvents } from "../core";
       <button
         fxFlex
         mat-raised-button
-        color="accent"
         (click)="reset()"
         [disabled]="!(currentDecision$ | async)"
-        style="font-size: 1.5em;"
+        style="font-size: 1em;"
       >
         {{ "decision.reset" | translate }}
       </button>
@@ -52,6 +51,24 @@ import { IPlatformEvents } from "../core";
         color="warn"
         (click)="noLiftRed()"
         [disabled]="(currentDecision$ | async) === 2"
+      >
+        <mat-icon svgIcon="close" class="x2"></mat-icon>
+      </button>
+      <button
+        fxFlex
+        mat-raised-button
+        class="failed_blue"
+        (click)="noLiftBlue()"
+        [disabled]="(currentDecision$ | async) === 3"
+      >
+        <mat-icon svgIcon="close" class="x2"></mat-icon>
+      </button>
+      <button
+        fxFlex
+        mat-raised-button
+        class="failed_yellow"
+        (click)="noLiftYellow()"
+        [disabled]="(currentDecision$ | async) === 4"
       >
         <mat-icon svgIcon="close" class="x2"></mat-icon>
       </button>
@@ -88,10 +105,14 @@ export class RefereeComponent implements OnInit {
     this.sendDecision(JudgeDecision.SUCCESS);
   }
   noLiftRed() {
-    this.sendDecision(JudgeDecision.FAILED);
+    this.sendDecision(JudgeDecision.FAILED_RED);
   }
-  noLiftYellow() {}
-  noLiftBlue() {}
+  noLiftBlue() {
+    this.sendDecision(JudgeDecision.FAILED_BLUE);
+  }
+  noLiftYellow() {
+    this.sendDecision(JudgeDecision.FAILED_YELLOW);
+  }
   reset() {
     this.sendDecision(JudgeDecision.NOT_DECIDED);
   }
