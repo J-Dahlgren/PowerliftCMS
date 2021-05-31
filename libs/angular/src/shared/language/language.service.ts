@@ -39,9 +39,15 @@ export class LanguageService {
   public get selected() {
     return this.store.state.selected;
   }
-  public setLanguage(lang: LanguageCode) {
-    this.store.set("selected", lang);
-    this.lsService.store("LANGUAGE", lang);
-    this.translateService.use(lang.language);
+
+  public setLanguage(lang: LanguageCode | string) {
+    const available = this.store.get("languages");
+    const requested = typeof lang === "string" ? lang : lang.language;
+    const selected = available.find((l) => l.language === requested);
+    if (selected) {
+      this.store.set("selected", selected);
+      this.lsService.store("LANGUAGE", selected);
+      this.translateService.use(selected.language);
+    }
   }
 }

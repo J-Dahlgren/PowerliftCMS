@@ -1,5 +1,10 @@
 import { WebSocketGateway } from "@nestjs/websockets";
-import { APP_INFO_NSP, IAppInfo, AppInfo } from "@pc/power-comp/shared";
+import {
+  APP_INFO_NSP,
+  IAppInfo,
+  AppInfo,
+  TranslationConfig,
+} from "@pc/power-comp/shared";
 import { NspSocketGateway } from "@pc/nest/socket";
 import { StateStore, ILogService, extractKeys } from "@pc/util";
 import { LogInject } from "@pc/nest/logger";
@@ -30,7 +35,14 @@ export class AppInfoGateway
   ) {
     super(logger, 500);
     this.logger.trace(`Created - active on namespace: "${APP_INFO_NSP}"`);
-    this.store.modify({ requireAuthentication: !!config.get("auth.password") });
+    const translation = config.get<TranslationConfig>("translation");
+    const languageRestriction = translation?.availableLanguages.find(
+      (lang) => lang === translation.forcedLanguage
+    );
+    this.store.modify({
+      requireAuthentication: !!config.get("auth.password"),
+      languageRestriction,
+    });
   }
   onModuleInit() {
     this.logger.trace("onModuleInit");

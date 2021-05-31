@@ -9,6 +9,7 @@ import { of, combineLatest, Observable, fromEvent } from "rxjs";
 import { PlatformDataSocketService } from "./core/socket/platform-data-socket.service";
 import { AppInfoService } from "./core/socket/app-info.service";
 import { HeaderService } from "@pc/angular/menu";
+import { filterUndefined } from "@pc/util/rxjs";
 
 @Component({
   selector: "pc-root",
@@ -21,6 +22,7 @@ export class AppComponent implements OnInit {
   logger: UiLogger;
   latency: Observable<number>;
   connected: Observable<boolean>;
+  languageRestriction$: Observable<string | undefined>;
   constructor(
     logFactory: LogService,
     private languageService: LanguageService, // Protection if language selector isn't used
@@ -33,6 +35,11 @@ export class AppComponent implements OnInit {
     this.logger = logFactory.create("AppComponent");
     this.latency = appInfo.latency$;
     this.connected = appInfo.connected$;
+    this.languageRestriction$ = appInfo.select("languageRestriction");
+    this.languageRestriction$
+      .pipe(filterUndefined)
+      .subscribe((lang) => this.languageService.setLanguage(lang));
+
     fromEvent<KeyboardEvent>(document, "keyup")
       .pipe(filter((event) => event.code === "Space" && event.ctrlKey))
       .subscribe(() => headerService.toggle());

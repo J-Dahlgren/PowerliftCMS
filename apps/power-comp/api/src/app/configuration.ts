@@ -3,12 +3,18 @@ import { LogLevel } from "@pc/util";
 import { join } from "path";
 import { homedir } from "os";
 import { v4 } from "uuid";
-import { Environment } from "@pc/power-comp/shared";
+import { Environment, TranslationConfig } from "@pc/power-comp/shared";
 export default () => {
   const defaultStorageLocation = join(homedir(), "power-comp");
   const storage = process.env.STORAGE_PATH || defaultStorageLocation;
   const inMemoryDB = process.env.DATABASE_NAME === ":memory:";
   const isDev = environment.type === Environment.DEVELOP;
+  const translation: TranslationConfig = {
+    dir: join(isDev ? "tools" : environment.uiAssetsDir, "i18n"),
+    defaultLanguage: "en",
+    forcedLanguage: process.env.LANGUAGE_RESTRICTION,
+    availableLanguages: environment.availableLanguages,
+  };
   return {
     port: process.env.PORT || environment.serverPort,
     storageLocation: process.env.STORAGE_PATH || defaultStorageLocation,
@@ -28,11 +34,7 @@ export default () => {
       runMigrations: !inMemoryDB && environment.type !== Environment.STANDALONE,
       synchronize: inMemoryDB || environment.type === Environment.STANDALONE,
     },
-    translation: {
-      dir: join(isDev ? "tools" : environment.uiAssetsDir, "i18n"),
-      defaultLanguage: "en", // TODO: Change
-    },
-
+    translation,
     logLevel:
       (process.env.LOG_LEVEL as keyof typeof LogLevel | undefined) ||
       (LogLevel[environment.logLevel] as keyof typeof LogLevel),

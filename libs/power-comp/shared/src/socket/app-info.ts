@@ -6,6 +6,7 @@ export interface IAppInfo {
   ipAdresses: string[];
   competitions: IEntity<ICompetition>[];
   platforms: IEntity<IPlatform>[];
+  languageRestriction?: string;
 }
 export class AppInfo implements IAppInfo {
   competitions: IEntity<ICompetition>[] = [];

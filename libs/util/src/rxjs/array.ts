@@ -1,7 +1,7 @@
-import { map } from "rxjs/operators";
+import { filter, map } from "rxjs/operators";
 import { IEvent } from "../event-bus";
 import { flatMap } from "rxjs/operators";
-import { ObservableInput } from "rxjs";
+import { Observable, ObservableInput } from "rxjs";
 import { chain, CollectionChain } from "lodash";
 import { extractKeys } from "../types/extract";
 
@@ -25,4 +25,10 @@ export function flattenToEvent<T extends {}>() {
 }
 export function sortMap<T>(comparator: compareFn<T>) {
   return map<T[], T[]>((values) => values.sort(comparator));
+}
+export function filterUndefined<T>(obs: Observable<T | undefined | null>) {
+  return obs.pipe(
+    filter((v) => !!v),
+    map((v) => v as T)
+  );
 }

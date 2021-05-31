@@ -21,7 +21,9 @@
           [matTooltip]="'socket.disconnected.tooltip' | translate"
         ></mat-icon>
       </ng-template>
-      <dt-language-selector></dt-language-selector>
+      <dt-language-selector
+        *ngIf="!(languageRestriction$ | async)"
+      ></dt-language-selector>
     </dt-header>
     <div class="main-container">
       <router-outlet></router-outlet>
