@@ -1,16 +1,9 @@
-import { Component, OnInit, Input, Inject } from "@angular/core";
-import { BehaviorSubject, Observable, scheduled, of, timer, merge } from "rxjs";
-import { JudgeDecision, IServerPlatformEvents } from "@pc/power-comp/shared";
-import { SERVER_EVENTS_TOKEN } from "../../core";
-import { InRoom, lodashChainMap } from "@pc/util";
+import { Component, Input, OnInit } from "@angular/core";
 import { AutoUnsubscribeComponent } from "@pc/angular/util";
-import {
-  exhaustMap,
-  switchMap,
-  concatMapTo,
-  mergeAll,
-  map,
-} from "rxjs/operators";
+import { JudgeDecision } from "@pc/power-comp/shared";
+import { merge, Observable, of, timer } from "rxjs";
+import { map, switchMap } from "rxjs/operators";
+import { IPlatformEvents } from "../../core";
 import { PlatformDecisionService } from "./platform-decision.service";
 
 @Component({
@@ -28,7 +21,7 @@ export class DecisionDisplayComponent
 
   constructor(
     decisions: PlatformDecisionService,
-    @Inject(SERVER_EVENTS_TOKEN) serverEvents: InRoom<IServerPlatformEvents>
+    serverEvents: IPlatformEvents
   ) {
     super();
     this.decisions$ = decisions.$;

@@ -1,13 +1,8 @@
-import { Component, OnInit, Inject } from "@angular/core";
-import { InRoom } from "@pc/util";
-import { PersistentPlatformData, LifterData } from "@pc/power-comp/shared";
-import {
-  PLATFORM_DATA_TOKEN,
-  PlatformDataService,
-  GroupService,
-} from "../../core";
+import { Component, OnInit } from "@angular/core";
+import { LifterData } from "@pc/power-comp/shared";
 import { Observable, of } from "rxjs";
-import { switchMap, map, catchError } from "rxjs/operators";
+import { catchError, map, switchMap } from "rxjs/operators";
+import { GroupService, PlatformDataService } from "../../core";
 
 @Component({
   selector: "pc-attempt-info-bar",

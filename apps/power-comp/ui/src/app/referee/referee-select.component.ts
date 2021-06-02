@@ -1,8 +1,6 @@
-import { Component, Inject, OnInit } from "@angular/core";
-import { JudgeDecision, IServerPlatformEvents } from "@pc/power-comp/shared";
-import { InRoom } from "@pc/util";
+import { Component, OnInit } from "@angular/core";
 import { BehaviorSubject, Observable } from "rxjs";
-import { SERVER_EVENTS_TOKEN } from "../core";
+import { IPlatformEvents } from "../core";
 
 @Component({
   selector: "pc-referee-select",
@@ -20,10 +18,7 @@ import { SERVER_EVENTS_TOKEN } from "../core";
 })
 export class RefereeSelectComponent implements OnInit {
   referees$: Observable<number[]>;
-  constructor(
-    @Inject(SERVER_EVENTS_TOKEN)
-    serverEvents: InRoom<IServerPlatformEvents>
-  ) {
+  constructor(serverEvents: IPlatformEvents) {
     this.referees$ = new BehaviorSubject([1, 2, 3]);
   }
   ngOnInit(): void {}

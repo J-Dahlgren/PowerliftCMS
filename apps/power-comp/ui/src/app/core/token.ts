@@ -1,8 +1,11 @@
-import { IServerPlatformEvents } from "@pc/power-comp/shared";
+import {
+  ILifterData,
+  IPlatformData,
+  IServerPlatformEvents,
+  PersistentPlatformData,
+} from "@pc/power-comp/shared";
 import { InRoom, IRoomRequest, RoomEvent } from "@pc/util";
 import { Observable } from "rxjs";
-
-export const SERVER_EVENTS_TOKEN = "SERVER_EVENTS_TOKEN";
 export abstract class IPlatformEvents implements InRoom<IServerPlatformEvents> {
   abstract on: <K extends keyof IServerPlatformEvents>(
     type: K
@@ -17,4 +20,17 @@ export abstract class IPlatformEvents implements InRoom<IServerPlatformEvents> {
   abstract onRequest: () => Observable<IRoomRequest<IServerPlatformEvents>>;
   abstract request: () => Observable<Partial<IServerPlatformEvents>>;
 }
-export const PLATFORM_DATA_TOKEN = "PLATFORM_DATA_EVENTS_TOKEN";
+export abstract class IPlatformDataEvents implements InRoom<IPlatformData> {
+  abstract on: <K extends keyof ILifterData | "activeGroupId">(
+    type: K
+  ) => Observable<PersistentPlatformData[K]>;
+  abstract emit: <K extends keyof ILifterData | "activeGroupId">(
+    type: K,
+    payload: PersistentPlatformData[K]
+  ) => void;
+  abstract any: () => Observable<
+    RoomEvent<PersistentPlatformData, keyof ILifterData | "activeGroupId">
+  >;
+  abstract onRequest: () => Observable<IRoomRequest<PersistentPlatformData>>;
+  abstract request: () => Observable<Partial<PersistentPlatformData>>;
+}

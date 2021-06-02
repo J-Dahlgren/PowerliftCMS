@@ -1,24 +1,15 @@
-import { Injectable, OnDestroy, Inject } from "@angular/core";
-import { ProtectedStore, extractKeys, RoomBus, InRoom } from "@pc/util";
-import {
-  IPlatformData,
-  LifterInfo,
-  PersistentPlatformData,
-} from "@pc/power-comp/shared";
-import { filter, map } from "rxjs/operators";
+import { Injectable, OnDestroy } from "@angular/core";
+import { IPlatformData, LifterInfo } from "@pc/power-comp/shared";
+import { ProtectedStore } from "@pc/util";
 import { SubSink } from "subsink";
-import { PlatformSelectionService } from "./platform-selection.service";
-import { PlatformDataSocketService } from "./socket";
-import { PLATFORM_DATA_TOKEN } from "./token";
+import { IPlatformDataEvents } from "./token";
 
 @Injectable({ providedIn: "root" })
 export class PlatformDataService
   extends ProtectedStore<IPlatformData>
   implements OnDestroy {
   private subs = new SubSink();
-  constructor(
-    @Inject(PLATFORM_DATA_TOKEN) platformDataEvents: InRoom<IPlatformData>
-  ) {
+  constructor(platformDataEvents: IPlatformDataEvents) {
     super({
       activeGroupId: null,
       ...new LifterInfo(),

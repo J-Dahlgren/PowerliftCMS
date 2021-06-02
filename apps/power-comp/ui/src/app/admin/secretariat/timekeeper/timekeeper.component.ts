@@ -1,14 +1,12 @@
-import { Component, Inject, OnInit } from "@angular/core";
-import { IServerPlatformEvents } from "@pc/power-comp/shared";
+import { Component, OnInit } from "@angular/core";
 import { SECOND } from "@pc/util/constants";
-import { InRoom } from "@pc/util/event-bus";
 import { Clock } from "@pc/util/misc";
 import { merge, Observable, of, Subject, timer } from "rxjs";
 import { map, switchMap } from "rxjs/operators";
 import {
+  IPlatformEvents,
   PlatformDataService,
   PlatformTimerService,
-  SERVER_EVENTS_TOKEN,
 } from "../../../core";
 import { ClientEventService } from "../client-event.service";
 
@@ -25,7 +23,7 @@ export class TimekeeperComponent implements OnInit {
   constructor(
     platformDataService: PlatformDataService,
     private clientEventService: ClientEventService,
-    @Inject(SERVER_EVENTS_TOKEN) serverEvents: InRoom<IServerPlatformEvents>,
+    serverEvents: IPlatformEvents,
     public timerService: PlatformTimerService
   ) {
     this.timerClicks.subscribe((c) =>

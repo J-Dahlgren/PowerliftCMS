@@ -2,7 +2,7 @@ import { IWeightPlate, IPlatformWeights } from "../data-types";
 
 export function getPlateLoading(weight: number, weights: IPlatformWeights) {
   return findValidPlateCombo(
-    (weight - 20) / 2 - weights.collarWeight, // (Weight - bar) - collars
+    (weight - weights.barWeight) / 2 - weights.collarWeight, // (Weight - bar) - collars
     weights.plates
   );
 }

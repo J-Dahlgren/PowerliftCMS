@@ -1,22 +1,18 @@
 import { NgModule } from "@angular/core";
-import { MaterialModule } from "@pc/angular/material";
 import { TranslateModule } from "@ngx-translate/core";
-import {
-  SERVER_EVENTS_TOKEN,
-  PLATFORM_DATA_TOKEN,
-  IPlatformEvents,
-} from "./token";
+import { MaterialModule } from "@pc/angular/material";
 import { PlatformSelectionService } from "./platform-selection.service";
 import {
-  PlatformEventsSocketService,
   PlatformDataSocketService,
+  PlatformEventsSocketService,
 } from "./socket";
+import { IPlatformDataEvents, IPlatformEvents } from "./token";
 
 @NgModule({
   imports: [MaterialModule, TranslateModule],
   providers: [
     {
-      provide: SERVER_EVENTS_TOKEN,
+      provide: IPlatformEvents,
       useFactory: (
         selection: PlatformSelectionService,
         serverEvents: PlatformEventsSocketService
@@ -24,11 +20,7 @@ import {
       deps: [PlatformSelectionService, PlatformEventsSocketService],
     },
     {
-      provide: IPlatformEvents,
-      useExisting: SERVER_EVENTS_TOKEN,
-    },
-    {
-      provide: PLATFORM_DATA_TOKEN,
+      provide: IPlatformDataEvents,
       useFactory: (
         selection: PlatformSelectionService,
         platformDataEvents: PlatformDataSocketService

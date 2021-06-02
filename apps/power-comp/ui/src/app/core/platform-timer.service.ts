@@ -1,19 +1,15 @@
-import { SubSink } from "subsink";
-import { OnDestroy, Injectable, Inject } from "@angular/core";
+import { Injectable, OnDestroy } from "@angular/core";
 import { LogService, UiLogger } from "@pc/angular/logger";
-import { CountdownTimer, InRoom } from "@pc/util";
-import { SERVER_EVENTS_TOKEN } from "./token";
-import { IServerPlatformEvents } from "@pc/power-comp/shared";
+import { CountdownTimer } from "@pc/util";
+import { SubSink } from "subsink";
+import { IPlatformEvents } from "./token";
 
 @Injectable({ providedIn: "root" })
 export class PlatformTimerService implements OnDestroy {
   private subs = new SubSink();
   private timer = new CountdownTimer(50);
   private logger: UiLogger;
-  constructor(
-    logService: LogService,
-    @Inject(SERVER_EVENTS_TOKEN) serverEvents: InRoom<IServerPlatformEvents>
-  ) {
+  constructor(logService: LogService, serverEvents: IPlatformEvents) {
     this.logger = logService.create("PlatformTimerService");
     this.subs.sink = serverEvents
       .on("liftTimer")

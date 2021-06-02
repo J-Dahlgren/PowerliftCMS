@@ -1,20 +1,17 @@
-import { Injectable, Inject } from "@angular/core";
-import { IServerPlatformEvents, JudgeDecision } from "@pc/power-comp/shared";
-import { SERVER_EVENTS_TOKEN } from "../../core";
-import { InRoom, lodashChainMap } from "@pc/util";
+import { Injectable } from "@angular/core";
 import { AutoUnsubscribeComponent } from "@pc/angular/util";
-import { BehaviorSubject, merge, timer, of } from "rxjs";
-import { switchMap, map } from "rxjs/operators";
+import { JudgeDecision } from "@pc/power-comp/shared";
+import { lodashChainMap } from "@pc/util";
+import { BehaviorSubject, merge, of, timer } from "rxjs";
+import { map, switchMap } from "rxjs/operators";
+import { IPlatformEvents } from "../../core";
 
 @Injectable({ providedIn: "root" })
 export class PlatformDecisionService extends AutoUnsubscribeComponent {
   protected _decisions = new BehaviorSubject<(keyof typeof JudgeDecision)[]>(
     []
   );
-  constructor(
-    @Inject(SERVER_EVENTS_TOKEN)
-    private serverEvents: InRoom<IServerPlatformEvents>
-  ) {
+  constructor(private serverEvents: IPlatformEvents) {
     super();
     this.subs.sink = serverEvents
       .on("decisions")

@@ -1,31 +1,22 @@
+import { Component, OnInit } from "@angular/core";
+import { RequestQueryBuilder } from "@nestjsx/crud-request";
+import { AutoUnsubscribeComponent } from "@pc/angular/util";
 import {
-  Component,
-  OnInit,
-  ChangeDetectionStrategy,
-  Inject,
-} from "@angular/core";
+  IClientPlatformEvents,
+  IGroup,
+  LifterData,
+} from "@pc/power-comp/shared";
+import { Clock, IEntity, SECOND } from "@pc/util";
+import { merge, Observable, of, Subject, timer } from "rxjs";
+import { map, switchMap } from "rxjs/operators";
 import {
-  PlatformDataService,
-  PlatformService,
   GroupService,
+  IPlatformEvents,
+  PlatformDataService,
   PlatformSelectionService,
   PlatformTimerService,
-  SERVER_EVENTS_TOKEN,
 } from "../../../core";
 import { ClientEventService } from "../client-event.service";
-import { AutoUnsubscribeComponent } from "@pc/angular/util";
-
-import { SECOND, IEntity, Clock, InRoom } from "@pc/util";
-import {
-  IGroup,
-  IClientPlatformEvents,
-  LifterData,
-  IServerPlatformEvents,
-} from "@pc/power-comp/shared";
-
-import { RequestQueryBuilder } from "@nestjsx/crud-request";
-import { switchMap, map } from "rxjs/operators";
-import { merge, of, Observable, Subject, timer } from "rxjs";
 
 @Component({
   selector: "pc-secretariat-control",
@@ -43,7 +34,7 @@ export class SecretariatControlComponent
   constructor(
     platformDataService: PlatformDataService,
     private platformSelection: PlatformSelectionService,
-    @Inject(SERVER_EVENTS_TOKEN) serverEvents: InRoom<IServerPlatformEvents>,
+    serverEvents: IPlatformEvents,
     public timerService: PlatformTimerService,
     groupService: GroupService,
     private clientEventService: ClientEventService

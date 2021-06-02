@@ -1,13 +1,12 @@
-import { Component, OnInit, Input } from "@angular/core";
-import { PlatformDataService, PlatformSelectionService } from "../../core";
-import { map, switchMap } from "rxjs/operators";
-import { of, combineLatest, Observable } from "rxjs";
+import { Component, Input, OnInit } from "@angular/core";
 import {
   defaultPlatformWeights,
-  findValidPlateCombo,
   getPlateLoading,
   IWeightPlate,
 } from "@pc/power-comp/shared";
+import { combineLatest, Observable } from "rxjs";
+import { map } from "rxjs/operators";
+import { PlatformDataService, PlatformSelectionService } from "../../core";
 
 @Component({
   selector: "pc-plate-load",
